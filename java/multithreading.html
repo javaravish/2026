@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Multithreading</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Java Basic</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/introduction.html">Java Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/history.html">History
+                            of Java</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/features.html">Features of Java</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jdk.html">JDK vs JRE
+                            vs JVM</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jvm.html">JVM - Java
+                            Virtual Machine</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/gc.html">Garbage
+                            Collection</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/variables.html">Variables</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/datatypes.html">Data
+                            Types</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/operators.html">Operators</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/string.html">Java
+                            String</a></li>
+                        <h4>Java Flow Control</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/ifelse.html">Java
+                            If-else</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/switchcase.html">Java
+                            Switch-Case</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/forloop.html">Java For
+                            loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/whileloop.html">Java
+                            while loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/dowhile.html">Java
+                            do-while loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/continue.html">Continue statement</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/break.html">break
+                            statement</a></li>
+                        <h4>Java Arrays</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arrays.html">Java
+                            Arrays</a></li>
+                        <h4>OOPs Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/oops.html">OOPs
+                            Concepts</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/absract.html">Abstraction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/encapsulation.html">Encapsulation</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/inheritance.html">Inheritance</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/polymorphism.html">Polymorphism</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/aggregation.html">Aggregation</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/association.html">Association</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/composition.html">Composition</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/overloadingvsoverriding.html">Overloading
+                            vs
+                            Overriding</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/abstractvsinterface.html">Abstract class vs
+                            interface</a></li>
+                        <h4>Java Exception Handling</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/exception-handling.html">Exception
+                            handling</a></li>
+                        <h4>Java Multithreading</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/multithreading.html">Multithreading</a>
+                        </li>
+                        <h4>Java Serialization</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/serialization.html">Serialization</a></li>
+                        <h4>Java Synchronization</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/synchronization.html">Synchronization</a>
+                        </li>
+                        <h4>Java Sorting</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/comparable.html">Comparable interface</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/comparator.html">Comparator interface</a>
+                        </li>
+                        <h4>Collections Framework</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/collections.html">Collections in Java</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arraylist.html">Java
+                            ArrayList</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/linkedlist.html">Java
+                            LinkedList</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/vector.html">Java
+                            Vector</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashset.html">Java
+                            HashSet</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/linkedhashset.html">Java LinkedHashSet</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treeset.html">Java
+                            TreeSet</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashmap.html">Java
+                            HashMap</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/hashmap-internal.html">Java HashMap
+                            Working</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treemap.html">Java
+                            TreeMap</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/linkedhashmap.html">Java LinkedHashMap</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/syncronized_collection.html">Syncronized
+                            Collections
+                        </a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/concurrent.html">Concurrent Collections</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/weak.html">Weak
+                            Collections</a></li>
+                        <h4>Interview Special</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/java/java-interview-questions.html">Java
+                            Interview
+                            Questions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/java/java-collections.html">Collections
+                            interview questions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/javaprograms.html">Java programs</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/random.html">Java
+                            Miscellaneous</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../java/introduction.html">Java</a></li>
+                    <li><a href="../java/multithreading.html">Multithreading</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../java/introduction.html">Java</a></li>
+                    <li><a href="../java/multithreading.html">Multithreading</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk">
+                <br>
+            </a>
+            <article>
+                <div>
+                    <div class="tutorial-content" id="mainContent">
+                        <h1>Java - Multithreading</h1>
+                        <hr>
+
+
+                        <p>Java is a <i>multi-threaded programming language</i> which means we can develop
+                            multi-threaded program using Java. A multi-threaded program contains two or more parts that
+                            can run concurrently and each part can handle a different task at the same time making
+                            optimal use of the available resources specially when your computer has multiple CPUs.</p>
+                        <p>By definition, multitasking is when multiple processes share common processing resources such
+                            as a CPU. Multi-threading extends the idea of multitasking into applications where you can
+                            subdivide specific operations within a single application into individual threads. Each of
+                            the threads can run in parallel. The OS divides processing time not only among different
+                            applications, but also among each thread within an application.</p>
+
+                        <h2>Java Multithreading</h2>
+                        <p>Multi-threading enables you to write in a way where multiple activities can proceed
+                            concurrently in the same program. To achieve the multithreading (or, write multithreaded
+                            code), you need java.lang.Thread
+                            class.</p>
+                        <h2>Life Cycle of a Thread in Java Multithreading</h2>
+                        <p>A thread goes through various stages in its life cycle. For example, a thread is born,
+                            started, runs, and then dies. The following diagram shows the complete life cycle of a
+                            thread.</p>
+                        <img src="../scripts/images/java/thread_life_cycle.jpg" alt="Java Thread Life Cycle">
+                        <p>Following are the stages of the life cycle −</p>
+                        <ul class="list">
+                            <li><p><b>New</b> − A new thread begins its life cycle in the new state. It remains in this
+                                state until the program starts the thread. It is also referred to as a <b>born
+                                    thread</b>.</p></li>
+                            <li><p><b>Runnable</b> − After a newly born thread is started, the thread becomes runnable.
+                                A thread in this state is considered to be executing its task.</p></li>
+                            <li><p><b>Waiting</b> − Sometimes, a thread transitions to the waiting state while the
+                                thread waits for another thread to perform a task. A thread transitions back to the
+                                runnable state only when another thread signals the waiting thread to continue
+                                executing.</p></li>
+                            <li><p><b>Timed Waiting</b> − A runnable thread can enter the timed waiting state for a
+                                specified interval of time. A thread in this state transitions back to the runnable
+                                state when that time interval expires or when the event it is waiting for occurs.</p>
+                            </li>
+                            <li><p><b>Terminated (Dead)</b> − A runnable thread enters the terminated state when it
+                                completes its task or otherwise terminates.</p></li>
+                        </ul>
+
+
+                        <h2>Thread Priorities</h2>
+                        <p>Every Java thread has a priority that helps the operating system determine the order in which
+                            threads are scheduled.</p>
+                        <p>Java thread priorities are in the range between MIN_PRIORITY (a constant of 1) and
+                            MAX_PRIORITY (a constant of 10). By default, every thread is given priority NORM_PRIORITY (a
+                            constant of 5).</p>
+                        <p>Threads with higher priority are more important to a program and should be allocated
+                            processor time before lower-priority threads. However, thread priorities cannot guarantee
+                            the order in which threads execute and are very much platform dependent.</p>
+                        <h2>Create a Thread by Implementing a Runnable Interface</h2>
+                        <p>If your class is intended to be executed as a thread then you can achieve this by
+                            implementing a <b>Runnable</b> interface. You will need to follow three basic steps −</p>
+                        <h3>Step 1: Implement run() Method</h3>
+                        <p>As a first step, you need to implement a run() method provided by a <b>Runnable</b>
+                            interface. This method provides an entry point for the thread and you will put your complete
+                            business logic inside this method. Following is a simple syntax of the run() method −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                class="token function">run</span><span class="token punctuation">(</span> <span
+                                class="token punctuation">)</span>
+</div></pre>
+                        <h3>Step 2: Instantiate a Thread Object</h3>
+                        <p>As a second step, you will instantiate a <b>Thread</b> object using the following constructor
+                            −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token class-name">Thread</span><span class="token punctuation">(</span><span
+                                class="token class-name">Runnable</span> threadObj<span
+                                class="token punctuation">,</span> <span class="token class-name">String</span> threadName<span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></pre>
+                        <p>Where, <i>threadObj</i> is an instance of a class that implements the <b>Runnable</b>
+                            interface and <b>threadName</b> is the name given to the new thread.</p>
+                        <h3>Step 3: Call Thread using start() Method</h3>
+                        <p>Once a Thread object is created, you can start it by calling <b>start()</b> method, which
+                            executes a call to run( ) method. Following is a simple syntax of start() method −</p>
+                        <pre class="result notranslate">void start();
+</pre>
+                        <h3>Example: Create Thread by Implementing Runnable Interface</h3>
+                        <p>Here is an example that creates a new thread and starts running it −</p>
+                        <div class="code-wrapper">
+                            <div class="code-header">
+
+
+                            </div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="0" id="0"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token keyword">class</span> <span
+                                    class="token class-name">RunnableDemo</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token class-name">Thread</span> t<span
+                                        class="token punctuation">;</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> threadName<span
+                                        class="token punctuation">;</span>
+
+   <span class="token class-name">RunnableDemo</span><span class="token punctuation">(</span> <span
+                                        class="token class-name">String</span> name<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      threadName <span class="token operator">=</span> name<span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Creating "</span> <span
+                                        class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                        class="token function">run</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Running "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token keyword">for</span><span class="token punctuation">(</span><span
+                                        class="token keyword">int</span> i <span class="token operator">=</span> <span
+                                        class="token number">4</span><span class="token punctuation">;</span> i <span
+                                        class="token operator">&gt;</span> <span class="token number">0</span><span
+                                        class="token punctuation">;</span> i<span class="token operator">--</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread: "</span> <span class="token operator">+</span> threadName <span
+                                        class="token operator">+</span> <span class="token string">", "</span> <span
+                                        class="token operator">+</span> i<span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+            <span class="token comment">// Let the thread sleep for a while.</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                        class="token function">sleep</span><span class="token punctuation">(</span><span
+                                        class="token number">50</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                        class="token class-name">InterruptedException</span> e<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token operator">+</span> <span
+                                        class="token string">" interrupted."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token operator">+</span> <span
+                                        class="token string">" exiting."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> start <span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                        class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting "</span> <span
+                                        class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span
+                                        class="token operator">==</span> <span class="token keyword">null</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span> <span
+                                        class="token punctuation">(</span><span class="token keyword">this</span><span
+                                        class="token punctuation">,</span> threadName<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+         t<span class="token punctuation">.</span>start <span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestThread</span> <span
+                                        class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">RunnableDemo</span> <span class="token constant">R1</span> <span
+                                        class="token operator">=</span> <span class="token keyword">new</span> <span
+                                        class="token class-name">RunnableDemo</span><span
+                                        class="token punctuation">(</span> <span
+                                        class="token string">"Thread-1"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">R1</span><span class="token punctuation">.</span><span
+                                        class="token function">start</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token class-name">RunnableDemo</span> <span class="token constant">R2</span> <span
+                                        class="token operator">=</span> <span class="token keyword">new</span> <span
+                                        class="token class-name">RunnableDemo</span><span
+                                        class="token punctuation">(</span> <span
+                                        class="token string">"Thread-2"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">R2</span><span class="token punctuation">.</span><span
+                                        class="token function">start</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <h3>Output</h3>
+                        <pre class="result notranslate">Creating Thread-1
+Starting Thread-1
+Creating Thread-2
+Starting Thread-2
+Running Thread-1
+Thread: Thread-1, 4
+Running Thread-2
+Thread: Thread-2, 4
+Thread: Thread-1, 3
+Thread: Thread-2, 3
+Thread: Thread-1, 2
+Thread: Thread-2, 2
+Thread: Thread-1, 1
+Thread: Thread-2, 1
+Thread Thread-1 exiting.
+Thread Thread-2 exiting.
+</pre>
+
+
+                        <h2>Create a Thread by Extending a Thread Class</h2>
+                        <p>The second way to create a thread is to create a new class that extends <b>Thread</b> class
+                            using the following two simple steps. This approach provides more flexibility in handling
+                            multiple threads created using available methods in Thread class.</p>
+                        <h3>Step 1: Override run() Method</h3>
+                        <p>You will need to override <b>run( )</b> method available in Thread class. This method
+                            provides an entry point for the thread and you will put your complete business logic inside
+                            this method. Following is a simple syntax of run() method −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                class="token function">run</span><span class="token punctuation">(</span> <span
+                                class="token punctuation">)</span>
+</div></pre>
+                        <h3>Step 2: Call Thread using start() Method</h3>
+                        <p>Once Thread object is created, you can start it by calling <b>start()</b> method, which
+                            executes a call to run( ) method. Following is a simple syntax of start() method −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">void</span> <span class="token function">start</span><span
+                                class="token punctuation">(</span> <span class="token punctuation">)</span><span
+                                class="token punctuation">;</span>
+</div></pre>
+                        <h3>Example: Create Thread by Extending Thread Class</h3>
+                        <p>Here is the preceding program rewritten to extend the Thread −</p>
+                        <div class="code-wrapper">
+                            <div class="code-header">
+
+
+                            </div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="1" id="1"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token class-name">Thread</span> t<span
+                                        class="token punctuation">;</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> threadName<span
+                                        class="token punctuation">;</span>
+
+   <span class="token class-name">ThreadDemo</span><span class="token punctuation">(</span> <span
+                                        class="token class-name">String</span> name<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      threadName <span class="token operator">=</span> name<span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Creating "</span> <span
+                                        class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                        class="token function">run</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Running "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token keyword">for</span><span class="token punctuation">(</span><span
+                                        class="token keyword">int</span> i <span class="token operator">=</span> <span
+                                        class="token number">4</span><span class="token punctuation">;</span> i <span
+                                        class="token operator">&gt;</span> <span class="token number">0</span><span
+                                        class="token punctuation">;</span> i<span class="token operator">--</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread: "</span> <span class="token operator">+</span> threadName <span
+                                        class="token operator">+</span> <span class="token string">", "</span> <span
+                                        class="token operator">+</span> i<span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+            <span class="token comment">// Let the thread sleep for a while.</span>
+            <span class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                        class="token function">sleep</span><span class="token punctuation">(</span><span
+                                        class="token number">50</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                        class="token class-name">InterruptedException</span> e<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token operator">+</span> <span
+                                        class="token string">" interrupted."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Thread "</span> <span class="token operator">+</span>  threadName <span
+                                        class="token operator">+</span> <span
+                                        class="token string">" exiting."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> start <span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                        class="token punctuation">{</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting "</span> <span
+                                        class="token operator">+</span>  threadName <span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>t <span
+                                        class="token operator">==</span> <span class="token keyword">null</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         t <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Thread</span> <span
+                                        class="token punctuation">(</span><span class="token keyword">this</span><span
+                                        class="token punctuation">,</span> threadName<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+         t<span class="token punctuation">.</span>start <span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TestThread</span> <span
+                                        class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">ThreadDemo</span> <span class="token constant">T1</span> <span
+                                        class="token operator">=</span> <span class="token keyword">new</span> <span
+                                        class="token class-name">ThreadDemo</span><span
+                                        class="token punctuation">(</span> <span
+                                        class="token string">"Thread-1"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">T1</span><span class="token punctuation">.</span><span
+                                        class="token function">start</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token class-name">ThreadDemo</span> <span class="token constant">T2</span> <span
+                                        class="token operator">=</span> <span class="token keyword">new</span> <span
+                                        class="token class-name">ThreadDemo</span><span
+                                        class="token punctuation">(</span> <span
+                                        class="token string">"Thread-2"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">T2</span><span class="token punctuation">.</span><span
+                                        class="token function">start</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <h3>Output</h3>
+                        <pre class="result notranslate">Creating Thread-1
+Starting Thread-1
+Creating Thread-2
+Starting Thread-2
+Running Thread-1
+Thread: Thread-1, 4
+Running Thread-2
+Thread: Thread-2, 4
+Thread: Thread-1, 3
+Thread: Thread-2, 3
+Thread: Thread-1, 2
+Thread: Thread-2, 2
+Thread: Thread-1, 1
+Thread: Thread-2, 1
+Thread Thread-1 exiting.
+Thread Thread-2 exiting.
+</pre>
+
+
+                        <h2>Thread Methods</h2>
+                        <p>Following is the list of important methods available in the Thread class.</p>
+                        <div class="table-wrapper">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>Sr.No.</th>
+                                    <th style="text-align:center">Method &amp; Description</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><p><b>public void start()</b></p>
+                                        <p>Starts the thread in a separate path of execution, then invokes the run()
+                                            method on this Thread object.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><p><b>public void run()</b></p>
+                                        <p>If this Thread object was instantiated using a separate Runnable target, the
+                                            run() method is invoked on that Runnable object.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><p><b>public final void setName(String name)</b></p>
+                                        <p>Changes the name of the Thread object. There is also a getName() method for
+                                            retrieving the name.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><p><b>public final void setPriority(int priority)</b></p>
+                                        <p>Sets the priority of this Thread object. The possible values are between 1
+                                            and 10.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><p><b>public final void setDaemon(boolean on)</b></p>
+                                        <p>A parameter of true denotes this Thread as a daemon thread.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><p><b>public final void join(long millisec)</b></p>
+                                        <p>The current thread invokes this method on a second thread, causing the
+                                            current thread to block until the second thread terminates or the specified
+                                            number of milliseconds passes.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><p><b>public void interrupt()</b></p>
+                                        <p>Interrupts this thread, causing it to continue execution if it was blocked
+                                            for any reason.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><p><b>public final boolean isAlive()</b></p>
+                                        <p>Returns true if the thread is alive, which is any time after the thread has
+                                            been started but before it runs to completion.</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>The previous methods are invoked on a particular Thread object. The following methods in the
+                            Thread class are static. Invoking one of the static methods performs the operation on the
+                            currently running thread.</p>
+                        <div class="table-wrapper">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>Sr.No.</th>
+                                    <th style="text-align:center">Method &amp; Description</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><p><b>public static void yield()</b></p>
+                                        <p>Causes the currently running thread to yield to any other threads of the same
+                                            priority that are waiting to be scheduled.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><p><b>public static void sleep(long millisec)</b></p>
+                                        <p>Causes the currently running thread to block for at least the specified
+                                            number of milliseconds.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><p><b>public static boolean holdsLock(Object x)</b></p>
+                                        <p>Returns true if the current thread holds the lock on the given Object.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><p><b>public static Thread currentThread()</b></p>
+                                        <p>Returns a reference to the currently running thread, which is the thread that
+                                            invokes this method.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><p><b>public static void dumpStack()</b></p>
+                                        <p>Prints the stack trace for the currently running thread, which is useful when
+                                            debugging a multithreaded application.</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h3>Example</h3>
+                        <p>The following ThreadClassDemo program demonstrates some of these methods of the Thread class.
+                            Consider a class <b>DisplayMessage</b> which implements <b>Runnable</b> −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token comment">// File Name : DisplayMessage.java</span>
+<span class="token comment">// Create a thread to implement Runnable</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DisplayMessage</span> <span
+                                    class="token keyword">implements</span> <span
+                                    class="token class-name">Runnable</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> message<span
+                                    class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">DisplayMessage</span><span
+                                    class="token punctuation">(</span><span class="token class-name">String</span> message<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>message <span
+                                    class="token operator">=</span> message<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span><span class="token punctuation">(</span><span
+                                    class="token boolean">true</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span>message<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>Following is another class which extends the Thread class −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token comment">// File Name : GuessANumber.java</span>
+<span class="token comment">// Create a thread to extentd Thread</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GuessANumber</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token keyword">int</span> number<span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token class-name">GuessANumber</span><span
+                                    class="token punctuation">(</span><span class="token keyword">int</span> number<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>number <span
+                                    class="token operator">=</span> number<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> counter <span class="token operator">=</span> <span
+                                    class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">int</span> guess <span class="token operator">=</span> <span
+                                    class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">do</span> <span class="token punctuation">{</span>
+         guess <span class="token operator">=</span> <span class="token punctuation">(</span><span
+                                    class="token keyword">int</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">Math</span><span
+                                    class="token punctuation">.</span><span class="token function">random</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token operator">*</span> <span class="token number">100</span> <span
+                                    class="token operator">+</span> <span class="token number">1</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token keyword">this</span><span
+                                    class="token punctuation">.</span><span class="token function">getName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token operator">+</span> <span class="token string">" guesses "</span> <span
+                                    class="token operator">+</span> guess<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+         counter<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">while</span><span
+                                    class="token punctuation">(</span>guess <span class="token operator">!=</span> number<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token string">"** Correct!"</span> <span
+                                    class="token operator">+</span> <span class="token keyword">this</span><span
+                                    class="token punctuation">.</span><span class="token function">getName</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token operator">+</span> <span class="token string">"in"</span> <span
+                                    class="token operator">+</span> counter <span class="token operator">+</span> <span
+                                    class="token string">"guesses.**"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>Following is the main program, which makes use of the above-defined classes −</p>
+                        <div class="code-wrapper">
+                            <div class="code-header">
+
+
+                            </div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="2" id="2"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token comment">// File Name : ThreadClassDemo.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadClassDemo</span> <span
+                                        class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token class-name">String</span> <span
+                                        class="token punctuation">[</span><span
+                                        class="token punctuation">]</span> args<span class="token punctuation">)</span> <span
+                                        class="token punctuation">{</span>
+      <span class="token class-name">Runnable</span> hello <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">DisplayMessage</span><span
+                                        class="token punctuation">(</span><span class="token string">"Hello"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">Thread</span> thread1 <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">Thread</span><span class="token punctuation">(</span>hello<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread1<span class="token punctuation">.</span><span class="token function">setDaemon</span><span
+                                        class="token punctuation">(</span><span class="token boolean">true</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread1<span class="token punctuation">.</span><span class="token function">setName</span><span
+                                        class="token punctuation">(</span><span class="token string">"hello"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting hello thread..."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread1<span class="token punctuation">.</span><span class="token function">start</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+
+      <span class="token class-name">Runnable</span> bye <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">DisplayMessage</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Goodbye"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">Thread</span> thread2 <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">Thread</span><span class="token punctuation">(</span>bye<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread2<span class="token punctuation">.</span><span class="token function">setPriority</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token class-name">Thread</span><span
+                                        class="token punctuation">.</span><span
+                                        class="token constant">MIN_PRIORITY</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread2<span class="token punctuation">.</span><span class="token function">setDaemon</span><span
+                                        class="token punctuation">(</span><span class="token boolean">true</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting goodbye thread..."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread2<span class="token punctuation">.</span><span class="token function">start</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting thread3..."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">Thread</span> thread3 <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">GuessANumber</span><span
+                                        class="token punctuation">(</span><span class="token number">27</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      thread3<span class="token punctuation">.</span><span class="token function">start</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         thread3<span class="token punctuation">.</span><span class="token function">join</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                        class="token class-name">InterruptedException</span> e<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Thread interrupted."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Starting thread4..."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">Thread</span> thread4 <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">GuessANumber</span><span
+                                        class="token punctuation">(</span><span class="token number">75</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      thread4<span class="token punctuation">.</span><span class="token function">start</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"main() is ending..."</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">DisplayMessage</span> <span
+                                        class="token keyword">implements</span> <span
+                                        class="token class-name">Runnable</span> <span
+                                        class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token class-name">String</span> message<span
+                                        class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">DisplayMessage</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> message<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>message <span
+                                        class="token operator">=</span> message<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                        class="token function">run</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">while</span><span class="token punctuation">(</span><span
+                                        class="token boolean">true</span><span class="token punctuation">)</span> <span
+                                        class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span class="token punctuation">(</span>message<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">GuessANumber</span> <span class="token keyword">extends</span> <span
+                                        class="token class-name">Thread</span> <span class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token keyword">int</span> number<span
+                                        class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token class-name">GuessANumber</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token keyword">int</span> number<span class="token punctuation">)</span> <span
+                                        class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>number <span
+                                        class="token operator">=</span> number<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                        class="token function">run</span><span class="token punctuation">(</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> counter <span class="token operator">=</span> <span
+                                        class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">int</span> guess <span class="token operator">=</span> <span
+                                        class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">do</span> <span class="token punctuation">{</span>
+         guess <span class="token operator">=</span> <span class="token punctuation">(</span><span
+                                        class="token keyword">int</span><span class="token punctuation">)</span> <span
+                                        class="token punctuation">(</span><span
+                                        class="token class-name">Math</span><span
+                                        class="token punctuation">.</span><span
+                                        class="token function">random</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                        class="token operator">*</span> <span class="token number">100</span> <span
+                                        class="token operator">+</span> <span class="token number">1</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token keyword">this</span><span
+                                        class="token punctuation">.</span><span
+                                        class="token function">getName</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                        class="token operator">+</span> <span
+                                        class="token string">" guesses "</span> <span class="token operator">+</span> guess<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+         counter<span class="token operator">++</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">while</span><span
+                                        class="token punctuation">(</span>guess <span class="token operator">!=</span> number<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"** Correct!"</span> <span class="token operator">+</span> <span
+                                        class="token keyword">this</span><span class="token punctuation">.</span><span
+                                        class="token function">getName</span><span
+                                        class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                        class="token operator">+</span> <span class="token string">"in"</span> <span
+                                        class="token operator">+</span> counter <span
+                                        class="token operator">+</span> <span
+                                        class="token string">"guesses.**"</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <h3>Output</h3>
+                        <pre class="result notranslate">Starting hello thread...
+Starting goodbye thread...
+Hello
+Hello
+Hello
+Hello
+Hello
+Hello
+Goodbye
+Goodbye
+Goodbye
+Goodbye
+Goodbye
+.......
+</pre>
+
+
+                    </div>
+                    <h2>Joining Threads in Java</h2>
+                    <p>Once a Thread object is created, you can start it by calling <b>start()</b> method, which executes
+                        a call to run() method. With multiple
+                        threads running, we can block current thread until another thread terminates.</p>
+                    <p>Joining threads in Java refers for waiting (or, blocking) a thread until another thread finishes
+                        its execution. The <span class="tp-codespan">join()</span> method of the Thread</span> class is used for this purpose.</p>
+                    <h3>Syntax</h3>
+                    <p>Following is a simple syntax of <span class="tp-codespan">join()</span> method −</p>
+                    <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                            class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                            style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                            class="token keyword">void</span> <span class="token function">join</span><span
+                            class="token punctuation">(</span><span class="token punctuation">)</span><span
+                            class="token punctuation">;</span>
+</div></pre>
+                    <h3>Overloaded Thread.join() Methods</h3>
+                    <p>The following are the three overloaded <span class="tp-codespan">join()</span> method -</p>
+                    <ul class="list">
+                        <li><p><b>join()</b> − The current
+                            thread invokes this method on a second thread, causing the current thread to block until the
+                            second thread terminates.</p></li>
+                        <li><p><b>join(long
+                            millisec)</b> − The current thread invokes this method on a second thread, causing the
+                            current thread to block until the second thread terminates or the specified number of
+                            milliseconds passes.</p></li>
+                        <li><p><b>join(long millisec,
+                            int nanos)</b> − The current thread invokes this method on a second thread, causing the
+                            current thread to block until the second thread terminates or the specified number of
+                            milliseconds + nanoseconds passes.</p></li>
+                    </ul>
+                    <h2>Name a Thread while Implementing a Runnable Interface</h2>
+                    <p>If your class is intended to be executed as a thread and is implementing a <b>Runnable</b>
+                        interface. You will need to instantiate a <b>Thread</b> object using the following constructor −
+                    </p>
+                    <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                            class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                            style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                            class="token class-name">Thread</span><span class="token punctuation">(</span><span
+                            class="token class-name">Runnable</span> threadObj<span
+                            class="token punctuation">,</span> <span
+                            class="token class-name">String</span> threadName<span
+                            class="token punctuation">)</span><span class="token punctuation">;</span>
+</div></pre>
+                    <p>Where, <i>threadObj</i> is an instance of a class that implements the <b>Runnable</b> interface
+                        and <b>threadName</b> is the name given to the new thread.</p>
+                    <p>Once a Thread object is created, you can start it by calling <b>start()</b> method, which
+                        executes a call to run( ) method. Following is a simple syntax of start() method −</p>
+                    <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                            class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                            style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                            class="token keyword">void</span> <span class="token function">start</span><span
+                            class="token punctuation">(</span><span class="token punctuation">)</span><span
+                            class="token punctuation">;</span>
+</div></pre>
+                    <h2>Naming a Thread while extending a Thread Class</h2>
+                    <p>The second way to create a thread is to create a new class that extends <b>Thread</b> class. This
+                        approach provides more flexibility in handling multiple threads created using available methods
+                        in Thread class. In order to name the thread, we need to call the super class Thread constructor
+                        with name.</p>
+                    <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                            class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                            style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                            class="token keyword">class</span> <span class="token class-name">ThreadDemo</span> <span
+                            class="token keyword">extends</span> <span class="token class-name">Thread</span> <span
+                            class="token punctuation">{</span>
+   <span class="token class-name">ThreadDemo</span><span class="token punctuation">(</span> <span
+                                class="token class-name">String</span> name<span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">super</span><span class="token punctuation">(</span>name<span
+                                class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">.</span><span class="token punctuation">.</span><span
+                                class="token punctuation">.</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                    <h2>Thread Pools</h2>
+                    <p>A thread pool is a collection of pre-initialized threads. The general plan
+                        behind a thread pool is to form variety of threads at method startup and place them into a pool,
+                        wherever they sit and expect work. once a server receives a call for participation, it awakens a
+                        thread from this pool−if one is available−and passes it the request for service. Once the thread
+                        completes its service, it returns to the pool and awaits a lot of work. If the pool contains no
+                        accessible thread, the server waits till one becomes free.</p>
+                    <h2>Why Use Thread Pools in Java?</h2>
+                    <ul class="list">
+                        <li><p>It saves time as a result of there's no need to produce new thread.</p></li>
+                        <li><p>It is utilized in Servlet and JSP wherever instrumentality creates a
+                            thread pool to method the request.</p></li>
+                    </ul>
+                    <h2>Creating Thread Pools in Java</h2>
+                    <p>Java provides a <b>java.util.concurrent.Executors</b> class provides couple of methods to create
+                        a thread pools.</p>
+                    <h3>Executors Class Methods</h3>
+                    <p>Following are few important and useful methods this class to create Thread Pools -</p>
+                    <div class="table-wrapper">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th>Sr.No.</th>
+                                <th style="text-align:center">Method &amp; Description</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td><p><b>public static ExecutorService newCachedThreadPool()</b></p>
+                                    <p>Creates a thread pool that creates new threads as needed, but will reuse
+                                        previously constructed threads when they are available.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><p><b>public static ExecutorService newFixedThreadPool(int nThreads)</b></p>
+                                    <p>Creates a thread pool that reuses a fixed number of threads operating off a
+                                        shared unbounded queue.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><p><b>public static ScheduledExecutorService newScheduledThreadPool(int
+                                    corePoolSize)</b></p>
+                                    <p>Creates a thread pool that can schedule commands to run after a given delay, or
+                                        to execute periodically.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><p><b>public static ExecutorService newWorkStealingPool()</b></p>
+                                    <p>Creates a work-stealing thread pool using all available processors as its target
+                                        parallelism level.</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2>Priority of a Thread in Java</h2>
+                    <p>Every Java thread has a priority that helps the operating
+                        system determine the order in which threads
+                        are scheduled. You can get and set the priority of a Thread. Thread class provides methods and
+                        constants for working with the priorities of a Thread.</p>
+                    <h2>Built-in Property Constants of Thread Class</h2>
+                    <p>Java thread priorities are in the range between MIN_PRIORITY (a constant of 1) and MAX_PRIORITY
+                        (a constant of 10). By default, every thread is given priority NORM_PRIORITY (a constant of
+                        5).</p>
+                    <h2>Thread Priority Setter and Getter Methods</h2>
+                    <ul class="list">
+                        <li><p><b>Thread.getPriority()
+                            Method</b>: This method is used to get the priority of a thread.</p></li>
+                        <li><p><b>Thread.setPriority()
+                            Method</b>: This method is used to set the priority of a thread, it accepts the priority
+                            value and updates an existing priority with the given priority.</p></li>
+                    </ul>
+                    <h2>Daemon Thread in Java</h2>
+                    <p>A Daemon thread is created to support the user threads. It generallty works in background and
+                        terminated once all the other threads are closed. Garbage collector is one of the example of
+                        Daemon thread.</p>
+                    <h2>Characteristics of a Daemon Thread in Java</h2>
+                    <ul class="list">
+                        <li><p>A Daemon thread is a low priority
+                            thread.</p></li>
+                        <li><p>A Daemon thread is a service provider thread and should not be used as user thread.</p>
+                        </li>
+                        <li><p>JVM automatically closes the daemon thread(s) if no active thread is present and revives
+                            it if user threads are active again.</p></li>
+                        <li><p>A daemon thread cannot prevent JVM to exit if all user threads are done.</p></li>
+                    </ul>
+                    <h2>Thread Class Methods for Java Daemon Thread</h2>
+                    <p>The following are the methods provided by the Thread class for Daemon
+                        Thread in Java -</p>
+                    <ul class="list">
+                        <li><p><b>Thread.setDaemon()
+                            Method</b>: Marks this thread as either a daemon thread or a user thread.</p></li>
+                        <li><p><b>Thread.isDaemon() Method</b>:
+                            Checks if this thread is a daemon thread.</p></li>
+                    </ul>
+                    <h2>ThreadGroup Class</h2>
+                    <p>The <b>Java ThreadGroup</b> class represents a set of threads. It can also include other thread
+                        groups. The thread groups form a tree in which every thread group except the initial thread
+                        group has a parent.</p>
+                    <h2>ThreadGroup Class Declaration</h2>
+                    <p>Following is the declaration for <b>java.lang.ThreadGroup</b> class −</p>
+                    <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                            class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                            style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                            class="token keyword">public</span> <span class="token keyword">class</span> <span
+                            class="token class-name">ThreadGroup</span>
+   <span class="token keyword">extends</span> <span class="token class-name">Object</span>
+      <span class="token keyword">implements</span> <span class="token class-name">Thread<span
+                                class="token punctuation">.</span>UncaughtExceptionHandler</span>
+</div></pre>
+                    <h2>ThreadGroup Class Constructors</h2>
+                    <div class="table-wrapper">
+                        <table class="table table-bordered">
+                            <tbody>
+                            <tr>
+                                <th style="width:5%">Sr.No.</th>
+                                <th style="text-align:center;">Constructor &amp; Description</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <p><b>ThreadGroup(String name)</b></p>
+                                    <p>This constructs a new thread group.</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>
+                                    <p><b>ThreadGroup(ThreadGroup parent, String name)</b></p>
+                                    <p>This creates a new thread group.</p>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h2>JVM Shutdown</h2>
+                    <p>The following are the two different ways for JVM shutdown –</p>
+                    <ul class="list">
+                        <li><p><b>A controlled process</b>: JVM starts to shut down its process if the System.exit() method is called,
+                            CTRL+C is pressed, or if the last non-daemon thread terminates.</p></li>
+                        <li><p><b>An abrupt manner</b>: JVM starts to shut down its process if it receives a kill
+                            signal, the Runtime.getRuntime().halt()
+                                method is called, or any kind of OS panic.</p></li>
+                    </ul>
+                    <p>A shutdown hook is simply an initialized but unstarted thread. When the virtual machine begins
+                        its shutdown sequence it will start all registered shutdown hooks in some unspecified order and
+                        let them run concurrently. When all the hooks have finished it will then run all uninvoked
+                        finalizers if finalization-on-exit has been enabled. Finally, the virtual machine will halt.
+                        Note that daemon threads will continue to run during the shutdown sequence, as will non-daemon
+                        threads if shutdown was initiated by invoking the exit method.</p>
+                    <h2>Java - Thread Deadlock</h2>
+                    <p>Deadlock describes a situation where two or more threads are blocked forever, waiting for each
+                        other. Deadlock occurs when multiple
+                            threads need the same locks but obtain them in different order. A Java multithreaded
+                        program may suffer from the deadlock condition because the <b>synchronized</b> keyword causes
+                        the executing thread to block while waiting for the lock, or monitor, associated with the
+                        specified object. Here is an example.</p>
+                    <h2>Example: Demonstrating Deadlock Situation</h2>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+
+
+                        </div>
+                        <pre class="demo-code notranslate language-java" data-lang="java" data-index="0" id="0"
+                             tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                               spellcheck="false"
+                                               style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">public</span> <span class="token keyword">class</span> <span
+                                class="token class-name">TestThread</span> <span class="token punctuation">{</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> <span
+                                    class="token class-name">Lock1</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">Object</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> <span
+                                    class="token class-name">Lock2</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">Object</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                    class="token keyword">void</span> <span class="token function">main</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">String</span> args<span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">ThreadDemo1</span> <span class="token constant">T1</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">ThreadDemo1</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token class-name">ThreadDemo2</span> <span class="token constant">T2</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">ThreadDemo2</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token constant">T1</span><span class="token punctuation">.</span><span
+                                    class="token function">start</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">T2</span><span class="token punctuation">.</span><span
+                                    class="token function">start</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">ThreadDemo1</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock1</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Holding lock 1..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span> <span
+                                    class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                    class="token function">sleep</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">InterruptedException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Waiting for lock 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock2</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+               <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Holding lock 1 &amp; 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">ThreadDemo2</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock2</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Holding lock 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span> <span
+                                    class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                    class="token function">sleep</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span> <span class="token punctuation">}</span>
+            <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">InterruptedException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Waiting for lock 1..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock1</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+               <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Holding lock 1 &amp; 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                    </div>
+                    <p>When you compile and execute the above program, you find a deadlock situation and following is
+                        the output produced by the program −</p>
+                    <h3>Output</h3>
+                    <pre class="result notranslate">Thread 1: Holding lock 1...
+Thread 2: Holding lock 2...
+Thread 1: Waiting for lock 2...
+Thread 2: Waiting for lock 1...
+</pre>
+                    <p>The above program will hang forever because neither of the threads in position to proceed and
+                        waiting for each other to release the lock, so you can come out of the program by pressing
+                        CTRL+C.</p>
+                    <h2>Deadlock Solution Example</h2>
+                    <p>Let's change the order of the lock and run of the same program to see if both the threads still
+                        wait for each other −</p>
+                    <h3>Example</h3>
+                    <div class="code-wrapper">
+                        <div class="code-header">
+
+
+                        </div>
+                        <pre class="demo-code notranslate language-java" data-lang="java" data-index="1" id="1"
+                             tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                               spellcheck="false"
+                                               style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">public</span> <span class="token keyword">class</span> <span
+                                class="token class-name">TestThread</span> <span class="token punctuation">{</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> <span
+                                    class="token class-name">Lock1</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">Object</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> <span
+                                    class="token class-name">Lock2</span> <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">Object</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                    class="token keyword">void</span> <span class="token function">main</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">String</span> args<span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">ThreadDemo1</span> <span class="token constant">T1</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">ThreadDemo1</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token class-name">ThreadDemo2</span> <span class="token constant">T2</span> <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">ThreadDemo2</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token constant">T1</span><span class="token punctuation">.</span><span
+                                    class="token function">start</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token constant">T2</span><span class="token punctuation">.</span><span
+                                    class="token function">start</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">ThreadDemo1</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock1</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Holding lock 1..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+               <span class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                    class="token function">sleep</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Waiting for lock 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock2</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+               <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 1: Holding lock 1 &amp; 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+   <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">ThreadDemo2</span> <span
+                                    class="token keyword">extends</span> <span
+                                    class="token class-name">Thread</span> <span class="token punctuation">{</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span
+                                    class="token function">run</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock1</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Holding lock 1..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+               <span class="token class-name">Thread</span><span class="token punctuation">.</span><span
+                                    class="token function">sleep</span><span class="token punctuation">(</span><span
+                                    class="token number">10</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span><span
+                                    class="token punctuation">}</span>
+            <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Waiting for lock 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">synchronized</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">Lock2</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+               <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Thread 2: Holding lock 1 &amp; 2..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                    </div>
+                    <p>So just changing the order of the locks prevent the program in going into a deadlock situation
+                        and completes with the following result −</p>
+
+                    <h3>Output</h3>
+                    <pre class="result notranslate">Thread 1: Holding lock 1...
+Thread 1: Waiting for lock 2...
+Thread 1: Holding lock 1 &amp; 2...
+Thread 2: Holding lock 1...
+Thread 2: Waiting for lock 2...
+Thread 2: Holding lock 1 &amp; 2...
+</pre>
+                    <p>The above example is to just make the concept clear, however, it is a complex concept and you
+                        should deep dive into it before you develop your applications to deal with deadlock
+                        situations.</p>
+
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../java/exception-handling.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../java/serialization.html">Next
+                    &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+                                                                          src="../scripts/images/top.jpeg"/></button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

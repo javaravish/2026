@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Exception handling</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Java Basic</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/introduction.html">Java Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/history.html">History
+                            of Java</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/features.html">Features of Java</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jdk.html">JDK vs JRE
+                            vs JVM</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jvm.html">JVM - Java
+                            Virtual Machine</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/gc.html">Garbage
+                            Collection</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/variables.html">Variables</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/datatypes.html">Data
+                            Types</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/operators.html">Operators</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/string.html">Java
+                            String</a></li>
+                        <h4>Java Flow Control</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/ifelse.html">Java
+                            If-else</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/switchcase.html">Java
+                            Switch-Case</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/forloop.html">Java For
+                            loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/whileloop.html">Java
+                            while loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/dowhile.html">Java
+                            do-while loop</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/continue.html">Continue statement</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/break.html">break
+                            statement</a></li>
+                        <h4>Java Arrays</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arrays.html">Java
+                            Arrays</a></li>
+                        <h4>OOPs Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/oops.html">OOPs
+                            Concepts</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/absract.html">Abstraction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/encapsulation.html">Encapsulation</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/inheritance.html">Inheritance</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/polymorphism.html">Polymorphism</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/aggregation.html">Aggregation</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/association.html">Association</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/composition.html">Composition</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/overloadingvsoverriding.html">Overloading
+                            vs
+                            Overriding</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/abstractvsinterface.html">Abstract class vs
+                            interface</a></li>
+                        <h4>Java Exception Handling</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/exception-handling.html">Exception
+                            handling</a></li>
+                        <h4>Java Multithreading</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/multithreading.html">Multithreading</a>
+                        </li>
+                        <h4>Java Serialization</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/serialization.html">Serialization</a></li>
+                        <h4>Java Synchronization</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/synchronization.html">Synchronization</a>
+                        </li>
+                        <h4>Java Sorting</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/comparable.html">Comparable interface</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/comparator.html">Comparator interface</a>
+                        </li>
+                        <h4>Collections Framework</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/collections.html">Collections in Java</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arraylist.html">Java
+                            ArrayList</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/linkedlist.html">Java
+                            LinkedList</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/vector.html">Java
+                            Vector</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashset.html">Java
+                            HashSet</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/linkedhashset.html">Java LinkedHashSet</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treeset.html">Java
+                            TreeSet</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashmap.html">Java
+                            HashMap</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/hashmap-internal.html">Java HashMap
+                            Working</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treemap.html">Java
+                            TreeMap</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/linkedhashmap.html">Java LinkedHashMap</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/syncronized_collection.html">Syncronized
+                            Collections
+                        </a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/concurrent.html">Concurrent Collections</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/weak.html">Weak
+                            Collections</a></li>
+                        <h4>Interview Special</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/java/java-interview-questions.html">Java
+                            Interview
+                            Questions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/java/java-collections.html">Collections
+                            interview questions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../java/javaprograms.html">Java programs</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../java/random.html">Java
+                            Miscellaneous</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../java/introduction.html">Java</a></li>
+                    <li><a href="../java/exception-handling.html">Exception handling</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../java/introduction.html">Java</a></li>
+                    <li><a href="../java/exception-handling.html">Exception handling</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk">
+                <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <div class="tutorial-content" id="mainContent">
+                        <h1>Java - Exceptions</h1>
+                        <hr>
+                        <!-- TAGNAME: 728x90_Top -->
+
+
+                        <h2>What Is an Exception in Java?</h2>
+                        <p>An exception (or exceptional event) is a problem that arises during the execution of a
+                            program. When an <b>Exception</b> occurs the normal flow of the program is disrupted and the
+                            program/Application terminates abnormally, which is not recommended, therefore, these
+                            exceptions are to be handled.</p>
+
+                        <h2>Why Exception Occurs?</h2>
+                        <p>An exception can occur for many different reasons. Following are some scenarios where an
+                            exception occurs.</p>
+                        <ul class="list">
+                            <li><p>A user has entered an invalid data.</p></li>
+                            <li><p>A file that needs to be opened cannot be found.</p></li>
+                            <li><p>A network connection has been lost in the middle of communications or the JVM has run
+                                out of memory.</p></li>
+                        </ul>
+                        <p>Some of these exceptions are caused by user error, others by programmer error, and others by
+                            physical resources that have failed in some manner.</p>
+
+                        <h2>Java Exception Categories</h2>
+                        <p>Based on these, we have the following categories of Exceptions. You need to understand them
+                            to know how exception handling works in Java.</p>
+                        <ul class="list">
+                            <li>Checked exceptions</li>
+                            <li>Unchecked exceptions</li>
+                            <li>Errors</li>
+                        </ul>
+
+                        <h3>Java Checked Exceptions</h3>
+                        <p>A checked exception is an exception that is checked (notified) by the compiler at
+                            compilation-time, these are also called as compile time exceptions. These exceptions cannot
+                            simply be ignored, the programmer should take care of (handle) these exceptions.</p>
+                        <h4>Example: Checked Exceptions in Java</h4>
+                        <p>For example, if you use <b>FileReader</b> class in your program to read data from a file, if
+                            the file specified in its constructor doesn't exist, then a <i>FileNotFoundException</i>
+                            occurs, and the compiler prompts the programmer to handle the exception.</p>
+                        <div class="code-wrapper">
+                            <div class="code-header"></div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="0" id="0"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token keyword">import</span> <span class="token import"><span
+                                    class="token namespace">java<span class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span class="token class-name">File</span></span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                        class="token punctuation">.</span>io<span
+                                        class="token punctuation">.</span></span><span class="token class-name">FileReader</span></span><span
+                                        class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FilenotFound_Demo</span> <span
+                                        class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">File</span> file <span class="token operator">=</span> <span class="token keyword">new</span> <span
+                                        class="token class-name">File</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"E://file.txt"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">FileReader</span> fr <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span
+                                        class="token class-name">FileReader</span><span
+                                        class="token punctuation">(</span>file<span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <p>If you try to compile the above program, you will get the following exceptions.</p>
+                        <p><b>Output</b></p>
+                        <pre class="result notranslate">C:\&gt;javac FilenotFound_Demo.java
+FilenotFound_Demo.java:8: error: unreported exception FileNotFoundException; must be caught or declared to be thrown
+      FileReader fr = new FileReader(file);
+                      ^
+1 error
+</pre>
+                        <p><b>Note</b> − Since the methods <b>read()</b> and <b>close()</b> of FileReader class throws
+                            IOException, you can observe that the compiler notifies to handle IOException, along with
+                            FileNotFoundException.</p>
+                        <h3>Java Unchecked Exceptions</h3>
+                        <p>An unchecked exception is an exception that occurs at the time of execution. These are also
+                            called as Runtime Exceptions. These include programming bugs, such as logic errors or
+                            improper use of an API. Runtime exceptions are ignored at the time of compilation.</p>
+                        <h4>Example: Unchecked Exceptions in Java</h4>
+                        <p>For example, if you have declared an array of size 5 in your program, and trying to call the
+                            6<sup>th</sup> element of the array then an <i>ArrayIndexOutOfBoundsExceptionexception</i>
+                            occurs.</p>
+                        <div class="code-wrapper">
+                            <div class="code-header"></div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="1" id="1"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token keyword">public</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">Unchecked_Demo</span> <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> num<span class="token punctuation">[</span><span class="token punctuation">]</span> <span
+                                        class="token operator">=</span> <span class="token punctuation">{</span><span
+                                        class="token number">1</span><span class="token punctuation">,</span> <span
+                                        class="token number">2</span><span class="token punctuation">,</span> <span
+                                        class="token number">3</span><span class="token punctuation">,</span> <span
+                                        class="token number">4</span><span class="token punctuation">}</span><span
+                                        class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span class="token punctuation">(</span>num<span
+                                        class="token punctuation">[</span><span class="token number">5</span><span
+                                        class="token punctuation">]</span><span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <p>If you compile and execute the above program, you will get the following exception.</p>
+                        <p><b>Output</b></p>
+                        <pre class="result notranslate">Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+	at Exceptions.Unchecked_Demo.main(Unchecked_Demo.java:8)
+</pre>
+                        <h3>Java Errors</h3>
+                        <p>These are not exceptions at all, but problems that arise beyond the control of the user or
+                            the programmer. Errors are typically ignored in your code because you can rarely do anything
+                            about an error. For example, if a stack overflow occurs, an error will arise. They are also
+                            ignored at the time of compilation.</p>
+
+                        <h2>Java Exception Hierarchy</h2>
+                        <p>All exception classes are subtypes of the java.lang.Exception class. The exception class is a
+                            subclass of the Throwable class. Other than the exception class there is another subclass called Error which
+                            is derived from the Throwable class.</p>
+                        <p>Errors are abnormal conditions that happen in case of severe failures, these are not handled
+                            by the Java programs. Errors are generated to indicate errors generated by the runtime
+                            environment. Example: JVM is out of memory. Normally, programs cannot recover from
+                            errors.</p>
+                        <p>The Exception class has two main subclasses: IOException class and RuntimeException
+                            Class.</p>
+                        <img src="../scripts/images/java/exceptions1.jpg" alt="Exceptions1">
+                        <p>Following is a list of most common checked and unchecked Java's Built-in Exceptions.</p>
+                        <h2>Java Exception Class Methods</h2>
+                        <p>Following is the list of important methods available in the Throwable class.</p>
+                        <div class="table-wrapper">
+                            <table class="table table-bordered">
+                                <tbody>
+                                <tr>
+                                    <th>Sr.No.</th>
+                                    <th style="text-align:center;">Method &amp; Description</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td><p><b>public String getMessage()</b></p>
+                                        <p>Returns a detailed message about the exception that has occurred. This
+                                            message is initialized in the Throwable constructor.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><p><b>public Throwable getCause()</b></p>
+                                        <p>Returns the cause of the exception as represented by a Throwable object.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><p><b>public String toString()</b>
+                                    </p>
+                                        <p>Returns the name of the class concatenated with the result of
+                                            getMessage().</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><p><b>public void printStackTrace()</b></p>
+                                        <p>Prints the result of toString() along with the stack trace to System.err, the
+                                            error output stream.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><p><b>public StackTraceElement [] getStackTrace()</b>
+                                    </p>
+                                        <p>Returns an array containing each element on the stack trace. The element at
+                                            index 0 represents the top of the call stack, and the last element in the
+                                            array represents the method at the bottom of the call stack.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><p><b>public Throwable fillInStackTrace()</b></p>
+                                        <p>Fills the stack trace of this Throwable object with the current stack trace,
+                                            adding to any previous information in the stack trace.</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h2>Catching Exceptions: Exception Handling in Java</h2>
+                        <p>A method catches an exception using a combination of the <b>try</b> and <b>catch</b>
+                            keywords. A try/catch block is placed around the code that might generate an exception. Code
+                            within a try/catch block is referred to as protected code, and the syntax for using
+                            try/catch looks like the following −</p>
+                        <h3>Syntax</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">try</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Protected code</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionName</span> e1<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>The code which is prone to exceptions is placed in the try block. When an exception occurs,
+                            that exception occurred is handled by catch block associated with it. Every try block should
+                            be immediately followed either by a catch block or finally block.</p>
+                        <p>A catch statement involves declaring the type of exception you are trying to catch. If an
+                            exception occurs in protected code, the catch block (or blocks) that follows the try is
+                            checked. If the type of exception that occurred is listed in a catch block, the exception is
+                            passed to the catch block much as an argument is passed into a method parameter.</p>
+                        <h3>Example: Demonstrating Exception Handling</h3>
+                        <p>In following example, an array is declared with 2 elements. Then the code tries to access the
+                            3<sup>rd</sup> element of the array which throws an exception.</p>
+                        <div class="code-wrapper">
+                            <div class="code-header"></div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="2" id="2"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token comment">// File Name : ExcepTest.java</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                        class="token punctuation">.</span>io<span
+                                        class="token punctuation">.</span></span><span
+                                        class="token operator">*</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ExcepTest</span> <span
+                                        class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token keyword">int</span> a<span class="token punctuation">[</span><span
+                                        class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span class="token keyword">int</span><span
+                                        class="token punctuation">[</span><span class="token number">2</span><span
+                                        class="token punctuation">]</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Access element three :"</span> <span
+                                        class="token operator">+</span> a<span class="token punctuation">[</span><span
+                                        class="token number">3</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                        class="token class-name">ArrayIndexOutOfBoundsException</span> e<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Exception thrown  :"</span> <span
+                                        class="token operator">+</span> e<span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span
+                                        class="token string">"Out of the block"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <p><b>Output</b></p>
+                        <pre class="result notranslate">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+Out of the block
+</pre>
+                        <div style="width: 100%; display: flex; flex-flow: wrap; justify-content: center; align-items: center;">
+                            <div id="tutorialspointcom47473-3" data-pg-ad-spot="tutorialspointcom47473"></div>
+                        </div>
+                        <h2>Multiple Catch Blocks</h2>
+                        <p>A try block can be followed by multiple catch blocks. The syntax for multiple catch blocks
+                            looks like the following −</p>
+                        <h3>Syntax</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">try</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Protected code</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType1</span> e1<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType2</span> e2<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType3</span> e3<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>The previous statements demonstrate three catch blocks, but you can have any number of them
+                            after a single try. If an exception occurs in the protected code, the exception is thrown to
+                            the first catch block in the list. If the data type of the exception thrown matches
+                            ExceptionType1, it gets caught there. If not, the exception passes down to the second catch
+                            statement. This continues until the exception either is caught or falls through all catches,
+                            in which case the current method stops execution and the exception is thrown down to the
+                            previous method on the call stack.</p>
+                        <h3>Example</h3>
+                        <p>Here is code segment showing how to use multiple try/catch statements.</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">try</span> <span class="token punctuation">{</span>
+   file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileInputStream</span><span
+                                    class="token punctuation">(</span>fileName<span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+   x <span class="token operator">=</span> <span class="token punctuation">(</span><span
+                                    class="token keyword">byte</span><span class="token punctuation">)</span> file<span
+                                    class="token punctuation">.</span><span class="token function">read</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">IOException</span> i<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   i<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token operator">-</span><span
+                                    class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">FileNotFoundException</span> f<span
+                                    class="token punctuation">)</span> <span
+                                    class="token comment">// Not valid! {</span>
+   f<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">return</span> <span class="token operator">-</span><span
+                                    class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <div style="width: 100%; display: flex; flex-flow: wrap; justify-content: center; align-items: center;">
+                            <div id="tutorialspointcom47473-4" data-pg-ad-spot="tutorialspointcom47473"></div>
+                        </div>
+                        <h2>Catching Multiple Type of Exceptions</h2>
+                        <p>Since Java 7, you can handle more than one exception using a single catch block, this feature
+                            simplifies the code. Here is how you would do it −</p>
+                        <pre class="result notranslate">catch (IOException|FileNotFoundException ex) {
+   logger.log(ex);
+   throw ex;
+</pre>
+                        <h2>The Throws/Throw Keywords</h2>
+                        <p>If a method does not handle a checked exception, the method must declare it using the <b>throws</b>
+                            keyword. The throws keyword appears at the end of a method's signature.</p>
+                        <p>You can throw an exception, either a newly instantiated one or an exception that you just
+                            caught, by using the <b>throw</b> keyword.</p>
+                        <p>Try to understand the difference between throws and throw keywords, <i>throws</i> is used to
+                            postpone the handling of a checked exception and <i>throw</i> is used to invoke an exception
+                            explicitly.</p>
+                        <p>The following method declares that it throws a RemoteException −</p>
+                        <h3>Example</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">import</span> <span class="token import"><span
+                                class="token namespace">java<span class="token punctuation">.</span>io<span
+                                class="token punctuation">.</span></span><span
+                                class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> className <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deposit</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token keyword">double</span> amount<span
+                                    class="token punctuation">)</span> <span class="token keyword">throws</span> <span
+                                    class="token class-name">RemoteException</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token comment">// Method implementation</span>
+      <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">RemoteException</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+   <span class="token comment">// Remainder of class definition</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>A method can declare that it throws more than one exception, in which case the exceptions are
+                            declared in a list separated by commas. For example, the following method declares that it
+                            throws a RemoteException and an InsufficientFundsException −</p>
+                        <h3>Example</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">import</span> <span class="token import"><span
+                                class="token namespace">java<span class="token punctuation">.</span>io<span
+                                class="token punctuation">.</span></span><span
+                                class="token operator">*</span></span><span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> className <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">withdraw</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token keyword">double</span> amount<span
+                                    class="token punctuation">)</span> <span class="token keyword">throws</span> <span
+                                    class="token class-name">RemoteException</span><span
+                                    class="token punctuation">,</span>
+      <span class="token class-name">InsufficientFundsException</span> <span class="token punctuation">{</span>
+      <span class="token comment">// Method implementation</span>
+   <span class="token punctuation">}</span>
+   <span class="token comment">// Remainder of class definition</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <div style="width: 100%; display: flex; flex-flow: wrap; justify-content: center; align-items: center;">
+                            <div id="tutorialspointcom47473-5" data-pg-ad-spot="tutorialspointcom47473"></div>
+                        </div>
+                        <h2>The Finally Block</h2>
+                        <p>The finally block follows a try block or a catch block. A finally block of code always
+                            executes, irrespective of occurrence of an Exception.</p>
+                        <p>Using a finally block allows you to run any cleanup-type statements that you want to execute,
+                            no matter what happens in the protected code.</p>
+                        <p>A finally block appears at the end of the catch blocks and has the following syntax −</p>
+                        <h3>Syntax</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">try</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Protected code</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType1</span> e1<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType2</span> e2<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">ExceptionType3</span> e3<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// Catch block</span>
+<span class="token punctuation">}</span><span class="token keyword">finally</span> <span
+                                    class="token punctuation">{</span>
+   <span class="token comment">// The finally block always executes.</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <h3>Example</h3>
+                        <div class="code-wrapper">
+                            <div class="code-header"></div>
+                            <pre class="demo-code notranslate language-java" data-lang="java" data-index="3" id="3"
+                                 tabindex="0"><div class="code-mirror language-java" contenteditable="plaintext-only"
+                                                   spellcheck="false"
+                                                   style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                    class="token keyword">public</span> <span class="token keyword">class</span> <span
+                                    class="token class-name">ExcepTest</span> <span class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                        class="token keyword">void</span> <span class="token function">main</span><span
+                                        class="token punctuation">(</span><span class="token class-name">String</span> args<span
+                                        class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">int</span> a<span class="token punctuation">[</span><span
+                                        class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                        class="token keyword">new</span> <span class="token keyword">int</span><span
+                                        class="token punctuation">[</span><span class="token number">2</span><span
+                                        class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Access element three :"</span> <span
+                                        class="token operator">+</span> a<span class="token punctuation">[</span><span
+                                        class="token number">3</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                        class="token class-name">ArrayIndexOutOfBoundsException</span> e<span
+                                        class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"Exception thrown  :"</span> <span
+                                        class="token operator">+</span> e<span class="token punctuation">)</span><span
+                                        class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token keyword">finally</span> <span
+                                        class="token punctuation">{</span>
+         a<span class="token punctuation">[</span><span class="token number">0</span><span
+                                        class="token punctuation">]</span> <span class="token operator">=</span> <span
+                                        class="token number">6</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"First element value: "</span> <span
+                                        class="token operator">+</span> a<span class="token punctuation">[</span><span
+                                        class="token number">0</span><span class="token punctuation">]</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                        class="token punctuation">.</span><span
+                                        class="token function">println</span><span
+                                        class="token punctuation">(</span><span class="token string">"The finally statement is executed"</span><span
+                                        class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div><div class="output-wrapper"><div class="console-close"></div><div class="code-output"></div></div></pre>
+                        </div>
+                        <p><b>Output</b></p>
+                        <pre class="result notranslate">Exception thrown  :java.lang.ArrayIndexOutOfBoundsException: 3
+First element value: 6
+The finally statement is executed
+</pre>
+                        <p>Note the following −</p>
+                        <ul class="list">
+                            <li><p>A catch clause cannot exist without a try statement.</p></li>
+                            <li><p>It is not compulsory to have finally clauses whenever a try/catch block is
+                                present.</p></li>
+                            <li><p>The try block cannot be present without either catch clause or finally clause.</p>
+                            </li>
+                            <li><p>Any code cannot be present in between the try, catch, finally blocks.</p></li>
+                        </ul>
+                        <h2>The try-with-resources</h2>
+                        <p>Generally, when we use any resources like streams, connections, etc. we have to close them
+                            explicitly using finally block. In the following program, we are reading data from a file
+                            using <b>FileReader</b> and we are closing it using finally block.</p>
+                        <h3>Example</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">import</span> <span class="token import"><span
+                                class="token namespace">java<span class="token punctuation">.</span>io<span
+                                class="token punctuation">.</span></span><span
+                                class="token class-name">File</span></span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                    class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span
+                                    class="token class-name">FileReader</span></span><span
+                                    class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                    class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span
+                                    class="token class-name">IOException</span></span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ReadData_Demo</span> <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                    class="token keyword">void</span> <span class="token function">main</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">String</span> args<span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">FileReader</span> fr <span class="token operator">=</span> <span
+                                    class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token class-name">File</span> file <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token class-name">File</span><span
+                                    class="token punctuation">(</span><span class="token string">"file.txt"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+         fr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span
+                                    class="token punctuation">(</span>file<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span> <span class="token keyword">char</span> <span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span> a <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token keyword">char</span><span class="token punctuation">[</span><span
+                                    class="token number">50</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">;</span>
+         fr<span class="token punctuation">.</span><span class="token function">read</span><span
+                                    class="token punctuation">(</span>a<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>   <span class="token comment">// reads the content to the array</span>
+         <span class="token keyword">for</span><span class="token punctuation">(</span><span
+                                    class="token keyword">char</span> c <span class="token operator">:</span> a<span
+                                    class="token punctuation">)</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">print</span><span
+                                    class="token punctuation">(</span>c<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>   <span class="token comment">// prints the characters one by one</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">IOException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token keyword">finally</span> <span
+                                    class="token punctuation">{</span>
+         <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            fr<span class="token punctuation">.</span><span class="token function">close</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+         <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token class-name">IOException</span> ex<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ex<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+         <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p><b>try-with-resources</b>, also referred as <b>automatic resource management</b>, is a new
+                            exception handling mechanism that was introduced in Java 7, which automatically closes the
+                            resources used within the try catch block.</p>
+                        <p>To use this statement, you simply need to declare the required resources within the
+                            parenthesis, and the created resource will be closed automatically at the end of the block.
+                            Following is the syntax of try-with-resources statement.</p>
+                        <h3>Syntax</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">try</span><span class="token punctuation">(</span><span
+                                class="token class-name">FileReader</span> fr <span
+                                class="token operator">=</span> <span class="token keyword">new</span> <span
+                                class="token class-name">FileReader</span><span class="token punctuation">(</span><span
+                                class="token string">"file path"</span><span class="token punctuation">)</span><span
+                                class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token comment">// use the resource</span>
+   <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token comment">// body of catch </span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>Following is the program that reads the data in a file using try-with-resources
+                            statement.</p>
+                        <h3>Example</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">import</span> <span class="token import"><span
+                                class="token namespace">java<span class="token punctuation">.</span>io<span
+                                class="token punctuation">.</span></span><span
+                                class="token class-name">FileReader</span></span><span
+                                class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                    class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span
+                                    class="token class-name">IOException</span></span><span
+                                    class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Try_withDemo</span> <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                    class="token keyword">void</span> <span class="token function">main</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token class-name">String</span> args<span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span><span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">try</span><span class="token punctuation">(</span><span class="token class-name">FileReader</span> fr <span
+                                    class="token operator">=</span> <span class="token keyword">new</span> <span
+                                    class="token class-name">FileReader</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token string">"E://file.txt"</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+         <span class="token keyword">char</span> <span class="token punctuation">[</span><span
+                                    class="token punctuation">]</span> a <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span class="token keyword">char</span><span
+                                    class="token punctuation">[</span><span class="token number">50</span><span
+                                    class="token punctuation">]</span><span class="token punctuation">;</span>
+         fr<span class="token punctuation">.</span><span class="token function">read</span><span
+                                    class="token punctuation">(</span>a<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>   <span class="token comment">// reads the contentto the array</span>
+         <span class="token keyword">for</span><span class="token punctuation">(</span><span
+                                    class="token keyword">char</span> c <span class="token operator">:</span> a<span
+                                    class="token punctuation">)</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">print</span><span
+                                    class="token punctuation">(</span>c<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>   <span class="token comment">// prints the characters one by one</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">IOException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>Following points are to be kept in mind while working with try-with-resources statement.</p>
+                        <ul class="list">
+                            <li><p>To use a class with try-with-resources statement it should implement
+                                <b>AutoCloseable</b> interface and the <b>close()</b> method of it gets invoked
+                                automatically at runtime.</p></li>
+                            <li><p>You can declare more than one class in try-with-resources statement.</p></li>
+                            <li><p>While you declare multiple classes in the try block of try-with-resources statement
+                                these classes are closed in reverse order.</p></li>
+                            <li><p>Except the declaration of resources within the parenthesis everything is the same as
+                                normal try/catch block of a try block.</p></li>
+                            <li><p>The resource declared in try gets instantiated just before the start of the
+                                try-block.</p></li>
+                            <li><p>The resource declared at the try block is implicitly declared as final.</p></li>
+                        </ul>
+                        <h2>User-defined Exceptions in Java</h2>
+                        <p>You can create your own exceptions in Java. Keep the following points in mind when writing
+                            your own exception classes −</p>
+                        <ul class="list">
+                            <li><p>All exceptions must be a child of Throwable.</p></li>
+                            <li><p>If you want to write a checked exception that is automatically enforced by the Handle
+                                or Declare Rule, you need to extend the Exception class.</p></li>
+                            <li><p>If you want to write a runtime exception, you need to extend the RuntimeException
+                                class.</p></li>
+                        </ul>
+                        <h3>Syntax</h3>
+                        <p>We can define our own Exception class as below −</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token keyword">class</span> <span
+                                class="token class-name">MyException</span> <span
+                                class="token keyword">extends</span> <span
+                                class="token class-name">Exception</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>You just need to extend the predefined <b>Exception</b> class to create your own Exception.
+                            These are considered to be checked exceptions. The following
+                            <b>InsufficientFundsException</b> class is a user-defined exception that extends the
+                            Exception class, making it a checked exception. An exception class is like any other class,
+                            containing useful fields and methods.</p>
+                        <h3>Example: Creating user-defined exception</h3>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token comment">// File Name InsufficientFundsException.java</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                    class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span
+                                    class="token operator">*</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">InsufficientFundsException</span> <span
+                                    class="token keyword">extends</span> <span class="token class-name">Exception</span> <span
+                                    class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token keyword">double</span> amount<span
+                                    class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">InsufficientFundsException</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token keyword">double</span> amount<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>amount <span
+                                    class="token operator">=</span> amount<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getAmount</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token keyword">return</span> amount<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>To demonstrate using our user-defined exception, the following CheckingAccount class contains
+                            a withdraw() method that throws an InsufficientFundsException.</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token comment">// File Name CheckingAccount.java</span>
+<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span
+                                    class="token punctuation">.</span>io<span
+                                    class="token punctuation">.</span></span><span
+                                    class="token operator">*</span></span><span class="token punctuation">;</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CheckingAccount</span> <span
+                                    class="token punctuation">{</span>
+   <span class="token keyword">private</span> <span class="token keyword">double</span> balance<span
+                                    class="token punctuation">;</span>
+   <span class="token keyword">private</span> <span class="token keyword">int</span> number<span
+                                    class="token punctuation">;</span>
+
+   <span class="token keyword">public</span> <span class="token class-name">CheckingAccount</span><span
+                                    class="token punctuation">(</span><span class="token keyword">int</span> number<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>number <span
+                                    class="token operator">=</span> number<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">deposit</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token keyword">double</span> amount<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      balance <span class="token operator">+=</span> amount<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">withdraw</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token keyword">double</span> amount<span
+                                    class="token punctuation">)</span> <span class="token keyword">throws</span> <span
+                                    class="token class-name">InsufficientFundsException</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>amount <span class="token operator">&lt;=</span> balance<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         balance <span class="token operator">-=</span> amount<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span> <span
+                                    class="token punctuation">{</span>
+         <span class="token keyword">double</span> needs <span class="token operator">=</span> amount <span
+                                    class="token operator">-</span> balance<span class="token punctuation">;</span>
+         <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">InsufficientFundsException</span><span
+                                    class="token punctuation">(</span>needs<span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getBalance</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token keyword">return</span> balance<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getNumber</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span> <span
+                                    class="token punctuation">{</span>
+      <span class="token keyword">return</span> number<span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>The following BankDemo program demonstrates invoking the deposit() and withdraw() methods of
+                            CheckingAccount.</p>
+                        <pre class="just-code notranslate language-java" data-lang="java" tabindex="0"><div
+                                class="code-mirror language-java" contenteditable="plaintext-only" spellcheck="false"
+                                style="outline: none; overflow-wrap: break-word; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="token comment">// File Name BankDemo.java</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">BankDemo</span> <span
+                                    class="token punctuation">{</span>
+
+   <span class="token keyword">public</span> <span class="token keyword">static</span> <span
+                                    class="token keyword">void</span> <span class="token function">main</span><span
+                                    class="token punctuation">(</span><span class="token class-name">String</span> <span
+                                    class="token punctuation">[</span><span class="token punctuation">]</span> args<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token class-name">CheckingAccount</span> c <span class="token operator">=</span> <span
+                                    class="token keyword">new</span> <span
+                                    class="token class-name">CheckingAccount</span><span
+                                    class="token punctuation">(</span><span class="token number">101</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token string">"Depositing $500..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      c<span class="token punctuation">.</span><span class="token function">deposit</span><span
+                                    class="token punctuation">(</span><span class="token number">500.00</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">try</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token string">"\nWithdrawing $100..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+         c<span class="token punctuation">.</span><span class="token function">withdraw</span><span
+                                    class="token punctuation">(</span><span class="token number">100.00</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span
+                                    class="token string">"\nWithdrawing $600..."</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+         c<span class="token punctuation">.</span><span class="token function">withdraw</span><span
+                                    class="token punctuation">(</span><span class="token number">600.00</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span
+                                    class="token class-name">InsufficientFundsException</span> e<span
+                                    class="token punctuation">)</span> <span class="token punctuation">{</span>
+         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span
+                                    class="token punctuation">.</span><span class="token function">println</span><span
+                                    class="token punctuation">(</span><span class="token string">"Sorry, but you are short $"</span> <span
+                                    class="token operator">+</span> e<span class="token punctuation">.</span><span
+                                    class="token function">getAmount</span><span class="token punctuation">(</span><span
+                                    class="token punctuation">)</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+         e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span
+                                    class="token punctuation">(</span><span class="token punctuation">)</span><span
+                                    class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+   <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</div></pre>
+                        <p>Compile all the above three files and run BankDemo. This will produce the following result
+                            −</p>
+                        <p><b>Output</b></p>
+                        <pre class="result notranslate">Depositing $500...
+
+Withdrawing $100...
+
+Withdrawing $600...
+Sorry, but you are short $200.0
+InsufficientFundsException
+         at CheckingAccount.withdraw(CheckingAccount.java:25)
+         at BankDemo.main(BankDemo.java:13)
+</pre>
+                        <h2>Common Java Exceptions</h2>
+                        <p>In Java, it is possible to define two catergories of Exceptions and Errors.</p>
+                        <ul class="list">
+                            <li><p><b>JVM Exceptions</b> − These are exceptions/errors that are exclusively or logically
+                                thrown by the JVM. Examples: NullPointerException, ArrayIndexOutOfBoundsException,
+                                ClassCastException.</p></li>
+                            <li><p><b>Programmatic Exceptions</b> − These exceptions are thrown explicitly by the
+                                application or the API programmers. Examples: IllegalArgumentException,
+                                IllegalStateException.</p></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../java/abstractvsinterface.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../java/multithreading.html">Next
+                    &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+                                                                          src="../scripts/images/top.jpeg"/></button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

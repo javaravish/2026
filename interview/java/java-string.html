@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Java String Interview Questions</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+					src="../../scripts/images/nani1.png" alt="Home" />
+				<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+							href="../../home.html"><img height="25" width="25"
+								src="../../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/random.html">Java
+								Core</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-interview-questions.html">Java
+								Basics</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-abstraction.html">Java
+								Abstraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-encapsulation.html">Java
+								Encapsulation</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-polymorphism.html">Java
+								Polymorphism</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-inheritance.html">Java
+								Inheritance </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-string.html">Java
+								String</a></li>
+							<li class="nav-item"><a class="nav-link"
+													href="../java/java-overloading-Overriding.html">Java
+								Overloading and Overriding</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-exception.html">Java
+								Exception Handling</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-multithreading.html">Java
+								Multithreading</a></li>
+							<h4> Collections Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/java-collections.html">Java
+								Collections </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-list.html">Java
+								List </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-set.html">Java
+								Set </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-map.html">Java
+								Map</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/miscellaneous.html">Java
+								Advanced</a></li>
+							<h4> Java Programming Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/programs.html">Java
+								Programs </a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-string.html">String Interview Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-string.html">String Interview Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4>Java String Interview Questions</h4>
+					<div class="card-body">
+						<details id="q1" onclick="closeOtherDetails('q1')">
+							<summary>1. How to declare a string in Java?</summary>
+							<div class="toggle-content">
+								<p>String declaration in Java can be done in two ways:</p>
+								<ol>
+									<li>By string literal: Double quotes are used to create Java String literals.
+									</li>
+									<p>Example: <code>String str = "Scaler";</code></p>
+									<li>By <code>new</code> keyword: The <code>new</code> keyword is used to create
+										a Java String object.</li>
+									<p>Example: <code>String str = new String("Scaler");</code></p>
+								</ol>
+							</div>
+						</details></br>
+
+						<details id="q2" onclick="closeOtherDetails('q2')">
+							<summary>2. Is String a primitive or derived type in Java?</summary>
+							<div class="toggle-content">
+								<p>Strings are derived data types. Strings are Java objects that represent sequences
+									of characters.</p>
+								<p>String objects are created using the java.lang.String class. There are many
+									functions that need to be called upon when processing a string, such as
+									substring(), indexOf(), equals(), toUpperCase(), etc., which primitive types do
+									not have.</p>
+							</div>
+						</details></br>
+
+						<details id="q3" onclick="closeOtherDetails('q3')">
+							<summary>3. State the difference between String in C and String in Java.</summary>
+							<div class="toggle-content">
+								<p><strong>String in C:</strong> In C, strings are just arrays of characters,
+									terminated with '\0' (null-terminated). They can be easily manipulated.</p>
+								<p><strong>String in Java:</strong> Java treats Strings as objects, created using
+									the java.lang.String class. String objects in Java are immutable; you cannot
+									modify their contents. Operations on strings create new string objects rather
+									than modifying the original.</p>
+							</div>
+						</details></br>
+
+						<details id="q4" onclick="closeOtherDetails('q4')">
+							<summary>4. Explain String pool in Java.</summary>
+							<div class="toggle-content">
+								<p><strong>String Pool (SCP):</strong> Special storage space in Java heap memory to
+									store unique string objects. When a string is created, Java checks if the same
+									string value exists in the pool. If yes, it returns a reference; otherwise, it
+									adds a new object to the pool.</p>
+								<p>Example:</p>
+								<pre>
+							      String s1 = "Apple"; // Created in SCP
+							      String s2 = "Mango"; // Created in SCP
+							      String s3 = "Apple"; // Reuses s1 reference from SCP
+							    </pre>
+							</div>
+						</details></br>
+
+						<details id="q5" onclick="closeOtherDetails('q5')">
+							<summary>5. Is String immutable or final in Java? What are the benefits?</summary>
+							<div class="toggle-content">
+								<p>String is immutable in Java, meaning it cannot be changed once created. This
+									ensures security, caching benefits, synchronization, and thread safety.</p>
+							</div>
+						</details></br>
+
+						<details id="q6" onclick="closeOtherDetails('q6')">
+							<summary>6. What does the string intern() method do in Java?</summary>
+							<div class="toggle-content">
+								<p>The intern() method returns a canonical representation of a string. It checks if
+									the string is already in the pool; if yes, returns the reference, otherwise adds
+									it to the pool.</p>
+								<p>Example:</p>
+								<pre>
+							      String str1 = new String("Scaler").intern();
+							      String str2 = new String("Scaler").intern();
+							      System.out.println(str1 == str2); // true, points to the same reference in SCP
+							    </pre>
+							</div>
+						</details></br>
+
+						<details id="q7" onclick="closeOtherDetails('q7')">
+							<summary>7. State the difference between String and StringBuffer.</summary>
+							<div class="toggle-content">
+								<p><strong>String:</strong> Immutable, created using double quotes or new String().
+								</p>
+								<p><strong>StringBuffer:</strong> Mutable, thread-safe with synchronized methods
+									(slower).</p>
+							</div>
+						</details></br>
+
+						<details id="q8" onclick="closeOtherDetails('q8')">
+							<summary>8. State the difference between StringBuffer and StringBuilder in Java.
+							</summary>
+							<div class="toggle-content">
+								<p><strong>StringBuffer:</strong> Synchronized methods (thread-safe, slower).</p>
+								<p><strong>StringBuilder:</strong> Non-synchronized methods (not thread-safe,
+									faster).</p>
+							</div>
+						</details></br>
+
+						<details id="q9" onclick="closeOtherDetails('q9')">
+							<summary>9. In Java, how can two strings be compared?</summary>
+							<div class="toggle-content">
+								<p>Strings can be compared in Java using methods like equals(), equalsIgnoreCase(),
+									compareTo(), and == (for reference comparison).</p>
+							</div>
+						</details></br>
+
+						<details id="q10" onclick="closeOtherDetails('q10')">
+							<summary>10. What is the difference between str1 == str2 and str1.equals(str2)?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>== operator:</strong> Compares object references (addresses).</p>
+								<p><strong>equals() method:</strong> Compares object contents (values).</p>
+								<p>Example:</p>
+								<pre>
+							      String str1 = new String("Scaler");
+							      String str2 = new String("Scaler");
+							      System.out.println(str1 == str2); // false
+							      System.out.println(str1.equals(str2)); // true
+							    </pre>
+							</div>
+						</details></br>
+						<details id="q1" onclick="closeOtherDetails('q1')">
+							<summary>11. Is it possible to compare Strings using the == operator? If so, what is the
+								risk involved?</summary>
+							<div class="toggle-content">
+								<p>Yes, you can compare strings using the == operator. The == operator in Java
+									compares references (addresses in memory) of objects. When comparing strings
+									with ==, you're comparing whether the two references point to the same object in
+									memory.</p>
+								<p>The risk involved is that strings created with different methods (like using the
+									new keyword) or at different times might not point to the same object, even if
+									they have the same content. To compare the actual content of strings, you should
+									use the equals() method, which checks if two strings have the same sequence of
+									characters.</p>
+								<pre>
+							        <code>
+							public class StringComparison {
+							    public static void main(String args[]) {
+							        String str1 = "Scaler";
+							        String str2 = "Scaler";
+							        String str3 = new String("Scaler");
+							        
+							        System.out.println(str1 == str2);  // true, because both point to the same memory allocation
+							        System.out.println(str1 == str3);  // false, because str3 refers to an instance created in heap
+							        System.out.println(str1.equals(str3));  // true, because both share the same content
+							    }
+							}
+							        </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="q2" onclick="closeOtherDetails('q2')">
+							<summary>12. What is the use of the substring() method in Java?</summary>
+							<div class="toggle-content">
+								<p>The substring() method in Java is used to extract a part of a string. It takes
+									one or two parameters: the starting index (inclusive) and optionally the ending
+									index (exclusive).</p>
+								<p>When called with one parameter (beginIndex), substring() returns a substring from
+									beginIndex to the end of the string. When called with two parameters
+									(beginIndex, endIndex), it returns a substring that starts at beginIndex and
+									ends just before endIndex.</p>
+								<pre>
+							        <code>
+							public class InterviewBit {
+							    public static void main(String args[]) {
+							        String str = "Scaler by InterviewBit";
+							        
+							        System.out.println(str.substring(7));    // Returns: "by InterviewBit"
+							        System.out.println(str.substring(0, 6)); // Returns: "Scaler"
+							        System.out.println(str.substring(10, 22));  // Returns: "InterviewBit"
+							    }
+							}
+							        </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="q3" onclick="closeOtherDetails('q3')">
+							<summary>13. Can we use a string in the switch case in Java?</summary>
+							<div class="toggle-content">
+								<p>Yes, starting from Java SE 7, you can use strings in switch case statements.
+									Prior to Java SE 7, switch case statements only supported integral types (like
+									byte, short, int, and char).</p>
+								<pre>
+							        <code>
+							public class StringinSwitchCase {
+							    public static void main(String[] args) {
+							        String fruit = "Apple";
+							        
+							        switch (fruit) {
+							            case "Mango":
+							                System.out.println("Sweet");
+							                break;
+							            case "Apple":
+							                System.out.println("Delicious");
+							                break;
+							            case "Orange":
+							                System.out.println("Luscious");
+							                break;
+							            default:
+							                System.out.println("Not a fruit");
+							        }
+							    }
+							}
+							        </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="q1" onclick="closeOtherDetails('q1')">
+							<summary>14. What are the different string methods in Java?</summary>
+							<div class="toggle-content">
+								<p>There are various string operations in Java that allow us to work with strings.
+									These methods or operations can be used for string handling in Java as well as
+									string manipulation in Java.</p>
+								<ul>
+									<li><code>split()</code>: Split/divide the string at the specified regex.</li>
+									<li><code>compareTo()</code>: Compares two strings based on the Unicode value of
+										each string character.</li>
+									<li><code>compareToIgnoreCase()</code>: Similar to <code>compareTo()</code>, but
+										ignores case differences.</li>
+									<li><code>length()</code>: Returns the length of the specified string.</li>
+									<li><code>substring()</code>: Returns the substring from the specified string.
+									</li>
+									<li><code>equalsIgnoreCase()</code>: Compares two strings ignoring case
+										differences.</li>
+									<li><code>contains()</code>: Checks if a string contains a substring.</li>
+									<li><code>trim()</code>: Returns the substring after removing any leading and
+										trailing whitespace.</li>
+									<li><code>charAt()</code>: Returns the character at the specified index.</li>
+									<li><code>toLowerCase()</code>: Converts string characters to lowercase.</li>
+									<li><code>toUpperCase()</code>: Converts string characters to uppercase.</li>
+									<li><code>concat()</code>: Concatenates two strings.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="q2" onclick="closeOtherDetails('q2')">
+							<summary>15. Is String thread-safe in Java?</summary>
+							<div class="toggle-content">
+								<p>Strings in Java are immutable objects, meaning they cannot be changed or altered
+									once created. Because of this immutability, strings are inherently thread-safe
+									in Java.</p>
+								<p>When you manipulate a string (e.g., using methods like <code>substring()</code>
+									or <code>toLowerCase()</code>), a new string object is created rather than
+									modifying the original string. This ensures that multiple threads can safely
+									access and manipulate string objects concurrently without affecting each other.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="q3" onclick="closeOtherDetails('q3')">
+							<summary>16. Why is a string used as a HashMap key in Java?</summary>
+							<div class="toggle-content">
+								<p>In Java, strings are commonly used as keys in <code>HashMap</code> due to their
+									immutability and reliable implementation of <code>hashCode()</code>.</p>
+								<p>When storing key-value pairs in a <code>HashMap</code>, the hash code of the key
+									is calculated and used to determine the bucket where the key-value pair will be
+									stored. Since strings are immutable, their hash code remains consistent
+									throughout their lifecycle, ensuring that the correct bucket is always
+									identified for retrieval.</p>
+								<p>Using strings as keys also ensures efficient retrieval and comparison operations,
+									making them ideal for scenarios where key uniqueness and stability are crucial.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="q4" onclick="closeOtherDetails('q4')">
+							<summary>17. What is the best way to split a string in Java?</summary>
+							<div class="toggle-content">
+								<p>The <code>split()</code> method in Java is used to break a string into an array
+									of substrings based on a specified delimiter (regex).</p>
+								<p>It has the following syntax:</p>
+								<pre><code>String[] split(String regex, int limit)</code></pre>
+								<p>Where:</p>
+								<ul>
+									<li><code>regex</code>: The delimiter used to split the string.</li>
+									<li><code>limit</code> (optional): Controls the number of substrings returned.
+									</li>
+								</ul>
+								<p>Example:</p>
+								<pre><code>String str = "Scaler by InterviewBit";
+							String[] result = str.split(" ");
+							for (String s : result) {
+							    System.out.println(s);
+							}</code></pre>
+								<p>Output:</p>
+								<pre>Scaler
+							by
+							InterviewBit</pre>
+							</div>
+						</details></br>
+
+						<details id="q5" onclick="closeOtherDetails('q5')">
+							<summary>18. Why is a char array preferred over a String in storing passwords?</summary>
+							<div class="toggle-content">
+								<p>Storing passwords as char arrays instead of strings is preferred in Java due to
+									security concerns and immutability differences.</p>
+								<ul>
+									<li><strong>Immutability:</strong> Strings are immutable, meaning their values
+										cannot be changed once created. Any modification to a string results in the
+										creation of a new string object, potentially leaving sensitive data in
+										memory longer than necessary.</li>
+									<li><strong>Security:</strong> Since strings are immutable, their values are
+										stored in the string constant pool and may linger in memory until garbage
+										collected. This exposes passwords to potential unauthorized access through
+										memory dumps or other means.</li>
+									<li><strong>Logfile Safety:</strong> Char arrays allow for overwriting sensitive
+										data after use, reducing the risk of accidental exposure in logs or other
+										insecure locations.</li>
+								</ul>
+							</div>
+						</details></br>
+
+
+
+						<details id="q6" onclick="closeOtherDetails('q6')">
+							<summary>1. What is String in Java?</summary>
+							<div class="toggle-content">
+								<p>In Java, a <code>String</code> is an object that represents a sequence of
+									characters. It's widely used for storing and manipulating textual data.</p>
+							</div>
+						</details></br>
+
+						<details id="q7" onclick="closeOtherDetails('q7')">
+							<summary>2. How to create String in Java?</summary>
+							<div class="toggle-content">
+								<p>There are several ways to create a <code>String</code> in Java:</p>
+								<pre>
+							            <code>// Using string literal
+							String str1 = "Hello";
+							
+							// Using new keyword
+							String str2 = new String("World");
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="q8" onclick="closeOtherDetails('q8')">
+							<summary>3. What is an immutable class in Java?</summary>
+							<div class="toggle-content">
+								<p>An immutable class in Java is a class whose instances cannot be modified once
+									created. Immutable classes are thread-safe by nature.</p>
+							</div>
+						</details></br>
+
+						<details id="q9" onclick="closeOtherDetails('q9')">
+							<summary>4. What is mutable class and mutable object in Java?</summary>
+							<div class="toggle-content">
+								<p>A mutable class or object is one whose state can be modified after it is created.
+									For example, <code>StringBuilder</code> and <code>ArrayList</code> are mutable
+									classes.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. How to create immutable class in Java?</summary>
+							<div class="toggle-content">
+								<p>To create an immutable class in Java, follow these guidelines:</p>
+								<ul>
+									<li>Make the class <code>final</code>.</li>
+									<li>Make all fields <code>private</code> and <code>final</code>.</li>
+									<li>Do not provide setter methods.</li>
+									<li>Ensure methods do not modify the state of the object.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. Is String a primitive data type or an object in Java?</summary>
+							<div class="toggle-content">
+								<p><code>String</code> in Java is not a primitive data type; it is a class (object).
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What is difference between String, StringBuilder and StringBuffer?</summary>
+							<div class="toggle-content">
+								<p><code>String</code> is immutable (cannot be changed once created).</p>
+								<p><code>StringBuilder</code> and <code>StringBuffer</code> are mutable and used
+									when frequent modifications to strings are required. <code>StringBuffer</code>
+									is thread-safe, whereas <code>StringBuilder</code> is not.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. When to use String and StringBuilder?</summary>
+							<div class="toggle-content">
+								<p>Use <code>String</code> when the content will not change frequently.</p>
+								<p>Use <code>StringBuilder</code> when you need to concatenate or modify strings
+									frequently in a single-threaded environment.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. When to use StringBuilder and StringBuffer?</summary>
+							<div class="toggle-content">
+								<p>Use <code>StringBuffer</code> when thread safety is required (multi-threaded
+									environment).</p>
+								<p>Use <code>StringBuilder</code> when you are working in a single-threaded
+									environment for better performance.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. What is String constant pool?</summary>
+							<div class="toggle-content">
+								<p>The string constant pool is a special area in the Java memory where strings are
+									stored. String literals (like <code>"Hello"</code>) are automatically stored in
+									the string constant pool.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. What is difference between String “==” and equals()?</summary>
+							<div class="toggle-content">
+								<p><code>==</code> compares the references of two objects (whether they point to the
+									same memory location).</p>
+								<p><code>equals()</code> compares the content or value of two objects.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. What is difference between equals() and compareTo() functions?</summary>
+							<div class="toggle-content">
+								<p><code>equals()</code> method checks if two objects are meaningfully equal.</p>
+								<p><code>compareTo()</code> method compares two strings lexicographically.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. What is use of String intern() method in Java?</summary>
+							<div class="toggle-content">
+								<p>The <code>intern()</code> method returns a canonical representation of the
+									string. It looks up the string from the pool, and if it exists, returns it;
+									otherwise, adds it to the pool.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. What are the most widely used methods of Java String class?</summary>
+							<div class="toggle-content">
+								<p>Some widely used methods of the <code>String</code> class include
+									<code>length()</code>, <code>charAt()</code>, <code>substring()</code>,
+									<code>indexOf()</code>, <code>equals()</code>, <code>compareTo()</code>,
+									<code>toUpperCase()</code>, <code>toLowerCase()</code>, <code>trim()</code>,
+									<code>split()</code>, etc.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. What is use of toString() function in Java?</summary>
+							<div class="toggle-content">
+								<p>The <code>toString()</code> method is used to get a string representation of an
+									object. It is often overridden in classes to provide meaningful information
+									about the object's state.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. Can we use a String in the switch case in Java?</summary>
+							<div class="toggle-content">
+								<p>Yes, from Java SE 7 onwards, you can use a <code>String</code> in a
+									<code>switch</code> case statement.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. How to split a string in Java?</summary>
+							<div class="toggle-content">
+								<p>You can split a string in Java using the <code>split()</code> method of the
+									<code>String</code> class:
+								</p>
+								<pre>
+							            <code>String str = "Hello,World";
+							String[] parts = str.split(",");
+							// parts[0] will be "Hello"
+							// parts[1] will be "World"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. What is difference between str.equals(“upgrad”) and “upgrad”.equals(str)
+								where str is any String object?</summary>
+							<div class="toggle-content">
+								<p><code>str.equals("upgrad")</code> checks if the content of <code>str</code> is
+									equal to "upgrad".</p>
+								<p><code>"upgrad".equals(str)</code> also checks if the content of <code>str</code>
+									is equal to "upgrad", but it handles <code>null</code> gracefully (if
+									<code>str</code> is <code>null</code>, it returns <code>false</code> instead of
+									throwing a <code>NullPointerException</code>).
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. How string concatenation using the + operator works in Java?</summary>
+							<div class="toggle-content">
+								<p>String concatenation using the <code>+</code> operator in Java involves creating
+									a new <code>String</code> object with the combined content of the operands:</p>
+								<pre>
+							            <code>String str1 = "Hello";
+							String str2 = "World";
+							String result = str1 + ", " + str2; // result will be "Hello, World"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. How many objects will be created in the following code?</summary>
+							<div class="toggle-content">
+								<p>It depends on the code provided. Please specify the code snippet to determine how
+									many objects will be created.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. How many objects will be created in the following code?</summary>
+							<div class="toggle-content">
+								<p>It depends on the code provided. Please specify the code snippet to determine how
+									many objects will be created.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. How to convert string to stringbuilder and vice versa?</summary>
+							<div class="toggle-content">
+								<p>To convert a <code>String</code> to a <code>StringBuilder</code>:</p>
+								<pre>
+							            <code>String str = "Hello";
+							StringBuilder sb = new StringBuilder(str);
+							            </code>
+							        </pre>
+								<p>To convert a <code>StringBuilder</code> to a <code>String</code>:</p>
+								<pre>
+							            <code>StringBuilder sb = new StringBuilder("Hello");
+							String str = sb.toString();
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. How to remove specific character from a string?</summary>
+							<div class="toggle-content">
+								<p>You can remove a specific character from a string using various methods, such as:
+								</p>
+								<pre>
+							            <code>String str = "Hello";
+							String modifiedStr = str.replace("l", ""); // Removes all occurrences of 'l'
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. Can you give an example to prove that Strings are Immutable?</summary>
+							<div class="toggle-content">
+								<p>Strings are immutable in Java, meaning once a string is created, its content
+									cannot be changed. For example:</p>
+								<pre>
+							            <code>String str = "Hello";
+							str.concat(" World"); // This creates a new string "Hello World", but str still refers to "Hello"
+							System.out.println(str); // Output: "Hello"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. How to swap two strings without using third variables?</summary>
+							<div class="toggle-content">
+								<p>You can swap two strings without using a third variable using the following
+									approach:</p>
+								<pre>
+							            <code>String str1 = "Hello";
+							String str2 = "World";
+							
+							str1 = str1 + str2; // str1 now becomes "HelloWorld"
+							str2 = str1.substring(0, str1.length() - str2.length()); // str2 now becomes "Hello"
+							str1 = str1.substring(str2.length()); // str1 now becomes "World"
+							
+							System.out.println("str1 = " + str1); // Output: "World"
+							System.out.println("str2 = " + str2); // Output: "Hello"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. How to convert a String to a character array?</summary>
+							<div class="toggle-content">
+								<p>You can convert a <code>String</code> to a character array using the
+									<code>toCharArray()</code> method:
+								</p>
+								<pre>
+							            <code>String str = "Hello";
+							char[] charArray = str.toCharArray(); // charArray will be {'H', 'e', 'l', 'l', 'o'}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. How to convert String to Integer and vice versa?</summary>
+							<div class="toggle-content">
+								<p>To convert a <code>String</code> to an <code>Integer</code>:</p>
+								<pre>
+							            <code>String str = "123";
+							int num = Integer.parseInt(str); // num will be 123
+							            </code>
+							        </pre>
+								<p>To convert an <code>Integer</code> to a <code>String</code>:</p>
+								<pre>
+							            <code>int num = 123;
+							String str = Integer.toString(num); // str will be "123"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. How to convert string into a byte array?</summary>
+							<div class="toggle-content">
+								<p>You can convert a <code>String</code> to a byte array using the
+									<code>getBytes()</code> method:
+								</p>
+								<pre>
+							            <code>String str = "Hello";
+							byte[] byteArray = str.getBytes(); // byteArray will contain the bytes representing "Hello"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. How to convert byte array into a string in Java?</summary>
+							<div class="toggle-content">
+								<p>You can convert a byte array to a string using the <code>String</code>
+									constructor:</p>
+								<pre>
+							            <code>byte[] byteArray = {72, 101, 108, 108, 111};
+							String str = new String(byteArray); // str will be "Hello"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. What is the use of substring() function?</summary>
+							<div class="toggle-content">
+								<p>The <code>substring()</code> function in Java is used to extract a part of a
+									string based on indexes:</p>
+								<pre>
+							            <code>String str = "Hello World";
+							String subStr = str.substring(6); // subStr will be "World"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. What is the use of String.format() function?</summary>
+							<div class="toggle-content">
+								<p>The <code>String.format()</code> function in Java is used to format strings using
+									placeholders and arguments:</p>
+								<pre>
+							            <code>String name = "John";
+							int age = 30;
+							String formattedString = String.format("Name: %s, Age: %d", name, age); // formattedString will be "Name: John, Age: 30"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. How to convert a String into Lowercase and Uppercase in Java?</summary>
+							<div class="toggle-content">
+								<p>To convert a <code>String</code> to lowercase:</p>
+								<pre>
+							            <code>String str = "Hello";
+							String lowerStr = str.toLowerCase(); // lowerStr will be "hello"
+							            </code>
+							        </pre>
+								<p>To convert a <code>String</code> to uppercase:</p>
+								<pre>
+							            <code>String str = "Hello";
+							String upperStr = str.toUpperCase(); // upperStr will be "HELLO"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. What is StringJoiner function in Java?</summary>
+							<div class="toggle-content">
+								<p><code>StringJoiner</code> is used to construct a sequence of characters separated
+									by a delimiter and optionally starting with a supplied prefix and ending with a
+									supplied suffix:</p>
+								<pre>
+							            <code>StringJoiner sj = new StringJoiner(", ", "[", "]");
+							sj.add("Apple");
+							sj.add("Banana");
+							sj.add("Orange");
+							String result = sj.toString(); // result will be "[Apple, Banana, Orange]"
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. How to check if given string is empty or not?</summary>
+							<div class="toggle-content">
+								<p>You can check if a string is empty or not using the <code>isEmpty()</code>
+									method:</p>
+								<pre>
+							            <code>String str = "";
+							boolean isEmpty = str.isEmpty(); // isEmpty will be true
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. How to find length of a string?</summary>
+							<div class="toggle-content">
+								<p>You can find the length of a string using the <code>length()</code> method:</p>
+								<pre>
+							            <code>String str = "Hello";
+							int length = str.length(); // length will be 5
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. Why Java Strings are immutable?</summary>
+							<div class="toggle-content">
+								<p>Java strings are immutable to ensure their security and thread-safety. Immutable
+									objects cannot be modified once created, which prevents unintended changes to
+									data and enhances performance in concurrent environments.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. Why is it preferred to use String as key in Map?</summary>
+							<div class="toggle-content">
+								<p>Strings are preferred as keys in maps because they are immutable. This ensures
+									that the key's hashcode does not change, which is crucial for the correct
+									functioning of hash-based data structures like HashMap. Immutable keys also
+									prevent accidental modifications that could affect the map's integrity.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. Why is a Character array preferred over String for storing password in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>Character arrays are preferred over strings for storing passwords in Java because
+									arrays can be explicitly cleared after use, reducing the likelihood of the
+									password lingering in memory. Strings are immutable and cannot be cleared or
+									modified directly, leaving the password potentially accessible in memory longer
+									than necessary.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. What is the output of below code?</summary>
+							<div class="toggle-content">
+								<pre>
+							            <code>String str1 = "Hello";
+							String str2 = "Hello";
+							System.out.println(str1 == str2); // Output: true
+							            </code>
+							        </pre>
+								<p>The output is <code>true</code> because string literals are interned in Java,
+									meaning they refer to the same object in the string pool.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. What is the output of below code?</summary>
+							<div class="toggle-content">
+								<pre>
+							            <code>String str1 = new String("Hello");
+							String str2 = new String("Hello");
+							System.out.println(str1 == str2); // Output: false
+							            </code>
+							        </pre>
+								<p>The output is <code>false</code> because each <code>new String()</code> creates a
+									new object on the heap, so <code>str1</code> and <code>str2</code> refer to
+									different instances.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. What is use of StringTokenizer class?</summary>
+							<div class="toggle-content">
+								<p>The <code>StringTokenizer</code> class in Java is used to break a string into
+									tokens based on a delimiter. It's useful for processing text and can split
+									strings into substrings.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What is Character encoding? Explain the difference between UTF-8 and UTF-16?
+							</summary>
+							<div class="toggle-content">
+								<p>Character encoding is the method used to represent characters as numbers in
+									digital systems. UTF-8 and UTF-16 are two common encoding schemes:</p>
+								<ul>
+									<li><strong>UTF-8:</strong> Uses variable-length encoding (1 to 4 bytes per
+										character). It's backward compatible with ASCII and is widely used on the
+										web.</li>
+									<li><strong>UTF-16:</strong> Uses fixed-length encoding (2 bytes per character,
+										or 4 bytes for supplementary characters). It's used internally by Java and
+										some other systems.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. What are the text blocks in Java? When they are introduced?</summary>
+							<div class="toggle-content">
+								<p>Text blocks (or multiline strings) in Java allow you to write multiline strings
+									more easily. They were introduced in Java 13. Text blocks are surrounded by
+									triple double quotes (<code>"""</code>) and preserve formatting including
+									indentation.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. What are the new String methods introduced in Java 11?</summary>
+							<div class="toggle-content">
+								<p>Java 11 introduced several new methods to the <code>String</code> class,
+									including:</p>
+								<ul>
+									<li><code>isBlank()</code>: Checks if a string is empty or contains only
+										whitespace.</li>
+									<li><code>strip()</code>: Removes leading and trailing whitespace.</li>
+									<li><code>stripLeading()</code> and <code>stripTrailing()</code>: Remove leading
+										or trailing whitespace, respectively.</li>
+									<li><code>repeat(int)</code>: Returns a string repeated a specified number of
+										times.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. Find the length of the string without using length() method of String
+								class?</summary>
+							<div class="toggle-content">
+								<p>You can find the length of a string without using <code>length()</code> method by
+									iterating through the string and counting characters:</p>
+								<pre>
+							            <code>String str = "Hello";
+							int length = 0;
+							for (char c : str.toCharArray()) {
+							    length++;
+							}
+							System.out.println("Length of the string: " + length); // Output: Length of the string: 5
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. Write a program to reverse given string without using StringBuilder or
+								StringBuffer reverse() method.</summary>
+							<div class="toggle-content">
+								<p>You can reverse a string without using <code>StringBuilder</code> or
+									<code>StringBuffer</code> reverse methods by iterating through the string:
+								</p>
+								<pre>
+							            <code>String str = "Hello";
+							char[] charArray = str.toCharArray();
+							int left = 0;
+							int right = charArray.length - 1;
+							while (left < right) {
+							    // Swap characters
+							    char temp = charArray[left];
+							    charArray[left] = charArray[right];
+							    charArray[right] = temp;
+							    // Move indices toward the center
+							    left++;
+							    right--;
+							}
+							String reversedStr = new String(charArray);
+							System.out.println("Reversed string: " + reversedStr); // Output: Reversed string: olleH
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. Write a program to reverse words in given string.</summary>
+							<div class="toggle-content">
+								<p>You can reverse words in a string by splitting the string into words, reversing
+									the order of words, and then joining them back together:</p>
+								<pre>
+							            <code>String str = "Hello World";
+							String[] words = str.split("\\s+");
+							StringBuilder reversed = new StringBuilder();
+							for (int i = words.length - 1; i >= 0; i--) {
+							    reversed.append(words[i]).append(" ");
+							}
+							String reversedStr = reversed.toString().trim();
+							System.out.println("Reversed words: " + reversedStr); // Output: Reversed words: World Hello
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. Write a program to check whether given string is palindrome or not.
+							</summary>
+							<div class="toggle-content">
+								<p>A string is a palindrome if it reads the same backward as forward:</p>
+								<pre>
+							            <code>String str = "madam";
+							boolean isPalindrome = true;
+							for (int i = 0; i < str.length() / 2; i++) {
+							    if (str.charAt(i) != str.charAt(str.length() - 1 - i)) {
+							        isPalindrome = false;
+							        break;
+							    }
+							}
+							if (isPalindrome) {
+							    System.out.println(str + " is a palindrome.");
+							} else {
+							    System.out.println(str + " is not a palindrome.");
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. Write a program to check whether given string is anagram or not.</summary>
+							<div class="toggle-content">
+								<p>Two strings are anagrams if they have the same characters in the same quantities:
+								</p>
+								<pre>
+							            <code>String str1 = "listen";
+							String str2 = "silent";
+							
+							if (str1.length() != str2.length()) {
+							    System.out.println("Not anagrams");
+							} else {
+							    char[] charArray1 = str1.toCharArray();
+							    char[] charArray2 = str2.toCharArray();
+							    Arrays.sort(charArray1);
+							    Arrays.sort(charArray2);
+							    if (Arrays.equals(charArray1, charArray2)) {
+							        System.out.println("Anagrams");
+							    } else {
+							        System.out.println("Not anagrams");
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. Write a program to check whether given string is numeric.</summary>
+							<div class="toggle-content">
+								<p>You can check if a string is numeric using regular expressions:</p>
+								<pre>
+							            <code>String str = "12345";
+							boolean isNumeric = str.matches("\\d+"); // Matches one or more digits
+							if (isNumeric) {
+							    System.out.println(str + " is numeric.");
+							} else {
+							    System.out.println(str + " is not numeric.");
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. Write a program to count number of occurrences of a given character in a
+								string.</summary>
+							<div class="toggle-content">
+								<p>You can count occurrences of a character in a string using a loop:</p>
+								<pre>
+							            <code>String str = "Hello";
+							char ch = 'l';
+							int count = 0;
+							for (int i = 0; i < str.length(); i++) {
+							    if (str.charAt(i) == ch) {
+							        count++;
+							    }
+							}
+							System.out.println("Number of occurrences of " + ch + ": " + count); // Output: Number of occurrences of l: 2
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. Write a program to count number of occurrences of each character in a
+								string.</summary>
+							<div class="toggle-content">
+								<p>You can count occurrences of each character in a string using a <code>Map</code>:
+								</p>
+								<pre>
+							            <code>String str = "Hello";
+							Map&lt;Character, Integer&gt; charCountMap = new HashMap<>();
+							for (int i = 0; i < str.length(); i++) {
+							    char ch = str.charAt(i);
+							    charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+							}
+							for (Map.Entry&lt;Character, Integer&gt; entry : charCountMap.entrySet()) {
+							    System.out.println("Character '" + entry.getKey() + "' occurs " + entry.getValue() + " times.");
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. Write a program to generate random string in Java.</summary>
+							<div class="toggle-content">
+								<p>You can generate a random string using <code>Random</code> and
+									<code>StringBuilder</code>:
+								</p>
+								<pre>
+							            <code>int length = 10;
+							StringBuilder sb = new StringBuilder();
+							Random random = new Random();
+							for (int i = 0; i < length; i++) {
+							    char ch = (char)(random.nextInt(26) + 'a'); // Generates a random lowercase letter
+							    sb.append(ch);
+							}
+							String randomString = sb.toString();
+							System.out.println("Random string: " + randomString);
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. Write a program to find first unique character in string.</summary>
+							<div class="toggle-content">
+								<p>You can find the first unique character in a string using a
+									<code>LinkedHashMap</code> to maintain insertion order:
+								</p>
+								<pre>
+							            <code>String str = "abacdbe";
+							Map&lt;Character, Integer&gt; charCountMap = new LinkedHashMap<>();
+							for (int i = 0; i < str.length(); i++) {
+							    char ch = str.charAt(i);
+							    charCountMap.put(ch, charCountMap.getOrDefault(ch, 0) + 1);
+							}
+							char firstUnique = '\0'; // Default value if no unique character found
+							for (Map.Entry&lt;Character, Integer&gt; entry : charCountMap.entrySet()) {
+							    if (entry.getValue() == 1) {
+							        firstUnique = entry.getKey();
+							        break;
+							    }
+							}
+							if (firstUnique != '\0') {
+							    System.out.println("First unique character: " + firstUnique);
+							} else {
+							    System.out.println("No unique character found.");
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. Write a program to sort characters of a string.</summary>
+							<div class="toggle-content">
+								<p>You can sort characters of a string using <code>Arrays.sort()</code> and
+									converting the string to a character array:</p>
+								<pre>
+							            <code>String str = "dcba";
+							char[] charArray = str.toCharArray();
+							Arrays.sort(charArray);
+							String sortedStr = new String(charArray);
+							System.out.println("Sorted string: " + sortedStr); // Output: Sorted string: abcd
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>21. Write a program to print permutations of a string.</summary>
+							<div class="toggle-content">
+								<p>You can print permutations of a string using recursion:</p>
+								<pre>
+							            <code>public class StringPermutations {
+							    public static void main(String[] args) {
+							        String str = "abc";
+							        permute(str, 0, str.length() - 1);
+							    }
+							
+							    private static void permute(String str, int left, int right) {
+							        if (left == right) {
+							            System.out.println(str);
+							        } else {
+							            for (int i = left; i <= right; i++) {
+							                str = swap(str, left, i);
+							                permute(str, left + 1, right);
+							                str = swap(str, left, i); // Backtrack
+							            }
+							        }
+							    }
+							
+							    private static String swap(String str, int i, int j) {
+							        char[] charArray = str.toCharArray();
+							        char temp = charArray[i];
+							        charArray[i] = charArray[j];
+							        charArray[j] = temp;
+							        return new String(charArray);
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>22. Write a program to check whether given string has valid parenthesis or not.
+							</summary>
+							<div class="toggle-content">
+								<p>You can check if a string has valid parentheses using a stack:</p>
+								<pre>
+							            <code>public class ValidParentheses {
+							    public static void main(String[] args) {
+							        String str = "{[()]}";
+							        if (isValid(str)) {
+							            System.out.println("Valid parentheses.");
+							        } else {
+							            System.out.println("Invalid parentheses.");
+							        }
+							    }
+							
+							    private static boolean isValid(String str) {
+							        Stack&lt;Character&gt; stack = new Stack<>();
+							        for (char ch : str.toCharArray()) {
+							            if (ch == '(' || ch == '[' || ch == '{') {
+							                stack.push(ch);
+							            } else if (ch == ')' && !stack.isEmpty() && stack.peek() == '(') {
+							                stack.pop();
+							            } else if (ch == ']' && !stack.isEmpty() && stack.peek() == '[') {
+							                stack.pop();
+							            } else if (ch == '}' && !stack.isEmpty() && stack.peek() == '{') {
+							                stack.pop();
+							            } else {
+							                return false; // Unmatched closing parenthesis
+							            }
+							        }
+							        return stack.isEmpty(); // Stack should be empty for valid parentheses
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>23. Write a program to count Uppercase, Lowercase, special character, and
+								numeric values in given string.</summary>
+							<div class="toggle-content">
+								<p>You can count uppercase, lowercase, special characters, and numeric values in a
+									string using character classifications:</p>
+								<pre>
+							            <code>String str = "Hello! 123";
+							int upperCaseCount = 0, lowerCaseCount = 0, digitCount = 0, specialCharCount = 0;
+							for (int i = 0; i < str.length(); i++) {
+							    char ch = str.charAt(i);
+							    if (Character.isUpperCase(ch)) {
+							        upperCaseCount++;
+							    } else if (Character.isLowerCase(ch)) {
+							        lowerCaseCount++;
+							    } else if (Character.isDigit(ch)) {
+							        digitCount++;
+							    } else {
+							        specialCharCount++;
+							    }
+							}
+							System.out.println("Uppercase letters: " + upperCaseCount);
+							System.out.println("Lowercase letters: " + lowerCaseCount);
+							System.out.println("Numeric digits: " + digitCount);
+							System.out.println("Special characters: " + specialCharCount);
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>24. Write a program to remove spaces from a given string.</summary>
+							<div class="toggle-content">
+								<p>You can remove spaces from a string using the <code>replace()</code> method:</p>
+								<pre>
+							            <code>String str = "Hello World";
+							String stringWithoutSpaces = str.replace(" ", "");
+							System.out.println("String without spaces: " + stringWithoutSpaces); // Output: String without spaces: HelloWorld
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>25. Write a program to count words present in a given string.</summary>
+							<div class="toggle-content">
+								<p>You can count words in a string using the <code>split()</code> method:</p>
+								<pre>
+							            <code>String str = "Hello World Java";
+							String[] words = str.trim().split("\\s+");
+							int wordCount = words.length;
+							System.out.println("Number of words: " + wordCount); // Output: Number of words: 3
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../java/java-inheritance.html">&lArr;
+							Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../java/java-overloading-Overriding.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

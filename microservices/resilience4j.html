@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Resilience4j</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png" />
+	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+	<link rel="stylesheet" href="../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+					alt="Home" />
+				<h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+								height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Microservice</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/ms-intro.html">Introduction</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/ms-architecture.html">Microservices Architecture</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/registry-discovery.html">Service Registry and Discovery</a>
+							</li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/config-server.html">Config Server</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/api-gateway.html">API Gateway</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/zuul.html">Zuul
+									Gateway</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/circuit-breaker.html">Circuit Breaker</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/resilience4j.html">Resilience4j</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/web-client.html">WebClient</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/open-feign.html">Feign Client</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/sleuth.html">Zipkin and Sleuth</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/saga.html">Saga
+									Pattern</a></li>
+							<h4>Interview Questions</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../interview/springboot/microservices.html">Microservices Interview
+									Questions</a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/ms-intro.html">Microservices</a></li>
+						<li><a href="../springboot/resilience4j.html">Resilience4j</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/ms-intro.html">Microservices</a></li>
+						<li><a href="../springboot/resilience4j.html">Resilience4j</a></li>
+					</ul>
+
+				</nav>
+				<a class="div-to-desk">
+					<br>
+				</a>
+				<article>
+					<div class="entry-content" itemprop="text">
+						<div class="l">
+							<div class="l"><span
+									style="display: block; position: absolute; left: 643.398px; top: 2743.14px; height: 25px; width: 0px;"><span
+										class="l dv" aria-hidden="true"></span></span>
+								<section>
+									<div>
+										<div class="fp gf gg gh gi gj"></div>
+										<div class="gk gl gm gn go">
+											<div class="ab ca">
+												<div class="ch bg fw fx fy fz">
+													<div>
+														<h1 id="3680"
+															class="pw-post-title gp gq gr be gs gt gu gv gw gx gy gz ha hb hc hd he hf hg hh hi hj hk hl hm hn ho hp hq hr bj"
+															data-testid="storyTitle" data-selectable-paragraph="">
+															Resilience4J: Circuit Breaker Implementation on Spring Boot
+														</h1>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="gk gl gm gn go">
+											<div class="ab ca">
+												<div class="ch bg fw fx fy fz">
+													<h2 id="201e"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph=""><strong
+															class="al">Introduction</strong></h2>
+													<figure class="pe pf pg ph pi pj pb pc paragraph-image">
+														<div role="button" tabindex="0" class="pk pl fg pm bg pn">
+															<div class="pb pc pd">
+																<picture>
+																	<source
+																		srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*kxu-whApstY7reRghowWAw.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*kxu-whApstY7reRghowWAw.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*kxu-whApstY7reRghowWAw.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*kxu-whApstY7reRghowWAw.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*kxu-whApstY7reRghowWAw.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*kxu-whApstY7reRghowWAw.png 1100w, https://miro.medium.com/v2/resize:fit:1400/format:webp/1*kxu-whApstY7reRghowWAw.png 1400w"
+																		sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px"
+																		type="image/webp">
+																	<source data-testid="og"
+																		srcset="https://miro.medium.com/v2/resize:fit:640/1*kxu-whApstY7reRghowWAw.png 640w, https://miro.medium.com/v2/resize:fit:720/1*kxu-whApstY7reRghowWAw.png 720w, https://miro.medium.com/v2/resize:fit:750/1*kxu-whApstY7reRghowWAw.png 750w, https://miro.medium.com/v2/resize:fit:786/1*kxu-whApstY7reRghowWAw.png 786w, https://miro.medium.com/v2/resize:fit:828/1*kxu-whApstY7reRghowWAw.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*kxu-whApstY7reRghowWAw.png 1100w, https://miro.medium.com/v2/resize:fit:1400/1*kxu-whApstY7reRghowWAw.png 1400w"
+																		sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 700px">
+																	<img
+																		src="https://miro.medium.com/v2/resize:fit:700/1*kxu-whApstY7reRghowWAw.png">
+																</picture>
+															</div>
+														</div>
+														<figcaption class="pp fc pq pb pc pr ps be b bf z dt"
+															data-selectable-paragraph="">Microservices illustration
+														</figcaption>
+													</figure>
+													<p id="93e9"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Let’s take a look at example cases
+														below.</p>
+													<ul class="">
+														<li id="0106"
+															class="nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz pt pu pv bj"
+															data-selectable-paragraph="">When <strong
+																class="ne gs">microservice B</strong> calls <strong
+																class="ne gs">microservice C </strong>and <strong
+																class="ne gs">microservice C</strong> unavailable or
+															unable to respond, <strong class="ne gs">microservice
+																B</strong> may have encountered an error. And if <strong
+																class="ne gs">microservice A</strong> calls <strong
+																class="ne gs">microservice B</strong> which is
+															encountered an error, this causes <strong
+																class="ne gs">microservice A</strong> is just
+															wasting<strong class="ne gs"> </strong>its resources, <em
+																class="nd">right?</em> <br>Actually, we can tune or
+															optimize the microservice, ‘cause it’s still within the
+															scope of our workspace.</li>
+														<li id="66a6"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph="">When <strong
+																class="ne gs">microservice B</strong> calls the <strong
+																class="ne gs">external microservice</strong> and
+															unfortunately the <strong class="ne gs">external
+																microservice</strong> is down. Actually, <strong
+																class="ne gs">microservice B</strong> is just wasting
+															its resources. This will also definitely affect <strong
+																class="ne gs">microservice B</strong> when called by
+															<strong class="ne gs">microservice A</strong>. In this case,
+															there is nothing to do except wait for a third party to
+															check what’s wrong with their microservice.
+														</li>
+													</ul>
+													<p id="74b3"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">From the 2 cases above, we can
+														conclude that when a microservice encounters an error, it will
+														have an impact on other microservices that call it, and will
+														also have a <em class="nd">domino</em> effect. Then, what can be
+														done to prevent a <em class="nd">domino</em> effect like the
+														cases above? Well, the answer is a <strong class="ne gs">circuit
+															breaker</strong> mechanism.</p>
+													<h2 id="f17f"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph=""><strong class="al">What is Circuit
+															Breaker?</strong></h2>
+													<p id="f811"
+														class="pw-post-body-paragraph nb nc gr ne b nf qb nh ni nj qc nl nm nn qd np nq nr qe nt nu nv qf nx ny nz gk bj"
+														data-selectable-paragraph="">The concept of a circuit breaker is
+														to prevent calls to microservice when it’s known the call may
+														fail or time out. This is done so that clients don’t waste their
+														valuable resources handling requests that are likely to fail.
+														Using this concept, you can give the server some spare time to
+														recover.</p>
+													<p id="3db1"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">So, how do we know if a request is
+														likely to fail? Yeah, this can be known by recording the results
+														of several previous requests sent to other microservices. For
+														example, 4 out of 5 requests sent failed or timeout, then most
+														likely the next request will also encounter the same thing.</p>
+													<h2 id="1052"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph=""><strong class="al">Circuit Breaker
+															State</strong></h2>
+													<figure class="pe pf pg ph pi pj pb pc paragraph-image">
+														<div class="pb pc qg">
+															<picture>
+																<source
+																	srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 1100w, https://miro.medium.com/v2/resize:fit:1000/format:webp/1*dEHnwH8uQwxEK7mPUYSdKg.png 1000w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 500px"
+																	type="image/webp">
+																<source data-testid="og"
+																	srcset="https://miro.medium.com/v2/resize:fit:640/1*dEHnwH8uQwxEK7mPUYSdKg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*dEHnwH8uQwxEK7mPUYSdKg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*dEHnwH8uQwxEK7mPUYSdKg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*dEHnwH8uQwxEK7mPUYSdKg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*dEHnwH8uQwxEK7mPUYSdKg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*dEHnwH8uQwxEK7mPUYSdKg.png 1100w, https://miro.medium.com/v2/resize:fit:1000/1*dEHnwH8uQwxEK7mPUYSdKg.png 1000w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 500px">
+																<img
+																	src="https://miro.medium.com/v2/resize:fit:500/1*dEHnwH8uQwxEK7mPUYSdKg.png">
+															</picture>
+														</div>
+														<figcaption class="pp fc pq pb pc pr ps be b bf z dt"
+															data-selectable-paragraph="">Circuit Breaker State
+														</figcaption>
+													</figure>
+													<p id="0131"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">In the circuit breaker, there are 3
+														states <strong class="ne gs">Closed</strong>, <strong
+															class="ne gs">Open</strong>, and <strong
+															class="ne gs">Half-Open</strong>.</p>
+													<ul class="">
+														<li id="992f"
+															class="nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Closed</strong>: when everything is
+															normal. Initially, the circuit breaker is in a <strong
+																class="ne gs">Closed state.</strong></li>
+														<li id="dc2a"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong class="ne gs">Open:
+															</strong>when a failure occurs above predetermined criteria.
+															In this state, requests to other microservices will not be
+															executed and <em class="nd">fail-fast </em>or <em
+																class="nd">fallback </em>will be performed if available.
+															When this state has passed a certain time limit, it will
+															automatically or according to certain criteria will be
+															returned to the <strong class="ne gs">Half-Open
+																state.</strong></li>
+														<li id="81f0"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Half-Open: </strong>several requests will
+															be executed to find out whether the microservices that we
+															are calling are working normally. If successful, the state
+															will be returned to the <strong
+																class="ne gs">Closed</strong> <strong
+																class="ne gs">state</strong>. However, if it still fails
+															it will be returned to the <strong class="ne gs">Open
+																state</strong>.</li>
+													</ul>
+													<h2 id="26ac"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph=""><strong class="al">Circuit Breaker
+															Type</strong></h2>
+													<p id="c3fb"
+														class="pw-post-body-paragraph nb nc gr ne b nf qb nh ni nj qc nl nm nn qd np nq nr qe nt nu nv qf nx ny nz gk bj"
+														data-selectable-paragraph="">There are 2 types of circuit
+														breaker patterns, <strong class="ne gs">Count-based</strong> and
+														<strong class="ne gs">Time-based.</strong>
+													</p>
+													<ul class="">
+														<li id="6765"
+															class="nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Count-based</strong>: the circuit breaker
+															switches from a closed state to an open state when the last
+															N requests have failed or timeout.</li>
+														<li id="f03d"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Time-based</strong>: the circuit breaker
+															switches from a closed state to an open state when the last
+															N time unit has failed or timeout.</li>
+													</ul>
+													<p id="41a7"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">In both types of circuit breakers,
+														we can determine what the threshold for failure or timeout is.
+														Suppose we specify that the circuit breaker will trip and go to
+														the <strong class="ne gs">Open state</strong> when 50% of the
+														last 20 requests took more than 2s, or for a time-based, we can
+														specify that 50% of the last 60 seconds of requests took more
+														than 5s.</p>
+													<p id="9f61"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">After we know how the circuit
+														breaker works, then we will try to implement it in the spring
+														boot project.</p>
+												</div>
+											</div>
+										</div>
+										<div class="gk gl gm gn go">
+											<div class="ab ca">
+												<div class="ch bg fw fx fy fz">
+													<h2 id="4e28"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph="">Prerequisites</h2>
+													<p id="487b"
+														class="pw-post-body-paragraph nb nc gr ne b nf qb nh ni nj qc nl nm nn qd np nq nr qe nt nu nv qf nx ny nz gk bj"
+														data-selectable-paragraph="">One of the libraries that offer a
+														circuit breaker features is <a class="af qh"
+															href="https://resilience4j.readme.io/"
+															rel="noopener ugc nofollow" target="_blank"><strong
+																class="ne gs">Resilience4J</strong></a><strong
+															class="ne gs">. </strong>So, for the example project, we’ll
+														use this library. First, we create a spring boot project with
+														these required dependencies:</p>
+													<p id="d9c4"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph=""><strong
+															class="ne gs">Implementation</strong></p>
+													<p id="4b01"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">We will create a simple REST API to
+														start simulating a circuit breaker. This REST API will provide a
+														response with a time delay according to the parameter of the
+														request we sent. For example, if we send a request with a delay
+														of 5 seconds, then it will return a response after 5 seconds. In
+														the other words, we will make the circuit breaker trips to an
+														<strong class="ne gs">Open State</strong> when the response from
+														the request has passed the time unit threshold that we specify.
+													</p>
+													<p id="4484"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Pay attention to line 3. An API
+														with a circuit breaker is simply marked using the <strong
+															class="ne gs">@CircuitBreaker </strong>annotation followed
+														by the name of the circuit breaker.</p>
+													<p id="43ee"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Next, we will configure what
+														conditions will cause the circuit breaker to trip to the <strong
+															class="ne gs">Open State</strong>.</p>
+													<p id="92c6"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">The above configuration will create
+														a shared circuit breaker configuration. It can be used for any
+														circuit breaker instance we want to create. Notice that we
+														created an instance named <strong
+															class="ne gs">example</strong>, which we use when we
+														annotate <strong class="ne gs">@CircuitBreaker</strong> on the
+														REST API.</p>
+													<p id="1bcb"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Let’s look at the following
+														configurations:</p>
+													<ul class="">
+														<li id="c4d3"
+															class="nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Sliding-window-type</strong>: we will use
+															a <strong class="ne gs">count-based</strong> circuit breaker
+															type. In this type, the circuit will trip or move to an open
+															state based on each incoming request.</li>
+														<li id="6918"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Sliding-window-size</strong>: we will use
+															this parameter to record the last N requests to make the
+															circuit breaker trip or open. Here, we will record the last
+															5 requests.</li>
+														<li id="d964"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Failure-rate-threshold</strong>: it shows
+															the percentage of the total <strong
+																class="ne gs">sliding-window-size</strong> that fails
+															and will cause the circuit breaker trips to open state. This
+															means, with a configuration of 40%, 2 out of 5 failed
+															requests will cause the circuit breaker trips to open state.
+														</li>
+														<li id="9d78"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Slow-call-rate-threshold</strong>: it
+															shows the percentage of the total <strong
+																class="ne gs">sliding-window-size</strong> that fails
+															which will cause the circuit breaker trips to open state.
+															From the configuration above, it can be seen that 2 out of 5
+															failed requests will cause the circuit breaker trips to open
+															state.</li>
+														<li id="1cea"
+															class="nb nc gr ne b nf pw nh ni nj px nl nm nn py np nq nr pz nt nu nv qa nx ny nz pt pu pv bj"
+															data-selectable-paragraph=""><strong
+																class="ne gs">Slow-call-duration-threshold</strong>: is
+															the time taken to indicate the received response exceeds
+															this configuration time will be recorded as an error count.
+														</li>
+													</ul>
+													<p id="eb2d"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">For other configurations, please
+														refer to the <a class="af qh"
+															href="https://resilience4j.readme.io/"
+															rel="noopener ugc nofollow" target="_blank">Resilience4J
+															documentation</a>.</p>
+													<h2 id="54b0"
+														class="oi oj gr be ok ol om dx on oo op dz oq nn or os ot nr ou ov ow nv ox oy oz pa bj"
+														data-selectable-paragraph=""><strong class="al">Testing</strong>
+													</h2>
+													<p id="9b80"
+														class="pw-post-body-paragraph nb nc gr ne b nf qb nh ni nj qc nl nm nn qd np nq nr qe nt nu nv qf nx ny nz gk bj"
+														data-selectable-paragraph="">To simulate the circuit breaker
+														above, I will use the Integration Test on the REST API that has
+														been created.</p>
+													<p id="c970"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Pay attention to the code. I am
+														using <strong class="ne gs">@RepeatedTest</strong> annotation
+														from Junit5. With this annotation, we can test with as many
+														iterations as we want. The above code will do 10 iterations to
+														call the API that we created earlier. <br>Each iteration will be
+														delayed for N seconds. When the iteration is odd, then the
+														response will be delayed for 2s which will increase the failure
+														counter on the circuit breaker. Whereas when the iteration is
+														even then the response will be delayed for 1s. When the above
+														test is run, it will produce the following output:</p>
+													<figure class="pe pf pg ph pi pj pb pc paragraph-image">
+														<div class="pb pc ql">
+															<picture>
+																<source
+																	srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 1100w, https://miro.medium.com/v2/resize:fit:846/format:webp/1*cpQMp9kTNlpx531Z8Tfzeg.png 846w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 423px"
+																	type="image/webp">
+																<source data-testid="og"
+																	srcset="https://miro.medium.com/v2/resize:fit:640/1*cpQMp9kTNlpx531Z8Tfzeg.png 640w, https://miro.medium.com/v2/resize:fit:720/1*cpQMp9kTNlpx531Z8Tfzeg.png 720w, https://miro.medium.com/v2/resize:fit:750/1*cpQMp9kTNlpx531Z8Tfzeg.png 750w, https://miro.medium.com/v2/resize:fit:786/1*cpQMp9kTNlpx531Z8Tfzeg.png 786w, https://miro.medium.com/v2/resize:fit:828/1*cpQMp9kTNlpx531Z8Tfzeg.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*cpQMp9kTNlpx531Z8Tfzeg.png 1100w, https://miro.medium.com/v2/resize:fit:846/1*cpQMp9kTNlpx531Z8Tfzeg.png 846w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 423px">
+																<img
+																	src="https://miro.medium.com/v2/resize:fit:423/1*cpQMp9kTNlpx531Z8Tfzeg.png">
+															</picture>
+														</div>
+													</figure>
+													<p id="0e58"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Let’s look at iterations 6, 7,
+														through 10. <em class="nd">Failed right? </em>Why are that
+														happened? Yaps, because the counter for circuit breaker trips to
+														open state has been fulfilled (≥ 40% of the last 5 requests).
+														This causes the next request to be considered a failure. If we
+														look in more detail at the 6th iteration log we will find the
+														following log:</p>
+													<p id="d27a"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Resilience4J will <em
+															class="nd">fail-fast</em> by throwing a <strong
+															class="ne gs">CallNotPermittedException</strong>,<strong
+															class="ne gs"> </strong>until the state changes to closed or
+														according to the configuration we made. So how do we handle it
+														when it’s <strong class="ne gs">Open State</strong> but we don’t
+														want to throw an exception, but instead make it return a certain
+														response? It’s easy enough to add a fallback to the <strong
+															class="ne gs">@CircuitBreaker</strong> annotation and create
+														a function with the same name. Let’s add the following line of
+														code on the CircuitBreakerController file.</p>
+													<p id="4dec"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">We will create a function with the
+														name fallback, and register it in the <strong
+															class="ne gs">@CircuitBreaker</strong> annotation. So, when
+														the circuit breaker trips to <strong class="ne gs">Open
+															state,</strong> it will no longer throw a <strong
+															class="ne gs">CallNotPermittedException</strong> but instead
+														will return the response <strong
+															class="ne gs">INTERNAL_SERVER_ERROR</strong>. We try to
+														prove it by re-running the integration test that was previously
+														made, and will get the following results:</p>
+													<figure class="pe pf pg ph pi pj pb pc paragraph-image">
+														<div class="pb pc qm">
+															<picture>
+																<source
+																	srcset="https://miro.medium.com/v2/resize:fit:640/format:webp/1*zi31du-6VVJJqfq4za573Q.png 640w, https://miro.medium.com/v2/resize:fit:720/format:webp/1*zi31du-6VVJJqfq4za573Q.png 720w, https://miro.medium.com/v2/resize:fit:750/format:webp/1*zi31du-6VVJJqfq4za573Q.png 750w, https://miro.medium.com/v2/resize:fit:786/format:webp/1*zi31du-6VVJJqfq4za573Q.png 786w, https://miro.medium.com/v2/resize:fit:828/format:webp/1*zi31du-6VVJJqfq4za573Q.png 828w, https://miro.medium.com/v2/resize:fit:1100/format:webp/1*zi31du-6VVJJqfq4za573Q.png 1100w, https://miro.medium.com/v2/resize:fit:862/format:webp/1*zi31du-6VVJJqfq4za573Q.png 862w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 431px"
+																	type="image/webp">
+																<source data-testid="og"
+																	srcset="https://miro.medium.com/v2/resize:fit:640/1*zi31du-6VVJJqfq4za573Q.png 640w, https://miro.medium.com/v2/resize:fit:720/1*zi31du-6VVJJqfq4za573Q.png 720w, https://miro.medium.com/v2/resize:fit:750/1*zi31du-6VVJJqfq4za573Q.png 750w, https://miro.medium.com/v2/resize:fit:786/1*zi31du-6VVJJqfq4za573Q.png 786w, https://miro.medium.com/v2/resize:fit:828/1*zi31du-6VVJJqfq4za573Q.png 828w, https://miro.medium.com/v2/resize:fit:1100/1*zi31du-6VVJJqfq4za573Q.png 1100w, https://miro.medium.com/v2/resize:fit:862/1*zi31du-6VVJJqfq4za573Q.png 862w"
+																	sizes="(min-resolution: 4dppx) and (max-width: 700px) 50vw, (-webkit-min-device-pixel-ratio: 4) and (max-width: 700px) 50vw, (min-resolution: 3dppx) and (max-width: 700px) 67vw, (-webkit-min-device-pixel-ratio: 3) and (max-width: 700px) 65vw, (min-resolution: 2.5dppx) and (max-width: 700px) 80vw, (-webkit-min-device-pixel-ratio: 2.5) and (max-width: 700px) 80vw, (min-resolution: 2dppx) and (max-width: 700px) 100vw, (-webkit-min-device-pixel-ratio: 2) and (max-width: 700px) 100vw, 431px">
+																<img
+																	src="https://miro.medium.com/v2/resize:fit:431/1*zi31du-6VVJJqfq4za573Q.png">
+															</picture>
+														</div>
+													</figure>
+													<p id="80c7"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">As we can see, all integration
+														tests were executed successfully. That way the client from our
+														application can handle when an <strong class="ne gs">Open State
+														</strong>occurs, and will not waste their resources for requests
+														that might be failed.</p>
+													<p id="9012"
+														class="pw-post-body-paragraph nb nc gr ne b nf ng nh ni nj nk nl nm nn no np nq nr ns nt nu nv nw nx ny nz gk bj"
+														data-selectable-paragraph="">Actually, the <strong
+															class="ne gs">Resilience4J</strong> library doesn’t only
+														have features for circuit breakers, but there are other features
+														that are very useful when we create microservices, if you want
+														to take a look please visit the <a class="af qh"
+															href="https://resilience4j.readme.io/"
+															rel="noopener ugc nofollow" target="_blank">Resilience4J
+															Documentation</a>.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+						<h4>Conclusion</h4>
+						<p>Resilience4j is a powerful and flexible tool for building resilient Spring Boot applications.
+							Its modular design, fine-grained control, and comprehensive monitoring capabilities make it
+							a valuable addition to your microservice architecture. While the example provides a basic
+							implementation, explore the detailed documentation and explore specific patterns to achieve
+							optimal resilience for your needs.</p>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../microservices/circuit-breaker.html">&lArr; Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../microservices/web-client.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

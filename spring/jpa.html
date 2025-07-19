@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>JPA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Spring Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/introduction.html">Spring
+                            Introduction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/spring-core.html">Spring Core</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/mvc.html">Spring
+                            Web</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/aop.html">Spring
+                            AOP</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/exceptions.html">Spring Exceptions</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/jpa.html">Spring
+                            JPA</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/transactions.html">Spring
+                            Transactions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/batch.html">Spring
+                            Batch</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/resttemplate.html">Spring
+                            Rest Template</a></li>
+                        <h4>Spring Annotations</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-core.html">Core
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-mvc.html">MVC Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-transactions.html">Transactions
+                            & Error Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-configuration.html">Configuration
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-aop.html">AOP Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-jpa.html">JPA Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cloud.html">Cloud
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-scheduling.html">Scheduling
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cache-error.html">Caching
+                            Annotations</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/spring/spring-interview-questions.html">Spring
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">JPA</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">JPA</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk"> <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text"></div>
+                <h1>What is Spring Data JPA?</h1>
+                <p>Spring Data JPA is part of the larger Spring Data family, which aims to simplify the data access
+                    layer for Java applications. It provides a consistent and simplified approach to managing relational
+                    data in applications, making it easier to use JPA (Java Persistence API) without the need for
+                    extensive boilerplate code. Spring Data JPA adds a layer of abstraction on top of JPA, providing
+                    powerful repository support, including CRUD operations, pagination, sorting, and the ability to
+                    define custom queries.</p>
+
+                <h2>Key Components of Spring Data JPA</h2>
+                <ol>
+                    <li>Entity</li>
+                    <li>Repository</li>
+                    <li>Service</li>
+                    <li>Controller</li>
+                    <li>Spring Data Annotations</li>
+                    <li>Pagination and Sorting</li>
+                    <li>Query Methods</li>
+                    <li>Specifications and QueryDSL</li>
+                </ol>
+                <p>Spring Data JPA is a part of the larger Spring Data family, making it easier to implement JPA-based
+                    repositories. It reduces the boilerplate code needed for database operations and offers a set of
+                    standard CRUD operations out-of-the-box.</p>
+
+                <h2>1. Setting Up the Project</h2>
+                <p>Create a new Spring Boot project using Spring Initializr with the following dependencies:</p>
+                <ul>
+                    <li>Spring Data JPA</li>
+                    <li>Spring Web</li>
+                    <li>H2 Database (or another database of your choice)</li>
+                    <li>Spring Boot DevTools (optional)</li>
+                </ul>
+                <p>pom.xml Example Configuration:</p>
+                <div class="code og oh">
+                    &lt;dependencies&gt;<br>
+                    &nbsp;&nbsp;&lt;!-- Spring Boot Starter Data JPA for JPA support --&gt;<br>
+                    &nbsp;&nbsp;&lt;dependency&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;<span class="value">org.springframework.boot</span>&lt;/groupId&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;<span
+                        class="value">spring-boot-starter-data-jpa</span>&lt;/artifactId&gt;<br>
+                    &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                    &nbsp;&nbsp;&lt;!-- Spring Boot Starter Web for building web applications --&gt;<br>
+                    &nbsp;&nbsp;&lt;dependency&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;<span class="value">org.springframework.boot</span>&lt;/groupId&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;<span class="value">spring-boot-starter-web</span>&lt;/artifactId&gt;<br>
+                    &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                    &nbsp;&nbsp;&lt;!-- H2 Database for an in-memory database (for demo purposes) --&gt;<br>
+                    &nbsp;&nbsp;&lt;dependency&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;<span class="value">com.h2database</span>&lt;/groupId&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;<span class="value">h2</span>&lt;/artifactId&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;scope&gt;<span class="value">runtime</span>&lt;/scope&gt;<br>
+                    &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                    &lt;/dependencies&gt;
+                </div>
+
+                <h2>2. Configuring the Database</h2>
+                <p>application.properties</p>
+                <div class="code og oh">
+                    <span class="keyword">spring.datasource.url</span>=jdbc:h2:mem:testdb<br>
+                    <span class="keyword">spring.datasource.driverClassName</span>=org.h2.Driver<br>
+                    <span class="keyword">spring.datasource.username</span>=sa<br>
+                    <span class="keyword">spring.datasource.password</span>=password<br>
+                    <span class="keyword">spring.jpa.database-platform</span>=org.hibernate.dialect.H2Dialect<br>
+                    <span class="keyword">spring.h2.console.enabled</span>=true<br>
+                    <span class="keyword">spring.jpa.hibernate.ddl-auto</span>=update
+                </div>
+
+                <h2>3. Creating Entity Classes</h2>
+                <p>Entities represent the data model of your application. They are typically mapped to database
+                    tables.</p>
+                <h3>User.java</h3>
+                <div class="code og oh">
+                    <span class="keyword">import</span> javax.persistence.<span
+                        class="class-name">Entity</span>;<br>
+                    <span class="keyword">import</span> javax.persistence.<span
+                        class="class-name">GeneratedValue</span>;<br>
+                    <span class="keyword">import</span> javax.persistence.<span
+                        class="class-name">GenerationType</span>;<br>
+                    <span class="keyword">import</span> javax.persistence.<span
+                        class="class-name">Id</span>;<br><br>
+                    <span class="keyword">@Entity</span><br>
+                    <span class="class-name">public class User</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Id</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">@GeneratedValue(strategy = GenerationType.IDENTITY)</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">private</span> <span
+                        class="class-name">Long</span> <span class="variable">id</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">private</span> <span
+                        class="class-name">String</span> <span class="variable">name</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">private</span> <span
+                        class="class-name">String</span> <span class="variable">email</span>;<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Constructors, getters, setters</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public User</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public User</span>(<span
+                        class="class-name">String</span>
+                    <span class="variable">name</span>, <span class="class-name">String</span> <span
+                        class="variable">email</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">this.name</span> = <span
+                        class="variable">name</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">this.email</span> = <span
+                        class="variable">email</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public Long getId()</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">id</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public void setId</span>(<span
+                        class="class-name">Long</span> <span class="variable">id</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">this.id</span> = <span
+                        class="variable">id</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public String getName()</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">name</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public void setName</span>(<span
+                        class="class-name">String</span> <span class="variable">name</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">this.name</span> = <span
+                        class="variable">name</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public String getEmail()</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">email</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public void setEmail</span>(<span
+                        class="class-name">String</span> <span class="variable">email</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">this.email</span> = <span
+                        class="variable">email</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br>
+                    }
+                </div>
+
+                <h2>4. Creating Repository Interfaces</h2>
+                <p>Repositories provide CRUD operations and query methods for interacting with the database.</p>
+                <h3>UserRepository.java</h3>
+                <div class="code og oh">
+                    <span class="keyword">import</span> org.springframework.data.jpa.repository.<span
+                        class="class-name">JpaRepository</span>;<br>
+                    <span class="keyword">import</span> org.springframework.stereotype.<span class="class-name">Repository</span>;<br><br>
+                    <span class="class-name">@Repository</span><br>
+                    <span class="class-name">public interface UserRepository</span> extends <span
+                        class="class-name">JpaRepository</span>&lt;<span class="class-name">User</span>, <span
+                        class="class-name">Long</span>&gt; {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">User</span> <span
+                        class="method">findByEmail</span>(<span class="class-name">String</span> <span
+                        class="variable">email</span>);<br>
+                    }
+                </div>
+
+                <h2>5. Creating Service Layer</h2>
+                <p>The service layer contains business logic and interacts with repositories.</p>
+                <h3>UserService.java</h3>
+                <div class="code">
+                    <span class="keyword">import</span> org.springframework.beans.factory.annotation.<span
+                        class="class-name">Autowired</span>;<br>
+                    <span class="keyword">import</span> org.springframework.stereotype.<span
+                        class="class-name">Service</span>;<br>
+                    <span class="keyword">import</span> java.util.<span class="class-name">List</span>;<br>
+                    <span class="keyword">import</span> java.util.<span class="class-name">Optional</span>;<br><br>
+                    <span class="class-name">@Service</span><br>
+                    <span class="class-name">public class UserService</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Autowired</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">private</span> <span class="class-name">UserRepository</span>
+                    <span class="variable">userRepository</span>;<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public List<User> getAllUsers()</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="method">findAll</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public Optional<User> getUserById</span>(<span
+                        class="class-name">Long</span> <span class="variable">id</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="method">findById</span>(<span
+                        class="variable">id</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public User createUser</span>(<span
+                        class="class-name">User</span> <span class="variable">user</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="method">save</span>(<span
+                        class="variable">user</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public void deleteUser</span>(<span
+                        class="class-name">Long</span> <span class="variable">id</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="variable">userRepository</span>.<span class="method">deleteById</span>(<span
+                        class="variable">id</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">public User updateUser</span>(<span
+                        class="class-name">Long</span> <span class="variable">id</span>, <span
+                        class="class-name">User</span>
+                    <span class="variable">userDetails</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">User</span> <span
+                        class="variable">user</span> = <span class="variable">userRepository</span>.<span
+                        class="method">findById</span>(<span class="variable">id</span>).<span class="method">orElseThrow</span>(()
+                    -&gt; <span class="keyword">new</span> <span class="class-name">RuntimeException</span>(<span
+                        class="value">"User not found"</span>));<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">user</span>.<span
+                        class="method">setName</span>(<span class="variable">userDetails</span>.<span
+                        class="method">getName</span>());<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">user</span>.<span
+                        class="method">setEmail</span>(<span class="variable">userDetails</span>.<span
+                        class="method">getEmail</span>());<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="method">save</span>(<span
+                        class="variable">user</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">}</span><br>
+                    }
+                </div>
+
+                <div>
+                    <h2>6. Creating Controller Layer</h2>
+                    <p>Controllers handle HTTP requests and responses.</p>
+                    <h3>UserController.java</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span>
+                        org.springframework.beans.factory.annotation.Autowired;<br>
+                        <span style="color:blue;">import</span> org.springframework.http.ResponseEntity;<br>
+                        <span style="color:blue;">import</span> org.springframework.web.bind.annotation.*;<br>
+                        <span style="color:blue;">import</span> java.util.List;<br>
+                        <span style="color:blue;">import</span> java.util.Optional;<br><br>
+
+                        <span style="color:blue;">@RestController</span><br>
+                        <span style="color:blue;">@RequestMapping</span>("api/users")<br>
+                        <span style="color:blue;">public class</span> <span
+                            style="color:green;">UserController</span> {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Autowired</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="color:green;">private UserService userService;</span><br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@GetMapping</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public List</span>
+                        <User><span style="color:green;">getAllUsers()</span> {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                            userService.getAllUsers();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@GetMapping</span>("/{id}")<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public ResponseEntity</span>
+                            <User><span style="color:green;">getUserById</span>(@PathVariable Long id) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        style="color:blue;">Optional</span>&lt;User&gt; user =
+                                userService.getUserById(id);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">if</span>
+                                (user.isPresent()) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        style="color:blue;">return</span> ResponseEntity.ok(user.get());<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span
+                                        style="color:blue;">else</span> {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        style="color:blue;">return</span> ResponseEntity.notFound().build();<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@PostMapping</span><br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public User</span> <span
+                                        style="color:green;">createUser</span>(@RequestBody User user) {<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                        style="color:blue;">return</span> userService.createUser(user);<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@PutMapping</span>("/{id}")<br>
+                                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public ResponseEntity</span>
+                                <User><span style="color:green;">updateUser</span>(@PathVariable Long id,
+                                    @RequestBody User userDetails) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            style="color:blue;">try</span> {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            style="color:blue;">User</span> updatedUser = userService.updateUser(id,
+                                    userDetails);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            style="color:blue;">return</span> ResponseEntity.ok(updatedUser);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span
+                                            style="color:blue;">catch</span>
+                                    (RuntimeException e) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            style="color:blue;">return</span> ResponseEntity.notFound().build();<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@DeleteMapping</span>("/{id}")<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public ResponseEntity</span>&lt;Void&gt;
+                                    <span style="color:green;">deleteUser</span>(@PathVariable Long id) {<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userService.deleteUser(id);<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                                            style="color:blue;">return</span>
+                                    ResponseEntity.noContent().build();<br>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                                    }
+
+                    </div>
+
+                    <h2>7. Running the Application</h2>
+                    <p>Create a main class to run the Spring Boot application.</p>
+                    <h3>SpringJpaApplication.java</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.autoconfigure.SpringBootApplication;<br><br>
+
+                        <span style="color:blue;">@SpringBootApplication</span><br>
+                        <span style="color:blue;">public class</span> <span
+                            style="color:green;">SpringJpaApplication</span>
+                        {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public static void</span> <span
+                            style="color:green;">main</span>(String[] args) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SpringApplication.run(SpringJpaApplication.class,
+                        args);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+
+                    </div>
+
+                    <h2>8. Advanced Topics</h2>
+                    <h3>8.1 Pagination and Sorting</h3>
+                    <p>Spring Data JPA supports pagination and sorting out-of-the-box.</p>
+                    <h3>UserService.java</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span> org.springframework.data.domain.Page;<br>
+                        <span style="color:blue;">import</span> org.springframework.data.domain.PageRequest;<br>
+                        <span style="color:blue;">import</span> org.springframework.data.domain.Sort;<br><br>
+
+                        <span style="color:blue;">public Page</span>&lt;User&gt; <span style="color:green;">getUsersWithPagination</span>(<span
+                            style="color:blue;">int</span> page, <span style="color:blue;">int</span> size) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        userRepository.findAll(PageRequest.of(page, size, Sort.by("name").ascending()));<br>
+                        }
+
+                    </div>
+
+                    <h3>8.2 Custom Queries</h3>
+                    <p>You can define custom queries using JPQL or native SQL.</p>
+                    <h3>UserRepository.java</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span> org.springframework.data.jpa.repository.Query;<br>
+                        <span style="color:blue;">import</span> org.springframework.data.repository.query.Param;<br><br>
+
+                        <span style="color:blue;">public interface</span> <span
+                            style="color:green;">UserRepository</span> <span
+                            style="color:blue;">extends JpaRepository</span>&lt;User,
+                        Long&gt; {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Query</span>("SELECT u FROM User u WHERE
+                        u.name = :name")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">User findByName</span>(@Param("name")
+                        String name);<br>
+                        }
+
+                    </div>
+                </div>
+                <div>
+                    <h2>Summary of Key Points</h2>
+                    <table>
+                        <tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Entity</td>
+                            <td>Represents a table in the database with fields as columns.</td>
+                        </tr>
+                        <tr>
+                            <td>Repository</td>
+                            <td>Provides CRUD operations and query methods for interacting with the database.</td>
+                        </tr>
+                        <tr>
+                            <td>Service</td>
+                            <td>Contains business logic and interacts with repositories.</td>
+                        </tr>
+                        <tr>
+                            <td>Controller</td>
+                            <td>Handles HTTP requests and responses.</td>
+                        </tr>
+                        <tr>
+                            <td>Pagination and Sorting</td>
+                            <td>Supports pagination and sorting of query results.</td>
+                        </tr>
+                        <tr>
+                            <td>Custom Queries</td>
+                            <td>Allows defining custom queries using JPQL or native SQL.</td>
+                        </tr>
+                    </table>
+
+                    <h2>Configuring Two Databases</h2>
+                    <p>Here's a step-by-step guide on how to configure two databases:</p>
+
+                    <h3>1. Add Dependencies</h3>
+                    <p>Ensure you have the necessary dependencies in your pom.xml . You'll need Spring Data
+                        JPA, Spring Web, and the drivers for your databases (e.g., H2, MySQL).</p>
+
+                    <h3>Example pom.xml :</h3>
+                    <div class="code">
+
+                        &lt;dependencies&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Spring Data JPA --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Spring Web --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- H2 Database --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.h2database&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;h2&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;scope&gt;runtime&lt;/scope&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- MySQL Database --&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;mysql&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;scope&gt;runtime&lt;/scope&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        &lt;/dependencies&gt;
+
+                    </div>
+
+                    <h3>2. Configure Data Sources</h3>
+                    <p>Define the properties for both databases in the application.properties file.</p>
+
+                    <h3>Example application.properties :</h3>
+                    <div class="code">
+
+                        # Primary DataSource (H2)<br>
+                        spring.datasource.primary.url=jdbc:h2:mem:primarydb<br>
+                        spring.datasource.primary.driverClassName=org.h2.Driver<br>
+                        spring.datasource.primary.username=sa<br>
+                        spring.datasource.primary.password=password<br><br>
+
+                        # Secondary DataSource (MySQL)<br>
+                        spring.datasource.secondary.url=jdbc:mysql://localhost:3306/secondarydb<br>
+                        spring.datasource.secondary.driverClassName=com.mysql.cj.jdbc.Driver<br>
+                        spring.datasource.secondary.username=root<br>
+                        spring.datasource.secondary.password=yourpassword<br>
+
+                    </div>
+
+                    <h3>3. Configure Data Sources, EntityManagerFactory, and TransactionManager</h3>
+                    <p>Create configuration classes for each database.</p>
+
+                    <h3>Primary Database Configuration (H2):</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span>
+                        org.springframework.beans.factory.annotation.Qualifier;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.context.properties.ConfigurationProperties;<br>
+                        <span style="color:blue;">import</span> org.springframework.boot.jdbc.DataSourceBuilder;<br>
+                        <span style="color:blue;">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.context.annotation.Configuration;<br>
+                        <span style="color:blue;">import</span> org.springframework.context.annotation.Primary;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.data.jpa.repository.config.EnableJpaRepositories;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.JpaTransactionManager;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;<br><br>
+
+                        <span style="color:blue;">import</span> javax.sql.DataSource;<br>
+                        <span style="color:blue;">import</span> java.util.HashMap;<br>
+                        <span style="color:blue;">import</span> java.util.Map;<br><br>
+
+                        <span style="color:blue;">@Configuration</span><br>
+                        <span style="color:blue;">@EnableJpaRepositories</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;basePackages = "com.example.primary.repository", <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;entityManagerFactoryRef = "primaryEntityManagerFactory", <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;transactionManagerRef = "primaryTransactionManager"<br>
+                        )<br>
+                        <span style="color:blue;">public class</span> <span
+                            style="color:green;">PrimaryDataSourceConfig</span>
+                        {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Primary</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name =
+                        "primaryDataSource")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@ConfigurationProperties</span>(prefix =
+                        "spring.datasource.primary")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public DataSource</span> <span
+                            style="color:green;">primaryDataSource</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        DataSourceBuilder.create().build();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Primary</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name =
+                        "primaryEntityManagerFactory")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="color:blue;">public LocalContainerEntityManagerFactoryBean</span>
+                        <span style="color:green;">primaryEntityManagerFactory</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Qualifier</span>("primaryDataSource")
+                        DataSource primaryDataSource, JpaProperties jpaProperties) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LocalContainerEntityManagerFactoryBean em =
+                        <span style="color:blue;">new</span> LocalContainerEntityManagerFactoryBean();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setDataSource(primaryDataSource);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setPackagesToScan("com.example.primary.entity");<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HibernateJpaVendorAdapter vendorAdapter =
+                        <span style="color:blue;">new</span> HibernateJpaVendorAdapter();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setJpaVendorAdapter(vendorAdapter);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setJpaPropertyMap(jpaProperties.getHibernateProperties(<span
+                            style="color:blue;">new</span> HibernateSettings()));<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        em;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Primary</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name =
+                        "primaryTransactionManager")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public JpaTransactionManager</span> <span
+                            style="color:green;">primaryTransactionManager</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Qualifier</span>("primaryEntityManagerFactory")
+                        LocalContainerEntityManagerFactoryBean primaryEntityManagerFactory) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        <span style="color:blue;">new</span>
+                        JpaTransactionManager(primaryEntityManagerFactory.getObject());<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }<br>
+
+                    </div>
+                </div>
+                <div>
+                    <h3>Secondary Database Configuration (MySQL):</h3>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span>
+                        org.springframework.beans.factory.annotation.Qualifier;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.autoconfigure.orm.jpa.HibernateSettings;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.boot.context.properties.ConfigurationProperties;<br>
+                        <span style="color:blue;">import</span> org.springframework.boot.jdbc.DataSourceBuilder;<br>
+                        <span style="color:blue;">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.context.annotation.Configuration;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.data.jpa.repository.config.EnableJpaRepositories;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.JpaTransactionManager;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;<br>
+                        <span style="color:blue;">import</span>
+                        org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;<br>
+                        <br>
+                        <span style="color:blue;">import</span> javax.sql.DataSource;<br><br>
+
+                        <span style="color:blue;">@Configuration</span><br>
+                        <span style="color:blue;">@EnableJpaRepositories</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;basePackages = "com.example.secondary.repository",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;entityManagerFactoryRef = "secondaryEntityManagerFactory",<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;transactionManagerRef = "secondaryTransactionManager"<br>
+                        )<br>
+                        <span style="color:blue;">public class</span> <span style="color:green;">SecondaryDataSourceConfig</span>
+                        {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name = "secondaryDataSource")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@ConfigurationProperties</span>(prefix =
+                        "spring.datasource.secondary")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public DataSource</span> <span
+                            style="color:green;">secondaryDataSource</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        DataSourceBuilder.create().build();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name =
+                        "secondaryEntityManagerFactory")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span
+                            style="color:blue;">public LocalContainerEntityManagerFactoryBean</span>
+                        <span style="color:green;">secondaryEntityManagerFactory</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Qualifier</span>("secondaryDataSource")
+                        DataSource secondaryDataSource, JpaProperties jpaProperties) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LocalContainerEntityManagerFactoryBean em =
+                        <span style="color:blue;">new</span> LocalContainerEntityManagerFactoryBean();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setDataSource(secondaryDataSource);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setPackagesToScan("com.example.secondary.entity");<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HibernateJpaVendorAdapter vendorAdapter =
+                        <span style="color:blue;">new</span> HibernateJpaVendorAdapter();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setJpaVendorAdapter(vendorAdapter);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;em.setJpaPropertyMap(jpaProperties.getHibernateProperties(<span
+                            style="color:blue;">new</span> HibernateSettings()));<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        em;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Bean</span>(name =
+                        "secondaryTransactionManager")<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">public JpaTransactionManager</span> <span
+                            style="color:green;">secondaryTransactionManager</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Qualifier</span>("secondaryEntityManagerFactory")
+                        LocalContainerEntityManagerFactoryBean secondaryEntityManagerFactory) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">return</span>
+                        <span style="color:blue;">new</span>
+                        JpaTransactionManager(secondaryEntityManagerFactory.getObject());<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }<br>
+
+                    </div>
+
+                    <h3>4. Define Entities for Each Database</h3>
+
+                    <h4>Primary Database Entity (H2):</h4>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span> javax.persistence.Entity;<br>
+                        <span style="color:blue;">import</span> javax.persistence.GeneratedValue;<br>
+                        <span style="color:blue;">import</span> javax.persistence.GenerationType;<br>
+                        <span style="color:blue;">import</span> javax.persistence.Id;<br><br>
+
+                        <span style="color:blue;">@Entity</span><br>
+                        <span style="color:blue;">public class</span> <span style="color:green;">User</span>
+                        {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Id</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@GeneratedValue</span>(strategy =
+                        GenerationType.IDENTITY)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private Long</span> id;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private String</span> name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private String</span> email;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;// Getters and Setters<br>
+                        }<br>
+
+                    </div>
+
+                    <h4>Secondary Database Entity (MySQL):</h4>
+                    <div class="code">
+
+                        <span style="color:blue;">import</span> javax.persistence.Entity;<br>
+                        <span style="color:blue;">import</span> javax.persistence.GeneratedValue;<br>
+                        <span style="color:blue;">import</span> javax.persistence.GenerationType;<br>
+                        <span style="color:blue;">import</span> javax.persistence.Id;<br><br>
+
+                        <span style="color:blue;">@Entity</span><br>
+                        <span style="color:blue;">public class</span> <span style="color:green;">Product</span>
+                        {<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@Id</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">@GeneratedValue</span>(strategy =
+                        GenerationType.IDENTITY)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private Long</span> id;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private String</span> name;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">private Double</span> price;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;// Getters and Setters<br>
+                        }<br>
+
+                    </div>
+                </div>
+                <h5>5. Create Repositories for Each Database</h5>
+                <p>Define repository interfaces for each database.</p>
+
+                <h6>Primary Database Repository:</h6>
+                <p>Example UserRepository.java in com.example.primary.repository package:</p>
+                <div class="code">
+                    <span class="annotation">@Repository</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="type">UserRepository</span>
+                    <span class="keyword">extends</span> <span class="type">JpaRepository</span>&lt;<span class="type">User</span>,
+                    <span class="type">Long</span>&gt; {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">User</span> <span
+                        class="function">findByEmail</span>(<span class="type">String</span> <span class="variable">email</span>);
+                    <br>
+                    }
+                </div>
+
+                <h6>Secondary Database Repository:</h6>
+                <p>Example ProductRepository.java in com.example.secondary.repository package:
+                </p>
+                <div class="code">
+                    <span class="annotation">@Repository</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">interface</span> <span class="type">ProductRepository</span>
+                    <span class="keyword">extends</span> <span class="type">JpaRepository</span>&lt;<span class="type">Product</span>,
+                    <span class="type">Long</span>&gt; {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Product</span> <span
+                        class="function">findByName</span>(<span class="type">String</span> <span
+                        class="variable">name</span>);
+                    <br>
+                    }
+                </div>
+
+                <h5>6. Use Services to Interact with Repositories</h5>
+                <p>Create service classes to interact with repositories.</p>
+
+                <h6>Example UserService.java :</h6>
+                <div class="code">
+                    <span class="annotation">@Service</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">UserService</span>
+                    {
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span
+                        class="type">UserRepository</span> <span class="variable">userRepository</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">List&lt;User&gt;</span> <span class="function">getAllUsers</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="function">findAll</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">Optional&lt;User&gt;</span> <span class="function">getUserById</span>(<span
+                        class="type">Long</span> <span class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="function">findById</span>(<span
+                        class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">User</span> <span
+                        class="function">createUser</span>(<span class="type">User</span> <span
+                        class="variable">user</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="function">save</span>(<span
+                        class="variable">user</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">deleteUser</span>(<span class="type">Long</span> <span
+                        class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">userRepository</span>.<span
+                        class="function">deleteById</span>(<span class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">User</span> <span
+                        class="function">updateUser</span>(<span class="type">Long</span> <span
+                        class="variable">id</span>, <span class="type">User</span> <span
+                        class="variable">userDetails</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">User</span> <span
+                        class="variable">user</span> = <span class="variable">userRepository</span>.<span
+                        class="function">findById</span>(<span class="variable">id</span>).<span class="function">orElseThrow</span>(()
+                    -&gt; <span class="keyword">new</span> <span class="type">RuntimeException</span>(<span
+                        class="string">"User not found"</span>));
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">user</span>.<span
+                        class="function">setName</span>(<span class="variable">userDetails</span>.<span
+                        class="function">getName</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">user</span>.<span
+                        class="function">setEmail</span>(<span class="variable">userDetails</span>.<span
+                        class="function">getEmail</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userRepository</span>.<span class="function">save</span>(<span
+                        class="variable">user</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    }
+                </div>
+                <h5>Example ProductService.java:</h5>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="type">org.springframework.beans.factory.annotation.Autowired</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.stereotype.Service</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.List</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.Optional</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@Service</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">ProductService</span>
+                    {
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span
+                        class="type">ProductRepository</span> <span class="variable">productRepository</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">List&lt;Product&gt;</span> <span class="function">getAllProducts</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productRepository</span>.<span class="function">findAll</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Optional&lt;Product&gt;</span>
+                    <span class="function">getProductById</span>(<span class="type">Long</span> <span class="variable">id</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productRepository</span>.<span class="function">findById</span>(<span
+                        class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Product</span> <span
+                        class="function">createProduct</span>(<span class="type">Product</span> <span class="variable">product</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productRepository</span>.<span class="function">save</span>(<span
+                        class="variable">product</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">deleteProduct</span>(<span class="type">Long</span> <span
+                        class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="variable">productRepository</span>.<span class="function">deleteById</span>(<span
+                        class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Product</span> <span
+                        class="function">updateProduct</span>(<span class="type">Long</span> <span
+                        class="variable">id</span>, <span class="type">Product</span> <span class="variable">productDetails</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Product</span> <span
+                        class="variable">product</span> = <span class="variable">productRepository</span>.<span
+                        class="function">findById</span>(<span class="variable">id</span>).<span class="function">orElseThrow</span>(()
+                    -&gt; <span class="keyword">new</span> <span class="type">RuntimeException</span>(<span
+                        class="string">"Product not found"</span>));
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">product</span>.<span
+                        class="function">setName</span>(<span class="variable">productDetails</span>.<span
+                        class="function">getName</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">product</span>.<span
+                        class="function">setPrice</span>(<span class="variable">productDetails</span>.<span
+                        class="function">getPrice</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productRepository</span>.<span class="function">save</span>(<span
+                        class="variable">product</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    }
+                </div>
+
+                <h5>7. Create Controllers to Expose REST Endpoints</h5>
+                <p>Create controller classes to expose REST endpoints for your services.</p>
+
+                <h6>Example UserController.java:</h6>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="type">org.springframework.beans.factory.annotation.Autowired</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.http.ResponseEntity</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.web.bind.annotation.*</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.List</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.Optional</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@RestController</span>
+                    <br>
+                    <span class="annotation">@RequestMapping</span>(<span class="string">"/api/users"</span>)
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">UserController</span>
+                    {
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="type">UserService</span>
+                    <span class="variable">userService</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">List&lt;User&gt;</span> <span class="function">getAllUsers</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userService</span>.<span class="function">getAllUsers</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;User&gt;</span>
+                    <span class="function">getUserById</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Optional&lt;User&gt;</span> <span
+                        class="variable">user</span> = <span class="variable">userService</span>.<span class="function">getUserById</span>(<span
+                        class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (<span
+                        class="variable">user</span>.<span class="function">isPresent</span>()) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span
+                        class="function">ok</span>(<span class="variable">user</span>.<span class="function">get</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@PostMapping</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">User</span> <span
+                        class="function">createUser</span>(<span class="annotation">@RequestBody</span> <span
+                        class="type">User</span> <span class="variable">user</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">userService</span>.<span class="function">createUser</span>(<span
+                        class="variable">user</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@PutMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;User&gt;</span>
+                    <span class="function">updateUser</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>, <span
+                        class="annotation">@RequestBody</span> <span class="type">User</span> <span class="variable">userDetails</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="type">User</span> <span class="variable">updatedUser</span> = <span class="variable">userService</span>.<span
+                        class="function">updateUser</span>(<span class="variable">id</span>, <span class="variable">userDetails</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span
+                        class="function">ok</span>(<span class="variable">updatedUser</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">catch</span> (<span
+                        class="type">RuntimeException</span> <span class="variable">e</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@DeleteMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;Void&gt;</span>
+                    <span class="function">deleteUser</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">userService</span>.<span
+                        class="function">deleteUser</span>(<span class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">ResponseEntity</span>.<span class="function">noContent</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h6>Example ProductController.java:</h6>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="type">org.springframework.beans.factory.annotation.Autowired</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.http.ResponseEntity</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.web.bind.annotation.*</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.List</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.Optional</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@RestController</span>
+                    <br>
+                    <span class="annotation">@RequestMapping</span>(<span class="string">"/api/products"</span>)
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">ProductController</span>
+                    {
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span
+                        class="type">ProductService</span> <span class="variable">productService</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">List&lt;Product&gt;</span> <span class="function">getAllProducts</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productService</span>.<span class="function">getAllProducts</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;Product&gt;</span>
+                    <span class="function">getProductById</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Optional&lt;Product&gt;</span>
+                    <span class="variable">product</span> = <span class="variable">productService</span>.<span
+                        class="function">getProductById</span>(<span class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (<span
+                        class="variable">product</span>.<span class="function">isPresent</span>()) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span
+                        class="function">ok</span>(<span class="variable">product</span>.<span
+                        class="function">get</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">else</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@PostMapping</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Product</span> <span
+                        class="function">createProduct</span>(<span class="annotation">@RequestBody</span> <span
+                        class="type">Product</span> <span class="variable">product</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">productService</span>.<span class="function">createProduct</span>(<span
+                        class="variable">product</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@PutMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;Product&gt;</span>
+                    <span class="function">updateProduct</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>, <span
+                        class="annotation">@RequestBody</span> <span class="type">Product</span> <span class="variable">productDetails</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="type">Product</span> <span class="variable">updatedProduct</span> = <span
+                        class="variable">productService</span>.<span class="function">updateProduct</span>(<span
+                        class="variable">id</span>, <span class="variable">productDetails</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span
+                        class="function">ok</span>(<span class="variable">updatedProduct</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">catch</span> (<span
+                        class="type">RuntimeException</span> <span class="variable">e</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">return</span> <span class="type">ResponseEntity</span>.<span class="function">notFound</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@DeleteMapping</span>(<span
+                        class="string">"/{id}"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ResponseEntity&lt;Void&gt;</span>
+                    <span class="function">deleteProduct</span>(<span class="annotation">@PathVariable</span> <span
+                        class="type">Long</span> <span class="variable">id</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">productService</span>.<span
+                        class="function">deleteProduct</span>(<span class="variable">id</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">ResponseEntity</span>.<span class="function">noContent</span>().<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <p>By following these steps, you can configure and use two separate databases within a single Spring
+                    Data JPA application, allowing you to manage multiple data sources effectively.</p>
+
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary" href="../spring/exceptions.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../spring/transactions.html">Next &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img height="30" width="30" src="../scripts/images/top.jpeg"/>
+        </button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

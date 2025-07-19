@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Kafka</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png" />
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="../scripts/css/site.css">
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+					alt="Home" />
+				<h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+								height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/java8/introduction.html">Java 8
+							Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../DP/introduction.html">Design
+							Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../interview/interview-questions.html">Interview
+							Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox" /> <span
+							class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>SpringBoot</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../springboot/introduction.html">Introduction</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../springboot/configuration.html">Configuration</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/actuators.html">
+								Actuators</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/async.html">
+								Asynchronous</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/profiles.html">
+								Profiles</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/caching.html">
+								Caching</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/scheduling.html">
+								Scheduling</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/logging.html">
+								Logging</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/test.html">
+								Testing</a></li>
+							<h4>SpringBoot Security</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../springboot/security.html">Security</a></li>
+							<h4>Miscellaneous</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../springboot/kafka.html">Kafka</a></li>
+							<h4>Interview Questions</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../interview/springboot/springboot-interview-questions.html">SpringBoot
+								Interview Questions</a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span> <span></span> <span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/introduction.html">SpringBoot</a></li>
+						<li><a href="../springboot/kafka.html">Kafka</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/introduction.html">SpringBoot</a></li>
+						<li><a href="../springboot/kafka.html">Kafka</a></li>
+					</ul>
+
+				</nav>
+				<a class="div-to-desk"> <br>
+				</a>
+				<article>
+					<div class="entry-content" itemprop="text">
+						<h2>What is Apache Kafka?</h2>
+						<p>Apache Kafka is an open-source distributed event streaming
+							platform used by thousands of companies for high-performance data
+							pipelines, streaming analytics, data integration, and
+							mission-critical applications.</p>
+						<h2>Apache Kafka Core Concepts</h2>
+						<div>
+							<p>We will discuss following Apache Kafka core concepts:</p>
+							1. Kafka Cluster<br>2. Kafka Broker<br>3. Kafka
+							Producer<br>4. Kafka Consumer<br>5. Kafka Topic<br>6.
+							Kafka Partitions<br>7. Kafka Offsets<br>8. Kafka
+							Consumer Group
+						</div>
+						<p>Let's begin with Kafka cluster.</p>
+						<h1>1. Kafka Cluster</h1>
+						<p>Since Kafka is a distributed system, it acts as a cluster.
+							A Kafka cluster consists of a set of brokers. A cluster has a
+							minimum of 3 brokers</p>
+						<p>The following diagram shows Kafka cluster with three Kafka
+							brockers:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEi9hrIWpPIyRZ5rVEc0K3UZ7_s2IUxnZvF5DB0W5Pp9mfZQFKuiwVsasWAlUOueWCQv9z8qR8DcoZqIxImgjEpmDrQHAne1y7odpkE87e-QGzwWCarB2k8ZA_ZH07AMft9ZPj7xLZXz8cu4ugCDU5c2XCeJTChNwJ-8zb9MWxdvkzAx-Z1wEPqZK2JZ" />
+						<h1>2. Kafka Broker</h1>
+						<p>The broker is the Kafka server. It's just a meaningful name
+							given to the Kafka server. And this name makes sense as well
+							because all that Kafka does is act as a message broker between
+							producer and consumer.</p>
+						<p>The producer and consumer don't interact directly. They use
+							the Kafka server as an agent or a broker to exchange messages.</p>
+						<p>The following diagram shows a Kafka broker, it acts as an
+							agent or broker to exchange messages between Producer and
+							Consumer:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEiBTAZMBDniTdXHsiadf7DJbypCOFO0WjQhj5PnWAYTF58saqG6sbQu6CJBXFuB3mvbtm_D29IXzwScxUwyXGyuT3Sq3XCzymEGVUBReiEWfn7EcV-mPpRRXCIvIiSs6FBGLkcjb7YJRV3ysSoUMc5unD7G5867FY77MLxk95I_LeHYi1cH71TOPe8w" />
+						<h1>3. Kafka Producer</h1>
+						<p>Producer is an application that sends messages. It does not
+							send messages directly to the recipient. It sends messages only
+							to the Kafka server.</p>
+						<p>The following diagram shows Producer sends messages
+							directly to Kafka broker:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEiBTAZMBDniTdXHsiadf7DJbypCOFO0WjQhj5PnWAYTF58saqG6sbQu6CJBXFuB3mvbtm_D29IXzwScxUwyXGyuT3Sq3XCzymEGVUBReiEWfn7EcV-mPpRRXCIvIiSs6FBGLkcjb7YJRV3ysSoUMc5unD7G5867FY77MLxk95I_LeHYi1cH71TOPe8w" />
+						<h1>4. Kafka Consumer</h1>
+						<p>Consumer is an application that reads messages from the
+							Kafka server.</p>
+						<p>If producers are sending data, they must be sending it to
+							someone, right? The consumers are the recipients. But remember
+							that the producers don't send data to a recipient address. They
+							just send it to the Kafka server.</p>
+						<p>Anyone who is interested in that data can come forward and
+							take it from the Kafka server. So, any application that requests
+							data from a Kafka server is a consumer, and they can ask for data
+							sent by any producer provided they have permission to read it.</p>
+						<p>The following diagram shows Producer sends messages
+							directly to the Kafka broker and the Consumer consumes or reads
+							messages from the Kafka broker:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEiBTAZMBDniTdXHsiadf7DJbypCOFO0WjQhj5PnWAYTF58saqG6sbQu6CJBXFuB3mvbtm_D29IXzwScxUwyXGyuT3Sq3XCzymEGVUBReiEWfn7EcV-mPpRRXCIvIiSs6FBGLkcjb7YJRV3ysSoUMc5unD7G5867FY77MLxk95I_LeHYi1cH71TOPe8w" />
+						<h1>5. Kafka Topic</h1>
+						<p>We learned that producer sends data to the Kafka broker.
+							Then a consumer can ask for data from the Kafka broker. But the
+							question is, Which data? We need to have some identification
+							mechanism to request data from a broker. There comes the Kafka
+							topic.</p>
+						<ul>
+							<li>Topic is like a table in a database or folder in a file
+								system.&nbsp;</li>
+							<li>Topic is identified by a name.&nbsp;</li>
+							<li>You can have any number of topics.</li>
+						</ul>
+						<p>The following diagram shows two Topics are created in a
+							Kafka broker:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEhlKR0H-usK8tqw4l6ZBotEdj0GlufBMIYymVIarTvZdq0mRwm4tmB0zZIuSFFEGh2r_c5oK2J2TYVxbzufIs3leif1K0ZOOG6gTZPI7_5vsGcSlvEHMBJVGM-WjSudn17PTFwcu4BBqb2Ip8Q9vZke57l7DmVOqOJXYyRaPGhjpX4yw47yOagYN_ws" />
+						<h1>6. Kafka Partitions</h1>
+						<p>Kafka topics are divided into a number of partitions, which
+							contain records in an unchangeable sequence.</p>
+						<p>Kafka Brokers will store messages for a topic. But the
+							capacity of data can be enormous and it may not be possible to
+							store in a single computer. Therefore it will be partitioned into
+							multiple parts and distributed among multiple computers since
+							Kafka is a distributed system.</p>
+						<p>The following diagram shows Kafka's topic is further
+							divided into a number of partitions:</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEjy5qEhC7_hrTlauMSEdhjOkybBZVp44eVVIpASv-s3-llmp_lqf9MqArwSu-LhIq6qovoOBXwcYz0VZK7fjsniTCjxUi09UlhhO4-R6VYZSpA9ZJyskfGXZaOJQTnt93fvcUdaoY9KEyph6QfeTQegZ5Os5Y_tVoV-UwPl1Ca-jrTpx89SnmWkh3L3" />
+						<h1>7. Kafka Offsets</h1>
+						<p>Offset is a sequence of ids given to messages as they
+							arrive at a partition. Once the offset is assigned it will never
+							be changed. The first message gets an offset zero. The next
+							message receives an offset one and so on.</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEgLjNHk8K7-N07M7jGV7a_pSMB94bH0e1S4iWghXORilNuVztnJiKMZsbHLt9rQvjoEY8tz4vCafPTwBecVEwO1z5lDXqdI2qOGsnxWwVEjNoL1U_SYGcQdsigcSuRHYzBxNaG4yF0G7cU82nxHRaIA6YtNueBwVyTonbD8t8cmrJ_SK-NppnLXuqoZ" />
+						<h1>8. Kafka Consumer Group</h1>
+						<p>A consumer group contains one or more consumers working
+							together to process the messages.</p>
+						<img
+							src="https://blogger.googleusercontent.com/img/a/AVvXsEipRZwK4ijG2kIS4YhFXs0tSxXxRneQwp_BID8Kr5uPRQTWL6ps8F2z-bukwkGDJVTE-EBK8u2poCdJ-He4_O0Sie_KOPChIOZACHBA6A-1T4lqSVe_qO2064m-A93pPK4y6YhJYhyEXxInPw8I04qLxFFrrUcfV8q2ZNl7LrmFXB3XHc_D1lupVKwP" />
+						<h1>Spring Boot Kafka Producer and Consumer Example</h1>
+						<h1>Kafka Cheat Sheet</h1>
+						<img src="../spring/images/Kafka2.jpg" />
+						<p>
+							In this section of the tutorial, we will learn how to
+							create&nbsp;<b>Kafka Producer</b>&nbsp;and&nbsp;<b>Consumer</b>&nbsp;in
+							Spring Boot Kafka project.
+						</p>
+						<p>
+							The Spring Team provides <b>Spring for Apache Kafka</b>
+							dependency to work with the development of Kafka-based messaging
+							solutions.
+						</p>
+						<p>In this tutorial, we use Kafka as a messaging system to
+							send messages between Producers and Consumers.</p>
+						<h1>1. Install and Setup Apache Kafka</h1>
+						<p>
+							1. Download Kafka from the official website at <a
+								href="https://kafka.apache.org/downloads">https://kafka.apache.org/downloads</a>
+						</p>
+						<p>2. Extract Kafka zip in the local file system</p>
+						<p>Run the following commands in order to start all services
+							in the correct order:</p>
+						<p>3. Start Zookeeper service.</p>
+						<p>Use the below command to start the Zookeeper service:</p>
+						<div class="code">
+							<span class="comment"># Start the ZooKeeper service</span><br>
+							<span class="comment"># Note: Soon, ZooKeeper will no longer be required by Apache Kafka.</span><br>
+							<span class="command">$</span> <span class="path">bin/zookeeper-server-start.sh</span> <span class="argument">config/zookeeper.properties</span>
+						</div>
+						<p>4. Start Kafka Broker</p>
+						<p>Open another terminal session and run the below command to
+							start the Kafka broker:</p>
+						<div class="code">
+							<span class="comment"># Start the Kafka broker service</span><br>
+							<span class="command">$</span> <span class="path">bin/kafka-server-start.sh</span> <span class="argument">config/server.properties</span>
+						</div>
+						<p>Once all services have successfully launched, you will have
+							a basic Kafka environment running and ready to use.</p>
+						<h1>2. Create and Setup Spring Boot Project in IntelliJ</h1>
+						<P>
+							Create a Spring boot project using <a
+								href="https://start.spring.io/">https://start.spring.io/</a>
+						</P>
+						<p>Add dependencies:</p>
+						<div class="code">
+							<span class="tag">&lt;dependency&gt;</span><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;groupId&gt;</span>org.springframework.boot<span class="tag">&lt;/groupId&gt;</span><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="tag">&lt;/artifactId&gt;</span><br>
+							<span class="tag">&lt;/dependency&gt;</span><br><br>
+
+							<span class="tag">&lt;dependency&gt;</span><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;groupId&gt;</span>org.springframework.kafka<span class="tag">&lt;/groupId&gt;</span><br>
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="tag">&lt;artifactId&gt;</span>spring-kafka<span class="tag">&lt;/artifactId&gt;</span><br>
+							<span class="tag">&lt;/dependency&gt;</span>
+						</div>
+						<p>Import in IntelliJ and run the spring boot application</p>
+						<h1>3. Configure Kafka Producer and Consumer in an
+							application.properties File</h1>
+						<p style="background-color: white; box-sizing: border-box; color: #24292f;">
+							In the&nbsp;<i>application.properties</i>&nbsp;file, add Kafka
+							broker address as well as Consumer and Producer related
+							configuration.
+						</p>
+						<p style="background-color: white; box-sizing: border-box; color: #24292f;">
+							Open the&nbsp;<i>application.properties</i>&nbsp;file and the
+							following content to it:
+						</p>
+						<div class="code">
+							<span class="property">spring.kafka.consumer.bootstrap-servers</span><span class="separator">:</span> <span class="value">localhost:9092</span><br>
+							<span class="property">spring.kafka.consumer.group-id</span><span class="separator">:</span> <span class="value">group-id</span><br>
+							<span class="property">spring.kafka.consumer.auto-offset-reset</span><span class="separator">:</span> <span class="value">earliest</span><br>
+							<span class="property">spring.kafka.consumer.key-deserializer</span><span class="separator">:</span> <span class="class-name">org.apache.kafka.common.serialization.StringDeserializer</span><br>
+							<span class="property">spring.kafka.consumer.value-deserializer</span><span class="separator">:</span> <span class="class-name">org.apache.kafka.common.serialization.StringDeserializer</span><br><br>
+
+							<span class="property">spring.kafka.producer.bootstrap-servers</span><span class="separator">:</span> <span class="value">localhost:9092</span><br>
+							<span class="property">spring.kafka.producer.key-serializer</span><span class="separator">:</span> <span class="class-name">org.apache.kafka.common.serialization.StringSerializer</span><br>
+							<span class="property">spring.kafka.producer.value-serializer</span><span class="separator">:</span> <span class="class-name">org.apache.kafka.common.serialization.StringSerializer</span>
+						</div>
+						<p>Let's understand the above spring boot provided Kafka
+							properties:</p>
+						<p style="background-color: white; box-sizing: border-box; color: #24292f;">
+							&nbsp;<i>spring.kafka.consumer.group-id</i>&nbsp;- specifies a
+							unique string that identifies the consumer group this consumer
+							belongs to.
+						</p>
+						<p style="background-color: white; box-sizing: border-box; color: #24292f;">
+							&nbsp;<i>spring.kafka.consumer.auto-offset-reset property</i>&nbsp;-
+							specifies what to do when there is no initial offset in Kafka or
+							if
+						</p>
+						<p>the current offset does not exist anymore on the server
+							(e.g. because that data has been deleted):</p>
+						<ul>
+							earliest: automatically reset the offset to the earliest offset
+							</li>
+							<li>latest: automatically reset the offset to the latest
+								offset</li>
+							<li>none: throw an exception to the consumer if no previous
+								offset is found for the consumer’s group</li>
+							<li>anything else: throw an exception to the consumer.</li>
+						</ul>
+						<div>
+							<h2 style="text-align: left;">4. Create Kafka Topic</h2>
+							<div>
+								<p>
+									To create a topic on startup, add a bean of type&nbsp;<i>NewTopic</i>.
+									If the topic already exists, the bean is ignored. We will use
+									the topic name "javaguides" in this example.
+								</p>
+								Let's create a&nbsp;<i>KafkaTopicConfig</i>&nbsp;file and add
+								the following content:
+								<div class="code">
+									<span class="keyword">package</span> <span class="value">net.javaguides.springbootkafka</span><span class="keyword">;</span><br><br>
+
+									<span class="keyword">import</span> <span class="class-name">org.apache.kafka.clients.admin.NewTopic</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.context.annotation.Bean</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.context.annotation.Configuration</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.kafka.config.TopicBuilder</span><span class="keyword">;</span><br><br>
+
+									<span class="annotation">@Configuration</span><br>
+									<span class="keyword">public class</span> <span class="class-name">KafkaTopicConfig</span> {<br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">NewTopic</span> <span class="method-name">javaguidesTopic</span><span class="keyword">()</span> {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="class-name">TopicBuilder</span>.<span class="method-name">name</span><span class="keyword">(</span><span class="value">"javaguides"</span><span class="keyword">)</span>.<span class="method-name">build</span><span class="keyword">();</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									}
+								</div>
+									<h2 style="text-align: left;">5. Create Kafka Producer</h2>
+									<div>
+										<p>Creating a producer will write our messages on the
+											topic.</p>
+										<h3 style="text-align: left;">KafkaTemplate</h3>
+										<p>
+											Well, Spring boot provides an auto-configuration for
+											Spring’s&nbsp;<i>KafkaTemplate</i>&nbsp;so&nbsp;you can
+											autowire it directly in your own beans.
+										</p>
+										<p>For example:</p>
+										<div class="code">
+											<span class="keyword">package</span> <span class="value">net.javaguides.springbootkafka.kafka</span><span class="keyword">;</span><br><br>
+
+											<span class="keyword">import</span> <span class="class-name">net.javaguides.springbootkafka.utils.AppConstants</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.apache.kafka.clients.admin.NewTopic</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.slf4j.Logger</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.slf4j.LoggerFactory</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.springframework.beans.factory.annotation.Autowired</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.springframework.kafka.core.KafkaTemplate</span><span class="keyword">;</span><br>
+											<span class="keyword">import</span> <span class="class-name">org.springframework.stereotype.Service</span><span class="keyword">;</span><br><br>
+
+											<span class="annotation">@Service</span><br>
+											<span class="keyword">public class</span> <span class="class-name">KafkaProducer</span> {<br>
+											<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private static final</span> <span class="class-name">Logger</span> <span class="variable">LOGGER</span> <span class="keyword">=</span> <span class="class-name">LoggerFactory</span>.<span class="method-name">getLogger</span><span class="keyword">(</span><span class="class-name">KafkaProducer</span>.<span class="method-name">class</span><span class="keyword">)</span><span class="keyword">;</span><br>
+											<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span><br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">KafkaTemplate</span><span class="keyword">&lt;</span><span class="class-name">String</span><span class="keyword">,</span> <span class="class-name">String</span><span class="keyword">&gt;</span> <span class="variable">kafkaTemplate</span><span class="keyword">;</span><br>
+											<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">sendMessage</span><span class="keyword">(</span><span class="class-name">String</span> <span class="variable">message</span><span class="keyword">)</span> {<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">LOGGER</span>.<span class="method-name">info</span><span class="keyword">(</span><span class="class-name">String</span>.<span class="method-name">format</span><span class="keyword">(</span><span class="value">"Message sent -> %s"</span><span class="keyword">,</span> <span class="variable">message</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span><br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">kafkaTemplate</span>.<span class="method-name">send</span><span class="keyword">(</span><span class="class-name">AppConstants</span>.<span class="variable">TOPIC_NAME</span><span class="keyword">,</span> <span class="variable">message</span><span class="keyword">)</span><span class="keyword">;</span><br>
+											&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+											}
+										</div>
+										<p>
+											Create a <i>utils </i>package and within this package
+											create&nbsp;<i>AppConstants</i>&nbsp;with the following
+											content:
+										<div class="code">
+											<span class="keyword">package</span> <span class="value">net.javaguides.springbootkafka.utils</span><span class="keyword">;</span><br><br>
+
+											<span class="keyword">public class</span> <span class="class-name">AppConstants</span> {<br>
+											<br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static final</span> <span class="class-name">String</span> <span class="variable">TOPIC_NAME</span> <span class="keyword">=</span> <span class="value">"javaguides"</span><span class="keyword">;</span><br>
+											&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static final</span> <span class="class-name">String</span> <span class="variable">GROUP_ID</span> <span class="keyword">=</span> <span class="value">"group_id"</span><span class="keyword">;</span><br>
+											}
+										</div>
+											<i>KafKaProducer</i>&nbsp;class uses&nbsp;<i>KafkaTemplate</i>&nbsp;to
+											send messages to the configured topic name.
+										</p>
+									</div>
+								</div>
+							</div>
+							<h2 style="text-align: left;">6. Create REST API to Send
+								Message</h2>
+							<div>
+								<p>
+									Create controller package, within controller package
+									create&nbsp;<i>KafkaProducerController</i>&nbsp;with the
+									following content to it:
+								</p>
+								<div class="code">
+									<span class="keyword">package</span> <span class="value">net.javaguides.springbootkafka</span><span class="keyword">;</span><br><br>
+
+									<span class="keyword">import</span> <span class="class-name">net.javaguides.springbootkafka.kafka.KafkaProducer</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.http.ResponseEntity</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.web.bind.annotation.*</span><span class="keyword">;</span><br><br>
+
+									<span class="annotation">@RestController</span><br>
+									<span class="annotation">@RequestMapping</span><span class="keyword">(</span><span class="value">"/api/v1/kafka"</span><span class="keyword">)</span><br>
+									<span class="keyword">public class</span> <span class="class-name">KafkaProducerController</span> {<br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">KafkaProducer</span> <span class="variable">kafkaProducer</span><span class="keyword">;</span><br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">KafkaProducerController</span><span class="keyword">(</span><span class="class-name">KafkaProducer</span> <span class="variable">kafkaProducer</span><span class="keyword">)</span> {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable">kafkaProducer</span> <span class="keyword">=</span> <span class="variable">kafkaProducer</span><span class="keyword">;</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@GetMapping</span><span class="keyword">(</span><span class="value">"/publish"</span><span class="keyword">)</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public ResponseEntity&lt;</span><span class="class-name">String</span><span class="keyword">&gt;</span> <span class="method-name">publish</span><span class="keyword">(</span><span class="keyword">@RequestParam</span><span class="keyword">(</span><span class="value">"message"</span><span class="keyword">)</span> <span class="class-name">String</span> <span class="variable">message</span><span class="keyword">)</span> {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">kafkaProducer</span>.<span class="method-name">sendMessage</span><span class="keyword">(</span><span class="variable">message</span><span class="keyword">)</span><span class="keyword">;</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="class-name">ResponseEntity</span>.<span class="method-name">ok</span><span class="keyword">(</span><span class="value">"Message sent to kafka topic"</span><span class="keyword">)</span><span class="keyword">;</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									}
+								</div>
+							</div>
+							<div>
+								<h3>See Topic Messages via Command Line:</h3>
+								<div class="snippet-clipboard-content position-relative overflow-auto"
+									style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; amp; amp; amp; amp; amp; amp; quot; system-ui &amp;amp; amp; amp; amp; amp; amp; amp; quot; , &amp; amp; amp; amp; amp; amp; amp; amp; quot; Segoe UI&amp;amp; amp; amp; amp; amp; amp; amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; amp; amp; amp; amp; amp; amp; quot; Apple Color Emoji&amp;amp; amp; amp; amp; amp; amp; amp; quot; , &amp; amp; amp; amp; amp; amp; amp; amp; quot; Segoe UI Emoji&amp;amp; amp; amp; amp; amp; amp; amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+									<div class="code">
+										<span class="path">bin/kafka-console-consumer.sh</span> <span class="option">--topic</span> <span class="value">javaguides</span> <span class="option">--from-beginning</span> <span class="option">--bootstrap-server</span> <span class="value">localhost:9092</span>
+									</div>
+								</div>
+								<p>Make sure to change the topic name. In our case
+									"javaguides" is the topic name.</p>
+							</div>
+							<h2 style="text-align: left;">7. Create Kafka Consumer</h2>
+							<div>
+								<p>Kafka Consumer is &hairsp;the service that will be
+									responsible for reading messages and processing them according
+									to the needs of your own business logic.&nbsp;</p>
+								<p>To set it up, enter the following:</p>
+								<div class="code">
+									<span class="keyword">package</span> <span class="value">net.javaguides.springbootkafka.kafka</span><span class="keyword">;</span><br><br>
+
+									<span class="keyword">import</span> <span class="class-name">net.javaguides.springbootkafka.utils.AppConstants</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.slf4j.Logger</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.slf4j.LoggerFactory</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.kafka.annotation.KafkaListener</span><span class="keyword">;</span><br>
+									<span class="keyword">import</span> <span class="class-name">org.springframework.stereotype.Service</span><span class="keyword">;</span><br><br>
+
+									<span class="annotation">@Service</span><br>
+									<span class="keyword">public class</span> <span class="class-name">KafKaConsumer</span> {<br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private static final</span> <span class="class-name">Logger</span> <span class="variable">LOGGER</span> <span class="keyword">=</span> <span class="class-name">LoggerFactory</span>.<span class="method-name">getLogger</span><span class="keyword">(</span><span class="class-name">KafKaConsumer</span>.<span class="method-name">class</span><span class="keyword">)</span><span class="keyword">;</span><br>
+									<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@KafkaListener</span><span class="keyword">(</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">topics</span> <span class="keyword">=</span> <span class="class-name">AppConstants</span>.<span class="variable">TOPIC_NAME</span><span class="keyword">,</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">groupId</span> <span class="keyword">=</span> <span class="class-name">AppConstants</span>.<span class="variable">GROUP_ID</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">)</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">consume</span><span class="keyword">(</span><span class="class-name">String</span> <span class="variable">message</span><span class="keyword">)</span> {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">LOGGER</span>.<span class="method-name">info</span><span class="keyword">(</span><span class="class-name">String</span>.<span class="method-name">format</span><span class="keyword">(</span><span class="value">"Message received -> %s"</span><span class="keyword">,</span> <span class="variable">message</span><span class="keyword">)</span><span class="keyword">)</span><span class="keyword">;</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+									}
+								</div>
+									<div class="zeroclipboard-container position-absolute right-0 top-0"
+										style="animation: 200ms ease 0s 1 normal both running fade-in; box-sizing: border-box; position: absolute; right: 0px; top: 0px;">
+										<clipboard-copy aria-label="Copy"
+											class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay"
+											data-copy-feedback="Copied!" data-tooltip-direction="w" role="button"
+											style="appearance: none; background-color: var(--color-btn-bg); border-color: var(--color-btn-border); border-image: initial; border-radius: 6px; border-style: solid; border-width: 1px; box-shadow: var(--color-btn-shadow),var(--color-btn-inset-shadow); box-sizing: border-box; color: var(--color-btn-text); cursor: pointer; display: inline-block; font-size: 14px; line-height: 20px; margin: 8px; padding: 0px; position: relative; transition: color 80ms cubic-bezier(0.33, 1, 0.68, 1) 0s, background-color 0s ease 0s, box-shadow 0s ease 0s, border-color 0s ease 0s; user-select: none; vertical-align: middle; white-space: nowrap;"
+											tabindex="0" value="package net.javaguides.springbootkafka.kafka;
+
+import net.javaguides.springbootkafka.utils.AppConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.stereotype.Service;
+
+@Service
+public class KafKaConsumer {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(KafKaConsumer.class);
+
+    @KafkaListener(topics = AppConstants.TOPIC_NAME,
+                    groupId = AppConstants.GROUP_ID)
+    public void consume(String message){
+        LOGGER.info(String.format(&quot;Message received -> %s&quot;, message));
+    }
+}">
+											<svg aria-hidden="true"
+												class="octicon octicon-copy js-clipboard-copy-icon m-2"
+												data-view-component="true" height="16" version="1.1" viewBox="0 0 16 16"
+												width="16">
+												<path
+													d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"
+													fill-rule="evenodd"></path>
+												<path
+													d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"
+													fill-rule="evenodd"></path>
+											</svg></clipboard-copy>
+									</div>
+								</div>
+								<p>Here, we told our method void to consume (String message)
+									to subscribe to the user’s topic and just emit every message to
+									the application log. In your real application, you can handle
+									messages the way your business requires you to.</p>
+								<p>KafkaListener endpoint:</p>
+								<div class="code">
+									<span class="annotation">@KafkaListener</span><span class="keyword">(</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">topics</span> <span class="keyword">=</span> <span class="class-name">AppConstants</span>.<span class="variable">TOPIC_NAME</span><span class="keyword">,</span><br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">groupId</span> <span class="keyword">=</span> <span class="class-name">AppConstants</span>.<span class="variable">GROUP_ID</span><br>
+									<span class="keyword">)</span><br>
+									<span class="keyword">public void</span> <span class="method-name">consume</span><span class="keyword">(</span><span class="class-name">String</span> <span class="variable">message</span><span class="keyword">)</span> {<br>
+									&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">LOGGER</span>.<span class="method-name">info</span><span class="keyword">(</span><span class="class-name">String</span>.<span class="method-name">format</span><span class="keyword">(</span><span class="value">"Message received -> %s"</span><span class="keyword">,</span> <span class="variable">message</span><span class="keyword">)</span><span class="keyword">);</span><br>
+									}
+								</div>
+							</div>
+							<h2 style="text-align: left;">8. Demo</h2>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;">Let's
+									run the Spring boot application and have the demo. Make sure
+									that&nbsp;</span><span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;">Zookeeper
+									and Kafka services should be up and running.</span>
+							</div>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;"><br></span>
+							</div>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;">Open
+									a browser and hit the below link to call a REST API:</span>
+							</div>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;"><br></span>
+							</div>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="background-color: white; color: #24292f; font-size: 16px;"><a
+										href="http://localhost:8080/api/v1/kafka/publish?message=hello%20world"
+										target="_blank">http://localhost:8080/api/v1/kafka/publish?message=hello%20world</a><br></span>
+							</div>
+							<div class="separator" style="clear: both; text-align: center;">
+								<a
+									href="https://blogger.googleusercontent.com/img/a/AVvXsEjfrZCZCa4lHPnRB5At6ri4CT-TSXDVzeGLDyriGcidkQ7t__OvmzYpfJe3Gpd5mxLF0a7cRIg9RhPRZLxold1TXRIfjvpy4OsJgEdfLUXYF3G4li99ogA5tkWa9iIXzXJsMlkpJDcoD3qUNrXwgP2G7eH2VvYbEjTDelmnyuxPIYGSdDcLR5ACQqGl"><img
+										src="https://blogger.googleusercontent.com/img/a/AVvXsEjfrZCZCa4lHPnRB5At6ri4CT-TSXDVzeGLDyriGcidkQ7t__OvmzYpfJe3Gpd5mxLF0a7cRIg9RhPRZLxold1TXRIfjvpy4OsJgEdfLUXYF3G4li99ogA5tkWa9iIXzXJsMlkpJDcoD3qUNrXwgP2G7eH2VvYbEjTDelmnyuxPIYGSdDcLR5ACQqGl=w640-h230"></a>
+							</div>
+							From the command line, you can view the topic messages:<br>
+							<div class="separator" style="clear: both; text-align: center;">
+								<a
+									href="https://blogger.googleusercontent.com/img/a/AVvXsEg0oQmc-05_QZwddp_V-q13IQCJG7HapWksTMcMbAi-0rugHzWtCXc-3Dr6TR8E3vyCWSr3r-sni0y_gM4X5USnyMgCX9EKghCvuXuZbCNUHwT14sX2DPnu2X73V9Og710ChVik90bvnM7kmogpBQ3YLyAnIkEhDCtUX7E6yhw8vdNtXjAjJrprMcoU"><img
+										src="https://blogger.googleusercontent.com/img/a/AVvXsEg0oQmc-05_QZwddp_V-q13IQCJG7HapWksTMcMbAi-0rugHzWtCXc-3Dr6TR8E3vyCWSr3r-sni0y_gM4X5USnyMgCX9EKghCvuXuZbCNUHwT14sX2DPnu2X73V9Og710ChVik90bvnM7kmogpBQ3YLyAnIkEhDCtUX7E6yhw8vdNtXjAjJrprMcoU=w640-h268"></a>
+							</div>
+							<div>
+								<span
+									face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+									style="color: #24292f;"><br></span>
+							</div>
+							You can view the topic messages in a console:<br>
+							<div>
+								<a
+									href="https://blogger.googleusercontent.com/img/a/AVvXsEi8tqsFPfhaudMkZshdUA5sBdftljK_Wup3F3s0PD7CQztpW9d0NwQD18sOULirPC53geInAowP-3vuGIL9IEawmmYoehU8sM20TN_euxJlopPOhBh5x3kgSRw4yY2LZj4LHdkZIMBWt4Ttp9q9Ny9baarQ5I_9Pv97mdQX_ITQVgoeAL3MIr_-1mRp"><img
+										src="https://blogger.googleusercontent.com/img/a/AVvXsEi8tqsFPfhaudMkZshdUA5sBdftljK_Wup3F3s0PD7CQztpW9d0NwQD18sOULirPC53geInAowP-3vuGIL9IEawmmYoehU8sM20TN_euxJlopPOhBh5x3kgSRw4yY2LZj4LHdkZIMBWt4Ttp9q9Ny9baarQ5I_9Pv97mdQX_ITQVgoeAL3MIr_-1mRp=w640-h280"></a>
+							</div>
+							<br>
+						</div>
+					</div>
+			</div>
+	</div>
+	</div>
+	</article>
+	</div>
+	<div class="card-footer">
+		<ul class="pagination justify-content-center mb-4">
+			<li class="page-item"><a class="page-link btn-outline-primary" href="../springboot/security.html">&lArr;
+					Previous</a></li>
+			<li class="page-item"><a class="page-link"
+					href="../interview/springboot/springboot-interview-questions.html">Next &rArr;</a></li>
+		</ul>
+	</div>
+	<button onclick="topFunction()" id="myBtn" title="Go to top">
+		<img height="30" width="30" src="../scripts/images/top.jpeg" />
+	</button>
+	</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>
+		©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>
+		, The content is copyrighted to Ravi Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

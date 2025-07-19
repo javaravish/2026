@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Set Interview Questions</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+					src="../../scripts/images/nani1.png" alt="Home" />
+				<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+							href="../../home.html"><img height="25" width="25"
+								src="../../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/random.html">Java
+								Core</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-interview-questions.html">Java
+								Basics</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-abstraction.html">Java
+								Abstraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-encapsulation.html">Java
+								Encapsulation</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-polymorphism.html">Java
+								Polymorphism</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-inheritance.html">Java
+								Inheritance </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-string.html">Java
+								String</a></li>
+							<li class="nav-item"><a class="nav-link"
+													href="../java/java-overloading-Overriding.html">Java
+								Overloading and Overriding</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-exception.html">Java
+								Exception Handling</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-multithreading.html">Java
+								Multithreading</a></li>
+							<h4> Collections Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/java-collections.html">Java
+								Collections </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-list.html">Java
+								List </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-set.html">Java
+								Set </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-map.html">Java
+								Map</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/miscellaneous.html">Java
+								Advanced</a></li>
+							<h4> Java Programming Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/programs.html">Java
+								Programs </a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-set.html"> Set Interview Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-set.html"> Set Interview Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4> Set Interview Questions</h4>
+					<details id="details1" onclick="closeOtherDetails('details1')">
+						<summary>1. What is the difference between HashSet and LinkedHashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>HashSet:</strong> Does not maintain any order of elements. It uses a hash table for storage, which allows constant time performance for basic operations like add, remove, and contains.</li>
+								<li><strong>LinkedHashSet:</strong> Maintains elements in the order they were inserted. It uses a hash table and a linked list to maintain insertion order, which makes it slightly slower than HashSet but preserves the order.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details2" onclick="closeOtherDetails('details2')">
+						<summary>2. How does a TreeSet differ from a HashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>HashSet:</strong> Does not guarantee any specific order of elements. It is backed by a hash table and provides constant time performance for basic operations.</li>
+								<li><strong>TreeSet:</strong> Maintains elements in a sorted order as per their natural ordering or by a provided <code>Comparator</code>. It is backed by a Red-Black tree, which means operations are logarithmic in time complexity.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details3" onclick="closeOtherDetails('details3')">
+						<summary>3. What is the role of the <code>Comparator</code> interface in a TreeSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> The <code>Comparator</code> interface is used to define a custom order for the elements in a <code>TreeSet</code>. By providing a <code>Comparator</code>, you can specify a different ordering than the natural ordering.</p>
+						</div>
+					</details></br>
+
+					<details id="details4" onclick="closeOtherDetails('details4')">
+						<summary>4. Can you explain the internal structure of a HashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> A <code>HashSet</code> is backed by a hash table. Internally, it uses an array of <code>Node</code> objects where each <code>Node</code> contains a key and a reference to the next <code>Node</code> in case of collisions. The hash code of the elements determines their location in the hash table.</p>
+						</div>
+					</details></br>
+
+					<details id="details5" onclick="closeOtherDetails('details5')">
+						<summary>5. How can you remove duplicates from a List using a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can convert the <code>List</code> to a <code>Set</code> to remove duplicates, as <code>Set</code> does not allow duplicate elements. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">RemoveDuplicatesExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"List with duplicates removed: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details6" onclick="closeOtherDetails('details6')">
+						<summary>6. What are the differences between HashSet and LinkedHashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>HashSet:</strong> Does not maintain any order of elements. It uses a hash table for storage, which allows constant time performance for basic operations.</li>
+								<li><strong>LinkedHashSet:</strong> Maintains insertion order by using a linked list to store the order of elements, in addition to the hash table. This allows it to iterate over elements in the order they were added.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details7" onclick="closeOtherDetails('details7')">
+						<summary>7. How can you check if a Set contains a particular element?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>contains()</code> method to check if a <code>Set</code> contains a particular element. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+
+								<span class="keyword">public class</span> <span class="class">ContainsElementExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">HashSet</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">boolean</span> <span class="variable">containsApple</span> = <span class="variable">set</span>.<span class="method">contains</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Does the set contain 'Apple'? "</span> + <span class="variable">containsApple</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details8" onclick="closeOtherDetails('details8')">
+						<summary>8. What will happen if you add a null value to a HashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can add a <code>null</code> value to a <code>HashSet</code> because <code>HashSet</code> allows one <code>null</code> element. However, adding multiple <code>null</code> values will not increase the size of the <code>HashSet</code>, as it only stores one instance of <code>null</code>.</p>
+						</div>
+					</details></br>
+
+					<details id="details9" onclick="closeOtherDetails('details9')">
+						<summary>9. How do you remove all elements from a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>clear()</code> method to remove all elements from a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+
+								<span class="keyword">public class</span> <span class="class">ClearSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">HashSet</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="variable">set</span>.<span class="method">clear</span>();
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set after clearing: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details10" onclick="closeOtherDetails('details10')">
+						<summary>10. Can you explain how TreeSet maintains order?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> A <code>TreeSet</code> maintains order by storing elements in a Red-Black tree, which is a self-balancing binary search tree. It uses the natural ordering of elements or a <code>Comparator</code> provided at set creation to keep elements sorted.</p>
+						</div>
+					</details></br>
+
+					<details id="details11" onclick="closeOtherDetails('details11')">
+						<summary>11. How does LinkedHashSet maintain insertion order?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> A <code>LinkedHashSet</code> maintains insertion order by using a doubly linked list to keep track of the order in which elements are inserted, in addition to the hash table used for storage. This allows iteration over elements in the order they were added.</p>
+						</div>
+					</details></br>
+
+					<details id="details12" onclick="closeOtherDetails('details12')">
+						<summary>12. How would you merge two sets?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>addAll()</code> method to merge two sets. This method adds all elements from one set to another. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">MergeSetsExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set1</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set2</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+
+								<span class="variable">set1</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set1</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">set2</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="variable">set1</span>.<span class="method">addAll</span>(<span class="variable">set2</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Merged set: "</span> + <span class="variable">set1</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details13" onclick="closeOtherDetails('details13')">
+						<summary>13. What is the difference between TreeSet and LinkedHashSet in terms of performance?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>TreeSet:</strong> Provides O(log n) time complexity for basic operations (add, remove, contains) due to its Red-Black tree structure. It is slower for these operations compared to LinkedHashSet.</li>
+								<li><strong>LinkedHashSet:</strong> Provides O(1) time complexity for basic operations due to its hash table, with a slight overhead for maintaining insertion order using a linked list. It is generally faster than TreeSet for these operations.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details14" onclick="closeOtherDetails('details14')">
+						<summary>14. Can you use TreeSet with custom objects?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Yes, you can use a <code>TreeSet</code> with custom objects, but the objects must implement the <code>Comparable</code> interface or you must provide a <code>Comparator</code> when creating the <code>TreeSet</code> to define the ordering of the objects.</p>
+						</div>
+					</details></br>
+
+					<details id="details15" onclick="closeOtherDetails('details15')">
+						<summary>15. How do you check the size of a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>size()</code> method to get the number of elements in a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+
+								<span class="keyword">public class</span> <span class="class">SizeOfSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">HashSet</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">int</span> <span class="variable">size</span> = <span class="variable">set</span>.<span class="method">size</span>();
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Size of the set: "</span> + <span class="variable">size</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details16" onclick="closeOtherDetails('details16')">
+						<summary>16. How would you iterate over a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can use an enhanced for loop, an iterator, or Java 8 Streams to iterate over a <code>Set</code>. Examples:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Iterator</span>;
+
+								<span class="keyword">public class</span> <span class="class">IterateSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">HashSet</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out.println</span>(<span class="string">"Using enhanced for loop:"</span>);
+								<span class="keyword">for</span> (<span class="keyword">String</span> <span class="variable">element</span> : <span class="variable">set</span>) {
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">element</span>);
+								}
+
+								<span class="keyword">System.out.println</span>(<span class="string">"Using iterator:"</span>);
+								<span class="keyword">Iterator</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">iterator</span> = <span class="variable">set</span>.<span class="method">iterator</span>();
+								<span class="keyword">while</span> (<span class="variable">iterator</span>.<span class="method">hasNext</span>()) {
+								<span class="keyword">String</span> <span class="variable">element</span> = <span class="variable">iterator</span>.<span class="method">next</span>();
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="variable">element</span>);
+								}
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details17" onclick="closeOtherDetails('details17')">
+						<summary>17. Can a TreeSet store duplicate elements?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> No, a <code>TreeSet</code> cannot store duplicate elements. It only keeps unique elements and will not add an element if it already exists in the set.</p>
+						</div>
+					</details></br>
+
+					<details id="details18" onclick="closeOtherDetails('details18')">
+						<summary>18. What happens if you try to add an element to a Set that is already present?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> If you try to add an element to a <code>Set</code> that is already present, the <code>Set</code> will not add the duplicate element and will return <code>false</code> for the <code>add()</code> method.</p>
+						</div>
+					</details></br>
+
+					<details id="details19" onclick="closeOtherDetails('details19')">
+						<summary>19. How does a HashSet handle collisions?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> A <code>HashSet</code> handles collisions using a technique called chaining, where multiple elements that hash to the same index are stored in a linked list at that index in the hash table.</p>
+						</div>
+					</details></br>
+
+					<details id="details20" onclick="closeOtherDetails('details20')">
+						<summary>20. Can you use a custom class as an element in a HashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Yes, you can use a custom class as an element in a <code>HashSet</code>. However, the custom class should override the <code>equals()</code> and <code>hashCode()</code> methods to ensure proper functioning of the <code>HashSet</code>.</p>
+						</div>
+					</details></br>
+
+					<details id="details21" onclick="closeOtherDetails('details21')">
+						<summary>21. How do you check if a Set is empty?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>isEmpty()</code> method to check if a <code>Set</code> is empty. It returns <code>true</code> if the set contains no elements.</p>
+						</div>
+					</details></br>
+
+					<details id="details22" onclick="closeOtherDetails('details22')">
+						<summary>22. What is the difference between HashSet and ConcurrentHashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>HashSet:</strong> It is not thread-safe and is suitable for single-threaded environments. It does not synchronize operations, which may lead to unpredictable behavior in multi-threaded contexts.</li>
+								<li><strong>ConcurrentHashSet:</strong> This is a thread-safe version of <code>HashSet</code> and is designed for concurrent access in multi-threaded environments. Operations are synchronized to prevent concurrency issues.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details23" onclick="closeOtherDetails('details23')">
+						<summary>23. Can you have a TreeSet with null elements?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> No, a <code>TreeSet</code> does not allow <code>null</code> elements because it needs to be able to compare elements. Attempting to add <code>null</code> will result in a <code>NullPointerException</code>.</p>
+						</div>
+					</details></br>
+
+					<details id="details24" onclick="closeOtherDetails('details24')">
+						<summary>24. How do you create a synchronized Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>Collections.synchronizedSet()</code> method to create a synchronized (thread-safe) set. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Collections</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SynchronizedSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">Collections.synchronizedSet</span>(<span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;());
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Synchronized set: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details25" onclick="closeOtherDetails('details25')">
+						<summary>25. How do you convert a Set to an Array?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>toArray()</code> method to convert a <code>Set</code> to an array. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SetToArrayExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">String[]</span> <span class="variable">array</span> = <span class="variable">set</span>.<span class="method">toArray</span>(<span class="keyword">new</span> <span class="keyword">String</span>[<span class="variable">set</span>.<span class="method">size</span>()]);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Array: "</span> + <span class="variable">array</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details26" onclick="closeOtherDetails('details26')">
+						<summary>26. How do you create an immutable Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>Collections.unmodifiableSet()</code> method or the <code>Set.of()</code> method (Java 9+) to create an immutable set. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Collections</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ImmutableSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">immutableSet</span> = <span class="keyword">Collections.unmodifiableSet</span>(<span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;());
+								<span class="variable">immutableSet</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);  <span class="comment">// This will throw an UnsupportedOperationException</span>
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">immutableSet2</span> = <span class="keyword">Set.of</span>(<span class="string">"Apple"</span>, <span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Immutable set: "</span> + <span class="variable">immutableSet2</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details27" onclick="closeOtherDetails('details27')">
+						<summary>27. How can you get a subset of a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can get a subset of a <code>Set</code> using the <code>subSet()</code> method, but only with a <code>TreeSet</code> which supports this operation. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">TreeSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SubsetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">TreeSet</span>&lt;<span class="keyword">Integer</span>&gt; <span class="variable">treeSet</span> = <span class="keyword">new</span> <span class="keyword">TreeSet</span>&lt;&gt;();
+								<span class="variable">treeSet</span>.<span class="method">add</span>(1);
+								<span class="variable">treeSet</span>.<span class="method">add</span>(2);
+								<span class="variable">treeSet</span>.<span class="method">add</span>(3);
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">Integer</span>&gt; <span class="variable">subset</span> = <span class="variable">treeSet</span>.<span class="method">subSet</span>(1, <span class="keyword">4</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Subset: "</span> + <span class="variable">subset</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details28" onclick="closeOtherDetails('details28')">
+						<summary>28. What are the main differences between HashSet and TreeSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>HashSet:</strong> Does not maintain any order of elements; provides constant time complexity for basic operations (add, remove, contains). It is backed by a hash table.</li>
+								<li><strong>TreeSet:</strong> Maintains elements in a sorted order; provides log(n) time complexity for basic operations (add, remove, contains). It is backed by a Red-Black tree.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details29" onclick="closeOtherDetails('details29')">
+						<summary>29. What is the purpose of the LinkedHashSet class?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> The <code>LinkedHashSet</code> class combines the hash table and linked list implementation to maintain insertion order of elements while providing constant time performance for basic operations. It ensures that elements are iterated in the order they were inserted.</p>
+						</div>
+					</details></br>
+
+					<details id="details30" onclick="closeOtherDetails('details30')">
+						<summary>30. How does a Set differ from a List?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong>
+							<ul>
+								<li><strong>Set:</strong> Does not allow duplicate elements and does not maintain any order (except for <code>LinkedHashSet</code> and <code>TreeSet</code> which offer insertion and sorted order respectively).</li>
+								<li><strong>List:</strong> Allows duplicate elements and maintains the order of insertion. It provides indexed access to elements.</li>
+							</ul>
+							</p>
+						</div>
+					</details></br>
+
+					<details id="details31" onclick="closeOtherDetails('details31')">
+						<summary>31. Can you convert a List to a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Yes, you can convert a <code>List</code> to a <code>Set</code> using the <code>HashSet</code> constructor. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ListToSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details32" onclick="closeOtherDetails('details32')">
+						<summary>32. How do you remove all elements from a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>clear()</code> method to remove all elements from a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ClearSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Before clear: "</span> + <span class="variable">set</span>);
+
+								<span class="variable">set</span>.<span class="method">clear</span>();
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"After clear: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details33" onclick="closeOtherDetails('details33')">
+						<summary>33. How do you check if a Set contains a specific element?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>contains()</code> method to check if a <code>Set</code> contains a specific element. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ContainsExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out.println</span>(<span class="string">"Contains Apple: "</span> + <span class="variable">set</span>.<span class="method">contains</span>(<span class="string">"Apple"</span>));
+								<span class="keyword">System.out.println</span>(<span class="string">"Contains Banana: "</span> + <span class="variable">set</span>.<span class="method">contains</span>(<span class="string">"Banana"</span>));
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details34" onclick="closeOtherDetails('details34')">
+						<summary>34. How can you create a Set from another Collection?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can create a <code>Set</code> from another <code>Collection</code> by passing the collection to the <code>HashSet</code> constructor. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SetFromCollectionExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details35" onclick="closeOtherDetails('details35')">
+						<summary>35. What is the time complexity of basic operations in HashSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> The time complexity of basic operations (add, remove, contains) in a <code>HashSet</code> is O(1) on average. However, in the worst case (e.g., many collisions), it can degrade to O(n).</p>
+						</div>
+					</details></br>
+
+					<details id="details36" onclick="closeOtherDetails('details36')">
+						<summary>36. What is the time complexity of basic operations in TreeSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> The time complexity of basic operations (add, remove, contains) in a <code>TreeSet</code> is O(log n) due to the underlying Red-Black tree structure.</p>
+						</div>
+					</details></br>
+
+					<details id="details37" onclick="closeOtherDetails('details37')">
+						<summary>37. How do you iterate over a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> You can iterate over a <code>Set</code> using an enhanced for loop, iterator, or stream API. Examples:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Iterator</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Stream</span>;
+
+								<span class="keyword">public class</span> <span class="class">IterateSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Enhanced for loop:"</span>);
+								<span class="keyword">for</span> (<span class="keyword">String</span> <span class="variable">item</span> : <span class="variable">set</span>) {
+								<span class="keyword">System.out.println</span>(<span class="variable">item</span>);
+								}
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Iterator:"</span>);
+								<span class="keyword">Iterator</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">iterator</span> = <span class="variable">set</span>.<span class="method">iterator</span>();
+								<span class="keyword">while</span> (<span class="variable">iterator</span>.<span class="method">hasNext</span>()) {
+								<span class="keyword">System.out.println</span>(<span class="variable">iterator</span>.<span class="method">next</span>());
+								}
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Stream API:"</span>);
+								<span class="variable">set</span>.<span class="method">stream</span>().<span class="method">forEach</span>(<span class="keyword">System.out::println</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details38" onclick="closeOtherDetails('details38')">
+						<summary>38. How do you check the size of a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>size()</code> method to check the number of elements in a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SizeSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Size: "</span> + <span class="variable">set</span>.<span class="method">size</span>());
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details39" onclick="closeOtherDetails('details39')">
+						<summary>39. How do you check if a Set is empty?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>isEmpty()</code> method to check if a <code>Set</code> is empty. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">IsEmptySetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Is empty: "</span> + <span class="variable">set</span>.<span class="method">isEmpty</span>());
+
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Is empty after adding element: "</span> + <span class="variable">set</span>.<span class="method">isEmpty</span>());
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details40" onclick="closeOtherDetails('details40')">
+						<summary>40. How do you remove a specific element from a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>remove()</code> method to remove a specific element from a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">RemoveElementSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Before removal: "</span> + <span class="variable">set</span>);
+
+								<span class="variable">set</span>.<span class="method">remove</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"After removal: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details41" onclick="closeOtherDetails('details41')">
+						<summary>41. How do you add all elements from another Collection to a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>addAll()</code> method to add all elements from another <code>Collection</code> to a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">AddAllSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="variable">set</span>.<span class="method">addAll</span>(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set after addAll: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details42" onclick="closeOtherDetails('details42')">
+						<summary>42. How do you retain only the elements in a Set that are also in another Collection?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>retainAll()</code> method to retain only the elements in a <code>Set</code> that are also in another <code>Collection</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">RetainAllSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="variable">set</span>.<span class="method">retainAll</span>(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set after retainAll: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details43" onclick="closeOtherDetails('details43')">
+						<summary>43. How do you remove all elements from a Set that are also in another Collection?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>removeAll()</code> method to remove all elements from a <code>Set</code> that are also in another <code>Collection</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">RemoveAllSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Cherry"</span>);
+
+								<span class="variable">set</span>.<span class="method">removeAll</span>(<span class="variable">list</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set after removeAll: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details44" onclick="closeOtherDetails('details44')">
+						<summary>44. How do you clear a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>clear()</code> method to remove all elements from a <code>Set</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ClearSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Before clear: "</span> + <span class="variable">set</span>);
+
+								<span class="variable">set</span>.<span class="method">clear</span>();
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"After clear: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details45" onclick="closeOtherDetails('details45')">
+						<summary>45. How do you check if a Set contains all elements of another Collection?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>containsAll()</code> method to check if a <code>Set</code> contains all elements of another <code>Collection</code>. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">ArrayList</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">List</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ContainsAllSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">List</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">list</span> = <span class="keyword">new</span> <span class="keyword">ArrayList</span>&lt;&gt;();
+								<span class="variable">list</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Contains all elements: "</span> + <span class="variable">set</span>.<span class="method">containsAll</span>(<span class="variable">list</span>));
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details46" onclick="closeOtherDetails('details46')">
+						<summary>46. How do you convert a Set to an array?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>toArray()</code> method to convert a <code>Set</code> to an array. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">SetToArrayExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;();
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Apple"</span>);
+								<span class="variable">set</span>.<span class="method">add</span>(<span class="string">"Banana"</span>);
+
+								<span class="keyword">String</span>[] <span class="variable">array</span> = <span class="variable">set</span>.<span class="method">toArray</span>(<span class="keyword">new</span> <span class="keyword">String</span>[0]);
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Array: "</span> + <span class="variable">array</span>[0] + <span class="string">", </span> + <span class="variable">array</span>[1]);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details47" onclick="closeOtherDetails('details47')">
+						<summary>47. How do you convert an array to a Set?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> Use the <code>Arrays.asList()</code> method to convert an array to a <code>List</code>, and then pass it to the <code>HashSet</code> constructor. Example:</p>
+							<div class="code">
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Arrays</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">HashSet</span>;
+								<span class="keyword">import</span> <span class="keyword">java.util</span>.<span class="keyword">Set</span>;
+
+								<span class="keyword">public class</span> <span class="class">ArrayToSetExample</span> {
+								<span class="keyword">public static void</span> <span class="keyword">main</span>(<span class="keyword">String</span>[] <span class="variable">args</span>) {
+								<span class="keyword">String</span>[] <span class="variable">array</span> = {<span class="string">"Apple"</span>, <span class="string">"Banana"</span>, <span class="string">"Cherry"</span>};
+
+								<span class="keyword">Set</span>&lt;<span class="keyword">String</span>&gt; <span class="variable">set</span> = <span class="keyword">new</span> <span class="keyword">HashSet</span>&lt;&gt;(<span class="keyword">Arrays</span>.<span class="method">asList</span>(<span class="variable">array</span>));
+
+								<span class="keyword">System.out</span>.<span class="method">println</span>(<span class="string">"Set: "</span> + <span class="variable">set</span>);
+								}
+								}
+							</div>
+						</div>
+					</details></br>
+
+					<details id="details48" onclick="closeOtherDetails('details48')">
+						<summary>48. What is the difference between HashSet and TreeSet?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong></p>
+							<ul>
+								<li><strong>HashSet:</strong> It does not maintain any order of its elements. It is backed by a hash table and offers constant time performance for basic operations like <code>add</code>, <code>remove</code>, and <code>contains</code>, assuming the hash function disperses the elements properly.</li>
+								<li><strong>TreeSet:</strong> It maintains its elements in a sorted order, according to their natural ordering or by a specified comparator. It is backed by a Red-Black tree and offers log(n) time performance for basic operations like <code>add</code>, <code>remove</code>, and <code>contains</code>.</li>
+							</ul>
+						</div>
+					</details></br>
+
+					<details id="details49" onclick="closeOtherDetails('details49')">
+						<summary>49. How do you ensure a Set contains unique elements only?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> By definition, a <code>Set</code> in Java is a collection that does not allow duplicate elements. The <code>HashSet</code>, <code>LinkedHashSet</code>, and <code>TreeSet</code> implementations all enforce this property, so you do not need to do anything special to ensure uniqueness.</p>
+						</div>
+					</details></br>
+
+					<details id="details50" onclick="closeOtherDetails('details50')">
+						<summary>50. How does the LinkedHashSet maintain insertion order?</summary>
+						<div class="toggle-content">
+							<p><strong>Answer:</strong> The <code>LinkedHashSet</code> maintains insertion order by using a linked list that runs through all of its entries. The linked list maintains the order in which elements were added to the set. The underlying data structure is a hash table combined with a linked list.</p>
+						</div>
+					</details></br>
+			</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary" href="../java/java-list.html">&lArr;
+							Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../java/java-map.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

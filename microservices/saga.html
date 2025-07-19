@@ -1,0 +1,1324 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Saga Pattern</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8 Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide">
+                    <input type="checkbox" id="switch-theme-checkbox"/>
+                    <span class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Microservice</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/ms-intro.html">Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/ms-architecture.html">Microservices
+                            Architecture</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/registry-discovery.html">Service
+                            Registry and Discovery</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/config-server.html">Config
+                            Server</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/api-gateway.html">API Gateway</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/zuul.html">Zuul
+                            Gateway</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/circuit-breaker.html">Circuit
+                            Breaker</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/resilience4j.html">Resilience4j</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/web-client.html">WebClient</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/open-feign.html">Feign Client</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/sleuth.html">Zipkin and Sleuth</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../microservices/saga.html">Saga
+                            Pattern</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/springboot/microservices.html">Microservices
+                            Interview
+                            Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../springboot/ms-intro.html">Microservices</a></li>
+                    <li><a href="../springboot/saga.html">Saga Pattern</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../springboot/ms-intro.html">Microservices</a></li>
+                    <li><a href="../springboot/saga.html">Saga Pattern</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk">
+                <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <h1>1. What is the Saga Pattern?</h1>
+                    <p>The Saga architecture pattern&nbsp;<strong>provides transaction management using a sequence
+                        of local transactions.</strong></p>
+                    <p>A local transaction is the unit of work performed by a Saga participant. Every operation that
+                        is part of the Saga can be rolled back by a compensating transaction. Further, the Saga
+                        pattern guarantees that either all operations complete successfully or the corresponding
+                        compensation transactions are run to undo the work previously completed.</p>
+                    <p>In the Saga pattern,&nbsp;<strong>a compensating transaction must
+                        be&nbsp;<em>idempotent</em>&nbsp;and&nbsp;<em>retryable</em>.</strong> These two
+                        principles ensure that we can manage transactions without any manual intervention.</p>
+                    <p>A saga is a sequence of local transactions. Each service in a saga performs its own
+                        transaction and publishes an event. The other services listen to that event and perform the
+                        next local transaction. If one transaction fails for some reason, the saga also executes
+                        compensating transactions to undo the impact of the preceding transactions.</p>
+                    <ul data-sourcepos="11:1-12:84"><span>
+							</span>
+                        <li data-sourcepos="11:1-11:137"><strong>Distributed Transactions:</strong><span>
+									Traditional ACID transactions don't work well in distributed systems.</span><span>
+									Sagas offer a flexible alternative.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="12:1-12:84"><strong>Resilience and Fault Tolerance:</strong><span>
+									Handles failures gracefully by rolling back or compensating for completed
+									steps,</span><span> preventing inconsistencies.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="13:1-13:124"><strong>Data Consistency:</strong><span> Maintains
+									consistency across multiple services without relying on a centralized transaction
+									manager.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="14:1-15:0"><strong>Asynchronous Operations:</strong><span> Supports
+									asynchronous communication between services,</span><span> improving performance and
+									scalability.</span></li>
+                        <span>
+							</span>
+                    </ul>
+                    <h1>2. Why Use the Saga Pattern?</h1>
+                    <ul data-sourcepos="18:1-20:117"><span>
+							</span>
+                        <li data-sourcepos="18:1-18:132"><strong>Transactions Spanning Multiple
+                            Microservices:</strong><span> Essential for multi-service operations like order
+									processing or booking systems.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="19:1-19:129"><strong>Long-Running Transactions:</strong><span> Ideal for
+									operations that take time to complete,</span><span> like user registration with
+									email verification.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="20:1-20:117"><strong>Need for Resilience and Fault
+                            Tolerance:</strong><span> Crucial in systems where failures are expected and data
+									consistency is paramount.</span></li>
+                        <span>
+							</span>
+                    </ul>
+                    <h1>3. When to Use the Saga Pattern:</h1>
+                    <ul data-sourcepos="18:1-20:117"><span>
+							</span>
+                        <li data-sourcepos="18:1-18:132"><strong>Transactions Spanning Multiple
+                            Microservices:</strong><span> Essential for multi-service operations like order
+									processing or booking systems.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="19:1-19:129"><strong>Long-Running Transactions:</strong><span> Ideal for
+									operations that take time to complete,</span><span> like user registration with
+									email verification.</span></li>
+                        <span>
+							</span>
+                        <li data-sourcepos="20:1-20:117"><strong>Need for Resilience and Fault
+                            Tolerance:</strong><span> Crucial in systems where failures are expected and data
+									consistency is paramount.</span></li>
+                        <span>
+							</span>
+                    </ul>
+                    <p>Let's see a simple example in a typical food delivery app flow.</p>
+
+                    <p>When a user places an order, below could be the sequence of actions that happen.</p>
+                    <ul>
+                        <li>The food ordering service creates an order<em>.</em> At this point, the order is in a
+                            PENDING state. A saga manages the chain of events.
+                        </li>
+                        <li>The saga contacts the restaurant via the restaurant service.</li>
+                        <li>The restaurant service attempts to place the order with the chosen restaurant. After
+                            getting a confirmation, it sends back a reply.
+                        </li>
+                        <li>The saga receives the reply. And depending on the reply, it can approve the order or
+                            reject the order.
+                        </li>
+                        <li>The food order service then changes the state of the order. If the order was approved,
+                            it would inform the customer with the next details. If rejected, it will also inform the
+                            customer with an apology message.
+                        </li>
+                    </ul>
+                    <p>As you can see, this is a pretty different approach from the usual point-to-point call
+                        approach in typical workflows.</p>
+                    <h1>4. Types of Sagas</h1>
+                    <p>There are two types of Sagas:</p>
+                    <h3>1. Choreography-Based Saga (decentralized coordination)</h3>
+                    <p>In a Choreography-Based Saga pattern, each service involved in a transaction is responsible for
+                        coordinating the next step of the transaction, rather than relying on a central coordinator.
+                        Kafka is used as the messaging backbone to communicate between services.</p>
+                    <h3>2. Orchestration-Based Saga (centralized control)</h3>
+                    <p>In this approach, there is a Saga orchestrator that manages all the transactions and directs
+                        the participant services to execute local transactions based on events. This orchestrator
+                        can also be though of as a Saga Manager.</p>
+                    <img loading="lazy" src="../springboot/images/saga-pattern.webp" alt="saga pattern"/>
+                    <p>The above diagram shows how to visualize the Saga pattern for the online order processing
+                        scenario.</p>
+                    <h1>5. Implementing Saga Choreography Pattern</h1>
+                    <p>In the Saga Choreography pattern,&nbsp;<strong>each microservice that is part of the
+                        transaction publishes an event that is processed by the next microservice.</strong></p>
+                    <p>To use this pattern, we need to decide if the microservice will be part of the Saga.
+                        Accordingly, the microservice needs to use the appropriate framework to implement Saga. In
+                        this pattern, the Saga Execution Coordinator is either embedded within the microservice or
+                        can be a standalone component.</p>
+
+                    <p>In the Saga, choreography flow is successful if all the microservices complete their local
+                        transaction, and none of the microservices reported any failure.</p>
+
+                    <p>The following diagram demonstrates the successful Saga flow for the online order processing
+                        application:</p>
+                    <img loading="lazy" src="../springboot/images/saga-coreography-768x943.webp"
+                         alt="saga coreography">
+                    <p>In the event of a failure,&nbsp;<strong>the microservice reports the failure to SEC, and it
+                        is the SEC’s responsibility to invoke the relevant compensation transactions</strong>:
+                    </p>
+                    <img loading="lazy" decoding="async" src="..//springboot/images/saga-coreography-2-768x786.webp"
+                         alt="saga coreography 2">
+                    <p>In this example, the Payment microservice reports a failure, and the SEC invokes the
+                        compensating transaction to unblock the seat. If the call to the compensating transaction
+                        fails, it is the SEC’s responsibility to retry it until it is successfully completed. Recall
+                        that in Saga, a compensating transaction must be
+                        <em>idempotent</em>&nbsp;and&nbsp;<em>retryable</em>.
+                    </p>
+                    <h1>Components</h1>
+                    <ul>
+                        <li><strong>Order Service:</strong> Handles order creation and publishes events to Kafka.</li>
+                        <li><strong>Inventory Service:</strong> Listens for order creation events, checks inventory, and publishes inventory update events.</li>
+                        <li><strong>Payment Service:</strong> Listens for inventory update events and processes payments.</li>
+                    </ul>
+
+                    <h2>Setup</h2>
+                    <p>For simplicity, we'll use Spring Boot with Spring Kafka for implementing these services.</p>
+
+                    <h3>1. Dependencies</h3>
+                    <p>Add the following dependencies to your <code>pom.xml</code> for each microservice:</p>
+                    <div class="code">
+                        &lt;dependencies&gt;<br>
+                        &nbsp;&nbsp;&lt;!-- Spring Boot Starter Web --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&lt;!-- Spring Boot Starter Kafka --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.springframework.kafka&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;spring-kafka&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&lt;!-- Spring Boot Starter Data JPA --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&lt;!-- Kafka Dependencies --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.apache.kafka&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;kafka-clients&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&lt;!-- H2 Database for example purposes --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;com.h2database&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;h2&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;scope&gt;runtime&lt;/scope&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        <br>
+                        &nbsp;&nbsp;&lt;!-- Lombok for code simplicity --&gt;<br>
+                        &nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;lombok&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;optional&gt;true&lt;/optional&gt;<br>
+                        &nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        &lt;/dependencies&gt;
+                    </div>
+
+                    <h3>2. Configuration</h3>
+                    <p>Configure Kafka in <code>application.yml</code> or <code>application.properties</code> for each service:</p>
+                    <div class="code">
+                        spring:<br>
+                        &nbsp;&nbsp;kafka:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;bootstrap-servers: <span class="variable-name">localhost:9092</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;producer:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key-serializer: <span class="class-name">org.apache.kafka.common.serialization.StringSerializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value-serializer: <span class="class-name">org.apache.kafka.common.serialization.StringSerializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;consumer:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;group-id: <span class="variable-name">order-service-group</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;key-deserializer: <span class="class-name">org.apache.kafka.common.serialization.StringDeserializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value-deserializer: <span class="class-name">org.apache.kafka.common.serialization.StringDeserializer</span>
+                    </div>
+
+                    <h3>3. Order Service</h3>
+
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.orderservice;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br>
+                        <br>
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderServiceApplication</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">SpringApplication</span>.<span class="method-name">run</span>(<span class="class-name">OrderServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.orderservice.config;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ProducerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.KafkaMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.MessageListener;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.support.serializer.JsonDeserializer;<br>
+                        <br>
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="method-name">kafkaTemplate</span>(<span class="class-name">ProducerFactory</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">producerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new-keyword">new</span> <span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt;(<span class="variable-name">producerFactory</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Order Controller</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.orderservice.controller;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.orderservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.orderservice.service.OrderService;<br>
+                        <span class="keyword">import</span> org.springframework.web.bind.annotation.*;<br>
+                        <br>
+                        <span class="keyword">@RestController</span><br>
+                        <span class="keyword">@RequestMapping</span>(<span class="variable-name">"/orders"</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderController</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">OrderService</span> <span class="variable-name">orderService</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderController</span>(<span class="class-name">OrderService</span> <span class="variable-name">orderService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">orderService</span> = <span class="variable-name">orderService</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@PostMapping</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">createOrder</span>(<span class="keyword">@RequestBody</span> <span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">orderService</span>.<span class="method-name">createOrder</span>(<span class="variable-name">order</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Order Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.orderservice.service;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.orderservice.model.Order;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br>
+                        <br>
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderService</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderService</span>(<span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">kafkaTemplate</span> = <span class="variable-name">kafkaTemplate</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">createOrder</span>(<span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Save order to database (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Publish event to Kafka</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">kafkaTemplate</span>.<span class="method-name">send</span>(<span class="variable-name">"order-topic"</span>, <span class="variable-name">"OrderCreated"</span>, <span class="variable-name">order</span>.<span class="method-name">toString</span>());<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Order Model</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.orderservice.model;<br>
+                        <br>
+                        <span class="keyword">public class</span> <span class="class-name">Order</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Long</span> <span class="variable-name">id</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">String</span> <span class="variable-name">productId</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Integer</span> <span class="variable-name">quantity</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="comment">// Getters and setters</span><br>
+                        }<br>
+                    </div>
+
+                    <h3>4. Inventory Service</h3>
+
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.inventoryservice;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br>
+                        <br>
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">InventoryServiceApplication</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">SpringApplication</span>.<span class="method-name">run</span>(<span class="class-name">InventoryServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.inventoryservice.config;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.EnableKafka;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.MessageListener;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.support.serializer.JsonDeserializer;<br>
+                        <br>
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableKafka</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public ConcurrentMessageListenerContainer</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="method-name">orderListenerContainer</span>(<span class="class-name">ConsumerFactory</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">consumerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new-keyword">new</span> <span class="class-name">ConcurrentMessageListenerContainer</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt;(<span class="variable-name">consumerFactory</span>, <span class="new-keyword">new</span> <span class="class-name">ContainerProperties</span>(<span class="variable-name">"order-topic"</span>));<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Inventory Listener</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.inventoryservice.listener;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.inventoryservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.inventoryservice.service.InventoryService;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.KafkaListener;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Component;<br>
+                        <br>
+                        <span class="keyword">@Component</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">InventoryListener</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">InventoryService</span> <span class="variable-name">inventoryService</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">InventoryListener</span>(<span class="class-name">InventoryService</span> <span class="variable-name">inventoryService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">inventoryService</span> = <span class="variable-name">inventoryService</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@KafkaListener</span>(<span class="keyword">topics</span> = <span class="variable-name">"order-topic"</span>, <span class="keyword">groupId</span> = <span class="variable-name">"inventory-service-group"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">handleOrderCreated</span>(<span class="keyword">String</span> <span class="variable-name">orderMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Deserialize orderMessage to Order object</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">Order</span> <span class="variable-name">order</span> = <span class="method-name">deserializeOrder</span>(<span class="variable-name">orderMessage</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">inventoryService</span>.<span class="method-name">updateInventory</span>(<span class="variable-name">order</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Order</span> <span class="method-name">deserializeOrder</span>(<span class="keyword">String</span> <span class="variable-name">orderMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Implement deserialization logic</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new-keyword">new</span> <span class="class-name">Order</span>();<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Inventory Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.inventoryservice.service;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.inventoryservice.model.Order;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br>
+                        <br>
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">InventoryService</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">InventoryService</span>(<span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">kafkaTemplate</span> = <span class="variable-name">kafkaTemplate</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">updateInventory</span>(<span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Check inventory and update (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Publish inventory update event</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">kafkaTemplate</span>.<span class="method-name">send</span>(<span class="variable-name">"inventory-topic"</span>, <span class="variable-name">"InventoryUpdated"</span>, <span class="variable-name">order</span>.<span class="method-name">toString</span>());<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Inventory Model</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.inventoryservice.model;<br>
+                        <br>
+                        <span class="keyword">public class</span> <span class="class-name">Order</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Long</span> <span class="variable-name">id</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">String</span> <span class="variable-name">productId</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Integer</span> <span class="variable-name">quantity</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="comment">// Getters and setters</span><br>
+                        }<br>
+                    </div>
+
+                    <h3>5. Payment Service</h3>
+
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.paymentservice;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br>
+                        <br>
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">PaymentServiceApplication</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">SpringApplication</span>.<span class="method-name">run</span>(<span class="class-name">PaymentServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.paymentservice.config;<br>
+                        <br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.EnableKafka;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.MessageListener;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.support.serializer.JsonDeserializer;<br>
+                        <br>
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableKafka</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public ConcurrentMessageListenerContainer</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="method-name">paymentListenerContainer</span>(<span class="class-name">ConsumerFactory</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">consumerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new-keyword">new</span> <span class="class-name">ConcurrentMessageListenerContainer</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt;(<span class="variable-name">consumerFactory</span>, <span class="new-keyword">new</span> <span class="class-name">ContainerProperties</span>(<span class="variable-name">"payment-topic"</span>));<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Payment Listener</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.paymentservice.listener;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.paymentservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.paymentservice.service.PaymentService;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.KafkaListener;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Component;<br>
+                        <br>
+                        <span class="keyword">@Component</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">PaymentListener</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">PaymentService</span> <span class="variable-name">paymentService</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">PaymentListener</span>(<span class="class-name">PaymentService</span> <span class="variable-name">paymentService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">paymentService</span> = <span class="variable-name">paymentService</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">@KafkaListener</span>(<span class="keyword">topics</span> = <span class="variable-name">"payment-topic"</span>, <span class="keyword">groupId</span> = <span class="variable-name">"payment-service-group"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">handlePaymentCompleted</span>(<span class="keyword">String</span> <span class="variable-name">paymentMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Deserialize paymentMessage to Payment object</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">Order</span> <span class="variable-name">order</span> = <span class="method-name">deserializePayment</span>(<span class="variable-name">paymentMessage</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">paymentService</span>.<span class="method-name">processPayment</span>(<span class="variable-name">order</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Order</span> <span class="method-name">deserializePayment</span>(<span class="keyword">String</span> <span class="variable-name">paymentMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Implement deserialization logic</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new-keyword">new</span> <span class="class-name">Order</span>();<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Payment Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.paymentservice.service;<br>
+                        <br>
+                        <span class="keyword">import</span> com.example.paymentservice.model.Order;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br>
+                        <br>
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">PaymentService</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">PaymentService</span>(<span class="class-name">KafkaTemplate</span>&lt;<span class="class-name">String</span>, <span class="class-name">String</span>&gt; <span class="variable-name">kafkaTemplate</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span class="variable-name">kafkaTemplate</span> = <span class="variable-name">kafkaTemplate</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">processPayment</span>(<span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Process payment (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Publish payment completed event</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">kafkaTemplate</span>.<span class="method-name">send</span>(<span class="variable-name">"payment-topic"</span>, <span class="variable-name">"PaymentCompleted"</span>, <span class="variable-name">order</span>.<span class="method-name">toString</span>());<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h4>Payment Model</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> com.example.paymentservice.model;<br>
+                        <br>
+                        <span class="keyword">public class</span> <span class="class-name">Order</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Long</span> <span class="variable-name">id</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">String</span> <span class="variable-name">productId</span>;<br>
+                        &nbsp;&nbsp;<span class="keyword">private</span> <span class="class-name">Integer</span> <span class="variable-name">quantity</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="comment">// Getters and setters</span><br>
+                        }<br>
+                    </div>
+
+                    <h3>6. Configuration and Integration</h3>
+
+                    <h4>Application Properties</h4>
+                    <div class="code">
+                        <span class="keyword"># Application Properties for Order Service</span><br>
+                        <span class="variable-name">spring.kafka.bootstrap-servers</span>=localhost:9092<br>
+                        <span class="variable-name">spring.kafka.consumer.group-id</span>=order-service-group<br>
+                        <span class="variable-name">spring.kafka.producer.key-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.producer.value-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.consumer.key-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.value-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.auto-offset-reset</span>=earliest<br>
+                        <span class="variable-name">spring.kafka.producer.properties.retries</span>=3<br>
+                        <span class="variable-name">spring.kafka.producer.properties.batch.size</span>=16384<br>
+                        <span class="variable-name">spring.kafka.producer.properties.linger.ms</span>=1<br>
+                        <span class="variable-name">spring.kafka.producer.properties.buffer.memory</span>=33554432<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.enable.auto.commit</span>=false<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.auto.commit.interval.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.records</span>=100<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.interval.ms</span>=300000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.session.timeout.ms</span>=15000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.min.bytes</span>=1<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.max.wait.ms</span>=500<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.partition.fetch.bytes</span>=1048576<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.check.crcs</span>=true<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.request.timeout.ms</span>=30000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.retry.backoff.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.metadata.max.age.ms</span>=300000<br>
+                        <br>
+                        <span class="keyword"># Application Properties for Inventory Service</span><br>
+                        <span class="variable-name">spring.kafka.bootstrap-servers</span>=localhost:9092<br>
+                        <span class="variable-name">spring.kafka.consumer.group-id</span>=inventory-service-group<br>
+                        <span class="variable-name">spring.kafka.producer.key-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.producer.value-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.consumer.key-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.value-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.auto-offset-reset</span>=earliest<br>
+                        <span class="variable-name">spring.kafka.producer.properties.retries</span>=3<br>
+                        <span class="variable-name">spring.kafka.producer.properties.batch.size</span>=16384<br>
+                        <span class="variable-name">spring.kafka.producer.properties.linger.ms</span>=1<br>
+                        <span class="variable-name">spring.kafka.producer.properties.buffer.memory</span>=33554432<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.enable.auto.commit</span>=false<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.auto.commit.interval.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.records</span>=100<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.interval.ms</span>=300000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.session.timeout.ms</span>=15000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.min.bytes</span>=1<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.max.wait.ms</span>=500<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.partition.fetch.bytes</span>=1048576<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.check.crcs</span>=true<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.request.timeout.ms</span>=30000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.retry.backoff.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.metadata.max.age.ms</span>=300000<br>
+                        <br>
+                        <span class="keyword"># Application Properties for Payment Service</span><br>
+                        <span class="variable-name">spring.kafka.bootstrap-servers</span>=localhost:9092<br>
+                        <span class="variable-name">spring.kafka.consumer.group-id</span>=payment-service-group<br>
+                        <span class="variable-name">spring.kafka.producer.key-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.producer.value-serializer</span>=org.apache.kafka.common.serialization.StringSerializer<br>
+                        <span class="variable-name">spring.kafka.consumer.key-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.value-deserializer</span>=org.apache.kafka.common.serialization.StringDeserializer<br>
+                        <span class="variable-name">spring.kafka.consumer.auto-offset-reset</span>=earliest<br>
+                        <span class="variable-name">spring.kafka.producer.properties.retries</span>=3<br>
+                        <span class="variable-name">spring.kafka.producer.properties.batch.size</span>=16384<br>
+                        <span class="variable-name">spring.kafka.producer.properties.linger.ms</span>=1<br>
+                        <span class="variable-name">spring.kafka.producer.properties.buffer.memory</span>=33554432<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.enable.auto.commit</span>=false<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.auto.commit.interval.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.records</span>=100<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.poll.interval.ms</span>=300000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.session.timeout.ms</span>=15000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.min.bytes</span>=1<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.fetch.max.wait.ms</span>=500<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.max.partition.fetch.bytes</span>=1048576<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.check.crcs</span>=true<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.request.timeout.ms</span>=30000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.retry.backoff.ms</span>=1000<br>
+                        <span class="variable-name">spring.kafka.consumer.properties.metadata.max.age.ms</span>=300000<br>
+                        <br>
+                    </div>
+
+
+                    <p>The Choreography pattern <strong>works&nbsp;for greenfield microservice application
+                        development.</strong> Also, this pattern is suitable when there are fewer participants
+                        in the transaction.</p>
+                    <p>Here are a few frameworks available to implement the choreography pattern:</p>
+                    <ul>
+                        <li><a href="https://docs.axoniq.io/reference-guide/v/3.1/part-ii-domain-logic/sagas">Axon
+                            Saga</a> – a lightweight framework and widely used with Spring Boot-based
+                            microservices
+                        </li>
+                        <li><a href="https://github.com/eclipse/microprofile-lra">Eclipse MicroProfile
+                            LRA</a>&nbsp;– implementation of distributed transactions in Saga for HTTP transport
+                            based on REST principles
+                        </li>
+                        <li><a
+                                href="https://eventuate.io/docs/manual/eventuate-tram/latest/getting-started-eventuate-tram-sagas.html">Eventuate
+                            Tram Saga</a> – Saga orchestration framework for Spring Boot and Micronaut-based
+                            microservices
+                        </li>
+                        <li><a href="http://seata.io/en-us/docs/dev/mode/saga-mode.html">Seata</a> – open-source
+                            distributed transaction framework with high-performance and easy-to-use distributed
+                            transaction services
+                        </li>
+                    </ul>
+                    <h1>6. Implementing Saga Orchestration Pattern</h1>
+                    <p>In the Orchestration pattern,&nbsp;<strong>a single orchestrator is responsible for managing
+                        the overall transaction status.</strong></p>
+                    <p>If any of the microservices encounter a failure, the orchestrator is responsible for invoking
+                        the necessary compensating transactions:</p>
+                    <img loading="lazy" src="..//springboot/images/saga-orchestration.webp"
+                         alt="saga orchestration">
+                    <p>The Saga orchestration pattern is&nbsp;<strong>useful for brownfield microservice application
+                        development architecture.</strong> In other words, this pattern works when we already
+                        have a set of microservices and would like to implement the Saga pattern in the application.
+                        We need to define the appropriate compensating transactions to proceed with this pattern.
+                    </p>
+                    <h2>Components</h2>
+                    <ol>
+                        <li>Order Service: Creates orders and publishes order events.</li>
+                        <li>Inventory Service: Handles inventory checks and updates based on order events.</li>
+                        <li>Payment Service: Manages payment transactions and confirms or compensates based on inventory updates.</li>
+                        <li>Orchestrator Service: Coordinates the saga workflow and orchestrates the communication between services.</li>
+                    </ol>
+
+                    <h2>Setup</h2>
+                    <p>We'll use Spring Boot with Spring Kafka to implement these services.</p>
+
+                    <h3>1. Dependencies</h3>
+                    <p>Add the following dependencies to <code>pom.xml</code> for each microservice:</p>
+                    <div class="code">
+                        <span class="keyword">&lt;dependencies&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- Spring Boot Starter Web --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.springframework.boot<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- Spring Boot Starter Kafka --&lt;</keyword>&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.springframework.kafka<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>spring-kafka<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- Spring Boot Starter Data JPA --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.springframework.boot<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- Kafka Dependencies --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.apache.kafka<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>kafka-clients<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- H2 Database for example purposes --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>com.h2database<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>h2<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;scope&gt;</span>runtime<span class="keyword">&lt;/scope&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;!-- Lombok for code simplicity --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.projectlombok<span class="keyword">&lt;/groupId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>lombok<span class="keyword">&lt;/artifactId&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;optional&gt;</span>true<span class="keyword">&lt;/optional&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span><br>
+                        <span class="keyword">&lt;/dependencies&gt;</span>
+                    </div>
+
+                    <h3>2. Configuration</h3>
+                    <p>Configure Kafka in <code>application.yml</code> or <code>application.properties</code> for each service:</p>
+                    <div class="code">
+                        <span class="keyword">spring:</span><br>
+                        &nbsp;&nbsp;<span class="keyword">kafka:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">bootstrap-servers:</span> <span class="string">localhost:9092</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">producer:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">key-serializer:</span> <span class="string">org.apache.kafka.common.serialization.StringSerializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">value-serializer:</span> <span class="string">org.apache.kafka.common.serialization.StringSerializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">consumer:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">group-id:</span> <span class="string">order-service-group</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">key-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">value-deserializer:</span> <span class="string">org.apache.kafka.common.serialization.StringDeserializer</span>
+                    </div>
+
+                    <h3>3. Order Service</h3>
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.orderservice</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br>
+
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderServiceApplication</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="method-name">SpringApplication.run</span>(<span class="class-name">OrderServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.orderservice.config</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ProducerFactory;<br><br>
+
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public KafkaTemplate&lt;String, String&gt;</span> <span class="method-name">kafkaTemplate</span>(<span class="keyword">ProducerFactory&lt;String, String&gt;</span> <span class="variable-name">producerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return new</span> KafkaTemplate&lt;&gt;(<span class="variable-name">producerFactory</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Order Controller</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.orderservice.controller</span>;<br><br>
+
+                        <span class="keyword">import</span> com.example.orderservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.orderservice.service.OrderService;<br>
+                        <span class="keyword">import</span> org.springframework.web.bind.annotation.*;<br><br>
+
+                        <span class="keyword">@RestController</span><br>
+                        <span class="keyword">@RequestMapping</span>(<span class="string">"/orders"</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderController</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">OrderService</span> <span class="variable-name">orderService</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderController</span>(<span class="class-name">OrderService</span> <span class="variable-name">orderService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this.orderService</span> = <span class="variable-name">orderService</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@PostMapping</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">createOrder</span>(<span class="keyword">@RequestBody</span> <span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">orderService.createOrder</span>(<span class="variable-name">order</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Order Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.orderservice.service</span>;<br><br>
+
+                        <span class="keyword">import</span> com.example.orderservice.model.Order;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.KafkaTemplate;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderService</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">KafkaTemplate&lt;String, String&gt;</span> <span class="variable-name">kafkaTemplate</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderService</span>(<span class="class-name">KafkaTemplate&lt;String, String&gt;</span> <span class="variable-name">kafkaTemplate</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this.kafkaTemplate</span> = <span class="variable-name">kafkaTemplate</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">createOrder</span>(<span class="class-name">Order</span> <span class="variable-name">order</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Save order to database (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Publish event to Kafka</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">kafkaTemplate.send</span>(<span class="string">"order-topic"</span>, <span class="string">"OrderCreated"</span>, <span class="variable-name">order.toString</span>());<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Order Model</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.orderservice.model</span>;<br><br>
+
+                        <span class="keyword">public class</span> <span class="class-name">Order</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">Long</span> <span class="variable-name">id</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">String</span> <span class="variable-name">productId</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="keyword">Integer</span> <span class="variable-name">quantity</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Getters and setters</span><br>
+                        }
+                    </div>
+
+                    <h3>4. Inventory Service</h3>
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.inventoryservice</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br>
+
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">InventoryServiceApplication</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="method-name">SpringApplication.run</span>(<span class="class-name">InventoryServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.inventoryservice.config</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.EnableKafka;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br><br>
+
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableKafka</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public ConcurrentMessageListenerContainer&lt;String, String&gt;</span> <span class="method-name">orderListenerContainer</span>(<span class="keyword">ConsumerFactory&lt;String, String&gt;</span> <span class="variable-name">consumerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return new</span> ConcurrentMessageListenerContainer&lt;&gt;(<span class="variable-name">consumerFactory</span>, new ContainerProperties(<span class="string">"order-topic"</span>));<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Inventory Listener</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.inventoryservice.listener</span>;<br><br>
+
+                        <span class="keyword">import</span> com.example.inventoryservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.inventoryservice.service.InventoryService;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.KafkaListener;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderListener</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">InventoryService</span> <span class="variable-name">inventoryService</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderListener</span>(<span class="class-name">InventoryService</span> <span class="variable-name">inventoryService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this.inventoryService</span> = <span class="variable-name">inventoryService</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@KafkaListener</span>(<span class="keyword">topics</span> = <span class="string">"order-topic"</span>, <span class="keyword">groupId</span> = <span class="string">"inventory-service-group"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">listen</span>(<span class="keyword">String</span> <span class="variable-name">message</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process order (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">inventoryService.processOrder</span>(<span class="variable-name">message</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Inventory Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.inventoryservice.service</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">InventoryService</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">processOrder</span>(<span class="keyword">String</span> <span class="variable-name">orderMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process inventory (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h3>5. Payment Service</h3>
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.paymentservice</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br>
+
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">PaymentServiceApplication</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="method-name">SpringApplication.run</span>(<span class="class-name">PaymentServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.paymentservice.config</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.EnableKafka;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br><br>
+
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableKafka</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public ConcurrentMessageListenerContainer&lt;String, String&gt;</span> <span class="method-name">orderListenerContainer</span>(<span class="keyword">ConsumerFactory&lt;String, String&gt;</span> <span class="variable-name">consumerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return new</span> ConcurrentMessageListenerContainer&lt;&gt;(<span class="variable-name">consumerFactory</span>, new ContainerProperties(<span class="string">"order-topic"</span>));<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Payment Listener</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.paymentservice.listener</span>;<br><br>
+
+                        <span class="keyword">import</span> com.example.paymentservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.paymentservice.service.PaymentService;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.KafkaListener;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderListener</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">PaymentService</span> <span class="variable-name">paymentService</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderListener</span>(<span class="class-name">PaymentService</span> <span class="variable-name">paymentService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this.paymentService</span> = <span class="variable-name">paymentService</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@KafkaListener</span>(<span class="keyword">topics</span> = <span class="string">"order-topic"</span>, <span class="keyword">groupId</span> = <span class="string">"payment-service-group"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">listen</span>(<span class="keyword">String</span> <span class="variable-name">message</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process payment (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">paymentService.processPayment</span>(<span class="variable-name">message</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Payment Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.paymentservice.service</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">PaymentService</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">processPayment</span>(<span class="keyword">String</span> <span class="variable-name">orderMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process payment (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h3>6. Product Service</h3>
+                    <h4>Application</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.productservice</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.boot.SpringApplication;<br>
+                        <span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br>
+
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">ProductServiceApplication</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method-name">main</span>(<span class="keyword">String</span>[] <span class="variable-name">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="method-name">SpringApplication.run</span>(<span class="class-name">ProductServiceApplication</span>.class, <span class="variable-name">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Kafka Configuration</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.productservice.config</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.context.annotation.Bean;<br>
+                        <span class="keyword">import</span> org.springframework.context.annotation.Configuration;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.EnableKafka;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.core.ConsumerFactory;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.ConcurrentMessageListenerContainer;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.listener.config.ContainerProperties;<br><br>
+
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableKafka</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">KafkaConfig</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public ConcurrentMessageListenerContainer&lt;String, String&gt;</span> <span class="method-name">orderListenerContainer</span>(<span class="keyword">ConsumerFactory&lt;String, String&gt;</span> <span class="variable-name">consumerFactory</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return new</span> ConcurrentMessageListenerContainer&lt;&gt;(<span class="variable-name">consumerFactory</span>, new ContainerProperties(<span class="string">"order-topic"</span>));<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Product Listener</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.productservice.listener</span>;<br><br>
+
+                        <span class="keyword">import</span> com.example.productservice.model.Order;<br>
+                        <span class="keyword">import</span> com.example.productservice.service.ProductService;<br>
+                        <span class="keyword">import</span> org.springframework.kafka.annotation.KafkaListener;<br>
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">OrderListener</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">ProductService</span> <span class="variable-name">productService</span>;<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">OrderListener</span>(<span class="class-name">ProductService</span> <span class="variable-name">productService</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this.productService</span> = <span class="variable-name">productService</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@KafkaListener</span>(<span class="keyword">topics</span> = <span class="string">"order-topic"</span>, <span class="keyword">groupId</span> = <span class="string">"product-service-group"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">listen</span>(<span class="keyword">String</span> <span class="variable-name">message</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process product (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable-name">productService.processProduct</span>(<span class="variable-name">message</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>Product Service</h4>
+                    <div class="code">
+                        <span class="keyword">package</span> <span class="variable-name">com.example.productservice.service</span>;<br><br>
+
+                        <span class="keyword">import</span> org.springframework.stereotype.Service;<br><br>
+
+                        <span class="keyword">@Service</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">ProductService</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">processProduct</span>(<span class="keyword">String</span> <span class="variable-name">orderMessage</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">// Process product (not shown)</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+
+                    <p>Here are a few frameworks available to implement the orchestrator pattern:</p>
+                    <ul>
+                        <li><a href="https://camunda.com/">Camunda</a>&nbsp;is a Java-based framework that supports
+                            Business Process Model and Notation (BPMN) standard for workflow and process automation.
+                        </li>
+                        <li><a href="https://camel.apache.org/components/latest/eips/saga-eip.html">Apache Camel</a>
+                            provides the implementation for Saga Enterprise Integration Pattern (EIP).
+                        </li>
+                    </ul>
+                    <h1>7. Advantages and Disadvantages of SAGA Pattern</h1>
+                    <p>The main benefit of the Saga Pattern is that it helps maintain data consistency across
+                        multiple services without tight coupling. This is an extremely important aspect for a
+                        microservices architecture.</p>
+
+                    <p>However, the main disadvantage of the Saga Pattern is the apparent complexity from a
+                        programming point of view. Also, developers are not as well accustomed to writing Sagas as
+                        traditional transactions. The other challenge is that compensating transactions also have to
+                        be designed to make Sagas work.</p>
+
+                    <p>In my opinion, Sagas can help solve certain challenges and scenarios. They should be adopted
+                        or explored if the need arises. However, I would love to hear if others have also used Saga
+                        Pattern and how was the experience? What frameworks (if any) did you use?</p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>Advantage of SAGA Pattern</p>
+                            </td>
+                            <td>
+                                <p>Disadvantage of SAGA Pattern</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Provides better fault tolerance: With SAGA, if one step fails, the entire
+                                process can be rolled back or compensated without affecting other steps.
+                            </td>
+                            <td>Increased complexity: Implementing SAGA requires additional coding and
+                                architecture to handle compensation and rollback steps.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Simplifies error handling: SAGA provides a clear and standardized way to handle
+                                errors and compensations, making it easier to debug and maintain.
+                            </td>
+                            <td>Limited support: Not all frameworks or platforms support SAGA out of the box,
+                                which can make implementation more difficult.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Allows for asynchronous processing: SAGA can support asynchronous processing,
+                                allowing for greater concurrency and performance.
+                            </td>
+                            <td>Requires careful design: The SAGA pattern requires careful design to ensure that
+                                the compensations and rollbacks are implemented correctly and can handle all
+                                possible failure scenarios.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Supports distributed transactions: SAGA can handle transactions across multiple
+                                services or databases, allowing for more scalable and distributed architectures.
+                            </td>
+                            <td>Increased latency: SAGA may result in additional latency due to the need to
+                                coordinate between different services or databases.
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../microservices/sleuth.html">&lArr; Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../interview/springboot/microservices.html">Next
+                    &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+                                                                          src="../scripts/images/top.jpeg"/></button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

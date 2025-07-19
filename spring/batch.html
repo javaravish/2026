@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Batch</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Spring Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/introduction.html">Spring
+                            Introduction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/spring-core.html">Spring Core</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/mvc.html">Spring
+                            Web</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/aop.html">Spring
+                            AOP</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/exceptions.html">Spring Exceptions</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/jpa.html">Spring
+                            JPA</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/transactions.html">Spring
+                            Transactions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/batch.html">Spring
+                            Batch</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/resttemplate.html">Spring
+                            Rest Template</a></li>
+                        <h4>Spring Annotations</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-core.html">Core
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-mvc.html">MVC Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-transactions.html">Transactions
+                            & Error Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-configuration.html">Configuration
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-aop.html">AOP Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-jpa.html">JPA Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cloud.html">Cloud
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-scheduling.html">Scheduling
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cache-error.html">Caching
+                            Annotations</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/spring/spring-interview-questions.html">Spring
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">Batch</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">Batch</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk"> <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text"></div>
+                <h1>Spring Batch Overview</h1>
+                <p>Spring Batch is a powerful framework for developing robust batch processing applications. It provides
+                    reusable functions for processing large volumes of records, including logging/tracing, transaction
+                    management, job processing statistics, job restart, skip, and resource management.</p>
+
+                <h2>1. Introduction to Spring Batch</h2>
+                <p>Spring Batch is designed to handle the bulk of processing in an enterprise application. It
+                    supports:</p>
+                <ul>
+                    <li>Large volume processing</li>
+                    <li>High-performance batch jobs</li>
+                    <li>Comprehensive transaction management</li>
+                    <li>Logging and tracing</li>
+                    <li>Skip and retry functionality</li>
+                    <li>Scalability and parallel processing</li>
+                </ul>
+                <img src="../spring/images/batch.png">
+                <h2>2. Setting Up a Spring Batch Project</h2>
+                <p>Create a new Spring Boot project using Spring Initializr with the following dependencies:</p>
+                <ul>
+                    <li>Spring Batch</li>
+                    <li>Spring Data JPA</li>
+                    <li>H2 Database (or another database for persistence)</li>
+                    <li>Spring Boot DevTools (optional)</li>
+                </ul>
+
+                <h3>pom.xml Example Configuration:</h3>
+                <div class="code">
+                    <span class="keyword">&lt;dependencies&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Spring Boot Starter Batch for batch processing support --&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.springframework.boot<span
+                        class="keyword">&lt;/groupId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>spring-boot-starter-batch<span
+                        class="keyword">&lt;/artifactId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span>
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">&lt;!-- Spring Boot Starter Data JPA for database interactions --&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>org.springframework.boot<span
+                        class="keyword">&lt;/groupId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span
+                        class="keyword">&lt;/artifactId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span>
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="comment">&lt;!-- H2 Database for an in-memory database --&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;dependency&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span>com.h2database<span
+                        class="keyword">&lt;/groupId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">&lt;artifactId&gt;</span>h2<span class="keyword">&lt;/artifactId&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">&lt;scope&gt;</span>runtime<span class="keyword">&lt;/scope&gt;</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;/dependency&gt;</span>
+                    <br>
+                    <span class="keyword">&lt;/dependencies&gt;</span>
+                </div>
+
+                <h2>3. Configuring Spring Batch</h2>
+                <h3>3.1 Database Configuration</h3>
+                <p>Spring Batch requires a database to store metadata. In this tutorial, we'll use H2 as an in-memory
+                    database.</p>
+                <div class="code">
+                    <span class="keyword">spring.datasource.url</span>=<span class="string">jdbc:h2:mem:testdb</span>
+                    <br>
+                    <span class="keyword">spring.datasource.driverClassName</span>=<span
+                        class="type">org.h2.Driver</span>
+                    <br>
+                    <span class="keyword">spring.datasource.username</span>=<span class="variable">sa</span>
+                    <br>
+                    <span class="keyword">spring.datasource.password</span>=<span class="variable">password</span>
+                    <br>
+                    <span class="keyword">spring.jpa.database-platform</span>=<span class="type">org.hibernate.dialect.H2Dialect</span>
+                    <br>
+                    <span class="keyword">spring.batch.initialize-schema</span>=<span class="string">always</span>
+                </div>
+
+                <h3>3.2 Batch Configuration</h3>
+                <p>Create a configuration class to set up the batch job.</p>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.Job</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.Step</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.configuration.annotation.EnableBatchProcessing</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.configuration.annotation.JobBuilderFactory</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.configuration.annotation.StepBuilderFactory</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.launch.support.RunIdIncrementer</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.repository.JobRepository</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.step.tasklet.Tasklet</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.batch.core.step.tasklet.TaskletStep</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemProcessor</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemReader</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemWriter</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.beans.factory.annotation.Autowired</span>;
+                    <br>
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.context.annotation.Bean</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.context.annotation.Configuration</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.transaction.PlatformTransactionManager</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@Configuration</span>
+                    <br>
+                    <span class="annotation">@EnableBatchProcessing</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">BatchConfig</span>
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">JobBuilderFactory</span> <span class="variable">jobBuilderFactory</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Autowired</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                        class="type">StepBuilderFactory</span> <span class="variable">stepBuilderFactory</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Job</span> <span
+                        class="function">job</span>(<span class="type">JobRepository</span> <span class="variable">jobRepository</span>,
+                    <span class="type">PlatformTransactionManager</span> <span
+                        class="variable">transactionManager</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">jobBuilderFactory</span>.<span class="function">get</span>(<span
+                        class="string">"job"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">incrementer</span>(<span
+                        class="type">new RunIdIncrementer</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="function">flow</span>(<span class="function">step1</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="function">end</span>()
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">Step</span> <span
+                        class="function">step1</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">stepBuilderFactory</span>.<span class="function">get</span>(<span
+                        class="string">"step1"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="function">chunk</span>(<span class="number">10</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">reader</span>(<span
+                        class="function">reader</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">processor</span>(<span
+                        class="function">processor</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">writer</span>(<span
+                        class="function">writer</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ItemReader&lt;String&gt;</span>
+                    <span class="function">reader</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">new SimpleReader</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ItemProcessor&lt;String, String&gt;</span>
+                    <span class="function">processor</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">new SimpleProcessor</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Bean</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">ItemWriter&lt;String&gt;</span>
+                    <span class="function">writer</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">new SimpleWriter</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>4. Implementing Batch Components</h2>
+                <h3>4.1 ItemReader</h3>
+                <p>An <span class="type">ItemReader</span> reads the data for processing. Here, we use a simple reader
+                    that provides a list of items.</p>
+                <div class="code">
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemReader</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.Arrays</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.List</span>;
+                    <br>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleReader</span>
+                    <span class="keyword">implements</span> <span class="type">ItemReader&lt;String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span class="type">int</span> <span
+                        class="variable">nextIndex</span>;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private</span> <span
+                        class="type">List&lt;String&gt;</span> <span class="variable">data</span>;
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">SimpleReader</span>()
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">nextIndex</span> = <span
+                        class="number">0</span>;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">data</span> = <span
+                        class="type">Arrays.asList</span>(<span class="string">"One"</span>, <span
+                        class="string">"Two"</span>, <span class="string">"Three"</span>, <span
+                        class="string">"Four"</span>, <span class="string">"Five"</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">String</span> <span
+                        class="function">read</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">String</span> <span
+                        class="variable">nextItem</span> = <span class="keyword">null</span>;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (<span
+                        class="variable">nextIndex</span> < <span class="variable">data.size</span>()) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">nextItem</span>
+                    = <span class="variable">data.get</span>(<span class="variable">nextIndex</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">nextIndex</span>++;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">nextItem</span>;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h3>4.2 ItemProcessor</h3>
+                <p>An <span class="type">ItemProcessor</span> processes the data read by the <span class="type">ItemReader</span>.
+                </p>
+                <div class="code">
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemProcessor</span>;
+                    <br>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleProcessor</span>
+                    <span class="keyword">implements</span> <span
+                        class="type">ItemProcessor&lt;String, String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">String</span> <span
+                        class="function">process</span>(<span class="type">String</span> <span
+                        class="variable">item</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">item.toUpperCase</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h3>4.3 ItemWriter</h3>
+                <p>An <span class="type">ItemWriter</span> writes the processed data.</p>
+                <div class="code">
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.batch.item.ItemWriter</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">java.util.List</span>;
+                    <br>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleWriter</span>
+                    <span class="keyword">implements</span> <span class="type">ItemWriter&lt;String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">write</span>(<span class="type">List&lt;? extends String&gt;</span> <span
+                        class="variable">items</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">items.forEach</span>(<span
+                        class="type">System.out::println</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>5. Running the Batch Job</h2>
+                <p>Create a main class to run the Spring Boot application.</p>
+                <div class="code">
+                    <span class="keyword">import</span> <span
+                        class="type">org.springframework.boot.SpringApplication</span>;
+                    <br>
+                    <span class="keyword">import</span> <span class="type">org.springframework.boot.autoconfigure.SpringBootApplication</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@SpringBootApplication</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SpringBatchApplication</span>
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span>
+                    <span class="keyword">void</span> <span class="function">main</span>(<span
+                        class="type">String[]</span> <span class="variable">args</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">SpringApplication.run</span>(<span
+                        class="type">SpringBatchApplication.class</span>, <span class="variable">args</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>6. Advanced Spring Batch Concepts</h2>
+                <h3>6.1 Multi-Step Jobs</h3>
+                <p>Create a job with multiple steps.</p>
+                <div class="code">
+                    <span class="annotation">@Bean</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">Job</span> <span class="function">multiStepJob</span>()
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">jobBuilderFactory</span>.<span class="function">get</span>(<span
+                        class="string">"multiStepJob"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">incrementer</span>(<span
+                        class="type">new RunIdIncrementer</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">start</span>(<span
+                        class="function">step1</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">next</span>(<span
+                        class="function">step2</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h3>6.2 Job Parameters</h3>
+                <p>Pass parameters to the batch job.</p>
+                <div class="code">
+                    <span class="annotation">@Bean</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">Job</span> <span class="function">parameterizedJob</span>(<span
+                        class="type">JobRepository</span> <span class="variable">jobRepository</span>, <span
+                        class="type">PlatformTransactionManager</span> <span class="variable">transactionManager</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">jobBuilderFactory</span>.<span class="function">get</span>(<span
+                        class="string">"parameterizedJob"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">incrementer</span>(<span
+                        class="type">new RunIdIncrementer</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">start</span>(<span
+                        class="function">step1</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">listener</span>(<span
+                        class="type">new JobParametersListener</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">build</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">JobParametersListener</span>
+                    <span class="keyword">implements</span> <span class="type">JobExecutionListener</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">beforeJob</span>(<span class="type">JobExecution</span> <span class="variable">jobExecution</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="type">JobParameters</span> <span
+                        class="variable">jobParameters</span> = <span
+                        class="variable">jobExecution.getJobParameters</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">System.out.println</span>(<span class="string">"Job Parameters: "</span> + <span
+                        class="variable">jobParameters</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">afterJob</span>(<span class="type">JobExecution</span> <span class="variable">jobExecution</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                        class="keyword">System.out.println</span>(<span class="string">"Job Status: "</span> + <span
+                        class="variable">jobExecution.getStatus</span>());
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+                <h1>Summary of Key Points</h1>
+                <table border="1" cellspacing="0" cellpadding="5">
+                    <thead>
+                    <tr>
+                        <th>Concept</th>
+                        <th>Details</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Batch Processing</td>
+                        <td>Process large volumes of data efficiently</td>
+                    </tr>
+                    <tr>
+                        <td>Spring Batch Components</td>
+                        <td>ItemReader, ItemProcessor, ItemWriter</td>
+                    </tr>
+                    <tr>
+                        <td>Job Configuration</td>
+                        <td>Define jobs, steps, and chunk processing</td>
+                    </tr>
+                    <tr>
+                        <td>Database Setup</td>
+                        <td>Use H2 for metadata storage and persistence</td>
+                    </tr>
+                    <tr>
+                        <td>Multi-Step Jobs</td>
+                        <td>Create jobs with multiple steps for complex workflows</td>
+                    </tr>
+                    <tr>
+                        <td>Job Parameters</td>
+                        <td>Pass parameters to jobs for dynamic behavior</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>1. Job</h2>
+                <p>A <span class="type">Job</span> represents the batch process to be executed. It is composed of
+                    multiple <span class="type">Steps</span> and can be configured to execute sequentially or based on
+                    conditions.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Composed of multiple <span class="type">Steps</span>.</li>
+                    <li>Represents the entire batch process.</li>
+                    <li>Configurable for conditional execution and restartability.</li>
+                </ul>
+
+                <h2>2. Step</h2>
+                <p>A <span class="type">Step</span> is a phase in a <span class="type">Job</span>, encapsulating a
+                    portion of the batch job. Each <span class="type">Step</span> can be configured with readers,
+                    processors, and writers.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Represents a specific phase of the <span class="type">Job</span>.</li>
+                    <li>Contains the logic for reading, processing, and writing.</li>
+                    <li>Can be configured for chunk or tasklet-based processing.</li>
+                </ul>
+
+                <h2>3. ItemReader</h2>
+                <p>An <span class="type">ItemReader</span> is responsible for reading data from a data source and
+                    providing it to the batch process. It reads one item at a time.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Reads data from data sources like databases, files, etc.</li>
+                    <li>Provides data for processing.</li>
+                    <li>Must implement the <span class="function">read</span>() method.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleReader</span>
+                    <span class="keyword">implements</span> <span class="type">ItemReader&lt;String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">String</span> <span
+                        class="function">read</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Logic to read data
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>4. ItemProcessor</h2>
+                <p>An <span class="type">ItemProcessor</span> processes the data read by the <span class="type">ItemReader</span>.
+                    It transforms the data from one form to another.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Transforms data before writing.</li>
+                    <li>Implements the <span class="function">process</span>() method.</li>
+                    <li>Can be used for filtering, validation, and conversion.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleProcessor</span>
+                    <span class="keyword">implements</span> <span
+                        class="type">ItemProcessor&lt;String, String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">String</span> <span
+                        class="function">process</span>(<span class="type">String</span> <span
+                        class="variable">item</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="variable">item.toUpperCase</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>5. ItemWriter</h2>
+                <p>An <span class="type">ItemWriter</span> writes the processed data to a destination. It writes a list
+                    of items in one go.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Writes processed data to destinations like databases, files, etc.</li>
+                    <li>Implements the <span class="function">write</span>() method.</li>
+                    <li>Can be used for bulk inserts, file writing, etc.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleWriter</span>
+                    <span class="keyword">implements</span> <span class="type">ItemWriter&lt;String&gt;</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">write</span>(<span class="type">List&lt;? extends String&gt;</span> <span
+                        class="variable">items</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Logic to write data
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>6. JobRepository</h2>
+                <p>A <span class="type">JobRepository</span> is responsible for storing metadata about the job
+                    execution. It tracks the state and progress of jobs and steps.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Stores metadata for job executions.</li>
+                    <li>Tracks job and step progress.</li>
+                    <li>Supports restartability and transaction management.</li>
+                </ul>
+
+                <h2>7. JobLauncher</h2>
+                <p>A <span class="type">JobLauncher</span> is responsible for launching a <span class="type">Job</span>.
+                    It coordinates the execution of jobs and manages job parameters.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Launches Jobs with specified parameters.</li>
+                    <li>Manages job execution flow.</li>
+                    <li>Handles job restart and failure scenarios.</li>
+                </ul>
+                <div class="code">
+                    <span class="annotation">@Autowired</span>
+                    <br>
+                    <span class="keyword">private</span> <span class="type">JobLauncher</span> <span class="variable">jobLauncher</span>;
+                    <br>
+                    <br>
+                    <span class="annotation">@Autowired</span>
+                    <br>
+                    <span class="keyword">private</span> <span class="type">Job</span> <span class="variable">job</span>;
+                    <br>
+                    <br>
+                    <span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">runJob</span>() {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">JobParameters</span> <span class="variable">params</span>
+                    = <span class="type">new</span> <span class="type">JobParametersBuilder</span>()
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">addString</span>(<span
+                        class="string">"param"</span>, <span class="string">"value"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">toJobParameters</span>();
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">jobLauncher.run</span>(<span
+                        class="variable">job</span>, <span class="variable">params</span>);
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>8. JobParameters</h2>
+                <p><span class="type">JobParameters</span> are used to pass parameters to a <span
+                        class="type">Job</span>. They allow the job to be configured dynamically at runtime.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Pass dynamic parameters to jobs.</li>
+                    <li>Used for configuring job behavior.</li>
+                    <li>Can be simple types like <span class="type">String</span>, <span class="type">Long</span>, <span
+                            class="type">Date</span>, etc.
+                    </li>
+                </ul>
+                <div class="code">
+                    <span class="type">JobParameters</span> <span class="variable">params</span> = <span class="type">new</span>
+                    <span class="type">JobParametersBuilder</span>()
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">addString</span>(<span
+                        class="string">"inputFile"</span>, <span class="string">"input.csv"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">addLong</span>(<span
+                        class="string">"timestamp"</span>, <span class="type">System.currentTimeMillis</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">toJobParameters</span>();
+                </div>
+
+                <h2>9. JobExecution and StepExecution</h2>
+                <p><span class="type">JobExecution</span> and <span class="type">StepExecution</span> represent the
+                    state and outcome of a job or step execution. They provide details about the status, start time, end
+                    time, and exceptions encountered.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Track execution details of jobs and steps.</li>
+                    <li>Provide execution status and metrics.</li>
+                    <li>Useful for monitoring and debugging.</li>
+                </ul>
+
+                <h2>10. Tasklet</h2>
+                <p>A <span class="type">Tasklet</span> is a simpler alternative to chunk processing, used for
+                    single-task steps.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Encapsulates a single task within a step.</li>
+                    <li>Implements the <span class="function">execute</span>() method.</li>
+                    <li>Suitable for simpler, non-chunk processing logic.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">SimpleTasklet</span>
+                    <span class="keyword">implements</span> <span class="type">Tasklet</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="type">RepeatStatus</span>
+                    <span class="function">execute</span>(<span class="type">StepContribution</span> <span
+                        class="variable">contribution</span>, <span class="type">ChunkContext</span> <span
+                        class="variable">chunkContext</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Logic to perform task
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                        class="type">RepeatStatus.FINISHED</span>;
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>11. ChunkOrientedTasklet</h2>
+                <p>A <span class="type">ChunkOrientedTasklet</span> is the default implementation used for chunk-based
+                    processing in Spring Batch.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Processes data in chunks.</li>
+                    <li>Supports reading, processing, and writing in chunks.</li>
+                    <li>Enhances performance and manageability.</li>
+                </ul>
+
+                <h2>12. Listeners</h2>
+                <p><span class="type">Listeners</span> in Spring Batch are used to intercept the lifecycle events of
+                    jobs and steps. They can perform actions before and after job/step execution.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Intercept lifecycle events.</li>
+                    <li>Implement actions on job/step start, completion, failure, etc.</li>
+                    <li>Useful for logging, notifications, resource management.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">public</span> <span class="type">class</span> <span class="variable">JobCompletionListener</span>
+                    <span class="keyword">extends</span> <span class="type">JobExecutionListenerSupport</span> {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Override</span>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                        class="function">afterJob</span>(<span class="type">JobExecution</span> <span class="variable">jobExecution</span>)
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (<span
+                        class="variable">jobExecution.getStatus</span>() == <span
+                        class="type">BatchStatus.COMPLETED</span>) {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Logic after job
+                    completion
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}
+                </div>
+
+                <h2>13. Partitioner</h2>
+                <p>A <span class="type">Partitioner</span> is used to split a <span class="type">Step</span> into
+                    multiple partitions, enabling parallel processing.</p>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Splits a <span class="type">Step</span> into partitions for parallel processing.</li>
+                    <li>Enhances scalability and performance.</li>
+                    <li>Configured with a <span class="function">partitioner</span>() method in the <span class="type">Step</span>
+                        configuration.
+                    </li>
+                </ul>
+                <div class="code">
+                    <span class="annotation">@Bean</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">Step</span> <span class="function">partitionedStep</span>()
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return <span class="variable">stepBuilderFactory.get</span>(<span
+                        class="string">"partitionedStep"</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">partitioner</span>(<span
+                        class="string">"step1"</span>, <span class="function">partitioner</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">step</span>(<span
+                        class="function">step1</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">gridSize</span>(<span
+                        class="number">4</span>)
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">taskExecutor</span>(<span
+                        class="function">taskExecutor</span>())
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;.<span class="function">build</span>();
+                    <br>
+                    }
+                    <br>
+                    <span class="annotation">@Bean</span>
+                    <br>
+                    <span class="keyword">public</span> <span class="type">Partitioner</span> <span class="function">partitioner</span>()
+                    {
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return <span class="type">new</span> <span
+                        class="type">SimplePartitioner</span>();
+                    <br>
+                    }
+                </div>
+                <div class="table-container">
+                    <h1>Summary of Key Points</h1>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="component">Job</td>
+                            <td class="description">Represents the batch process, composed of multiple steps.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">Step</td>
+                            <td class="description">Represents a phase in the Job, contains reader, processor, and
+                                writer.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="component">ItemReader</td>
+                            <td class="description">Reads data from a data source.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">ItemProcessor</td>
+                            <td class="description">Processes data read by the ItemReader.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">ItemWriter</td>
+                            <td class="description">Writes processed data to a destination.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">JobRepository</td>
+                            <td class="description">Stores metadata for job and step executions.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">JobLauncher</td>
+                            <td class="description">Launches jobs and manages job parameters.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">JobParameters</td>
+                            <td class="description">Passes parameters to jobs for dynamic configuration.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">JobExecution</td>
+                            <td class="description">Tracks the state and outcome of a job execution.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">StepExecution</td>
+                            <td class="description">Tracks the state and outcome of a step execution.</td>
+                        </tr>
+                        <tr>
+                            <td class="component">Tasklet</td>
+                            <td class="description">Encapsulates a single task within a step, suitable for non-chunk
+                                processing.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="component">ChunkOrientedTasklet</td>
+                            <td class="description">Processes data in chunks, enhancing performance and manageability.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="component">Listeners</td>
+                            <td class="description">Intercepts lifecycle events of jobs and steps for logging,
+                                notifications, etc.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="component">Partitioner</td>
+                            <td class="description">Splits a Step into partitions for parallel processing, enhancing
+                                scalability and performance.
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../spring/transactions.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../spring/resttemplate.html">Next &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img height="30" width="30" src="../scripts/images/top.jpeg"/>
+        </button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

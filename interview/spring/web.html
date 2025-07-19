@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Spring Interview</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <script>
+        function closeOtherDetails(id) {
+            const details = document.getElementsByTagName('details');
+            for (let i = 0; i < details.length; i++) {
+                if (details[i].id !== id) {
+                    details[i].removeAttribute('open');
+                }
+            }
+        }
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+                                                            src="../../scripts/images/nani1.png" alt="Home"/>
+            <h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+                                                                          href="../../home.html"><img height="25"
+                                                                                                      width="25"
+                                                                                                      src="../../scripts/images/home.png"></i>
+                </a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide">
+                    <input type="checkbox" id="switch-theme-checkbox"/>
+                    <span class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/spring-interview-questions.html">Basic Interview</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/web.html">Web-1 Interview</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/web2.html">Web-2 Interview</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/rest.html">Rest Interview</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/aop.html">AOP Interview</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/jpa.html">JPA Interview</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../spring/transactions.html">Transaction Interview</a>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../interview-questions.html">Interview
+                        Questions</a></li>
+                    <li><a href="../springboot/springboot-interview-questions.html">Spring
+                        Interview Questions</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../interview-questions.html">Interview
+                        Questions</a></li>
+                    <li><a href="../spring/spring-interview-questions.html">Spring
+                        Interview Questions</a></li>
+                </ul>
+            </nav>
+            <article>
+                <h1>Spring MVC Interview Questions and Answers</h1>
+
+                <div>
+                    <h2>1. What is Spring MVC?</h2>
+                    <p>Answer: Spring MVC is a framework that helps in building web applications. It follows the Model-View-Controller (MVC) architectural pattern to separate the application’s concerns:</p>
+                    <ul>
+                        <li><span class="keyword">Model</span>: Represents the application data and business logic.</li>
+                        <li><span class="keyword">View</span>: Represents the UI (User Interface) that displays the data.</li>
+                        <li><span class="keyword">Controller</span>: Handles user input and interaction, processes the request, and returns a view or response.</li>
+                    </ul>
+                    <p>Key components of Spring MVC:</p>
+                    <ul>
+                        <li><span class="keyword">DispatcherServlet</span>: Acts as the front controller that intercepts all incoming requests and delegates them to appropriate handlers.</li>
+                        <li><span class="keyword">HandlerMapping</span>: Maps incoming requests to the appropriate controllers.</li>
+                        <li><span class="keyword">Controller</span>: Handles the requests, processes them, and returns the response.</li>
+                        <li><span class="keyword">ViewResolver</span>: Resolves the view to render based on the controller’s response.</li>
+                    </ul>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>2. What is DispatcherServlet in Spring MVC?</h2>
+                    <p>Answer: <span class="keyword">DispatcherServlet</span> is the front controller in Spring MVC. It is responsible for handling all HTTP requests and responses. It acts as an intermediary between the client and the controllers. <span class="keyword">DispatcherServlet</span> dispatches the request to appropriate handlers, views, or other components based on configuration.</p>
+                    <p>Responsibilities of <span class="keyword">DispatcherServlet</span>:</p>
+                    <ul>
+                        <li>Receives the request and routes it to the appropriate controller.</li>
+                        <li>Delegates tasks to <span class="keyword">HandlerMapping</span>, <span class="keyword">ViewResolver</span>, and other components.</li>
+                        <li>Processes the model and view returned by the controller and renders the final output to the user.</li>
+                    </ul>
+                    <p>Configuration in <span class="keyword">web.xml</span>:</p>
+                    <div class="code">
+                        <span class="keyword">&lt;servlet&gt;</span><br>
+                        &nbsp;&nbsp;<span class="keyword">&lt;servlet-name&gt;</span>dispatcher<span class="keyword">&lt;/servlet-name&gt;</span><br>
+                        &nbsp;&nbsp;<span class="keyword">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="keyword">&lt;/servlet-class&gt;</span><br>
+                        &nbsp;&nbsp;<span class="keyword">&lt;load-on-startup&gt;</span>1<span class="keyword">&lt;/load-on-startup&gt;</span><br>
+                        <span class="keyword">&lt;/servlet&gt;</span><br>
+                        <br>
+                        <span class="keyword">&lt;servlet-mapping&gt;</span><br>
+                        &nbsp;&nbsp;<span class="keyword">&lt;servlet-name&gt;</span>dispatcher<span class="keyword">&lt;/servlet-name&gt;</span><br>
+                        &nbsp;&nbsp;<span class="keyword">&lt;url-pattern&gt;</span>/</span><span class="keyword">&lt;/url-pattern&gt;</span><br>
+                        <span class="keyword">&lt;/servlet-mapping&gt;</span>
+                    </div>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>3. Explain the flow of a Spring MVC application.</h2>
+                    <p>Answer: The typical flow of a Spring MVC application is as follows:</p>
+                    <ol>
+                        <li>Client Request: A client sends a request to the server.</li>
+                        <li><span class="keyword">DispatcherServlet</span>: The request is intercepted by the <span class="keyword">DispatcherServlet</span>, which acts as the front controller.</li>
+                        <li><span class="keyword">HandlerMapping</span>: <span class="keyword">DispatcherServlet</span> uses <span class="keyword">HandlerMapping</span> to determine which controller is responsible for handling the request.</li>
+                        <li><span class="keyword">Controller</span>: The request is forwarded to the appropriate controller.</li>
+                        <li>Business Logic: The controller processes the request, possibly interacting with the service and data access layers.</li>
+                        <li><span class="keyword">Model</span>: The controller prepares a model that contains the data to be displayed.</li>
+                        <li><span class="keyword">ViewResolver</span>: The controller returns a view name to the <span class="keyword">DispatcherServlet</span>, which uses <span class="keyword">ViewResolver</span> to resolve the actual view.</li>
+                        <li>Rendering: The view is rendered and the response is sent back to the client.</li>
+                    </ol>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>4. What is the role of @Controller and @RestController in Spring MVC?</h2>
+                    <p>Answer:</p>
+                    <ul>
+                        <li><span class="annotation">@Controller</span>: This annotation is used to define a class as a Spring MVC controller that can handle web requests. A class annotated with <span class="annotation">@Controller</span> is responsible for returning views (usually JSP or Thymeleaf templates) using <span class="class-name">ModelAndView</span> or by returning a view name directly.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@RequestMapping</span>(<span class="variable">"/home"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">home</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"home"</span>; <span class="comment">// Returns the "home.jsp" or equivalent view</span><br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <ul>
+                        <li><span class="annotation">@RestController</span>: This is a specialization of <span class="annotation">@Controller</span> introduced in Spring 4.0. It combines <span class="annotation">@Controller</span> and <span class="annotation">@ResponseBody</span>. It is used for RESTful web services and returns data directly in the HTTP response body (e.g., JSON or XML) instead of a view.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@RestController</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyRestController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@RequestMapping</span>(<span class="variable">"/api/data"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public ResponseEntity&lt;<span class="type">String</span>&gt;</span> <span class="method-name">getData</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="class-name">new ResponseEntity&lt;&gt;</span>(<span class="variable">"Hello, World!"</span>, <span class="class-name">HttpStatus.OK</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>The key difference is that <span class="annotation">@RestController</span> is used to create REST APIs, while <span class="annotation">@Controller</span> is used for traditional MVC applications where views are rendered.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>5. What is @RequestMapping, and how is it used?</h2>
+                    <p>Answer: <span class="annotation">@RequestMapping</span> is an annotation used to map HTTP requests to handler methods in a controller. It can be applied at the class level and method level.</p>
+                    <ul>
+                        <li>At Class Level: To define a base URL for all methods in the class.</li>
+                        <li>At Method Level: To map specific URLs to individual methods.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="annotation">@RequestMapping</span>(<span class="variable">"/user"</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">UserController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@RequestMapping</span>(<span class="variable">"/profile"</span>, <span class="annotation">@RequestMethod.GET</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">getUserProfile</span>(<span class="class-name">Model</span> <span class="variable">model</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Logic for retrieving user profile</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">model</span>.<span class="method-name">addAttribute</span>(<span class="variable">"user"</span>, <span class="class-name">new User()</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"profile"</span>; <span class="comment">// Returns profile.jsp</span><br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <ul>
+                        <li><span class="keyword">value</span>: The URL to be mapped.</li>
+                        <li><span class="keyword">method</span>: The HTTP method (GET, POST, PUT, DELETE) for which this mapping applies.</li>
+                    </ul>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>6. What is @GetMapping and @PostMapping, and how do they differ from @RequestMapping?</h2>
+                    <p>Answer:</p>
+                    <ul>
+                        <li><span class="annotation">@GetMapping</span>: A shortcut for <span class="annotation">@RequestMapping</span>(<span class="keyword">method = RequestMethod.GET</span>) used for mapping GET requests.</li>
+                        <li><span class="annotation">@PostMapping</span>: A shortcut for <span class="annotation">@RequestMapping</span>(<span class="keyword">method = RequestMethod.POST</span>) used for mapping POST requests.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@GetMapping</span>(<span class="variable">"/users"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">getAllUsers</span>() {<br>
+                        &nbsp;&nbsp;<span class="comment">// Handle GET request</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"userList"</span>;<br>
+                        }<br>
+                        <br>
+                        <span class="annotation">@PostMapping</span>(<span class="variable">"/users"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">createUser</span>(<span class="annotation">@ModelAttribute</span> <span class="class-name">User</span> <span class="variable">user</span>) {<br>
+                        &nbsp;&nbsp;<span class="comment">// Handle POST request</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"userDetail"</span>;<br>
+                        }<br>
+                    </div>
+                    <p>These annotations are more readable and specific compared to <span class="annotation">@RequestMapping</span>, which can handle multiple HTTP methods.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>7. What is a ModelAndView in Spring MVC?</h2>
+                    <p>Answer: <span class="keyword">ModelAndView</span> is a class in Spring MVC used to encapsulate both the model (data) and the view (UI template) in a single return value from a controller method. It helps in passing data from the controller to the view.</p>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@RequestMapping</span>(<span class="variable">"/home"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public ModelAndView</span> <span class="method-name">home</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">ModelAndView</span> <span class="variable">mav</span> = <span class="keyword">new</span> <span class="class-name">ModelAndView</span>(<span class="variable">"home"</span>); <span class="comment">// View name</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">mav</span>.<span class="method-name">addObject</span>(<span class="variable">"message"</span>, <span class="variable">"Welcome to Spring MVC!"</span>); <span class="comment">// Add data to the model</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">mav</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>Here, <span class="class-name">ModelAndView</span> holds the view name (<span class="variable">home</span>) and the model data (<span class="variable">message</span>).</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>8. What is the role of @ModelAttribute in Spring MVC?</h2>
+                    <p>Answer: <span class="annotation">@ModelAttribute</span> is used to bind a method parameter or method return value to a named model attribute. It allows data to be passed between the controller and the view.</p>
+                    <p>Usage:</p>
+                    <ul>
+                        <li>To bind form data to a model object.</li>
+                        <li>To prepopulate a model object before a request is handled.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">UserController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/saveUser"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">saveUser</span>(<span class="annotation">@ModelAttribute</span> <span class="class-name">User</span> <span class="variable">user</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Process the user object from the form</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"userDetail"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <div class="code">
+                        <span class="annotation">@ModelAttribute</span>(<span class="variable">"user"</span>)<br>
+                        <span class="keyword">public</span> <span class="class-name">User</span> <span class="method-name">getUser</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">User</span>(); <span class="comment">// Prepopulate user object</span><br>
+                        }<br>
+                    </div>
+                    <p>The <span class="annotation">@ModelAttribute</span> annotation binds form fields or request parameters to the model attribute and makes it available in the view.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>9. What is @RequestParam, and how does it work?</h2>
+                    <p>Answer: <span class="annotation">@RequestParam</span> is used to extract query parameters or form data from an HTTP request and bind them to method parameters.</p>
+                    <div class="code">
+                        <span class="annotation">@GetMapping</span>(<span class="variable">"/search"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">search</span>(<span class="annotation">@RequestParam</span>(<span class="variable">"keyword"</span>) <span class="type">String</span> <span class="variable">keyword</span>, <span class="class-name">Model</span> <span class="variable">model</span>) {<br>
+                        &nbsp;&nbsp;<span class="comment">// Use the 'keyword' query parameter for search</span><br>
+                        &nbsp;&nbsp;<span class="variable">model</span>.<span class="method-name">addAttribute</span>(<span class="variable">"result"</span>, <span class="variable">searchService.search(keyword)</span>);<br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"searchResults"</span>;<br>
+                        }<br>
+                    </div>
+                    <p><span class="annotation">@RequestParam</span>(<span class="keyword">value</span> = <span class="variable">"paramName"</span>, <span class="keyword">required</span> = <span class="keyword">false</span>, <span class="keyword">defaultValue</span> = <span class="variable">"default"</span>) can be used to make the request parameter optional or to provide a default value if it’s not present in the request.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>10. What is @ModelAttribute used for in Spring MVC, and how does it differ from @RequestParam?</h2>
+                    <p>Answer: <span class="annotation">@ModelAttribute</span> is used to bind request parameters to a model object or to expose a model attribute to the view.</p>
+                    <ul>
+                        <li>Binding Request Parameters: It can be used to bind form data or request parameters to a model object. When used on a method parameter, it creates or binds an instance of the model class with request parameters.</li>
+                        <li>Exposing Model Attributes: It can also be used on a method to add attributes to the model, which can then be used in the view.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@PostMapping</span>(<span class="variable">"/submitForm"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">submitForm</span>(<span class="annotation">@ModelAttribute</span> <span class="class-name">User</span> <span class="variable">user</span>) {<br>
+                        &nbsp;&nbsp;<span class="comment">// Process the user object</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"result"</span>;<br>
+                        }<br>
+                    </div>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@ModelAttribute</span>(<span class="variable">"welcomeMessage"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">welcomeMessage</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"Welcome to the application!"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>Here, <span class="annotation">@ModelAttribute</span> provides more flexibility than <span class="annotation">@RequestParam</span>, allowing complex data binding and prepopulating model attributes.</p>
+                </div>
+                <div>
+                    <h2>11. What is the difference between @ControllerAdvice and @ExceptionHandler?</h2>
+                    <p>Answer:</p>
+                    <ul>
+                        <li><span class="annotation">@ControllerAdvice</span>: A specialized form of <span class="annotation">@Component</span> that provides global exception handling and model enhancements across multiple controllers. It allows you to handle exceptions, add model attributes, and apply global configurations across the application. Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@ControllerAdvice</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">GlobalExceptionHandler</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@ExceptionHandler</span>(<span class="class-name">Exception</span>.<span class="method-name">class</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">ModelAndView</span> <span class="method-name">handleException</span>(<span class="class-name">Exception</span> <span class="variable">ex</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">ModelAndView</span> <span class="variable">mav</span> = <span class="keyword">new</span> <span class="class-name">ModelAndView</span>(<span class="variable">"error"</span>); <span class="comment">// View name</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">mav</span>.<span class="method-name">addObject</span>(<span class="variable">"errorMessage"</span>, <span class="variable">ex.getMessage()</span>); <span class="comment">// Add data to the model</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">mav</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p><span class="annotation">@ExceptionHandler</span>: Used within a specific controller or <span class="annotation">@ControllerAdvice</span> class to handle exceptions thrown by controller methods. It is more specific and local to the controller or advice class where it is defined.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>12. What is @InitBinder, and how is it used?</h2>
+                    <p>Answer: <span class="annotation">@InitBinder</span> is used to customize the binding of web request parameters to method parameters in controllers. It allows you to add custom editors or converters to handle complex types or data transformations.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@InitBinder</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method-name">initBinder</span>(<span class="class-name">WebDataBinder</span> <span class="variable">binder</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">binder</span>.<span class="method-name">registerCustomEditor</span>(<span class="class-name">Date</span>.class, <span class="keyword">new</span> <span class="class-name">CustomDateEditor</span>(<span class="keyword">new</span> <span class="class-name">SimpleDateFormat</span>(<span class="variable">"yyyy-MM-dd"</span>), <span class="keyword">false</span>));<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/date"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">handleDate</span>(<span class="annotation">@RequestParam</span> <span class="class-name">Date</span> <span class="variable">date</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Handle the date parameter</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"result"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>In this example, <span class="annotation">@InitBinder</span> is used to register a custom date editor to handle date formatting.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>13. What is @ResponseStatus, and how is it used in a custom exception class?</h2>
+                    <p>Answer: <span class="annotation">@ResponseStatus</span> is used to specify the HTTP status code that should be returned for a specific exception. It can be applied to exception classes to define a default response status when the exception is thrown.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@ResponseStatus</span>(<span class="class-name">HttpStatus.BAD_REQUEST</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">InvalidInputException</span> <span class="keyword">extends</span> <span class="class-name">RuntimeException</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">InvalidInputException</span>(<span class="keyword">String</span> <span class="variable">message</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">super</span>(<span class="variable">message</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>In this example, whenever <span class="class-name">InvalidInputException</span> is thrown, the HTTP response will have a status code of 400 Bad Request.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>14. What are @CrossOrigin annotations, and how do you use them?</h2>
+                    <p>Answer: <span class="annotation">@CrossOrigin</span> is used to handle Cross-Origin Resource Sharing (CORS) in Spring MVC applications. It allows you to specify which origins are allowed to access your resources, enabling cross-origin requests.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@RestController</span><br>
+                        <span class="annotation">@CrossOrigin</span>(<span class="variable">"http://example.com"</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">MyRestController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@GetMapping</span>(<span class="variable">"/data"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public ResponseEntity&lt;String&gt;</span> <span class="method-name">getData</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">ResponseEntity</span>&lt;&gt;(<span class="variable">"Data from server"</span>, <span class="class-name">HttpStatus.OK</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>This configuration allows requests from <span class="variable">http://example.com</span> to access the <span class="variable">/data</span> endpoint.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>15. What is @SessionAttributes, and how does it work?</h2>
+                    <p>Answer: <span class="annotation">@SessionAttributes</span> is used to store model attributes in the HTTP session. It allows you to keep model attributes across multiple requests from the same user, making them available during the entire session.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="annotation">@SessionAttributes</span>(<span class="variable">"user"</span>)<br>
+                        <span class="keyword">public class</span> <span class="class-name">UserController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@ModelAttribute</span>(<span class="variable">"user"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public User</span> <span class="method-name">getUser</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">User</span>(); <span class="comment">// Prepopulate user object</span><br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/updateUser"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">updateUser</span>(<span class="annotation">@ModelAttribute</span> <span class="class-name">User</span> <span class="variable">user</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Update user information</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"userDetail"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>In this example, the <span class="variable">user</span> attribute will be stored in the session and be available across multiple requests.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>16. What is @RequestHeader, and how do you use it?</h2>
+                    <p>Answer: <span class="annotation">@RequestHeader</span> is used to bind HTTP request headers to method parameters in a controller. It allows you to access header values directly within controller methods.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@GetMapping</span>(<span class="variable">"/headers"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">getHeaders</span>(<span class="annotation">@RequestHeader</span>(<span class="variable">"User-Agent"</span>) <span class="keyword">String</span> <span class="variable">userAgent</span>) {<br>
+                        &nbsp;&nbsp;<span class="comment">// Process the User-Agent header value</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"headers"</span>;<br>
+                        }<br>
+                    </div>
+                    <p>In this example, the <span class="variable">User-Agent</span> header is accessed and used in the method.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>17. How can you implement file upload functionality in Spring MVC?</h2>
+                    <p>Answer: To handle file uploads in Spring MVC, you can use <span class="class-name">MultipartFile</span> to represent uploaded files. You also need to configure multipart file handling in your Spring application.</p>
+                    <ul>
+                        <li>Configuration:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">&lt;multipart-config&gt;</span><br>
+                        &nbsp;&nbsp;<span class="variable">&lt;max-file-size&gt;100MB&lt;/max-file-size&gt;</span><br>
+                        &nbsp;&nbsp;<span class="variable">&lt;max-request-size&gt;100MB&lt;/max-request-size&gt;</span><br>
+                        <span class="annotation">&lt;/multipart-config&gt;</span><br>
+                    </div>
+                    <ul>
+                        <li>Controller:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">FileUploadController</span> {<br>
+                        &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/upload"</span>)<br>
+                        &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">handleFileUpload</span>(<span class="annotation">@RequestParam</span>(<span class="variable">"file"</span>) <span class="class-name">MultipartFile</span> <span class="variable">file</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (!<span class="variable">file</span>.<span class="method-name">isEmpty</span>()) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Process the file</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">String</span> <span class="variable">fileName</span> = <span class="variable">file</span>.<span class="method-name">getOriginalFilename</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Save the file or process it</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"uploadResult"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <p>In this example, the uploaded file is accessed via <span class="class-name">MultipartFile</span>, and you can process it as needed.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>18. What is the @RequestMapping method parameter params, and how is it used?</h2>
+                    <p>Answer: The <span class="keyword">@RequestMapping</span> method parameter <span class="variable">params</span> is used to specify that a request must contain specific query parameters for the handler method to be invoked. It is useful for request parameter filtering.</p>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@GetMapping</span>(<span class="variable">"/users"</span>, <span class="keyword">params</span> = <span class="variable">"active=true"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">getActiveUsers</span>() {<br>
+                        &nbsp;&nbsp;<span class="comment">// Handle request with "active=true" parameter</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"activeUsers"</span>;<br>
+                        }<br>
+                    </div>
+                    <p>In this example, the handler method will only be invoked if the request contains the parameter <span class="variable">active=true</span>.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>19. What are ViewResolvers in Spring MVC, and how do they work?</h2>
+                    <p>Answer: ViewResolvers are used to resolve view names into actual view objects. They determine which view should be rendered based on the view name returned by a controller.</p>
+                    <p>Common Types of ViewResolvers:</p>
+                    <ul>
+                        <li><span class="variable">InternalResourceViewResolver</span>: Resolves view names to JSP files or other server-side technologies.</li>
+                        <li><span class="variable">ThymeleafViewResolver</span>: Resolves view names to Thymeleaf templates.</li>
+                        <li><span class="variable">XmlViewResolver</span>: Resolves view names based on XML configuration.</li>
+                    </ul>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">@Bean</span><br>
+                        <span class="keyword">public ViewResolver</span> <span class="method-name">viewResolver</span>() {<br>
+                        &nbsp;&nbsp;<span class="class-name">InternalResourceViewResolver</span> <span class="variable">resolver</span> = <span class="keyword">new</span> <span class="class-name">InternalResourceViewResolver</span>();<br>
+                        &nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setPrefix</span>(<span class="variable">"/WEB-INF/views/"</span>);<br>
+                        &nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setSuffix</span>(<span class="variable">".jsp"</span>);<br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">resolver</span>;<br>
+                        }<br>
+                    </div>
+                    <p>Here, <span class="variable">InternalResourceViewResolver</span> is configured to resolve view names to JSP files located in the <span class="variable">/WEB-INF/views/</span> directory.</p>
+                    <div class="hr"></div>
+                </div>
+
+                <div>
+                    <h2>20. What is @RequestMapping in Spring MVC, and how does it differ from @GetMapping, @PostMapping, etc.?</h2>
+                    <p>Answer: <span class="annotation">@RequestMapping</span> is a general-purpose annotation for mapping HTTP requests to handler methods. It can be used with various HTTP methods by specifying the method attribute.</p>
+                    <ul>
+                        <li><span class="annotation">@RequestMapping</span>: General-purpose and can handle all HTTP methods.</li>
+                        <li><span class="annotation">@GetMapping</span>: Shortcut for <span class="annotation">@RequestMapping</span>(<span class="variable">method = RequestMethod.GET</span>), specifically for GET requests.</li>
+                        <li><span class="annotation">@PostMapping</span>: Shortcut for <span class="annotation">@RequestMapping</span>(<span class="variable">method = RequestMethod.POST</span>), specifically for POST requests.</li>
+                        <li><span class="annotation">@PutMapping</span>: Shortcut for <span class="annotation">@RequestMapping</span>(<span class="variable">method = RequestMethod.PUT</span>), specifically for PUT requests.</li>
+                        <li><span class="annotation">@DeleteMapping</span>: Shortcut for <span class="annotation">@RequestMapping</span>(<span class="variable">method = RequestMethod.DELETE</span>), specifically for DELETE requests.</li>
+                    </ul>
+                    <ul>
+                        <li>Example:</li>
+                    </ul>
+                    <div class="code">
+                        <span class="annotation">@RequestMapping</span>(<span class="variable">value = "/process"</span>, <span class="variable">method = RequestMethod.POST</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">processForm</span>(<span class="annotation">@RequestParam</span>(<span class="variable">"name"</span>) <span class="keyword">String</span> <span class="variable">name</span>) {<br>
+                        &nbsp;&nbsp;<span class="comment">// Handle POST request</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"result"</span>;<br>
+                        }<br>
+                        <br>
+                        <span class="annotation">@GetMapping</span>(<span class="variable">"/greet"</span>)<br>
+                        <span class="keyword">public String</span> <span class="method-name">greetUser</span>() {<br>
+                        &nbsp;&nbsp;<span class="comment">// Handle GET request</span><br>
+                        &nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"greet"</span>;<br>
+                        }<br>
+                    </div>
+                    <div>
+                        <h2>21. How does Spring MVC handle form submissions?</h2>
+                        <p>Answer: Spring MVC handles form submissions by binding form data to model objects and processing it in controller methods. The process involves:</p>
+                        <ul>
+                            <li>Form Tag Library: Using the <span class="variable">&lt;form:form&gt;</span> tag from the Spring Form Tag Library to create HTML forms.</li>
+                            <li>Model Binding: Automatically binding form fields to model attributes using <span class="annotation">@ModelAttribute</span>.</li>
+                            <li>Form Validation: Validating form data using JSR-303/JSR-380 (Bean Validation) annotations and the <span class="annotation">@Valid</span> annotation.</li>
+                        </ul>
+                        <p>Example:</p>
+                        <div class="code">
+                            <span class="comment">&lt;!-- form.jsp --&gt;</span><br>
+                            &lt;<span class="annotation">form:form</span> action=<span class="variable">"/submit"</span> method=<span class="variable">"post"</span> modelAttribute=<span class="variable">"user"</span>&gt;<br>
+                            &nbsp;&nbsp;&lt;<span class="annotation">form:input</span> path=<span class="variable">"username"</span> /&gt;<br>
+                            &nbsp;&nbsp;&lt;<span class="annotation">form:input</span> path=<span class="variable">"email"</span> /&gt;<br>
+                            &nbsp;&nbsp;&lt;<span class="annotation">input</span> type=<span class="variable">"submit"</span> value=<span class="variable">"Submit"</span> /&gt;<br>
+                            &lt;/<span class="annotation">form:form</span>&gt;
+                        </div>
+                        <p>Controller:</p>
+                        <div class="code">
+                            <span class="annotation">@Controller</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">FormController</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/submit"</span>)<br>
+                            &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">submitForm</span>(<span class="annotation">@ModelAttribute</span> <span class="annotation">@Valid</span> <span class="class-name">User</span> <span class="variable">user</span>, <span class="class-name">BindingResult</span> <span class="variable">result</span>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> (<span class="variable">result</span>.<span class="method-name">hasErrors</span>()) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"form"</span>;<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Process the valid user object</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"result"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>22. What is the purpose of @PathVariable in Spring MVC, and how do you use it?</h2>
+                        <p>Answer: <span class="annotation">@PathVariable</span> is used to extract values from URI template variables and bind them to method parameters. It is useful for extracting data from the URL path.</p>
+                        <p>Example:</p>
+                        <div class="code">
+                            <span class="annotation">@Controller</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">ProductController</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@GetMapping</span>(<span class="variable">"/products/{productId}"</span>)<br>
+                            &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">getProduct</span>(<span class="annotation">@PathVariable</span>(<span class="variable">"productId"</span>) <span class="keyword">Long</span> <span class="variable">productId</span>, <span class="class-name">Model</span> <span class="variable">model</span>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">Product</span> <span class="variable">product</span> = <span class="variable">productService</span>.<span class="method-name">findById</span>(<span class="variable">productId</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">model</span>.<span class="method-name">addAttribute</span>(<span class="variable">"product"</span>, <span class="variable">product</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"productDetail"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>23. What is the purpose of @SessionAttributes, and how do you use it?</h2>
+                        <p>Answer: <span class="annotation">@SessionAttributes</span> is used to store model attributes in the HTTP session, making them available across multiple requests within the same session. It is useful for maintaining stateful information.</p>
+                        <p>Example:</p>
+                        <div class="code">
+                            <span class="annotation">@Controller</span><br>
+                            <span class="annotation">@SessionAttributes</span>(<span class="variable">"user"</span>)<br>
+                            <span class="keyword">public class</span> <span class="class-name">UserController</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@ModelAttribute</span>(<span class="variable">"user"</span>)<br>
+                            &nbsp;&nbsp;<span class="keyword">public User</span> <span class="method-name">createUser</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">User</span>();<br>
+                            &nbsp;&nbsp;}<br>
+                            <br>
+                            &nbsp;&nbsp;<span class="annotation">@PostMapping</span>(<span class="variable">"/updateUser"</span>)<br>
+                            &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">updateUser</span>(<span class="annotation">@ModelAttribute</span>(<span class="variable">"user"</span>) <span class="class-name">User</span> <span class="variable">user</span>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Update user object</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"userDetail"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>24. How do you configure Spring MVC to use custom error pages?</h2>
+                        <p>Answer: Custom error pages can be configured in Spring MVC using the <span class="class-name">ErrorController</span> interface or by defining error views in the web.xml or using configuration classes.</p>
+                        <p>Using ErrorController:</p>
+                        <div class="code">
+                            <span class="annotation">@Controller</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">CustomErrorController</span> <span class="keyword">implements</span> <span class="class-name">ErrorController</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@RequestMapping</span>(<span class="variable">"/error"</span>)<br>
+                            &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">handleError</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Return custom error view</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"errorPage"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            <br>
+                            &nbsp;&nbsp;<span class="keyword">@Override</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public String</span> <span class="method-name">getErrorPath</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"/error"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <p>Configuring in web.xml:</p>
+                        <div class="code">
+                            <span class="annotation">&lt;error-page&gt;</span><br>
+                            &nbsp;&nbsp;&lt;<span class="annotation">error-code</span>&gt;<span class="variable">404</span>&lt;/<span class="annotation">error-code</span>&gt;<br>
+                            &nbsp;&nbsp;&lt;<span class="annotation">location</span>&gt;<span class="variable">/WEB-INF/views/404.jsp</span>&lt;/<span class="annotation">location</span>&gt;<br>
+                            &lt;/<span class="annotation">error-page</span>&gt;
+                        </div>
+                        <p>Using Configuration Class:</p>
+                        <div class="code">
+                            <span class="annotation">@Configuration</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">WebConfig</span> <span class="keyword">implements</span> <span class="class-name">WebMvcConfigurer</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public ErrorViewResolver</span> <span class="method-name">errorViewResolver</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="class-name">MyErrorViewResolver</span>();<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>25. What is @RequestPart and how is it used?</h2>
+                        <p>Answer: <span class="annotation">@RequestPart</span> is used to handle multipart file uploads where the file is part of the request payload. It allows you to access parts of the request, such as files and JSON, separately.</p>
+                        <p>Example:</p>
+                        <div class="code">
+                            <span class="annotation">@PostMapping</span>(<span class="variable">"/upload"</span>)<br>
+                            <span class="keyword">public String</span> <span class="method-name">handleFileUpload</span>(<span class="annotation">@RequestPart</span>(<span class="variable">"file"</span>) <span class="class-name">MultipartFile</span> <span class="variable">file</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@RequestPart</span>(<span class="variable">"metadata"</span>) <span class="keyword">String</span> <span class="variable">metadata</span>) {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Handle file and metadata</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">"uploadResult"</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>26. How do you handle file uploads with a specific size limit in Spring MVC?</h2>
+                        <p>Answer: To handle file uploads with size limits, you can configure multipart file upload settings in application.properties or application.yml.</p>
+                        <p>In application.properties:</p>
+                        <div class="code">
+                            <span class="variable">spring.servlet.multipart.max-file-size</span>=<span class="variable">10MB</span><br>
+                            <span class="variable">spring.servlet.multipart.max-request-size</span>=<span class="variable">10MB</span>
+                        </div>
+                        <p>In application.yml:</p>
+                        <div class="code">
+                            <span class="variable">spring:</span><br>
+                            &nbsp;&nbsp;<span class="variable">servlet:</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">multipart:</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">max-file-size</span>: <span class="variable">10MB</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">max-request-size</span>: <span class="variable">10MB</span>
+                        </div>
+                        <p>You can also configure file upload settings in a MultipartConfigElement bean if you need custom configurations.</p>
+                        <p>Example:</p>
+                        <div class="code">
+                            <span class="annotation">@Bean</span><br>
+                            <span class="keyword">public MultipartConfigElement</span> <span class="method-name">multipartConfigElement</span>() {<br>
+                            &nbsp;&nbsp;<span class="class-name">MultipartConfigFactory</span> <span class="variable">factory</span> = <span class="keyword">new</span> <span class="class-name">MultipartConfigFactory</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">factory</span>.<span class="method-name">setMaxFileSize</span>(<span class="class-name">DataSize</span>.<span class="method-name">ofMegabytes</span>(<span class="variable">10</span>));<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">factory</span>.<span class="method-name">setMaxRequestSize</span>(<span class="class-name">DataSize</span>.<span class="method-name">ofMegabytes</span>(<span class="variable">10</span>));<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">factory</span>.<span class="method-name">createMultipartConfig</span>();<br>
+                            &nbsp;&nbsp;}<br>
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>27. How can you configure Spring MVC to use different view technologies, like Thymeleaf or Freemarker?</h2>
+                        <p>Answer: Spring MVC can be configured to use different view technologies by setting up the appropriate ViewResolver beans in your configuration.</p>
+                        <p>For Thymeleaf:</p>
+                        <div class="code">
+                            <span class="annotation">@Configuration</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">ThymeleafConfig</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public SpringTemplateEngine</span> <span class="method-name">templateEngine</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">SpringTemplateEngine</span> <span class="variable">templateEngine</span> = <span class="keyword">new</span> <span class="class-name">SpringTemplateEngine</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Configure additional properties if needed</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">templateEngine</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            <br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public ThymeleafViewResolver</span> <span class="method-name">thymeleafViewResolver</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">ThymeleafViewResolver</span> <span class="variable">viewResolver</span> = <span class="keyword">new</span> <span class="class-name">ThymeleafViewResolver</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">viewResolver</span>.<span class="method-name">setTemplateEngine</span>(<span class="variable">templateEngine</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">viewResolver</span>.<span class="method-name">setPrefix</span>(<span class="variable">"/WEB-INF/templates/"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">viewResolver</span>.<span class="method-name">setSuffix</span>(<span class="variable">".html"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">viewResolver</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <p>For Freemarker:</p>
+                        <div class="code">
+                            <span class="annotation">@Configuration</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">FreemarkerConfig</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public FreeMarkerConfigurer</span> <span class="method-name">freemarkerConfigurer</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">FreeMarkerConfigurer</span> <span class="variable">configurer</span> = <span class="keyword">new</span> <span class="class-name">FreeMarkerConfigurer</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">configurer</span>.<span class="method-name">setTemplateLoaderPath</span>(<span class="variable">"/WEB-INF/freemarker/"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">configurer</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            <br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public FreeMarkerViewResolver</span> <span class="method-name">freemarkerViewResolver</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">FreeMarkerViewResolver</span> <span class="variable">resolver</span> = <span class="keyword">new</span> <span class="class-name">FreeMarkerViewResolver</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setPrefix</span>(<span class="variable">""</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setSuffix</span>(<span class="variable">".ftl"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setCache</span>(<span class="keyword">true</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">resolver</span>.<span class="method-name">setOrder</span>(<span class="variable">0</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">resolver</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+
+                    <div>
+                        <h2>28. How do you perform internationalization (i18n) in a Spring MVC application?</h2>
+                        <p>Answer: Internationalization in Spring MVC can be performed by using message resource bundles and configuring <span class="class-name">LocaleResolver</span> and <span class="class-name">MessageSource</span>.</p>
+                        <p>Configuration:</p>
+                        <div class="code">
+                            <span class="annotation">@Configuration</span><br>
+                            <span class="keyword">public class</span> <span class="class-name">WebConfig</span> <span class="keyword">implements</span> <span class="class-name">WebMvcConfigurer</span> {<br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public LocaleResolver</span> <span class="method-name">localeResolver</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">SessionLocaleResolver</span> <span class="variable">localeResolver</span> = <span class="keyword">new</span> <span class="class-name">SessionLocaleResolver</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">localeResolver</span>.<span class="method-name">setDefaultLocale</span>(<span class="class-name">Locale</span>.<span class="method-name">ENGLISH</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">localeResolver</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            <br>
+                            &nbsp;&nbsp;<span class="annotation">@Bean</span><br>
+                            &nbsp;&nbsp;<span class="keyword">public MessageSource</span> <span class="method-name">messageSource</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="class-name">ResourceBundleMessageSource</span> <span class="variable">messageSource</span> = <span class="keyword">new</span> <span class="class-name">ResourceBundleMessageSource</span>();<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">messageSource</span>.<span class="method-name">setBasename</span>(<span class="variable">"messages"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">messageSource</span>.<span class="method-name">setDefaultEncoding</span>(<span class="variable">"UTF-8"</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">messageSource</span>;<br>
+                            &nbsp;&nbsp;}<br>
+                            }
+                        </div>
+                        <p>Messages Property File:</p>
+                        <ul>
+                            <li>messages.properties (default)</li>
+                            <li>messages_fr.properties (French translations)</li>
+                        </ul>
+                        <p>Usage in JSP:</p>
+                        <div class="code">
+                            &lt;<span class="annotation">spring:message</span> code=<span class="variable">"welcome.message"</span> /&gt;
+                        </div>
+                        <p>In this example, LocaleResolver determines the user’s locale, and MessageSource provides localized messages based on the locale.</p>
+                    </div>
+            </article>
+        </div>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

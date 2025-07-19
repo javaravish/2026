@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>AOP</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Spring Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/introduction.html">Spring
+                            Introduction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/spring-core.html">Spring Core</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/mvc.html">Spring
+                            Web</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/aop.html">Spring
+                            AOP</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/exceptions.html">Spring Exceptions</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/jpa.html">Spring
+                            JPA</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/transactions.html">Spring
+                            Transactions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/batch.html">Spring
+                            Batch</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/resttemplate.html">Spring
+                            Rest Template</a></li>
+                        <h4>Spring Annotations</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-core.html">Core
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-mvc.html">MVC Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-transactions.html">Transactions
+                            & Error Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-configuration.html">Configuration
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-aop.html">AOP Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-jpa.html">JPA Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cloud.html">Cloud
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-scheduling.html">Scheduling
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cache-error.html">Caching
+                            Annotations</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/spring/spring-interview-questions.html">Spring
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">AOP</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/actuators.html">AOP</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk"> <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text"></div>
+                <p>Spring AOP (Aspect-Oriented Programming) is a powerful framework feature that allows developers to
+                    decouple cross-cutting concerns from the main business logic, such as logging, security, and
+                    transaction management. It works by intercepting method executions and applying additional behaviour
+                    through aspects to existing code without modifying the code itself.</p>
+                <ul>
+                    <li><strong>Separation of Concerns:</strong> AOP allows you to separate cross-cutting concerns (like
+                        logging, security, and transactions) from the core business logic of your application.
+                    </li>
+                    <li><strong>Code Reusability:</strong> You can apply the same aspect to multiple methods or classes
+                        without duplicating code.
+                    </li>
+                    <li><strong>Declarative Configuration:</strong> AOP configurations can be done through annotations
+                        or XML, which keeps your code clean and maintainable.
+                    </li>
+                </ul>
+
+                <h2>1. Core Concepts of AOP</h2>
+                <h3>1.1 Aspect</h3>
+                <p>An aspect is a module that encapsulates behaviours affecting multiple classes into reusable modules.
+                    In Spring, aspects are implemented using regular classes annotated with <code>@Aspect</code>.</p>
+                <ul>
+                    <li><strong>Encapsulation:</strong> Aspects encapsulate cross-cutting concerns.</li>
+                    <li><strong>Modularity:</strong> Improved modularity by separating cross-cutting concerns.</li>
+                </ul>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="package">org.aspectj.lang.annotation.Aspect</span>;<br>
+                    <span class="keyword">import</span> <span class="package">org.aspectj.lang.annotation.Before</span>;<br><br>
+
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Before</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging before method execution"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <h3>1.2 Advice</h3>
+                <p>Advice is the action taken by an aspect at a particular join point. Spring AOP supports different
+                    types of advice: <code>@Before</code>, <code>@After</code>, <code>@AfterReturning</code>, <code>@AfterThrowing</code>,
+                    and <code>@Around</code>.</p>
+                <ul>
+                    <li><strong>Types of Advice:</strong> Different advice types for different use cases.</li>
+                    <li><strong>Flexible:</strong> Can execute before, after, or around the method execution.</li>
+                </ul>
+                <p>Types of Advice:</p>
+                <ul>
+                    <li><strong>Before Advice:</strong> Runs before the join point (method execution).</li>
+                    <li><strong>After Advice:</strong> Runs after the join point, regardless of the outcome.</li>
+                    <li><strong>After Returning Advice:</strong> Runs after the join point only if the method returns
+                        successfully.
+                    </li>
+                    <li><strong>After Throwing Advice:</strong> Runs after the join point only if the method throws an
+                        exception.
+                    </li>
+                    <li><strong>Around Advice:</strong> Wraps the join point, allowing you to modify or prevent the
+                        execution of the method.
+                    </li>
+                </ul>
+                <div class="code">
+                    <span class="annotation">@Before</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">logBefore</span>(<span class="parameter">JoinPoint joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Before method: "</span> + <span class="parameter">joinPoint.getSignature()</span>);<br>
+                    }
+                </div>
+
+                <h3>1.3 Pointcut</h3>
+                <p>A pointcut is an expression that matches join points. It defines where the advice should be applied.
+                    Pointcuts can be declared using expressions or annotations.</p>
+                <ul>
+                    <li><strong>Definition:</strong> An expression that specifies where the advice should be applied. It
+                        defines the join points where the advice code should run.
+                    </li>
+                    <li><strong>Defined using expressions to match join points.</li>
+                    <li><strong>Types of Pointcuts:</strong></li>
+                    <ul>
+                        <li><strong>Execution Pointcut:</strong> Matches method execution.</li>
+                        <li><strong>Within Pointcut:</strong> Matches all join points within a specified type.</li>
+                        <li><strong>Args Pointcut:</strong> Matches join points where the method arguments are of
+                            specified types.
+                        </li>
+                        <li><strong>Annotation Pointcut:</strong> Matches methods with specific annotations.</li>
+                    </ul>
+                </ul>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Pointcut</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">serviceLayer</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Pointcut expression</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Before</span>(<span class="parameter">"serviceLayer()"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging before method execution"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+
+                <h3>1.4 Join Point</h3>
+                <p>A join point is a point in the execution of the program, such as a method call or an exception
+                    thrown. In Spring AOP, join points are always method executions.</p>
+                <ul>
+                    <li><strong>Definition:</strong> A point during the execution of the application where advice can be
+                        applied. Common join points include method calls and object instantiations.
+                    </li>
+                    <li><strong>Example:</strong> Calling a method from a service class.</li>
+                </ul>
+
+                <h3>1.5 Weaving</h3>
+                <p>Weaving is the process of linking aspects with other application types or objects to create an
+                    advised object. Spring AOP performs weaving at runtime.</p>
+                <ul>
+                    <li><strong>Types of Weaving:</strong></li>
+                    <ul>
+                        <li><strong>Compile-time Weaving:</strong> Weaving done during the compilation of classes.</li>
+                        <li><strong>Load-time Weaving:</strong> Weaving done when classes are loaded by the class
+                            loader.
+                        </li>
+                        <li><strong>Runtime Weaving:</strong> Weaving done at runtime using proxies.</li>
+                        <li><strong>Runtime:</strong> Spring AOP performs runtime weaving using proxies.</li>
+                        <li><strong>Proxy-based:</strong> Uses dynamic proxies for weaving aspects.</li>
+                    </ul>
+                </ul>
+
+                <h3>1.6 Proxy</h3>
+                <p>Spring AOP creates proxies for the target objects where the aspects are applied. These proxies are
+                    responsible for weaving the advices at the join points.</p>
+                <ul>
+                    <li><strong>Dynamic Proxies:</strong> Spring uses JDK dynamic proxies or CGLIB proxies.</li>
+                    <li><strong>Transparent:</strong> Proxies are transparent to the client objects.</li>
+                </ul>
+
+                <h2>2. Advice</h2>
+                <h3>2.1 @Before</h3>
+                <p>The <code>@Before</code> advice runs before the method execution.</p>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="annotation">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Before</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>(<span class="parameter">JoinPoint joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Before method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Executes before the target method starts.</li>
+                    <li>Cannot prevent the execution of the target method.</li>
+                    <li>Can be used to perform tasks like logging, security checks, etc.</li>
+                </ul>
+
+                <h3>2.2 @After</h3>
+                <p>The <code>@After</code> advice runs after the method execution, regardless of its outcome (success or
+                    exception).</p>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="annotation">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@After</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfter</span>(<span class="parameter">JoinPoint joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"After method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Executes after the target method completes.</li>
+                    <li>Runs whether the method exits normally or throws an exception.</li>
+                    <li>Suitable for tasks like resource cleanup.</li>
+                </ul>
+
+                <h3>2.3 @AfterReturning</h3>
+                <p>The <code>@AfterReturning</code> advice runs after the method execution only if the method completes
+                    successfully (i.e., does not throw an exception).</p>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="annotation">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@AfterReturning</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">pointcut</span> = <span class="string">"execution(* com.example.service.*.*(..))"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">returning</span> = <span class="string">"result"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfterReturning</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">JoinPoint joinPoint</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Object</span> <span class="parameter">result</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"After returning from method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Method returned value is : "</span> + <span class="parameter">result</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Executes only if the target method returns normally.</li>
+                    <li>Can access the return value of the method.</li>
+                    <li>Useful for tasks like logging return values, post-processing results.</li>
+                </ul>
+
+                <h3>2.4 @AfterThrowing</h3>
+                <p>The <code>@AfterThrowing</code> advice runs if the target method throws an exception.</p>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="annotation">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@AfterThrowing</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">pointcut</span> = <span class="string">"execution(* com.example.service.*.*(..))"</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">throwing</span> = <span class="string">"error"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfterThrowing</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">JoinPoint joinPoint</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Throwable</span> <span class="parameter">error</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"An exception has been thrown in "</span> + <span class="parameter">joinPoint.getSignature().getName()</span> + <span class="string">"()"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Cause: "</span> + <span class="parameter">error.getMessage()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Executes only if the target method throws an exception.</li>
+                    <li>Can access the exception thrown by the method.</li>
+                    <li>Useful for error handling, logging exceptions, or triggering alerts.</li>
+                </ul>
+
+                <h3>2.5 @Around</h3>
+                <p>The <code>@Around</code> advice surrounds a join point, allowing you to perform custom behavior
+                    before and after the method invocation. It is the most powerful advice type.</p>
+                <div class="code">
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="annotation">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Around</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public Object</span> <span class="method">logAround</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">ProceedingJoinPoint joinPoint</span>) <span class="keyword">throws</span> <span class="keyword">Throwable</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Before method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Object</span> <span class="variable">result</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">try</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">result</span> = <span class="parameter">joinPoint.proceed()</span>; <span class="comment">// Proceed with the method call</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} <span class="keyword">catch</span> (<span class="keyword">Throwable</span> <span class="parameter">e</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Exception in method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">throw</span> <span class="parameter">e</span>; <span class="comment">// Rethrow the exception</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"After method: "</span> + <span class="parameter">joinPoint.getSignature().getName()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">result</span>;<br>
+                    }
+                </div>
+                <p><strong>Key Points:</strong></p>
+                <ul>
+                    <li>Can control when (or if) the target method gets executed.</li>
+                    <li>Can modify the return value or handle exceptions.</li>
+                    <li>Useful for performance monitoring, transaction management, security, and logging.</li>
+                    <li>Allows complete control over the method execution flow.</li>
+                </ul>
+
+                <h2>Advice Annotations and Methods</h2>
+                <table border="1">
+                    <thead>
+                    <tr>
+                        <th>Advice Type</th>
+                        <th>Annotation</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Before Advice</td>
+                        <td><code>@Before</code></td>
+                        <td>Executes before the join point. Executes before the method execution, suitable for
+                            pre-processing tasks like logging.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>After Advice</td>
+                        <td><code>@After</code></td>
+                        <td>Executes after the join point. Executes after the method completes, regardless of its
+                            outcome, useful for clean-up activities.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>After Returning</td>
+                        <td><code>@AfterReturning</code></td>
+                        <td>Executes after successful method completion, can access the return value, ideal for logging
+                            results.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>After Throwing</td>
+                        <td><code>@AfterThrowing</code></td>
+                        <td>Executes if the method throws an exception, useful for error handling and logging.</td>
+                    </tr>
+                    <tr>
+                        <td>Around Advice</td>
+                        <td><code>@Around</code></td>
+                        <td>Wraps the join point, allows modification of method execution. Most powerful advice,
+                            surrounds the method execution, can control the execution, useful for advanced scenarios
+                            like transaction management.
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h2>Example of Multiple Advice Types</h2>
+                <div class="code">
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.After</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.AfterReturning</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.AfterThrowing</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.Around</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.Aspect</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.annotation.Before</span>;<br>
+                    <span class="import">import</span> <span class="package">org.aspectj.lang.ProceedingJoinPoint</span>;<br><br>
+
+                    <span class="annotation">@Aspect</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Before</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging before method execution"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@After</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfter</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging after method execution"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@AfterReturning</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfterReturning</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging after method returns"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@AfterThrowing</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logAfterThrowing</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging after method throws an exception"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="annotation">@Around</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public Object</span> <span class="method">logAround</span>(<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="parameter">ProceedingJoinPoint joinPoint</span>) <span class="keyword">throws</span> <span class="keyword">Throwable</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging around method execution"</span>);<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Object</span> <span class="variable">result</span> = <span class="parameter">joinPoint.proceed()</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Logging around method execution complete"</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">result</span>;<br>
+                    }
+                </div>
+                <h2>3. AOP Expressions</h2>
+
+                <h3>3.1 Execution Expression</h3>
+                <p><strong>Definition:</strong> Specifies the join points for method executions.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">allMethods</span>() {}<br>
+                </div>
+
+                <h3>3.2 Within Expression</h3>
+                <p><strong>Definition:</strong> Matches all methods within a particular type.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"within(com.example.service.MyService)"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">serviceLayer</span>() {}<br>
+                </div>
+                <h3>3.3 Args Expression</h3>
+                <p><strong>Definition:</strong> Matches join points with specific arguments.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"args(String)"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">stringArguments</span>() {}<br>
+                </div>
+
+                <h3>3.4 Annotation Expression</h3>
+                <p><strong>Definition:</strong> Matches methods annotated with a specific annotation.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"@annotation(com.example.annotation.Loggable)"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">annotatedWithLoggable</span>() {}<br>
+                </div>
+
+                <h3>3.5 Bean Name Expression</h3>
+                <p><strong>Definition:</strong> Matches beans by their name.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"bean(myBean)"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">myBean</span>() {}<br>
+                </div>
+
+                <h3>3.6 Combining Pointcuts</h3>
+                <p><strong>Definition:</strong> Combining multiple pointcuts using logical operators.</p>
+                <div class="code">
+                    <span class="keyword">@Pointcut</span>(<span class="value">"execution(* com.example.service.*.*(..)) && @annotation(com.example.annotation.Loggable)"</span>)<br>
+                    <span class="keyword">public void</span> <span class="method">loggableMethods</span>() {}<br>
+                </div>
+
+                <h2>4. Configuration of AOP</h2>
+
+                <h3>4.1 Java Configuration</h3>
+                <p><strong>Example:</strong></p>
+                <div class="code">
+                    <span class="keyword">@Configuration</span><br>
+                    <span class="keyword">@EnableAspectJAutoProxy</span><br>
+                    <span class="keyword">public class</span> <span class="classname">AppConfig</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="classname">LoggingAspect</span> <span class="method">loggingAspect</span>() {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="new">new</span> <span class="classname">LoggingAspect</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h3>4.2 Aspect Class</h3>
+                <p><strong>Example:</strong></p>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Before</span>(<span class="keyword">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>(<span class="classname">JoinPoint</span> <span class="variable">joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Before method: "</span> + <span class="variable">joinPoint.getSignature()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h2>5. Practical Use Cases</h2>
+
+                <h3>5.1 Logging</h3>
+                <p><strong>Purpose:</strong> To automatically log method calls and results.</p>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">LoggingAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Before</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>(<span class="classname">JoinPoint</span> <span class="variable">joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="string">"Before method: "</span> + <span class="variable">joinPoint.getSignature()</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+                <h3>5.2 Transaction Management</h3>
+                <p><strong>Purpose:</strong> To manage transactions around method calls.</p>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">TransactionAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Around</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public Object</span> <span class="method">manageTransaction</span>(<span class="classname">ProceedingJoinPoint</span> <span class="variable">joinPoint</span>) <span class="keyword">throws</span> <span class="classname">Throwable</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Begin transaction<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">Object</span> <span class="variable">result</span> = <span class="variable">joinPoint.proceed()</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Commit transaction<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">result</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h3>5.3 Security</h3>
+                <p><strong>Purpose:</strong> To enforce security checks before method execution.</p>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">SecurityAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Before</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">checkSecurity</span>(<span class="classname">JoinPoint</span> <span class="variable">joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Security checks<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h3>5.4 Caching</h3>
+                <p><strong>Purpose:</strong> To cache method results for performance improvement.</p>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">CachingAspect</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Around</span>(<span class="string">"execution(* com.example.service.*.*(..))"</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public Object</span> <span class="method">cacheResult</span>(<span class="classname">ProceedingJoinPoint</span> <span class="variable">joinPoint</span>) throws <span class="classname">Throwable</span> {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Check cache, proceed to method, cache result<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="variable">joinPoint</span>.proceed();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h2>6. Advanced Topics</h2>
+
+                <h3>6.1 AspectJ Integration</h3>
+                <p><strong>AspectJ:</strong> A more advanced AOP framework for compile-time or load-time weaving.</p>
+                <p><strong>Dependency:</strong></p>
+                <div class="code">
+                    <span class="keyword">&lt;dependency&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;groupId&gt;</span><span class="value">org.aspectj</span><span class="keyword">&lt;/groupId&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;artifactId&gt;</span><span class="value">aspectjrt</span><span class="keyword">&lt;/artifactId&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">&lt;version&gt;</span><span class="value">1.9.9</span><span class="keyword">&lt;/version&gt;</span><br>
+                    <span class="keyword">&lt;/dependency&gt;</span><br>
+                </div>
+
+                <h3>6.2 Performance Considerations</h3>
+                <p><strong>Impact:</strong> AOP can introduce some overhead due to proxy creation and advice execution.
+                </p>
+                <p><strong>Optimization:</strong> Measure the impact and optimize AOP usage.</p>
+
+                <h3>6.3 Creating Custom Annotations</h3>
+                <p><strong>Purpose:</strong> To create specific annotations for your own AOP concerns.</p>
+                <div class="code">
+                    <span class="keyword">import</span> <span class="package">java.lang.annotation.ElementType</span>;<br>
+                    <span class="keyword">import</span> <span class="package">java.lang.annotation.Retention</span>;<br>
+                    <span class="keyword">import</span> <span class="package">java.lang.annotation.RetentionPolicy</span>;<br>
+                    <span class="keyword">import</span> <span class="package">java.lang.annotation.Target</span>;<br><br>
+
+                    <span class="keyword">@Retention</span>(<span class="value">RetentionPolicy.RUNTIME</span>)<br>
+                    <span class="keyword">@Target</span>(<span class="value">ElementType.METHOD</span>)<br>
+                    <span class="keyword">public @interface</span> <span class="classname">Loggable</span> {}<br>
+                </div>
+                <div class="code">
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">@Component</span><br>
+                    <span class="keyword">public class</span> <span class="classname">CustomAnnotationAspect</span> {<br>
+                    &nbsp;&nbsp;<span class="keyword">@Before</span>(<span class="value">@annotation(com.example.annotation.Loggable)</span>)<br>
+                    &nbsp;&nbsp;<span class="keyword">public void</span> <span class="method">logBefore</span>(<span class="package">JoinPoint</span> <span class="variable">joinPoint</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(<span class="value">"Loggable annotation applied to: "</span> <span class="operator">+</span> <span class="variable">joinPoint.getSignature()</span>);<br>
+                    &nbsp;&nbsp;}<br>
+                    }<br>
+                </div>
+
+                <h3>6.4 Advice Order</h3>
+                <p><strong>Definition:</strong> Specifies the order of execution of multiple advices.</p>
+                <div class="code">
+                    <span class="keyword">@Order</span>(<span class="value">1</span>)<br>
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">public class</span> <span class="classname">FirstAdvice</span> {}<br><br>
+
+                    <span class="keyword">@Order</span>(<span class="value">2</span>)<br>
+                    <span class="keyword">@Aspect</span><br>
+                    <span class="keyword">public class</span> <span class="classname">SecondAdvice</span> {}<br>
+                </div>
+
+                <h2>7. Best Practices</h2>
+
+                <h3>7.1 Keep Aspects Focused</h3>
+                <p><strong>Best Practice:</strong> Design aspects to handle a single concern.</p>
+
+                <h3>7.2 Avoid Complex Pointcuts</h3>
+                <p><strong>Best Practice:</strong> Keep pointcut expressions simple and maintainable.</p>
+
+                <h3>7.3 Test Aspects Thoroughly</h3>
+                <p><strong>Best Practice:</strong> Ensure aspects work as expected without introducing side effects.</p>
+
+                <h3>7.4 Use AOP for Cross-Cutting Concerns</h3>
+                <p><strong>Best Practice:</strong> Apply AOP for concerns like logging, security, and transactions.</p>
+
+                <h2>8. Comparison with Other Techniques</h2>
+
+                <h3>8.1 AOP vs. OOP</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Aspect-Oriented Programming (AOP)</th>
+                        <th>Object-Oriented Programming (OOP)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Focuses on cross-cutting concerns.</td>
+                        <td>Focuses on the encapsulation of data and behavior.</td>
+                    </tr>
+                    <tr>
+                        <td>Uses aspects, advices, and pointcuts.</td>
+                        <td>Uses classes, inheritance, and polymorphism.</td>
+                    </tr>
+                    <tr>
+                        <td>Adds behavior to existing code.</td>
+                        <td>Defines new types and methods.</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <h3>8.2 AOP vs. Dependency Injection</h3>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Aspect-Oriented Programming (AOP)</th>
+                        <th>Dependency Injection (DI)</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Adds behavior to beans.</td>
+                        <td>Provides dependencies to beans.</td>
+                    </tr>
+                    <tr>
+                        <td>Cross-cutting concerns like logging or security.</td>
+                        <td>Managing the relationships between beans.</td>
+                    </tr>
+                    <tr>
+                        <td>Uses aspects, advices, and pointcuts.</td>
+                        <td>Uses constructors, setters, and field injections.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../spring/mvc.html">&lArr; Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../spring/exceptions.html">Next &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img height="30" width="30" src="../scripts/images/top.jpeg"/>
+        </button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Java MultiThreading Interview Questions</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+					src="../../scripts/images/nani1.png" alt="Home" />
+				<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+							href="../../home.html"><img height="25" width="25"
+								src="../../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/random.html">Java
+								Core</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-interview-questions.html">Java
+								Basics</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-abstraction.html">Java
+								Abstraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-encapsulation.html">Java
+								Encapsulation</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-polymorphism.html">Java
+								Polymorphism</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-inheritance.html">Java
+								Inheritance </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-string.html">Java
+								String</a></li>
+							<li class="nav-item"><a class="nav-link"
+													href="../java/java-overloading-Overriding.html">Java
+								Overloading and Overriding</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-exception.html">Java
+								Exception Handling</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-multithreading.html">Java
+								Multithreading</a></li>
+							<h4> Collections Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/java-collections.html">Java
+								Collections </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-list.html">Java
+								List </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-set.html">Java
+								Set </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-map.html">Java
+								Map</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/miscellaneous.html">Java
+								Advanced</a></li>
+							<h4> Java Programming Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/programs.html">Java
+								Programs </a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-multithreading.html"> Multithreading Interview Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html"> MultiThreading Questions</a></li>
+						<li><a href="../java/java-multithreading.html"> Multithreading Interview Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4>Java MultiThreading Interview Questions</h4>
+					<div class="card-body">
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. What do you mean by a “thread” in Java programming?</summary>
+							<div class="toggle-content">
+								<p>A thread in Java refers to a lightweight subprocess that is a part of a larger
+									process. Threads allow concurrent execution of tasks within a single program,
+									enabling better utilization of CPU resources and improved responsiveness.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. What are some fundamental advantages of multithreading in Java?</summary>
+							<div class="toggle-content">
+								<p>Some advantages of multithreading in Java include:</p>
+								<ul>
+									<li>Improved responsiveness: Allows programs to remain interactive during
+										long-running tasks.</li>
+									<li>Resource sharing: Threads can share resources like memory, reducing
+										overhead.</li>
+									<li>Efficient utilization of CPU: Allows concurrent execution of tasks,
+										maximizing CPU usage.</li>
+									<li>Modular and simpler code: Threads enable modular design for complex tasks.
+									</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. What is the basic difference between a process and a thread?</summary>
+							<div class="toggle-content">
+								<p>A process is an independent program that runs in its own memory space and is
+									managed by the operating system. A thread, on the other hand, is a lightweight
+									unit of a process and shares the process's memory and resources.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. What is inter-thread communication for threads?</summary>
+							<div class="toggle-content">
+								<p>Inter-thread communication refers to mechanisms used by threads to synchronize
+									their actions or exchange data. It allows threads to coordinate and cooperate
+									towards completing a task efficiently.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. What are some functions that are used for inter-thread communication in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>In Java, inter-thread communication can be achieved using methods such as
+									<code>wait()</code>, <code>notify()</code>, and <code>notifyAll()</code> from
+									the <code>Object</code> class. These methods are used to manage thread
+									synchronization and data sharing.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. What do you understand by the wait() function?</summary>
+							<div class="toggle-content">
+								<p>The <code>wait()</code> function in Java is used for inter-thread communication.
+									It causes the current thread to wait until another thread invokes
+									<code>notify()</code> or <code>notifyAll()</code> methods for the same object,
+									or a specified amount of time has elapsed.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What are the states in a thread lifecycle?</summary>
+							<div class="toggle-content">
+								<p>The states in a thread lifecycle in Java are:</p>
+								<ul>
+									<li><strong>New:</strong> When a thread is created but not yet started.</li>
+									<li><strong>Runnable:</strong> When a thread is ready to run and waiting for CPU
+										time.</li>
+									<li><strong>Blocked:</strong> When a thread is waiting for a monitor lock to
+										enter a synchronized block/method.</li>
+									<li><strong>Waiting:</strong> When a thread is waiting indefinitely for another
+										thread's signal (via <code>wait()</code>).</li>
+									<li><strong>Timed Waiting:</strong> When a thread is waiting for a specified
+										time period (via <code>sleep()</code> or <code>wait(timeout)</code>).</li>
+									<li><strong>Terminated:</strong> When a thread completes its execution or is
+										terminated.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. What do you understand by thread context switching?</summary>
+							<div class="toggle-content">
+								<p>Thread context switching refers to the process where the CPU switches from
+									executing one thread to another. It involves saving and restoring the state of a
+									thread so that it can be resumed later.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. What is the function of the join() method?</summary>
+							<div class="toggle-content">
+								<p>The <code>join()</code> method in Java allows one thread to wait until another
+									thread completes its execution. It causes the current thread to pause execution
+									until the thread on which <code>join()</code> was called terminates.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. What is the function of the sleep() method?</summary>
+							<div class="toggle-content">
+								<p>The <code>sleep()</code> method in Java pauses the execution of the current
+									thread for a specified amount of time, allowing other threads to execute. It is
+									useful for introducing delays or for time-based operations.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. What is a Process and process control block?</summary>
+							<div class="toggle-content">
+								<p>A process in computing is an instance of a program being executed. A process
+									control block (PCB) is a data structure used by the operating system to manage
+									each process. It contains process state, program counter, stack pointer, and
+									other relevant information.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. What is a Thread?</summary>
+							<div class="toggle-content">
+								<p>A thread is a lightweight subprocess within a process that can be scheduled
+									independently by the operating system's scheduler. Threads share the same memory
+									space and resources within a process.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. What is a Practical Example of a Process and a Thread?</summary>
+							<div class="toggle-content">
+								<p>An example of a process is a web browser running on your computer. Within the web
+									browser, each tab may be managed by a separate thread. Thus, the web browser
+									process consists of multiple threads handling different tasks like rendering,
+									networking, and user input.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. What are the Differences Between Process and Thread?</summary>
+							<div class="toggle-content">
+								<p>Some key differences between a process and a thread include:</p>
+								<ul>
+									<li><strong>Memory:</strong> Processes have separate memory spaces, while
+										threads share memory within the same process.</li>
+									<li><strong>Overhead:</strong> Creating a process is more resource-intensive
+										than creating a thread.</li>
+									<li><strong>Independence:</strong> Processes are independent and isolated, while
+										threads share resources like memory and files.</li>
+									<li><strong>Communication:</strong> Inter-process communication is more complex
+										than inter-thread communication.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. Explain the Differences Between Process and Thread Context Switching?
+							</summary>
+							<div class="toggle-content">
+								<p>Context switching for processes involves switching the entire process state,
+									including memory maps and resource allocation. For threads, context switching
+									involves switching the execution state and program counter within the same
+									process memory space.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. List the difference between preemptive scheduling and time slicing?
+							</summary>
+							<div class="toggle-content">
+								<p>In preemptive scheduling, the operating system decides when to switch threads
+									based on priority and time quantum, interrupting threads as necessary. Time
+									slicing is a form of preemptive scheduling where each thread is allocated a
+									fixed time slice to execute before switching to another thread.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. What is context switching in multi-process or multithreading environment?
+							</summary>
+							<div class="toggle-content">
+								<p>Context switching refers to the process of saving and restoring the state of a
+									CPU so that multiple processes or threads can share the same CPU. It involves
+									storing the current state of a thread or process and loading the saved state of
+									another.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. How to Create a Thread Instance and Run It?</summary>
+							<div class="toggle-content">
+								<p>You can create a thread instance in Java by extending the <code>Thread</code>
+									class or implementing the <code>Runnable</code> interface. Here's an example
+									using <code>Runnable</code>:</p>
+								<pre>
+							            <code>public class MyRunnable implements Runnable {
+							    public void run() {
+							        System.out.println("Thread is running.");
+							    }
+							
+							    public static void main(String[] args) {
+							        MyRunnable myRunnable = new MyRunnable();
+							        Thread thread = new Thread(myRunnable);
+							        thread.start(); // Start the thread
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. List the Different States of a Thread and When Do the State Transitions
+								Occur.</summary>
+							<div class="toggle-content">
+								<p>The different states of a thread in Java are:</p>
+								<ul>
+									<li><strong>New:</strong> When a thread instance is created but not yet started.
+									</li>
+									<li><strong>Runnable:</strong> When a thread is ready to run and waiting for CPU
+										time.</li>
+									<li><strong>Blocked:</strong> When a thread is waiting for a monitor lock to
+										enter a synchronized block/method.</li>
+									<li><strong>Waiting:</strong> When a thread is waiting indefinitely for another
+										thread's signal (via <code>wait()</code>).</li>
+									<li><strong>Timed Waiting:</strong> When a thread is waiting for a specified
+										time period (via <code>sleep()</code> or <code>wait(timeout)</code>).</li>
+									<li><strong>Terminated:</strong> When a thread completes its execution or is
+										terminated.</li>
+								</ul>
+								<p>State transitions occur based on thread scheduling and synchronization operations
+									such as acquiring locks, waiting for signals, and completing execution.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. Explain the Difference Between Runnable and Callable Interfaces? How Are
+								They Used?</summary>
+							<div class="toggle-content">
+								<p>The <code>Runnable</code> interface is used to define a task that can be executed
+									by a thread. It does not return a result or throw a checked exception. The
+									<code>Callable</code> interface is similar but can return a result and throw a
+									checked exception.
+								</p>
+								<p>Here's an example:</p>
+								<pre>
+							            <code>import java.util.concurrent.Callable;
+							import java.util.concurrent.ExecutorService;
+							import java.util.concurrent.Executors;
+							import java.util.concurrent.Future;
+							
+							public class MyCallable implements Callable&lt;String&gt; {
+							    public String call() throws Exception {
+							        return "Callable task is running.";
+							    }
+							
+							    public static void main(String[] args) throws Exception {
+							        ExecutorService executor = Executors.newSingleThreadExecutor();
+							        MyCallable myCallable = new MyCallable();
+							        Future&lt;String&gt; future = executor.submit(myCallable);
+							        System.out.println(future.get()); // Print result of callable task
+							        executor.shutdown(); // Shutdown executor
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>21. Explain the Daemon Thread, and What Are Its Use Cases? How Can You Create a
+								Daemon Thread?</summary>
+							<div class="toggle-content">
+								<p>A daemon thread in Java is a background thread that runs without preventing the
+									JVM from exiting. Daemon threads are used for tasks like garbage collection,
+									monitoring, or other background tasks that do not require user interaction or
+									continuation after main threads have completed.</p>
+								<p>You can create a daemon thread by calling the <code>setDaemon(true)</code> method
+									before starting the thread:</p>
+								<pre>
+							            <code>public class MyDaemonThread extends Thread {
+							    public void run() {
+							        while (true) {
+							            System.out.println("Daemon thread is running.");
+							        }
+							    }
+							
+							    public static void main(String[] args) {
+							        MyDaemonThread daemonThread = new MyDaemonThread();
+							        daemonThread.setDaemon(true); // Set daemon thread
+							        daemonThread.start(); // Start daemon thread
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>22. What are differences between the wait() and sleep() methods?</summary>
+							<div class="toggle-content">
+								<p>The <code>wait()</code> method is used for inter-thread communication and is
+									called on an object's monitor within synchronized blocks. It causes the current
+									thread to wait until another thread notifies or interrupts it.</p>
+								<p>The <code>sleep()</code> method is used to pause the execution of the current
+									thread for a specified amount of time, allowing other threads to execute. It
+									does not release the lock on the object.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>23. List down the difference between class level lock and object level lock?
+							</summary>
+							<div class="toggle-content">
+								<p>In Java, synchronization using the <code>synchronized</code> keyword can be
+									applied at the class level or the object level:</p>
+								<ul>
+									<li><strong>Object level lock:</strong> Synchronizing on an instance method or
+										block uses the current instance (this) as the lock.</li>
+									<li><strong>Class level lock:</strong> Synchronizing on a static method or block
+										uses the class itself as the lock.</li>
+								</ul>
+								<p>Object level locks synchronize access to instance variables and methods for a
+									specific instance, while class level locks synchronize access to static
+									variables and methods for the entire class.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>24. What's the difference between a User thread and a Daemon thread?</summary>
+							<div class="toggle-content">
+								<p>A user thread in Java is a thread created by the application developer and does
+									not prevent the JVM from exiting until all user threads have completed. A daemon
+									thread, on the other hand, runs in the background and does not prevent the JVM
+									from exiting if all user threads have completed.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>25. How can we create daemon threads?</summary>
+							<div class="toggle-content">
+								<p>You can create a daemon thread in Java by calling the
+									<code>setDaemon(true)</code> method on a thread object before starting it.
+									Daemon threads should be created before starting the thread:
+								</p>
+								<pre>
+							            <code>public class MyDaemonThread extends Thread {
+							    public void run() {
+							        // Daemon thread logic
+							    }
+							
+							    public static void main(String[] args) {
+							        MyDaemonThread daemonThread = new MyDaemonThread();
+							        daemonThread.setDaemon(true); // Set as daemon thread
+							        daemonThread.start(); // Start daemon thread
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>26. Explain volatile variables in Java?</summary>
+							<div class="toggle-content">
+								<p>In Java, the <code>volatile</code> keyword is used to indicate that a variable's
+									value may be modified by multiple threads. It ensures that reads and writes to
+									the variable are atomic and visible to other threads immediately, without
+									caching.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>27. How do threads communicate with each other?</summary>
+							<div class="toggle-content">
+								<p>Threads communicate with each other through shared memory or message passing
+									mechanisms like wait/notify, synchronized blocks, locks, semaphores, and queues.
+									These mechanisms enable threads to coordinate their activities and share data
+									safely.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>28. Can two threads execute two methods (static and non-static concurrently)?
+							</summary>
+							<div class="toggle-content">
+								<p>Yes, two threads can execute two methods concurrently, whether they are static or
+									non-static methods. The concurrency depends on thread scheduling and
+									synchronization mechanisms used to control access to shared resources.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>29. What is the purpose of the finalize() method?</summary>
+							<div class="toggle-content">
+								<p>The <code>finalize()</code> method in Java is called by the garbage collector
+									before reclaiming the memory occupied by an object that is no longer referenced.
+									It can be overridden to perform cleanup operations or release resources before
+									an object is garbage collected.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>30. Is it possible to call the run() method directly to start a new thread?
+							</summary>
+							<div class="toggle-content">
+								<p>Yes, it is possible to call the <code>run()</code> method directly, but it will
+									execute in the current thread, not as a separate thread. To start a new thread
+									and execute its <code>run()</code> method concurrently, you should call the
+									<code>start()</code> method.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>31. Is it possible that each thread can have its stack in multithreaded
+								programming?</summary>
+							<div class="toggle-content">
+								<p>Yes, each thread in Java has its own stack memory allocated. The stack holds
+									method calls, local variables, and partial results, ensuring thread safety and
+									isolation.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>32. What do you understand by inter-thread communication?</summary>
+							<div class="toggle-content">
+								<p>Inter-thread communication refers to mechanisms used by threads to synchronize
+									their actions or exchange data. It enables threads to coordinate their
+									activities, share resources, and communicate effectively to achieve
+									synchronization and mutual exclusion.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>33. Why does the wait() method need to be called from a synchronized block?
+							</summary>
+							<div class="toggle-content">
+								<p>The <code>wait()</code> method in Java must be called from within a synchronized
+									block or method because it releases the lock on the object it is called on,
+									allowing other threads to acquire the lock and invoke <code>notify()</code> or
+									<code>notifyAll()</code> to wake up the waiting thread.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>34. In the following java program, what is the name of the thread?</summary>
+							<div class="toggle-content">
+								<p>The name of the thread can be obtained using the
+									<code>Thread.currentThread().getName()</code> method. Here's an example:
+								</p>
+								<pre>
+							            <code>public class MyThread extends Thread {
+							    public void run() {
+							        System.out.println("Thread name: " + Thread.currentThread().getName());
+							    }
+							
+							    public static void main(String[] args) {
+							        MyThread myThread = new MyThread();
+							        myThread.start(); // Start the thread
+							    }
+							}
+							            </code>
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>35. Name the method of the thread that is called before the run() method and
+								carries out initialization.</summary>
+							<div class="toggle-content">
+								<p>The <code>start()</code> method of the thread is called before the
+									<code>run()</code> method. The <code>start()</code> method initializes the
+									thread, schedules it for execution, and then calls the <code>run()</code>
+									method.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>36. How do you define Multithreading?</summary>
+							<div class="toggle-content">
+								<p>Multithreading is a programming concept where multiple threads within a single
+									process execute independently and concurrently. Threads share the same memory
+									space and resources of their parent process, enabling efficient resource
+									utilization and concurrent task execution.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>37. Name the method that is used to register a thread in a thread scheduler.
+							</summary>
+							<div class="toggle-content">
+								<p>The <code>start()</code> method of the <code>Thread</code> class is used to
+									register a thread with the thread scheduler. It allocates necessary resources
+									and schedules the thread for execution by invoking its <code>run()</code>
+									method.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>38. What is the type of thread priority in Java?</summary>
+							<div class="toggle-content">
+								<p>In Java, threads can have priorities ranging from 1 (lowest) to 10 (highest).
+									Thread priority helps the thread scheduler determine the order of thread
+									execution when multiple threads are ready to run.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. Explain meaning of the Thread’s Interrupt Flag? How Can You Set and Check
+								It? How Does It Relate to the Interrupted exception?</summary>
+							<div class="toggle-content">
+								<p>The interrupt flag in a thread is a boolean attribute that indicates whether the
+									thread has been interrupted or not. You can set this flag using the
+									<code>interrupt()</code> method of the thread instance. To check if a thread's
+									interrupt flag has been set, you can use the <code>isInterrupted()</code>
+									method. If a thread is interrupted while it's in a blocking operation (like
+									<code>wait()</code>, <code>sleep()</code>, or I/O operations), it can throw an
+									<code>InterruptedException</code>.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. What is an executor and an executor service? What are the differences
+								between these interfaces?</summary>
+							<div class="toggle-content">
+								<p>An executor in Java is an object that manages the execution of threads. It
+									decouples task submission from task execution, allowing you to control the
+									execution of asynchronous tasks. An executor service extends this concept by
+									providing a higher-level interface for managing thread execution and lifecycle,
+									such as task scheduling, execution, and termination.</p>
+								<p>The main difference is that an executor simply executes submitted tasks, while an
+									executor service provides methods to manage and control tasks, including
+									shutdown and termination.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. What are the ExecutorService implementations in the standard library?
+							</summary>
+							<div class="toggle-content">
+								<p>In the standard Java library, some implementations of
+									<code>ExecutorService</code> include:
+								</p>
+								<ul>
+									<li><code>ThreadPoolExecutor</code></li>
+									<li><code>ScheduledThreadPoolExecutor</code></li>
+									<li><code>ForkJoinPool</code></li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. What is Java Memory Model (JMM)? Describe its Purpose and Basic Ideas.
+							</summary>
+							<div class="toggle-content">
+								<p>The Java Memory Model (JMM) defines how threads interact through memory. It
+									ensures that changes made by one thread to shared variables are visible to other
+									threads. JMM guarantees that certain operations are atomic and defines the order
+									of operations in a multi-threaded environment.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. What is a Volatile Field and What Guarantees Does the JMM Hold for Such
+								Field?</summary>
+							<div class="toggle-content">
+								<p>A volatile field in Java is a variable whose value is always read from and
+									written to main memory (not cached thread-locally). The JMM guarantees that
+									reads and writes to a volatile variable are atomic and that changes to the
+									volatile variable are visible to all threads immediately after the modification.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. Which of the Following Operations Are Atomic?</summary>
+							<div class="toggle-content">
+								<p>Atomic operations in Java are operations that execute completely and without
+									interruption, such as:</p>
+								<ul>
+									<li>Reads and writes to primitive variables (e.g., <code>int</code>,
+										<code>long</code>)
+									</li>
+									<li>Reads and writes to <code>volatile</code> variables</li>
+									<li>Operations on <code>AtomicInteger</code>, <code>AtomicLong</code>, etc.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What Is the Meaning of a Synchronized Keyword in the Definition of a Method?
+								of a Static Method? Before a Block?</summary>
+							<div class="toggle-content">
+								<p>The <code>synchronized</code> keyword in Java is used to achieve synchronization,
+									ensuring that only one thread can execute a synchronized block of code or method
+									at a time:</p>
+								<ul>
+									<li><strong>Method:</strong> Synchronizes the entire method, preventing multiple
+										threads from executing it concurrently for the same instance.</li>
+									<li><strong>Static Method:</strong> Synchronizes the entire static method,
+										preventing multiple threads from executing it concurrently for the same
+										class.</li>
+									<li><strong>Block:</strong> Synchronizes a specific block of code, allowing
+										fine-grained control over synchronization on a particular object's monitor.
+									</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. If Two Threads Call a Synchronized Method on Different Object Instances
+								Simultaneously, Could One of These Threads Block? What If the Method Is Static?
+							</summary>
+							<div class="toggle-content">
+								<p>If two threads call a synchronized method on different object instances
+									simultaneously, they won't block each other because they are locking on
+									different objects. However, if the synchronized method is static, it locks on
+									the class object (class-level lock), so even different instances will block each
+									other.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. What is the Purpose of the Wait, Notify, and Notifyall Methods of the Object
+								Class?</summary>
+							<div class="toggle-content">
+								<p>These methods are used for inter-thread communication in Java:</p>
+								<ul>
+									<li><code>wait()</code>: Causes the current thread to wait until another thread
+										invokes <code>notify()</code> or <code>notifyAll()</code> on the same
+										object.</li>
+									<li><code>notify()</code>: Wakes up a single thread that is waiting on this
+										object.</li>
+									<li><code>notifyAll()</code>: Wakes up all threads that are waiting on this
+										object.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. Describe the Conditions of Deadlock, Livelock, and Starvation. Describe the
+								Possible Causes of These Conditions.</summary>
+							<div class="toggle-content">
+								<p><strong>Deadlock:</strong> Occurs when two or more threads are blocked forever,
+									each waiting on a resource held by the other.</p>
+								<p><strong>Livelock:</strong> Occurs when two or more threads keep responding to
+									each other's actions without making progress.</p>
+								<p><strong>Starvation:</strong> Occurs when a thread is unable to gain regular
+									access to resources and is unable to make progress.</p>
+								<p>These conditions are usually caused by improper synchronization, incorrect
+									locking order, or inefficient resource management.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. Describe the Purpose and Use-Cases of the Fork/Join Framework.</summary>
+							<div class="toggle-content">
+								<p>The Fork/Join framework in Java provides support for parallel programming by
+									efficiently utilizing multiple processors. It is particularly useful for
+									recursive tasks that can be divided into smaller tasks and executed
+									concurrently.</p>
+								<p>Use cases include parallel processing of large datasets, recursive algorithms
+									like merge sort or Fibonacci sequence calculation, and tasks that benefit from
+									multi-threaded execution.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. Why wait(), notify(), and notifyAll() methods are present in Object class?
+							</summary>
+							<div class="toggle-content">
+								<p>These methods are present in the <code>Object</code> class to provide a mechanism
+									for threads to communicate and synchronize their actions on shared resources.
+									They enable efficient inter-thread communication and coordination without the
+									need for explicit thread management by the application developer.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. What is ReentrantLock in Java Multi-Threading?</summary>
+							<div class="toggle-content">
+								<p><code>ReentrantLock</code> is a synchronization mechanism in Java that implements
+									the <code>Lock</code> interface. It provides more flexibility and control over
+									the locking mechanism compared to <code>synchronized</code> blocks or methods.
+									It supports features like fairness policies, interruptible lock acquisition, and
+									non-blocking tries to acquire locks.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. What is Thread Stack and Heap Memory?</summary>
+							<div class="toggle-content">
+								<p>In Java, each thread has its own thread stack and shares the heap memory with
+									other threads. The thread stack contains method calls, local variables, and
+									partial results specific to that thread. Heap memory contains objects and is
+									shared across all threads in the JVM.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. Why are Local Variables Thread-safe in Java?</summary>
+							<div class="toggle-content">
+								<p>Local variables in Java are thread-safe because they are stored on the stack
+									memory, which is private to each thread. Each thread has its own stack memory,
+									so local variables are not shared and cannot be accessed or modified by other
+									threads.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. What is the start() and run() method of Thread class?</summary>
+							<div class="toggle-content">
+								<p>The <code>start()</code> method is used to begin execution of the thread and
+									calls the <code>run()</code> method asynchronously. The <code>run()</code>
+									method contains the code that executes in the thread and should be overridden to
+									define the task that the thread performs.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. Explain thread pool?</summary>
+							<div class="toggle-content">
+								<p>A thread pool in Java is a collection of pre-initialized threads that are ready
+									to execute tasks. It manages the execution of tasks asynchronously, reusing
+									threads from the pool to improve performance and efficiency by reducing thread
+									creation overhead.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. What’s the purpose of the join() method?</summary>
+							<div class="toggle-content">
+								<p>The <code>join()</code> method in Java allows one thread to wait for the
+									completion of another thread. When a thread calls <code>join()</code> on another
+									thread, it suspends its own execution until the target thread has completed its
+									execution.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. What do you mean by garbage collection?</summary>
+							<div class="toggle-content">
+								<p>Garbage collection in Java is the process of automatically reclaiming memory
+									occupied by objects that are no longer reachable or in use by the application.
+									It helps manage memory efficiently and eliminates memory leaks by freeing up
+									resources for reuse.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. What is the lock interface? Why is it better to use a lock interface rather
+								than a synchronized block.?</summary>
+							<div class="toggle-content">
+								<p>The <code>Lock</code> interface in Java provides a more flexible and powerful
+									mechanism for synchronization compared to <code>synchronized</code> blocks:</p>
+								<ul>
+									<li>It supports features like timed lock acquisition, interruptible lock
+										acquisition, and multiple condition variables.</li>
+									<li>It allows better control over lock release and avoids potential issues like
+										deadlock.</li>
+									<li>It offers better performance in scenarios with frequent contention and
+										fine-grained locking requirements.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>21. What do you understand about Java Multithreading deadlocks?</summary>
+							<div class="toggle-content">
+								<p>Deadlock in Java occurs when two or more threads are blocked forever, each
+									waiting for a resource held by the other thread(s). It typically happens when
+									threads acquire multiple locks in different order or when circular dependencies
+									occur in resource allocation.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>22. How to identify a deadlock in Java?</summary>
+							<div class="toggle-content">
+								<p>Deadlocks in Java can be identified using thread dump analysis tools like
+									<code>jstack</code> or by examining application logs and monitoring tools that
+									indicate threads waiting for locks that are held by other threads indefinitely.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>23. How can deadlock be avoided in Java?</summary>
+							<div class="toggle-content">
+								<p>Deadlock prevention in Java can be achieved by:</p>
+								<ul>
+									<li>Ensuring a consistent and predefined order for acquiring locks.</li>
+									<li>Using timeout mechanisms with locks to avoid indefinite waiting.</li>
+									<li>Limiting the scope and duration of lock acquisition.</li>
+									<li>Using <code>java.util.concurrent</code> locks and utilities that offer
+										advanced features for deadlock avoidance.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>24. Does a thread have its own stack in Multithreaded programming?</summary>
+							<div class="toggle-content">
+								<p>Yes, each thread in Java has its own thread stack memory. The stack memory holds
+									method calls, local variables, and partial results specific to that thread. This
+									isolation ensures thread safety and prevents interference between threads.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>25. How is thread-safety achieved in multithreaded programming?</summary>
+							<div class="toggle-content">
+								<p>Thread-safety in Java is achieved through synchronization mechanisms like:</p>
+								<ul>
+									<li><code>synchronized</code> blocks and methods</li>
+									<li><code>volatile</code> variables</li>
+									<li><code>java.util.concurrent</code> locks and classes (e.g.,
+										<code>ReentrantLock</code>, <code>Atomic</code> classes)
+									</li>
+									<li>Immutable objects</li>
+									<li>Thread-safe data structures (e.g., <code>ConcurrentHashMap</code>,
+										<code>BlockingQueue</code>)
+									</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>26. What is an atomic operation? What are atomic classes in Java Concurrency
+								API?</summary>
+							<div class="toggle-content">
+								<p>An atomic operation in Java is an operation that executes as a single,
+									indivisible unit without interference from other threads. Atomic classes in Java
+									Concurrency API, like <code>AtomicInteger</code>, <code>AtomicLong</code>, and
+									<code>AtomicReference</code>, provide atomic operations on these types, ensuring
+									thread-safe access without using synchronization.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>27. What is the Lock interface in Java Concurrency API? What are its benefits
+								over synchronization?</summary>
+							<div class="toggle-content">
+								<p>The <code>Lock</code> interface in Java Concurrency API provides a more flexible
+									and powerful alternative to <code>synchronized</code> blocks:</p>
+								<ul>
+									<li>It supports features like timed lock acquisition, interruptible lock
+										acquisition, and multiple condition variables.</li>
+									<li>It allows better control over lock release and avoids potential issues like
+										deadlock.</li>
+									<li>It offers better performance in scenarios with frequent contention and
+										fine-grained locking requirements.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>28. What is Executors Framework?</summary>
+							<div class="toggle-content">
+								<p>The Executors framework in Java provides a higher-level API for managing and
+									controlling thread execution. It simplifies the task of creating and managing
+									thread pools, asynchronous tasks, and concurrent computations.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>29. What is Callable and Future?</summary>
+							<div class="toggle-content">
+								<p><code>Callable</code> is a functional interface in Java that represents a task
+									that can be executed asynchronously. It is similar to <code>Runnable</code> but
+									can return a result and throw a checked exception.</p>
+								<p><code>Future</code> is an interface that represents the result of an asynchronous
+									computation. It provides methods to check if the computation is complete,
+									retrieve the result, and cancel the task.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>30. Explain context switching.</summary>
+							<div class="toggle-content">
+								<p>Context switching is the process of saving and restoring the state of a thread or
+									process so that it can be scheduled and executed later. It allows the CPU to
+									switch from executing one thread to another, enabling multitasking and
+									concurrent execution of multiple threads.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>31. What is FutureTask Class?</summary>
+							<div class="toggle-content">
+								<p><code>FutureTask</code> is a concrete implementation of the <code>Future</code>
+									interface that represents an asynchronous computation with a result. It
+									encapsulates the computation and provides methods to start, cancel, and retrieve
+									the result of the computation.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>32. What is BlockingQueue? How it is used with producer and consumer thread?
+							</summary>
+							<div class="toggle-content">
+								<p><code>BlockingQueue</code> is a type of queue in Java that supports operations
+									that wait for the queue to become non-empty when retrieving an element and wait
+									for space to become available in the queue when storing an element. It is
+									commonly used to implement producer-consumer scenarios, where multiple threads
+									produce data (producers) and consume data (consumers) concurrently.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>33. What is CyclicBarrier and CountDownLatch?</summary>
+							<div class="toggle-content">
+								<p><code>CyclicBarrier</code> and <code>CountDownLatch</code> are synchronization
+									aids in Java:</p>
+								<ul>
+									<li><code>CyclicBarrier</code> allows a set of threads to wait for each other to
+										reach a common barrier point before continuing execution.</li>
+									<li><code>CountDownLatch</code> allows one or more threads to wait until a set
+										of operations being performed in other threads completes.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>34. What is Executors Class?</summary>
+							<div class="toggle-content">
+								<p>The <code>Executors</code> class in Java provides factory and utility methods for
+									creating and managing thread pools, asynchronous tasks, and executing tasks with
+									various scheduling policies. It simplifies the task of working with threads and
+									managing concurrency in Java applications.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>35. What are some of the improvements in Concurrency API in Java 8?</summary>
+							<div class="toggle-content">
+								<p>Java 8 introduced several enhancements to the Concurrency API, including:</p>
+								<ul>
+									<li>New methods in <code>CompletableFuture</code> for combining and handling
+										asynchronous tasks.</li>
+									<li>Enhancements to <code>ConcurrentHashMap</code> with new methods for parallel
+										processing and bulk operations.</li>
+									<li>Addition of <code>StampedLock</code> for optimistic locking.</li>
+									<li>Improved support for parallel streams and operations on collections.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>36. What is IPC and how do the threads communicate with each other?</summary>
+							<div class="toggle-content">
+								<p>IPC (Inter-Process Communication) is a mechanism that allows processes or threads
+									to communicate and synchronize their actions in a shared memory space. In Java,
+									threads communicate with each other using synchronization primitives like locks,
+									semaphores, monitors, and higher-level constructs like <code>wait()</code>,
+									<code>notify()</code>, and <code>notifyAll()</code> methods.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>37. What is ConcurrentHashMap and Hashtable? In java, why is ConcurrentHashMap
+								considered faster than Hashtable?</summary>
+							<div class="toggle-content">
+								<p><code>ConcurrentHashMap</code> and <code>Hashtable</code> are both thread-safe
+									implementations of the <code>Map</code> interface in Java:</p>
+								<ul>
+									<li><code>Hashtable</code> is synchronized, which means all methods are
+										thread-safe, but it can lead to contention under heavy concurrent access.
+									</li>
+									<li><code>ConcurrentHashMap</code> provides better concurrency by allowing
+										concurrent reads and updates without locking the entire map, using
+										finer-grained locking and partitioning.</li>
+									<li>Due to its design, <code>ConcurrentHashMap</code> is considered faster than
+										<code>Hashtable</code> in scenarios with high concurrency.
+									</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>38. What is semaphore?</summary>
+							<div class="toggle-content">
+								<p>A semaphore in Java is a synchronization aid that allows a fixed number of
+									threads to access a shared resource concurrently. It maintains a set of permits,
+									where each <code>acquire()</code> operation blocks if necessary until a permit
+									is available, and each <code>release()</code> operation adds a permit,
+									potentially releasing a blocking acquirer.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>39. What will happen if we don’t override the thread class run() method?
+							</summary>
+							<div class="toggle-content">
+								<p>If you don't override the <code>run()</code> method in a subclass of
+									<code>Thread</code>, the default implementation from the <code>Thread</code>
+									class will be executed. This default implementation does nothing, so the thread
+									will terminate immediately after being started without performing any useful
+									work.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>40. Is Multithreading present in other programming languages?</summary>
+							<div class="toggle-content">
+								<p>Yes, multithreading is present in many other programming languages besides Java,
+									including C++, Python, C#, and JavaScript. Each language provides its own
+									mechanisms and libraries for managing threads and concurrent execution.</p>
+							</div>
+						</details></br>
+						<h4><b>8. Java Multithreading Interview Questions</b></h4>
+						<br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1) What is multitasking?</summary>
+							<div class="toggle-content">
+								<p style="text-align:justify;">A multitasking operating system is an operating
+									system
+									that gives you the perception of 2 or more tasks/jobs/processes running at
+									the same
+									time. It does this by dividing system resources amongst these
+									tasks/jobs/processes
+									and switching between the tasks/jobs/processes while they are executing over
+									and
+									over again. Usually, the CPU processes only one task at a time but the
+									switching is
+									so fast that it looks like the CPU is executing multiple processes at a
+									time. They
+									can support either preemptive multitasking, where the OS provides time to
+									applications (virtually all modern OS), or cooperative multitasking, where
+									the OS
+									waits for the program to give back control (Windows 3.x, Mac OS 9, and
+									earlier),
+									leading to hangs and crashes. Also known as Timesharing, multitasking is a
+									logical
+									extension of multiprogramming.</p>
+								<p style="text-align:justify;">Multitasking programming is of two types which
+									are as
+									follows: <br>
+								<ol>
+									<li>Process-based Multitasking</li>
+									<li>Thread-based Multitasking</li>
+								</ol>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. What is the difference between a thread and a process?
+							</summary>
+							<div class="toggle-content">
+								<p>By asking this, the interviewer wants to see that you understand fundamental
+									multithreading concepts. Explain the concept clearly as if you are speaking
+									to
+									someone who does not have experience in this field.
+									<br>
+									Example: 'A process is a single application or program, whereas a thread is
+									a
+									subprocess within that application or program. Each process has its own
+									address
+									space in memory. Threads share their address space.'
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. What are some fundamental advantages of multithreading in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>The key benefits of Java multithreading include:</p>
+								<ul role="list">
+									<li>Multiple threads can share single address spaces</li>
+									<li>Threads share the same resources from the library but can execute
+										differently
+									</li>
+									<li>Different threads can be made to perform various functions to yield a
+										given
+										result</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. What is inter-thread communication?</summary>
+							<div class="toggle-content">
+								<p>Communication between synchronized threads is referred to as inter-thread
+									communication. It is a core feature that helps to avoid thread-polling in
+									Java. A
+									particular thread can be paused through inter-thread communication to allow
+									another
+									thread to enter the block.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. What are some functions used to perform inter-thread communication in
+								Java?
+							</summary>
+							<div class="toggle-content">
+								<p>This is one of the most common Java Multithreading interview questions asked
+									in tech
+									interviews. Some common functions used to perform inter-thread communication
+									in Java
+									are - notify(), wait() and notifyAll().
+								</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. What do you understand about the wait() function in Java?</summary>
+							<div class="toggle-content">
+								<p>The wait() function, specified by the object class, is used to pause the
+									current
+									thread and wait until another thread calls the notify() function. Note that
+									the
+									wait() method needs to be called from a synchronized block to avoid an
+									exception
+									from occurring.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What are the different states in a thread lifecycle?</summary>
+							<div class="toggle-content">
+								<p>
+								<p>There are six thread states.&nbsp;They
+									are&nbsp;NEW,&nbsp;RUNNABLE,&nbsp;BLOCKED,&nbsp;WAITING,&nbsp;TIMED_WAITING
+									and&nbsp;TERMINATED. At any point of time, thread will be in any one of
+									these
+									states.</p>
+								<ol>
+									<li>NEW : A thread will be in this state before calling start() method.</li>
+									<li>RUNNABLE : A thread will be in this state after calling the start()
+										method.</li>
+									<li>BLOCKED : A thread will be in this state when a thread is waiting for
+										object
+										lock to enter into synchronized method/block or a thread will be in this
+										state
+										if deadlock occurs.</li>
+									<li>WAITING : A thread will be in this state when wait() or join() method is
+										called.
+									</li>
+									<li>TIMED_WAITING : A thread will be in this state when sleep() or wait()
+										with
+										timeOut or join() with timeOut is called.</li>
+									<li>TERMINATED : A thread will be in this state once it finishes it’s
+										execution.
+									</li>
+								</ol>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. What do you understand by context switching?</summary>
+							<div class="toggle-content">
+								<p>Context switching is a feature through which the current state of a thread is
+									saved
+									for it to be restored and executed later. Through context switching,
+									multiple
+									processes can share the same CPU.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. What is the function of the join() method?</summary>
+							<div class="toggle-content">
+								<p>The join() method causes the current thread to stop running until the thread
+									due to
+									congregate with completes its task. It is a commonly used function that
+									facilitates
+									the execution of multiple threads in an organized manner.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. What is the function of the sleep() method?
+							</summary>
+							<div class="toggle-content">
+								<p>This is yet another popular Java Multithreading Interview Question. The
+									sleep()
+									method is used to pause a particular thread from executing and prioritizes
+									another
+									thread that needs to be executed before the current thread executes. </p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. What do you understand about Deadlock situations in Java
+								Multithreading?
+							</summary>
+							<div class="toggle-content">
+								<p>Deadlock is a situation where each thread is waiting for resources held by
+									other
+									waiting threads. Due to this situation, no threads are executed, causing a
+									pause in
+									program execution and breaking the code at runtime.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. How do you detect deadlock situations in Java?</summary>
+							<div class="toggle-content">
+								<p>Deadlock situations can be detected by running the executable code on cmd and
+									subsequently collecting the thread dump. If deadlock situations are present,
+									the cmd
+									will throw up a message.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. How can deadlock situations be avoided in Java?</summary>
+							<div class="toggle-content">
+								<p>This is one of the most common Java Multithreading interview questions asked
+									in
+									technical interviews. Deadlock situations in Java can be avoided by:
+
+									By way of avoiding nested thread locks and providing locks to only one
+									thread at a
+									time
+
+									By using thread join - the function helps to wait for threads to execute
+									before
+									other threads are executed, thereby preventing multiple threads from waiting
+									for
+									resources used by other threads.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. Do individual threads have their respective stacks in Multithreaded
+								programming?</summary>
+							<div class="toggle-content">
+								<p>Yes, individual threads have their stacks in multithreaded programming. Each
+									thread
+									is independent of the other and maintains its own stack in the memory.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. How is thread-safety achieved in multithreaded programming?</summary>
+							<div class="toggle-content">
+								<p>Thready safety can be achieved if multiple threads can use a particular class
+									function without the occurrence of the race condition. In Multithreaded
+									programming,
+									thread safety can be achieved by:<br></p>
+								<ul role="list">
+									<li>Use of atomic wrapper class</li>
+									<li>Use of a volatile keyword</li>
+									<li>Employing a lock-based mechanism</li>
+									<li>Synchronization</li>
+								</ul>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. In how many ways, you can create threads in Java? What are those?
+								Explain with
+								examples?</summary>
+							<div class="toggle-content">
+								<p>There are two ways two create threads in Java.</p>
+								<ol>
+									<li>By extending <code>java.lang.Thread</code> class</li>
+									<li>By implementing <code>java.lang.Runnable</code> interface</li>
+								</ol>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. How many types of threads are there in Java? Explain?</summary>
+							<div class="toggle-content">
+								<p>There are two types of threads in Java. They are,</p>
+								<ol>
+									<li>User Threads</li>
+									<li>Daemon Threads</li>
+								</ol>
+								<p>User threads are threads which are created by the application or user. They
+									are high
+									priority threads. JVM will not exit until all user threads finish their
+									execution.
+									JVM wait for user threads to finish their task. These threads are foreground
+									threads.</p>
+								<p>Daemon threads are threads which are mostly&nbsp;created by the JVM. These
+									threads
+									always run in background. These threads are used to perform some background
+									tasks
+									like garbage collection. These threads are less priority threads. JVM will
+									not wait
+									for these threads to finish their execution. JVM will exit as soon
+									as&nbsp;all user
+									threads finish their execution.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. Do two threads can have same name? If yes then how do you identify the
+								threads
+								having the same name?</summary>
+							<div class="toggle-content">
+								<p>Yes, two threads can have same name. In such scenarios, Thread ID can be used
+									to
+									identify the threads. Thread ID is a unique long number which remains
+									unchanged
+									through out the life of a thread. Thread ID can be retrieved using
+									<code>getID()</code> method.
+								</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. What are MIN_PRIORITY, NORM_PRIORITY and MAX_PRIORITY?</summary>
+							<div class="toggle-content">
+								<p>MIN_PRIORITY, NORM_PRIORITY and MAX_PRIORITY are three constant fields in
+									<code>java.lang.Thread</code> class which define lowest, normal and highest
+									priority
+									of a thread respectively.
+								</p>
+								<p><code>MIN_PRIORITY</code> : It defines&nbsp;the lowest&nbsp;priority that a
+									thread
+									can have and it’s value is 1.</p>
+								<p><code>NORM_PRIORITY</code> : It defines&nbsp;the normal priority that a
+									thread can
+									have and it’s value is 5.</p>
+								<p><code>MAX_PRIORITY</code>&nbsp;: It defines&nbsp;the highest priority that a
+									thread
+									can have and it’s value is 10.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. What do you mean by synchronization? Explain with an example?</summary>
+							<div class="toggle-content">
+								<p>Through synchronization, we can make the threads to execute particular method
+									or
+									block in sync not simultaneously. When a method or block is declared as
+									synchronized, only one thread can enter into that method or block. When one
+									thread
+									is executing synchronized method or block, the other threads which wants to
+									execute
+									that method or block have to wait until first thread executes that method or
+									block.
+									Thus avoiding the thread interference and achieving the thread safeness.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>21. What is object lock or monitor?</summary>
+							<div class="toggle-content">
+								<p>The synchronization in Java is built around an entity called object lock or
+									monitor.
+									Below is the brief description about lock or monitor.</p>
+								<ul>
+									<li>Whenever an object is created to any class, an object lock is created
+										and is
+										stored inside the object.</li>
+									<li>One object will have only one object lock associated with it.</li>
+									<li>Any thread wants to enter into synchronized methods or blocks of any
+										object,
+										they must&nbsp;acquire object lock associated with that object and
+										release the
+										lock after they are done with the execution.</li>
+									<li>The other threads which wants to enter into synchronized methods of that
+										object
+										have to wait until the currently executing thread releases the object
+										lock.</li>
+									<li>To enter into static synchronized methods or blocks, threads have to
+										acquire
+										class lock associated with that class as static members are stored
+										inside the
+										class memory.</li>
+								</ul>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>22. I want only some part of the method to be synchronized, not the whole
+								method?
+								How do you achieve that?</summary>
+							<div class="toggle-content">
+								<p>This can be done using synchronized blocks.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>23. What is the use of synchronized blocks?</summary>
+							<div class="toggle-content">
+								<p>Synchronization slows down the application. Because, at any given time, only
+									one
+									thread can enter into synchronized method. Other threads have to wait until
+									first
+									thread finishes it’s execution of that method. This slows down the execution
+									of
+									whole application.
+								</p>
+								<p>
+									Instead of synchronizing the whole method, synchronizing the only that part
+									which is
+									to be monitored for thread safe saves the time. This can be done using
+									synchronized
+									blocks.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>24. How threads communicate with each other in Java?</summary>
+							<div class="toggle-content">
+								<p>Threads in Java communicate with each other using wait(), notify() and
+									notifyAll()
+									methods.
+								</p>
+								<p>
+									wait() : This method tells the currently executing thread to release the
+									lock of
+									this object and wait until some other thread acquires the same lock and
+									notify it
+									using either notify() or notifyAll() methods.
+								</p>
+								<p>
+									notify() : This method wakes up one thread randomly that called wait()
+									method on
+									this object.
+								</p>
+								<p>
+									notifyAll() : This method wakes up all the threads that called wait() method
+									on this
+									object. But, only one thread will acquire lock of this object depending upon
+									the
+									priority.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>25. What is the difference between wait() and sleep() methods in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>
+								<figure class="wp-block-table">
+									<table>
+										<tbody>
+											<tr>
+												<td><strong>wait()</strong></td>
+												<td><strong>sleep()</strong></td>
+											</tr>
+											<tr>
+												<td>The thread which calls wait() method releases the lock it
+													holds.
+												</td>
+												<td>The thread which calls sleep() method doesn’t release the
+													lock it
+													holds.</td>
+											</tr>
+											<tr>
+												<td>The thread regains the lock after other threads call either
+													notify()
+													or notifyAll() methods on the same lock.</td>
+												<td>No question of regaining the lock as thread doesn’t release
+													the
+													lock.</td>
+											</tr>
+											<tr>
+												<td>wait() method must be called within the synchronized block.
+												</td>
+												<td>sleep() method can be called within or&nbsp;outside the
+													synchronized
+													block.</td>
+											</tr>
+											<tr>
+												<td>wait() method is a member of java.lang.Object class.</td>
+												<td>sleep() method is a member of java.lang.Thread class.</td>
+											</tr>
+											<tr>
+												<td>wait() method is always called on objects.</td>
+												<td>sleep() method is always called on threads.</td>
+											</tr>
+											<tr>
+												<td>wait() is a non-static method of Object class.</td>
+												<td>sleep() is a static method of Thread class.</td>
+											</tr>
+											<tr>
+												<td>Waiting threads can be woken up by other threads by calling
+													notify()
+													or notifyAll() methods.</td>
+												<td>Sleeping threads can not be woken up by other threads. If
+													done so,
+													thread will throw InterruptedException.</td>
+											</tr>
+											<tr>
+												<td>&nbsp;To call wait() method, thread must have object lock.
+												</td>
+												<td>&nbsp;To call sleep() method, thread need not to have object
+													lock.
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</figure>
+								</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>26. What is the difference between notify() and notifyAll() in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>notify() : When a thread calls notify() method on a particular object, only
+									one
+									thread will be notified which is waiting for the lock or monitor of that
+									object. The
+									thread chosen to notify is random i.e randomly one thread will be selected
+									for
+									notification. Notified thread doesn’t get the lock of the object
+									immediately. It
+									gets once the calling thread releases the lock of that object.
+								</p>
+								<p>
+									notifyAll() : When a thread calls notifyAll() method on a particular object,
+									all
+									threads which are waiting for the lock of that object are notified. All
+									notified
+									threads will move from WAITING state to BLOCKED state. All these threads
+									will
+									get
+									the lock of the object on a priority basis. The thread which gets the lock
+									of
+									the
+									object moves to RUNNING state. The remaining threads will remain in BLOCKED
+									state
+									until they get the object lock.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>27. What do you know about interrupt() method? Why it is used?</summary>
+							<div class="toggle-content">
+								<p>interrupt() method is used to interrupt sleeping or waiting thread. The whole
+									thread
+									interruption mechanism depends on&nbsp;an internal flag
+									called&nbsp;interrupt
+									status. The initial value of this flag for any thread is false. When you
+									call
+									interrupt() method on&nbsp;a thread, interrupt status of that thread will be
+									set to
+									true. When a thread throws&nbsp;<code>InterruptedException</code>, this
+									status will
+									be set to false again.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>28. What is the difference between calling start() method and calling run()
+								method
+								directly as anyhow start() method internally calls run() method?</summary>
+							<div class="toggle-content">
+								<p>When you call start() method, a new thread is created and that newly created
+									thread
+									executes the task kept in the run() method. If you call run() method
+									directly, no
+									new thread is created. Any task kept in run() method is executed by the
+									calling
+									thread itself.
+								</p>
+								<p>
+									If you are calling run() method directly, then you are not making use of the
+									multi-threaded programming concept. Because, when you call run() method
+									directly, no
+									new thread is created. run() method is executed by the calling thread
+									itself. It
+									just acts as normal method invocation. You are not using the concept of
+									multi-threading.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>29. What is executor framework?</summary>
+							<div class="toggle-content">
+								<p>Java 5 has introduced new framework named executor framework for managing
+									threads.
+								</p>
+								<p>
+									If you need to create thousands of the threads, your application performance
+									may
+									suffer and also, maintenance of each thread is also overhead. Executor
+									framework
+									solves this problem by limiting number of threads and reusing the same
+									threads once
+									threads had completed its current task.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>30. What is Thread pool?</summary>
+							<div class="toggle-content">
+								<p>Thread pool represents set of worker threads that are waiting for the jobs
+									and these
+									worker threads can be reused many times.
+								</p>
+								<p>
+									Whenever a task needs to be performance, service provider will pull out a
+									thread out
+									of thread pool to perform the task. If no worker threads are available, then
+									task
+									has to wait for execution.
+								</p>
+								<p>
+									java.util.concurrent.Executors class provides factory methods to create the
+									thread
+									pools.</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>31. Can you list down important factory methods of Executors class?
+							</summary>
+							<div class="toggle-content">
+								<p>Here are the few important methods of Executors class.</p>
+								<p>
+									newFixedThreadPool: This method returns a thread pool whose maximum size is
+									fixed.
+									If all threads are busy in execution of tasks and additional tasks are
+									submitted,
+									then they have to wait in queue until any thread is available for executing
+									these
+									tasks.
+								</p>
+								<p>
+									newCachedThreadPool: This method returns unbounded thread pool. If threads
+									are not
+									used for certain defined time (keepAliveTime), then it will kill extra
+									threads.
+								</p>
+								<p>
+									newSingleThreadedExecutor: This method returns an Executor with single
+									thread.
+								</p>
+								<p>
+									newScheduledThreadPool: This method returns thread pool with fixed size,
+									that can
+									schedule task periodically or with given delay.
+								</p>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>32. What is BlockingQueue</summary>
+							<div class="toggle-content">
+								<p>BlockingQueue is special type of queue which is used when producer threads
+									produce
+									object and consumer threads consume object.
+								</p>
+								<p>
+									Producer thread keeps inserting objects in the queue unless it is full and
+									once it
+									is full, it will be blocked unless consumer threads start consuming.
+								</p>
+								<p>
+									Similarly, consumer thread keep consuming objects until it is empty. Once it
+									is
+									empty, it will be blocked unless producer threads start producing.
+								</p>
+								<p>
+									Here are two important methods of BlockingQueue.
+									put(): This method to put objects in queue until queue is full and waits for
+									consumer thread to take object after that.
+								</p>
+								<p>
+									take(): This method is used to take objects from the queue until it becomes
+									empty.
+									Once it is empty, it waits for producer threads to start producing the
+									objects and
+									put into the queue.</p>
+							</div>
+						</details></br>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../java/java-exception.html">&lArr;
+							Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../java/java-collections.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

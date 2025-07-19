@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Java Miscellaneous</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+					alt="Home" />
+				<h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+							height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/java8/introduction.html">Java 8
+							Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../DP/introduction.html">Design
+							Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../interview/interview-questions.html">Interview
+							Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox" /> <span
+							class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Java Basic</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/introduction.html">Java Introduction</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/history.html">History
+								of Java</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/features.html">Features of Java</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jdk.html">JDK vs JRE
+								vs JVM</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/jvm.html">JVM - Java
+								Virtual Machine</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/gc.html">Garbage
+								Collection</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/variables.html">Variables</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/datatypes.html">Data
+								Types</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/operators.html">Operators</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/string.html">Java
+								String</a></li>
+							<h4>Java Flow Control</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/ifelse.html">Java
+								If-else</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/switchcase.html">Java
+								Switch-Case</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/forloop.html">Java For
+								loop</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/whileloop.html">Java
+								while loop</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/dowhile.html">Java
+								do-while loop</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/continue.html">Continue statement</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/break.html">break
+								statement</a></li>
+							<h4>Java Arrays</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arrays.html">Java
+								Arrays</a></li>
+							<h4>OOPs Concepts</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/oops.html">OOPs
+								Concepts</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/absract.html">Abstraction</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/encapsulation.html">Encapsulation</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/inheritance.html">Inheritance</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/polymorphism.html">Polymorphism</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/aggregation.html">Aggregation</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/association.html">Association</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/composition.html">Composition</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/overloadingvsoverriding.html">Overloading vs
+								Overriding</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/abstractvsinterface.html">Abstract class vs
+								interface</a></li>
+							<h4>Java Exception Handling</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/exception-handling.html">Exception handling</a></li>
+							<h4>Java Multithreading</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/multithreading.html">Multithreading</a></li>
+							<h4>Java Serialization</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/serialization.html">Serialization</a></li>
+							<h4>Java Synchronization</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/synchronization.html">Synchronization</a></li>
+							<h4>Java Sorting</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/comparable.html">Comparable interface</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/comparator.html">Comparator interface</a></li>
+							<h4>Collections Framework</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/collections.html">Collections in Java</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/arraylist.html">Java
+								ArrayList</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/linkedlist.html">Java
+								LinkedList</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/vector.html">Java
+								Vector</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashset.html">Java
+								HashSet</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/linkedhashset.html">Java LinkedHashSet</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treeset.html">Java
+								TreeSet</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/hashmap.html">Java
+								HashMap</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/hashmap-internal.html">Java HashMap Working</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/treemap.html">Java
+								TreeMap</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/linkedhashmap.html">Java LinkedHashMap</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/syncronized_collection.html">Syncronized Collections
+							</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/concurrent.html">Concurrent Collections</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/weak.html">Weak Collections</a></li>
+							<h4>Interview Special</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../interview/java/java-interview-questions.html">Java Interview
+								Questions</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../interview/java/java-collections.html">Collections
+								interview questions</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+																   href="../java/javaprograms.html">Java programs</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link" href="../java/random.html">Java
+								Miscellaneous</a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../java/introduction.html">Java</a></li>
+						<li><a href="../java/random.html">Java Miscellaneous</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../java/introduction.html">Java</a></li>
+						<li><a href="../java/random.html">Java Miscellaneous</a></li>
+					</ul>
+
+				</nav>
+				<a class="div-to-desk">
+					<br>
+				</a>
+				<article>
+					<div class="entry-content" itemprop="text">
+						<h2> Solid Principles in Java</h2>
+						<p>SOLID design principles are the most important design principles you need to know to
+							write clean code. Having a solid command over SOLID principles is an indispensable
+							skill for any programmer. They are the foundation on which other design patterns are
+							developed.</p>
+
+						<p>In this article, we will tackle the SOLID design principles using some real-life
+							examples and understand their importance.</p>
+
+						<div class="notice notice-tip">
+							<p>Together with Polymorphism, Abstraction, and Inheritance, SOLID Principles are
+								really important to be good at objective-oriented programming.</p>
+						</div>
+						<h2 id="h-why-are-solid-principles-important">Why Are SOLID Principles Important?</h2>
+						<p>SOLID principles are important for multiple reasons:</p>
+
+						<ul>
+							<li>SOLID principles allow us to write clean &amp; maintainable code: When we start
+								a new project, initially the code quality is good because we have a limited set
+								of features that we implement. However, as we incorporate more features the code
+								starts becoming cluttered.</li>
+						</ul>
+
+						<ul>
+							<li>SOLID Principles build upon the foundations of Abstraction, Polymorphism, and
+								Inheritance and lead to design patterns for common use cases. Understanding
+								these design patterns helps to implement common use cases in programming.</li>
+						</ul>
+
+						<ul>
+							<li>SOLID Principles help us write clean code which improves the testability of the
+								code. This is because the code is modular and loosely coupled. Each module can
+								be developed independently and tested independently.</li>
+						</ul>
+
+						<p>Let’s now explore each of the SOLID principles in detail with real-world examples.
+						</p>
+						<h2 id="h-1-single-responsibility-principle">1. Single Responsibility Principle</h2>
+						<p>S in SOLID principles stands for Single Responsibility Principle. The Single
+							Responsibility Principle states that a class should have only a single reason to
+							change. This limits the number of places we need to make changes when incorporating
+							additional requirements in our project.</p>
+						<p>This principle states that “<em>a class should have only one reason to change</em>” which
+							means every class should have a single responsibility or single job or single
+							purpose.&nbsp;</p>
+						<div class="notice notice-tip">
+							<p>Each class should have exactly one reason to change.</p>
+						</div>
+						<p>For example, let’s say we are designing a banking application in Java where we have a
+							<code>SavingsAccount</code> class that allows basic operations like debit, credit,
+							and <code>sendUpdates</code>. The <code>sendUpdate</code> method takes an enum
+							called <code>NotificationMedium</code> (like Email, SMS, etc.) and sends the update
+							with the appropriate medium. We will write the code for that as shown below.
+						</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SavingsAccount</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">public</span> <span class="token keyword">int</span> balance<span class="token punctuation">;</span>
+						    <span class="token keyword">public</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+						
+						    <span class="token keyword">public</span> <span class="token class-name">SavingsAccount</span><span class="token punctuation">(</span><span class="token keyword">int</span> initialBalance<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>balance <span class="token operator">=</span> initialBalance<span class="token punctuation">;</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+						        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Created a savings account with balance = "</span> <span class="token operator">+</span> initialBalance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">debit</span><span class="token punctuation">(</span><span class="token keyword">int</span> amountToDebit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// debit business logic</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">credit</span><span class="token punctuation">(</span><span class="token keyword">int</span> amountToCredit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// credit business logic</span>
+						    <span class="token punctuation">}</span>  
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendNotification</span><span class="token punctuation">(</span><span class="token class-name">NotificationMedium</span> medium<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">if</span> <span class="token punctuation">(</span>medium <span class="token operator">==</span> <span class="token class-name">NotificationMedium</span><span class="token punctuation">.</span><span class="token constant">SMS</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            <span class="token comment">// Send SMS here</span>
+						        <span class="token punctuation">}</span>
+						        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>medium <span class="token operator">==</span> <span class="token class-name">NotificationMedium</span><span class="token punctuation">.</span><span class="token constant">EMAIL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						           <span class="token comment">// Send Email here</span>
+						        <span class="token punctuation">}</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">NotificationMedium</span> <span class="token punctuation">{</span>
+						    <span class="token constant">SMS</span><span class="token punctuation">,</span>
+						    <span class="token constant">EMAIL</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>Now, if you look at the <code>SavingsAccount</code> class above, it can change due to
+							multiple reasons:</p>
+
+						<ol>
+							<li>
+								<p>If there is any change in the core logic of <code>SavingsAccount</code> class
+									(like <code>debit</code>, <code>credit</code>, etc.).</p>
+
+							</li>
+							<li>
+								<p>If the bank decides to introduce a new Notification medium (let’s say
+									WhatsApp).</p>
+
+							</li>
+						</ol>
+						<p>This is a violation of the Single Responsibility Principle in SOLID Principles. To
+							fix, it we will make a separate class that sends the notification.</p>
+
+						<p>Let’s refactor the code above according to the SOLID Principles</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SavingsAccount</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">public</span> <span class="token keyword">int</span> balance<span class="token punctuation">;</span>
+						    <span class="token keyword">public</span> <span class="token class-name">String</span> name<span class="token punctuation">;</span>
+						
+						    <span class="token keyword">public</span> <span class="token class-name">SavingsAccount</span><span class="token punctuation">(</span><span class="token keyword">int</span> initialBalance<span class="token punctuation">,</span> <span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>balance <span class="token operator">=</span> initialBalance<span class="token punctuation">;</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+						        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Created a savings account with balance = "</span> <span class="token operator">+</span> initialBalance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">debit</span><span class="token punctuation">(</span><span class="token keyword">int</span> amountToDebit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// debit business logic</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">credit</span><span class="token punctuation">(</span><span class="token keyword">int</span> amountToCredit<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// credit business logic</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">printBalance</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Name: "</span> <span class="token operator">+</span> name<span class="token operator">+</span> <span class="token string">" Account Balance: "</span> <span class="token operator">+</span> balance<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">sendNotification</span><span class="token punctuation">(</span><span class="token class-name">Medium</span> medium<span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+						        <span class="token class-name">Sender</span><span class="token punctuation">.</span><span class="token function">sendNotification</span><span class="token punctuation">(</span>medium<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">NotificationMedium</span> <span class="token punctuation">{</span>
+						    <span class="token constant">SMS</span><span class="token punctuation">,</span>
+						    <span class="token constant">EMAIL</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Sender</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">sendNotification</span><span class="token punctuation">(</span><span class="token class-name">NotificationMedium</span> medium<span class="token punctuation">,</span> <span class="token class-name">SavingsAccount</span> account<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// extract account data from the account object</span>
+						        <span class="token keyword">if</span> <span class="token punctuation">(</span>medium <span class="token operator">==</span> <span class="token class-name">NotificationMedium</span><span class="token punctuation">.</span><span class="token constant">SMS</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            <span class="token comment">//logic to send SMS here</span>
+						        <span class="token punctuation">}</span>
+						        <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>medium <span class="token operator">==</span> <span class="token class-name">NotificationMedium</span><span class="token punctuation">.</span><span class="token constant">EMAIL</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            <span class="token comment">// logic to send Email here</span>
+						        <span class="token punctuation">}</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>Now, since we have refactored the code, if there is any change in the
+							<code>NotificationMedium</code> or the format, we will change the
+							<code>Sender</code> class. However, if there is a change in the core logic of
+							<code>SavingsAccount</code>, there will be changes in the
+							<code>SavingsAccount</code> class.
+						</p>
+
+						<p>This fixes the violation that we observed in the first example.</p>
+						<h2 id="h-2-open-close-principle">2. Open/Close Principle</h2>
+						<p>The Open Close principle states that we should design the classes in such a way so
+							that they are open for extension (in case of adding additional features) but closed
+							for modification. Being closed for modification helps us in two ways:</p>
+						<p>This principle states that “<em>software entities (classes, modules, functions, etc.)
+								should be open for extension, but closed for modification</em>” which means you
+							should be able to extend a class behavior, without modifying it.&nbsp;</p>
+
+						<ul>
+							<li>Many times, the original class source may not be even available. It could be a
+								dependency consumed by your project.</li>
+						</ul>
+
+						<ul>
+							<li>Keeping the original class unchanged reduces the chances of bugs. Since there
+								might be other classes that are dependent on the class that we want to modify.
+							</li>
+						</ul>
+
+						<p>To see an example of the Open Close Principle, let’s take a look at the example of a
+							shopping cart (such as the one implemented on e-commerce websites).</p>
+
+						<p>I am going to create a class called as <code>Cart</code> which will contain a list of
+							<code>Item</code>(s) that you can add to it. Depending on the type of item, and the
+							taxation on it we want to create a method that calculates the total cart value
+							inside the <code>Cart</code> class.
+						</p>
+
+						<div class="notice notice-tip">
+							<p>Classes should be open for extension and closed for modification</p>
+						</div>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+						<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+						
+						<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cart</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Item</span><span class="token punctuation">&gt;</span></span> items<span class="token punctuation">;</span>
+						 
+						
+						    <span class="token keyword">public</span> <span class="token class-name">Cart</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addToCart</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        items<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calculateCartValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">double</span> value <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+						        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token operator">:</span> items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getItemType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token constant">GIFT</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						                <span class="token comment">// 8% tax on gift + 2% gift wrap cost</span>
+						                value <span class="token operator">+=</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.08</span><span class="token punctuation">)</span> <span class="token operator">+</span> item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.02</span>
+						            <span class="token punctuation">}</span>
+						            <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getItemType</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token class-name">ItemType</span><span class="token punctuation">.</span><span class="token constant">ELECTRONIC_ITEM</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						                value <span class="token operator">+=</span> <span class="token punctuation">(</span>item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						            <span class="token punctuation">}</span>
+						            <span class="token keyword">else</span> <span class="token punctuation">{</span>
+						                value <span class="token operator">+=</span> item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.10</span><span class="token punctuation">;</span>  
+						            <span class="token punctuation">}</span>
+						        <span class="token punctuation">}</span>
+						        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token annotation punctuation">@Getter</span>
+						<span class="token annotation punctuation">@Setter</span>
+						<span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">protected</span> <span class="token keyword">double</span> price<span class="token punctuation">;</span>
+						    <span class="token keyword">private</span> <span class="token class-name">ItemType</span> itemType<span class="token punctuation">;</span>    
+						    
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java">
+						
+						<span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">ItemType</span> <span class="token punctuation">{</span>
+						    <span class="token constant">ELECTRONIC</span><span class="token punctuation">,</span>
+						    <span class="token constant">GIFT</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>In the above example, <code>calculateCartValue</code> method calculates the cart
+							value by iterating over all the items inside the cart and invoking logic based on
+							the type of item.</p>
+
+						<p>Although this code looks correct, it violates the SOLID Principles.</p>
+
+						<p>Let’s say we need to add a new rule for a different type of item (say Grocery) while
+							calculating cart value. In that case, we would have to modify the original class
+							<code>Cart</code> and write another <code>else if</code> condition inside it which
+							checks for items of type <code>Grocery</code>.
+						</p>
+
+						<p>However, with little refactoring, we can make the code adhere to the open/close
+							principle. Let’s see how.</p>
+
+						<p>First, we will make the <code>Item</code> class abstract and make concrete classes
+							for different types of <code>Item</code>(s) as shown below.</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">protected</span> <span class="token keyword">double</span> price<span class="token punctuation">;</span>
+						    
+						    
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ElectronicItem</span> <span class="token keyword">extends</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+						
+						    <span class="token keyword">public</span> <span class="token class-name">ElectronicItem</span><span class="token punctuation">(</span><span class="token keyword">double</span> price<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">super</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						    <span class="token annotation punctuation">@Override</span>
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.11</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GiftItem</span> <span class="token keyword">extends</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">public</span> <span class="token class-name">GiftItem</span><span class="token punctuation">(</span><span class="token keyword">double</span> price<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">super</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token annotation punctuation">@Override</span>
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.08</span> <span class="token operator">+</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">0.02</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">GroceryItem</span> <span class="token keyword">extends</span> <span class="token class-name">Item</span> <span class="token punctuation">{</span>
+						
+						    <span class="token keyword">public</span> <span class="token class-name">GroceryItem</span><span class="token punctuation">(</span><span class="token keyword">double</span> price<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">super</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token annotation punctuation">@Override</span>
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">return</span> <span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">1.03</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>Inside each concrete Item classes like <code>GroceryItem</code> ,
+							<code>GiftItem</code>, and<code>ElectronicItem</code> implement the
+							<code>getValue()</code> method which contains the business logic for the taxation
+							and value calculation.
+						</p>
+
+						<p>Now, we will make the <code>Cart</code> class depend on the abstract class
+							<code>Item</code> and invoke the <code>getValue()</code> method for each item as
+							shown below.
+						</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+						<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+						
+						<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cart</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Item</span><span class="token punctuation">&gt;</span></span> items<span class="token punctuation">;</span>
+						
+						    <span class="token keyword">public</span> <span class="token class-name">Cart</span><span class="token punctuation">(</span><span class="token class-name">Payment</span> paymentOption<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addToCart</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        items<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calculateCartValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">double</span> value <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+						        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token operator">:</span> items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            value <span class="token operator">+=</span> item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						        <span class="token punctuation">}</span>
+						        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>Now, in this refactored code, even if new types of <code>Item</code>(s) are
+							introduced, the <code>Cart</code> class remains unchanged. Due to polymorphism,
+							whatever is the actual type of the <code>Item</code> inside the <code>items</code>
+							<code>ArrayList</code>, that class’s <code>getValue()</code> method would be
+							invoked.
+						</p>
+						<h2 id="h-3-liskovs-substitution-principle">3. Liskov’s Substitution Principle</h2>
+						<p>Liskov’s substitution principle states that in a given code, even if we replace the
+							object of a superclass with an object of the child class, the code shouldn’t break.
+							In other words, when a subclass inherits a superclass and overrides its methods, it
+							should maintain consistency with the behavior of the method in the super class.</p>
+
+						<p>This principle states that “<em>Derived or child classes must be substitutable for their
+								base or parent classes”. </em>In other words, if class A is a subtype of class B,
+							then we should be able to replace B with A without interrupting the behavior of the
+							program.&nbsp;</p>
+						<p>For example, if we make the following classes <code>Vehicle</code> and two classes
+							<code>Car</code> and <code>Bicycle</code> class. Now, let’s say we create a method
+							called as <code>startEngine()</code> within the Vehicle class, it can be overridden
+							in <code>Car</code> class, but it will be unsupported in the <code>Bicycle</code>
+							class as <code>Bicycle</code> doesn’t have an engine (see code sample below)
+						</p>
+
+						<div class="notice notice-tip">
+							<p>The subclass should maintain consistency with the behavior of the superclass when
+								overriding methods.</p>
+						</div>
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						      <span class="token comment">// start engine of the vehicle</span>
+						   <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						  <span class="token annotation punctuation">@Override</span>
+						  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						    <span class="token comment">// Start Engine</span>
+						  <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">Bicycle</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						  <span class="token annotation punctuation">@Override</span>
+						  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+						    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UnsupportedOperationException</span><span class="token punctuation">(</span><span class="token string">"Bicycle doesn't have engine"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						  <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<p>Now, let’s say there is some code that expects an object of type vehicle and relies
+							on the <code>startEngine()</code> method. If, while calling that piece of code
+							instead of passing an object of type <code>Vehicle</code> we pass a
+							<code>Bicycle</code> object, it would lead to issues in the code. Since the
+							<code>Bicycle</code>(s) class’s method will throw an exception when the
+							<code>startEngine()</code> method is called. This would be a violation of the SOLID
+							Principles (Liskov’s substitution principle)
+						</p>
+
+						<p>To resolve this issue, we can create two classes <code>MotorizedVehicle</code> and
+							<code>NonMotorizedVehicle</code> and have <code>Car</code> inherit from the
+							<code>MotorizedVehicle</code> class and have <code>Bicycle</code> inherit from
+							<code>NonMotorizedVehicle</code>
+						</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">MotorizedVehicle</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						      <span class="token comment">// start engine here</span>
+						   <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">Car</span> <span class="token keyword">extends</span> <span class="token class-name">MotorizedVehicle</span> <span class="token punctuation">{</span>
+						  <span class="token annotation punctuation">@Override</span>
+						  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startEngine</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						    <span class="token comment">// Start Engine</span>
+						  <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">NonMotorizedVehicle</span> <span class="token keyword">extends</span> <span class="token class-name">Vehicle</span> <span class="token punctuation">{</span>
+						   <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startRiding</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						     <span class="token comment">// Start without engine</span>
+						   <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						<span class="token keyword">class</span> <span class="token class-name">Bicycle</span> <span class="token keyword">extends</span> <span class="token class-name">NonMotorizedVehicle</span> <span class="token punctuation">{</span>
+						  <span class="token annotation punctuation">@Override</span>
+						  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">startRiding</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+						    <span class="token comment">// Start riding without the engine.</span>
+						  <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+
+						<h2 id="h-4-interface-segregation-principle">4. Interface Segregation Principle</h2>
+						<p>The “I” in SOLID Principles stands for the Interface Segregation Principle.</p>
+
+						<p>The Interface segregation principle states that rather than having bigger interfaces
+							that force implementing classes to implement unused methods, we should have smaller
+							interfaces and have classes implemented. This way, classes only implement the
+							relevant methods and remain clean.</p>
+						<p>This principle is fairly simple and it says that instead of having big interfaces with a
+							list of different methods you should divide them into smaller ones, just with the
+							specific behavior. In doing so we will avoid situations when we will be forced to
+							implement features that we don’t need. Let’s get back to our GYM example and imagine
+							having such interface.&nbsp;</p>
+						<div class="notice notice-tip">
+							<p>Divide your interfaces into multiple smaller interfaces rather than one big
+								interface.</p>
+						</div>
+						<p>For example, let’s look at the built-in Collections framework in Java. Among other
+							data structures, Java also provides <code>LinkedList</code> and
+							<code>ArrayList</code> data structure,
+						</p>
+
+						<p><code>ArrayList</code> class implements the following interface(s):
+							<code>Serializable</code>, <code>Cloneable</code>, <code>Iterable</code>,
+							<code>Collection</code>, <code>List</code>, and <code>RandomAccess</code>.
+						</p>
+						<p><code>LinkedList</code> class implements <code>Serializable</code>,
+							<code>Cloneable</code>, <code>Iterable</code>, <code>Collection</code>,
+							<code>Deque</code>, <code>List</code>, and <code>Queue</code>.
+						</p>
+
+						<p>That’s quite a lot of interfaces!</p>
+
+						<p>Rather than having so many interfaces, Java developers could have combined
+							<code>Serializable</code>, <code>Cloneable</code>, <code>Iterable</code> ,
+							<code>Collecton</code>, <code>List</code>, and <code>RandomAccess</code> into one
+							interface, let’s say <code>IList</code> interface. Now, both <code>ArrayList</code>
+							and <code>LinkedList</code> classes could have implemented this new
+							<code>IList</code> interface.
+						</p>
+
+						<p>However, since <code>LinkedList</code> does not support random access, it could have
+							implemented the methods in the <code>RandomAccess</code> interface and could have
+							thrown <code>UnsupportedOperationException</code> when somebody tries to call it.
+						</p>
+
+						<p>However, that would be a violation of the Interface Segregation principle in SOLID
+							Principles as it would “force” the LinkedList class to implement the methods inside
+							the <code>RandomAccess</code> interface even though not required.</p>
+
+						<p>Therefore, it is better to split the interface based on the common behavior and let
+							each class implement many interfaces rather than one big interface.</p>
+						<h2 id="h-dependency-inversion-principle">5. Dependency Inversion Principle</h2>
+						<p>The Dependency Inversion Principle states that classes at the upper level shouldn’t
+							directly depend on the classes at the lower level. This causes a tight coupling b/w
+							the two levels.</p>
+						<ul>
+							<li>We should depend on abstractions (interfaces and abstract classes) instead of
+								concrete implementations (classes).&nbsp;&nbsp;</li>
+
+							<li>The abstractions should not depend on details; instead, the details should depend on
+								abstractions.&nbsp;</li>
+						</ul>
+
+						<p>Instead of that, lower classes should provide an interface on which the upper-level
+							classes should depend.</p>
+
+						<div class="notice notice-tip">
+							<p>Depend on interfaces rather than classes</p>
+						</div>
+
+						<p>For example, let’s continue with the <code>Cart</code> example we saw above and
+							enhance it to add some payment options. Let’s assume we have two types of payment
+							options with us <code>DebitCard</code> and <code>Paypal</code> . Now, in the
+							<code>Cart</code> class, we want to add a method to <code>placeOrder</code> which
+							would calculate the cart value and initiate the payment based on the supplied
+							payment. method.
+						</p>
+
+						<p>To do this, we could have added dependency in the <code>Cart</code> example above by
+							adding the two payment options as fields inside the <code>Cart</code> class.
+							However, that would tightly couple the <code>Cart</code> class with
+							<code>DebitCard</code> and <code>Paypal</code> class.
+						</p>
+
+						<p>Instead of that, we would create a <code>Payment</code> interface and have both the
+							<code>DebitCard</code> and <code>Paypal</code> classes implement the
+							<code>Payment</code> interfaces. Now, the <code>Cart</code> class will depend on the
+							<code>Payment</code> interface, and not the individual payment types. This keeps the
+							classes loosely coupled.
+						</p>
+
+						<p>See the code below.</p>
+
+						<pre class="nz oa ob oc od oe of og bo oh ba bj" tabindex="0"><code class="language-java">
+						<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Payment</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">void</span> <span class="token function">doPayment</span><span class="token punctuation">(</span><span class="token keyword">double</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						<span class="token punctuation">}</span>
+						
+						
+						
+						<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">PaypalPayment</span> <span class="token keyword">implements</span> <span class="token class-name">Payment</span> <span class="token punctuation">{</span>
+						    <span class="token annotation punctuation">@Override</span>
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doPayment</span><span class="token punctuation">(</span><span class="token keyword">double</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// logic to initiate paypal payment</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						
+						<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DebitCardPayment</span> <span class="token keyword">implements</span> <span class="token class-name">Payment</span> <span class="token punctuation">{</span>
+						    <span class="token annotation punctuation">@Override</span>
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doPayment</span><span class="token punctuation">(</span><span class="token keyword">double</span> amount<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token comment">// logic to initiate payment via debit card</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						
+						
+						
+						<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">ArrayList</span></span><span class="token punctuation">;</span>
+						<span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">List</span></span><span class="token punctuation">;</span>
+						
+						<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Cart</span> <span class="token punctuation">{</span>
+						    <span class="token keyword">private</span> <span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Item</span><span class="token punctuation">&gt;</span></span> items<span class="token punctuation">;</span>
+						
+						    <span class="token keyword">private</span> <span class="token class-name">Payment</span> paymentOption<span class="token punctuation">;</span>
+						
+						
+						    <span class="token keyword">public</span> <span class="token class-name">Cart</span><span class="token punctuation">(</span><span class="token class-name">Payment</span> paymentOption<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>paymentOption <span class="token operator">=</span> paymentOption<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">addToCart</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        items<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">double</span> <span class="token function">calculateCartValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">double</span> value <span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">;</span>
+						        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token class-name">Item</span> item<span class="token operator">:</span> items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						            value <span class="token operator">+=</span> item<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						        <span class="token punctuation">}</span>
+						        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						
+						    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">placeOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+						        <span class="token keyword">this</span><span class="token punctuation">.</span>paymentOption<span class="token punctuation">.</span><span class="token function">doPayment</span><span class="token punctuation">(</span><span class="token function">calculateCartValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+						    <span class="token punctuation">}</span>
+						<span class="token punctuation">}</span>
+						</code></pre>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../java/weak.html">&lArr;
+							Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../java/javaprograms.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

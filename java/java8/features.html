@@ -1,0 +1,1694 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Java 8 Features</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+                                                            src="../../scripts/images/nani1.png" alt="Home"/>
+            <h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../../home.html"><img
+                        height="25" width="25" src="../../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide">
+                    <input type="checkbox" id="switch-theme-checkbox"/>
+                    <span class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Java 8 Features</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/introduction.html">Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/features.html">Features</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/indetail.html">Java 8 In Detail</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/java8programs.html">Java 8
+                            Programs</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../interview/java/java-8-interview-questions.html">Java
+                            8
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../../home.html">Home</a></li>
+                    <li><a href="../../java/java8/features.html">Features</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../../home.html">Home</a></li>
+                    <li><a href="../../java/java8/features.html">Java 8 Features</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk">
+                <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <h1>Java 8 Features and Enhancements</h1>
+
+                    <h3>1. Lambda Expressions</h3>
+                    <p>Lambda expressions provide a way to write anonymous functions in a more concise manner. They
+                        enable functional programming in Java by treating functions as first-class citizens.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Syntax:</strong> <span class="keyword">(parameters) -> expression</span> or <span
+                                class="keyword">(parameters) -> { statements; }</span></li>
+                        <li><strong>Use Case:</strong> Reduces boilerplate code in functional interfaces like <span
+                                class="type">Runnable</span>, <span class="type">Callable</span>, <span class="type">Comparator</span>,
+                            etc.
+                        </li>
+                        <li><strong>Functional Interface:</strong> An interface with a single abstract method, used as
+                            the target for lambda expressions.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="comment">// Without Lambda</span><br>
+                        <span class="type">Runnable</span> <span class="variable">runnable1</span> = new <span
+                            class="type">Runnable</span>() {<br>
+                        &nbsp;&nbsp;<span class="keyword">@Override</span><br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">void</span> <span
+                            class="method">run</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="string">"Hello from a thread!"</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        };<br>
+                        <br>
+                        <span class="comment">// With Lambda</span><br>
+                        <span class="type">Runnable</span> <span class="variable">runnable2</span> = () -> <span
+                            class="keyword">System</span>.<span class="method">out</span>.<span
+                            class="method">println</span>(<span class="string">"Hello from a thread!"</span>);<br>
+                        <br>
+                        <span class="keyword">new</span> <span class="type">Thread</span>(<span class="variable">runnable2</span>).<span
+                            class="method">start</span>();
+                    </div>
+
+                    <h3>2. Functional Interfaces</h3>
+                    <p>Java 8 introduced several new functional interfaces in the <span
+                            class="type">java.util.function</span> package. Additionally, interfaces can now contain
+                        default methods with implementations.</p>
+                    <h3>Predicate</h3>
+                    <p><strong>Purpose:</strong> The <code>Predicate</code> functional interface represents a
+                        boolean-valued function of one argument. It is used to evaluate a condition or test a predicate
+                        on a given input.</p>
+
+                    <p><strong>Common Methods:</strong></p>
+                    <ul>
+                        <li><code><span class="method">boolean test</span>(T t)</code>: Evaluates the predicate on the
+                            given argument.
+                        </li>
+                        <li><code><span class="method">Predicate<T> and</span>(<span
+                                class="type">Predicate<? super T></span> other)</code>: Returns a composed predicate
+                            that represents a short-circuiting logical AND of this predicate and another.
+                        </li>
+                        <li><code><span class="method">Predicate<T> or</span>(<span
+                                class="type">Predicate<? super T></span> other)</code>: Returns a composed predicate
+                            that represents a short-circuiting logical OR of this predicate and another.
+                        </li>
+                        <li><code><span class="method">Predicate<T> negate</span>()</code>: Returns a predicate that is
+                            the negation of this predicate.
+                        </li>
+                    </ul>
+
+                    <p><strong>Example:</strong></p>
+                    <div class="code">
+                        <span class="comment">// Import necessary classes</span><br>
+                        <span class="keyword">import</span> java.util.Arrays;<br>
+                        <span class="keyword">import</span> java.util.List;<br>
+                        <span class="keyword">import</span> java.util.function.Predicate;<br>
+                        <span class="keyword">import</span> java.util.stream.Collectors;<br><br>
+
+                        <span class="keyword">public class</span> PredicateExample {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span
+                            class="method">main</span>(<span class="type">String[]</span> args) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<String></span> names = Arrays.asList(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"John", "Jane", "Jack", "Jill", "Tom");<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Predicate<String></span> startsWithJ = name ->
+                        name.startsWith("J");<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<String></span> filteredNames =
+                        names.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.filter(startsWithJ)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(filteredNames); <span
+                            class="comment">// Output: [John, Jane, Jack, Jill]</span><br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>Function</h3>
+                    <p><strong>Purpose:</strong> The <code>Function</code> functional interface represents a function
+                        that takes one argument and produces a result. It is used for transforming or mapping data.</p>
+
+                    <p><strong>Common Methods:</strong></p>
+                    <ul>
+                        <li><code><span class="method">R apply</span>(T t)</code>: Applies this function to the given
+                            argument.
+                        </li>
+                        <li><code><span class="method">Function<V, R> compose</span>(<span
+                                class="type">Function<? super V, ? extends T></span> before)</code>: Returns a composed
+                            function that first applies the <code>before</code> function to its input, and then applies
+                            this function to the result.
+                        </li>
+                        <li><code><span class="method">Function<T, V> andThen</span>(<span
+                                class="type">Function<? super R, ? extends V></span> after)</code>: Returns a composed
+                            function that first applies this function to its input, and then applies the
+                            <code>after</code> function to the result.
+                        </li>
+                    </ul>
+
+                    <p><strong>Example:</strong></p>
+                    <div class="code">
+                        <span class="comment">// Import necessary classes</span><br>
+                        <span class="keyword">import</span> java.util.Arrays;<br>
+                        <span class="keyword">import</span> java.util.List;<br>
+                        <span class="keyword">import</span> java.util.function.Function;<br>
+                        <span class="keyword">import</span> java.util.stream.Collectors;<br><br>
+
+                        <span class="keyword">public class</span> FunctionExample {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span
+                            class="method">main</span>(<span class="type">String[]</span> args) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<Integer></span> numbers = Arrays.asList(1, 2, 3,
+                        4, 5);<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Function<Integer, String></span> toString =
+                        Object::toString;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<String></span> strings = numbers.stream()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(toString)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.collect(Collectors.toList());<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(strings); <span
+                            class="comment">// Output: [1, 2, 3, 4, 5]</span><br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>Consumer</h3>
+                    <p><strong>Purpose:</strong> The <code>Consumer</code> functional interface represents an operation
+                        that takes a single argument and returns no result. It is typically used for performing
+                        operations like printing, accumulating, or modifying data.</p>
+
+                    <p><strong>Common Methods:</strong></p>
+                    <ul>
+                        <li><code><span class="method">void accept</span>(T t)</code>: Performs the operation on the
+                            given argument.
+                        </li>
+                        <li><code><span class="method">Consumer<T> andThen</span>(<span
+                                class="type">Consumer<? super T></span> after)</code>: Returns a composed consumer that
+                            performs, in sequence, this operation followed by the <code>after</code> operation.
+                        </li>
+                    </ul>
+
+                    <p><strong>Example:</strong></p>
+                    <div class="code">
+                        <span class="comment">// Import necessary classes</span><br>
+                        <span class="keyword">import</span> java.util.Arrays;<br>
+                        <span class="keyword">import</span> java.util.List;<br>
+                        <span class="keyword">import</span> java.util.function.Consumer;<br><br>
+
+                        <span class="keyword">public class</span> ConsumerExample {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span
+                            class="method">main</span>(<span class="type">String[]</span> args) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<String></span> items = Arrays.asList("apple",
+                        "banana", "cherry");<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Consumer<String></span> printConsumer = <span
+                            class="keyword">System.out::println</span>;<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;items.forEach(printConsumer);<br>
+                        }<br>
+                        }<br>
+                    </div>
+
+                    <h3>Supplier</h3>
+                    <p><strong>Purpose:</strong> The <code>Supplier</code> functional interface represents a supplier of
+                        results. It provides a result of a given type and is typically used for generating or supplying
+                        data.</p>
+
+                    <p><strong>Common Methods:</strong></p>
+                    <ul>
+                        <li><code><span class="method">T get</span>()</code>: Provides a result of the given type.</li>
+                    </ul>
+
+                    <p><strong>Example:</strong></p>
+                    <div class="code">
+                        <span class="comment">// Import necessary classes</span><br>
+                        <span class="keyword">import</span> java.util.Arrays;<br>
+                        <span class="keyword">import</span> java.util.List;<br>
+                        <span class="keyword">import</span> java.util.function.Supplier;<br><br>
+
+                        <span class="keyword">public class</span> SupplierExample {<br>
+                        &nbsp;&nbsp;<span class="keyword">public static void</span> <span
+                            class="method">main</span>(<span class="type">String[]</span> args) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Supplier<String></span> defaultSupplier = () ->
+                        "default";<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List<String></span> defaults = Arrays.asList(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultSupplier.get(),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultSupplier.get(),<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultSupplier.get()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;);<br><br>
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System.out.println</span>(defaults); <span
+                            class="comment">// Output: [default, default, default]</span><br>
+                        }<br>
+                        }<br>
+                    </div>
+
+                    <h3>3. Stream API</h3>
+                    <p>The Stream API provides a functional approach to processing sequences of elements, such as
+                        collections. It supports operations like filtering, mapping, and reducing, enabling easy and
+                        efficient data manipulation.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Streams:</strong> Support sequential and parallel processing.</li>
+                        <li><strong>Operations:</strong> Include intermediate (e.g., <span class="method">map</span>,
+                            <span class="method">filter</span>, <span class="method">sorted</span>) and terminal (e.g.,
+                            <span class="method">collect</span>, <span class="method">forEach</span>, <span
+                                    class="method">reduce</span>) operations.
+                        </li>
+                        <li><strong>Laziness:</strong> Streams are lazy; operations are not performed until a terminal
+                            operation is invoked.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.util.Arrays</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.List</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.stream.Collectors</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">StreamExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List</span>&lt;<span class="type">String</span>&gt;
+                        <span class="variable">names</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(<span
+                            class="string">"John"</span>, <span class="string">"Jane"</span>, <span class="string">"Jack"</span>,
+                        <span class="string">"Jill"</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List</span>&lt;<span class="type">String</span>&gt;
+                        <span class="variable">upperCaseNames</span> = <span class="variable">names</span>.<span
+                            class="method">stream</span>()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="method">map</span>(<span
+                            class="type">String</span>::<span class="method">toUpperCase</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>::<span
+                            class="method">toList</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="variable">upperCaseNames</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>4. Method References</h3>
+                    <p>Method references provide a shorthand syntax for calling a method via a lambda expression. They
+                        improve code readability and reusability.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Types:</strong></li>
+                        <ul>
+                            <li><strong>Static method reference:</strong> <span class="type">ClassName</span>::<span
+                                    class="method">methodName</span></li>
+                            <li><strong>Instance method reference:</strong> <span
+                                    class="variable">instance</span>::<span class="method">methodName</span></li>
+                            <li><strong>Constructor reference:</strong> <span class="type">ClassName</span>::<span
+                                    class="method">new</span></li>
+                        </ul>
+                        <li><strong>Use Case:</strong> Simplifies lambda expressions that only call existing methods.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.util.Arrays</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.List</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">MethodReferenceExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List</span>&lt;<span class="type">String</span>&gt;
+                        <span class="variable">names</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(<span
+                            class="string">"John"</span>, <span class="string">"Jane"</span>, <span class="string">"Jack"</span>,
+                        <span class="string">"Jill"</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">names</span>.<span class="method">forEach</span>(<span
+                            class="keyword">System</span>::<span class="method">out</span>.<span
+                            class="method">println</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>5. Optional Class</h3>
+                    <p>The Optional class is a container object that may or may not contain a non-null value. It helps
+                        to avoid NullPointerException by providing methods to deal with absent values more
+                        explicitly.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Methods:</strong> <span class="method">isPresent()</span>, <span class="method">ifPresent()</span>,
+                            <span class="method">orElse()</span>, <span class="method">orElseGet()</span>, <span
+                                    class="method">orElseThrow()</span>, etc.
+                        </li>
+                        <li><strong>Use Case:</strong> Eliminates the need for null checks and reduces the risk of
+                            NullPointerException.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.util.Optional</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">OptionalExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Optional</span>&lt;<span class="type">String</span>&gt;
+                        <span class="variable">optional</span> = <span class="type">Optional</span>.<span
+                            class="method">ofNullable</span>(<span class="keyword">null</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">String</span> <span class="variable">value</span>
+                        = <span class="variable">optional</span>.<span class="method">orElse</span>(<span
+                            class="string">"Default Value"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span
+                            class="variable">value</span>); <span class="comment">// Prints: Default Value</span><br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>6. New Date and Time API</h3>
+                    <p>Java 8 introduced a new date and time API under the <span class="type">java.time</span> package,
+                        which is more comprehensive and easier to work with compared to the old Date and Calendar
+                        classes.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Immutable Classes:</strong> <span class="type">LocalDate</span>, <span class="type">LocalTime</span>,
+                            <span class="type">LocalDateTime</span>, <span class="type">ZonedDateTime</span>, etc.
+                        </li>
+                        <li><strong>Fluent API:</strong> Methods like <span class="method">plusDays()</span>, <span
+                                class="method">minusMonths()</span>, <span class="method">withYear()</span>, etc.,
+                            provide a fluent and readable API.
+                        </li>
+                        <li><strong>Time Zones:</strong> <span class="type">ZoneId</span>, <span
+                                class="type">ZoneOffset</span>, and <span class="type">ZonedDateTime</span> handle time
+                            zone conversions.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.time.LocalDate</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.time.LocalTime</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.time.LocalDateTime</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">DateTimeExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">LocalDate</span> <span class="variable">date</span> =
+                        <span class="type">LocalDate</span>.<span class="method">now</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">LocalTime</span> <span class="variable">time</span> =
+                        <span class="type">LocalTime</span>.<span class="method">now</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">LocalDateTime</span> <span
+                            class="variable">dateTime</span> = <span class="type">LocalDateTime</span>.<span
+                            class="method">now</span>();<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span
+                            class="string">"Date: "</span> + <span class="variable">date</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span
+                            class="string">"Time: "</span> + <span class="variable">time</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="string">"DateTime: "</span>
+                        + <span class="variable">dateTime</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>7. Default and Static Methods in Interfaces</h3>
+                    <p>Java 8 allows interfaces to have default and static methods, which helps in providing method
+                        implementations within interfaces.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Default Methods:</strong> Methods with a default implementation in an interface.
+                        </li>
+                        <li><strong>Static Methods:</strong> Methods that belong to the interface itself rather than to
+                            an instance.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">interface</span> <span class="type">MyInterface</span> {<br>
+                        &nbsp;&nbsp;<span class="comment">// Default method</span><br>
+                        &nbsp;&nbsp;<span class="keyword">default</span> <span class="keyword">void</span> <span
+                            class="method">defaultMethod</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="string">"This is a default method."</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;<span class="comment">// Static method</span><br>
+                        &nbsp;&nbsp;<span class="keyword">static</span> <span class="keyword">void</span> <span
+                            class="method">staticMethod</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="string">"This is a static method."</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">DefaultStaticMethodsExample</span>
+                        <span class="keyword">implements</span> <span class="type">MyInterface</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">DefaultStaticMethodsExample</span> <span
+                            class="variable">obj</span> = <span class="keyword">new</span> <span class="type">DefaultStaticMethodsExample</span>();<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Calling default method</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">obj</span>.<span
+                            class="method">defaultMethod</span>();<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Calling static method</span><br>
+                        <span class="type">MyInterface</span>.<span class="method">staticMethod</span>();<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>8. Nashorn JavaScript Engine</h3>
+                    <p>Java 8 introduced the Nashorn JavaScript engine, which allows you to run JavaScript code from
+                        within Java applications.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Scripting:</strong> Execute JavaScript code within Java using the <span
+                                class="type">ScriptEngine</span> API.
+                        </li>
+                        <li><strong>Interoperability:</strong> Seamless integration between Java and JavaScript.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">javax.script.ScriptEngine</span>;<br>
+                        <span class="keyword">import</span> <span
+                            class="type">javax.script.ScriptEngineManager</span>;<br>
+                        <span class="keyword">import</span> <span class="type">javax.script.ScriptException</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">NashornExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) <span class="keyword">throws</span>
+                        <span class="type">ScriptException</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">ScriptEngineManager</span> <span class="variable">manager</span>
+                        = <span class="keyword">new</span> <span class="type">ScriptEngineManager</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">ScriptEngine</span> <span
+                            class="variable">engine</span> = <span class="variable">manager</span>.<span class="method">getEngineByName</span>(<span
+                            class="string">"nashorn"</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Evaluate JavaScript code</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">engine</span>.<span
+                            class="method">eval</span>(<span
+                            class="string">"print('Hello from JavaScript')"</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>9. Parallel Arrays and Parallel Streams</h3>
+                    <p>Java 8 enhanced the <span class="type">java.util.Arrays</span> class with methods like <span
+                            class="method">parallelSort</span>, and it introduced the concept of parallel streams,
+                        allowing for parallel processing of data.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Parallel Arrays:</strong> <span class="type">Arrays.parallelSort()</span> sorts
+                            large arrays in parallel, improving performance on multi-core processors.
+                        </li>
+                        <li><strong>Parallel Streams:</strong> Streams can be processed in parallel using the <span
+                                class="method">parallel()</span> method, enabling parallelism with minimal code changes.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.util.Arrays</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">ParallelSortExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">int</span>[] <span class="variable">numbers</span>
+                        = {5, 3, 1, 4, 2};<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Parallel sort</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Arrays</span>.<span
+                            class="method">parallelSort</span>(<span class="variable">numbers</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span
+                            class="type">Arrays</span>.<span class="method">toString</span>(<span class="variable">numbers</span>));<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>10. Collectors and Collectors API</h3>
+                    <p>The <span class="type">Collectors</span> utility class provides various methods to collect the
+                        results of stream operations into different types of collections, such as lists, sets, or maps.
+                    </p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li><strong>Collectors.toList():</strong> Collects stream elements into a List.</li>
+                        <li><strong>Collectors.toSet():</strong> Collects stream elements into a Set.</li>
+                        <li><strong>Collectors.groupingBy():</strong> Groups stream elements by a classifier function.
+                        </li>
+                        <li><strong>Collectors.joining():</strong> Concatenates stream elements into a single string.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span class="type">java.util.Arrays</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.List</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.Map</span>;<br>
+                        <span class="keyword">import</span> <span class="type">java.util.stream.Collectors</span>;<br>
+                        <br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">CollectorsExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">List</span>&lt;<span class="type">String</span>&gt;
+                        <span class="variable">names</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(<span
+                            class="string">"John"</span>, <span class="string">"Jane"</span>, <span class="string">"Jack"</span>,
+                        <span class="string">"Jill"</span>);<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">// Group names by their length</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">Map</span>&lt;<span class="type">Integer</span>,
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt;&gt; <span
+                            class="variable">groupedByLength</span> = <span class="variable">names</span>.<span
+                            class="method">stream</span>()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;. <span class="method">collect</span>(<span class="type">Collectors</span>::<span
+                            class="method">groupingBy</span>(<span class="type">String</span>::<span class="method">length</span>));<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="variable">groupedByLength</span>);<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+                    <h3>11. Annotations Enhancements</h3>
+                    <p>Java 8 introduced several enhancements to annotations, including the ability to use annotations
+                        on types and repeating annotations.</p>
+                    <p><strong>Key Points:</strong></p>
+                    <ul>
+                        <li>Type Annotations: Annotations can now be applied to any use of a type, not just
+                            declarations.
+                        </li>
+                        <li>Repeating Annotations: Allows multiple annotations of the same type on a single element.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">import</span> <span
+                            class="type">java.lang.annotation.Repeatable</span>;<br>
+                        <br>
+                        <span class="annotation">@Repeatable</span>(<span class="type">MyAnnotations</span>.class)<br>
+                        <span class="keyword">interface</span> <span class="type">MyAnnotation</span> {<br>
+                        &nbsp;&nbsp;<span class="keyword">String</span> <span class="variable">value</span>();<br>
+                        }<br>
+                        <br>
+                        <span class="keyword">interface</span> <span class="type">MyAnnotations</span> {<br>
+                        &nbsp;&nbsp;<span class="type">MyAnnotation</span>[] <span class="variable">value</span>();<br>
+                        }<br>
+                        <br>
+                        <span class="annotation">@MyAnnotation</span>(<span class="string">"First"</span>)<br>
+                        <span class="annotation">@MyAnnotation</span>(<span class="string">"Second"</span>)<br>
+                        <span class="keyword">public</span> <span class="keyword">class</span> <span class="type">RepeatingAnnotationsExample</span>
+                        {<br>
+                        &nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">static</span> <span
+                            class="keyword">void</span> <span class="method">main</span>(<span
+                            class="keyword">String</span>[] <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="type">MyAnnotation</span>[] <span class="variable">annotations</span>
+                        = <span class="type">RepeatingAnnotationsExample</span>.class.<span class="method">getAnnotationsByType</span>(<span
+                            class="type">MyAnnotation</span>.class);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">for</span> (<span class="type">MyAnnotation</span>
+                        <span class="variable">annotation</span> : <span class="variable">annotations</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">System</span>.<span
+                            class="method">out</span>.<span class="method">println</span>(<span class="variable">annotation</span>.<span
+                            class="method">value</span>());<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        &nbsp;&nbsp;}<br>
+                        }<br>
+                    </div>
+
+                    <h3>12. Intermediate Operations</h3>
+                    <p>Intermediate operations return a new stream and are lazy; they are not executed until a terminal
+                        operation is invoked. They can be chained together to form a processing pipeline.</p>
+
+                    <p><strong>filter(Predicate&lt;T&gt; predicate):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Filters elements based on a predicate. Only elements that match
+                            the predicate are included in the resulting stream.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">filteredNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">filter</span>(<span class="variable">name</span> -> <span
+                            class="variable">name</span>.<span class="method">startsWith</span>(<span
+                            class="string">"J"</span>))<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span
+                            class="comment">// ["John", "Jane", "Jack"]</span><br>
+                    </div>
+
+                    <p><strong>map(Function&lt;T, R&gt; mapper):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Transforms each element using the provided function, producing a
+                            stream of transformed elements.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">nameLengths</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">map</span>(<span class="type">String</span>::<span
+                            class="method">length</span>)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// [4, 4, 4]</span><br>
+                    </div>
+
+                    <p><strong>flatMap(Function&lt;T, Stream&lt;R&gt;&gt; mapper):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Flattens nested streams into a single stream. Each element is
+                            mapped to a stream, which is then flattened into a single stream.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">List</span>&lt;<span
+                            class="type">String</span>&gt;&gt; <span class="variable">lists</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<br>
+                        &nbsp;&nbsp; <span class="type">Arrays</span>.<span class="method">asList</span>(<span
+                            class="string">"a"</span>, <span class="string">"b"</span>),<br>
+                        &nbsp;&nbsp; <span class="type">Arrays</span>.<span class="method">asList</span>(<span
+                            class="string">"c"</span>, <span class="string">"d"</span>)<br>
+                        );<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">flattened</span>
+                        = <span class="variable">lists</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">flatMap</span>(<span class="type">Collection</span>::<span
+                            class="method">stream</span>)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// ["a", "b", "c", "d"]</span><br>
+                    </div>
+
+                    <p><strong>distinct():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Removes duplicate elements from the stream based on equals()
+                            method.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"John"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">distinctNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">distinct</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// ["John", "Jane"]</span><br>
+                    </div>
+
+                    <p><strong>sorted():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Sorts elements in natural order. Can also be used with a
+                            comparator to sort in custom order.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">sortedNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">sorted</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span
+                            class="comment">// ["Jack", "Jane", "John"]</span><br>
+                    </div>
+
+                    <p><strong>limit(long maxSize):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Limits the stream to the first maxSize elements.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>, <span class="string">"Jill"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">limitedNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">limit</span>(2)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// ["John", "Jane"]</span><br>
+                    </div>
+
+                    <p><strong>skip(long n):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Skips the first n elements of the stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>, <span class="string">"Jill"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">skippedNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">skip</span>(2)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// ["Jack", "Jill"]</span><br>
+                    </div>
+
+                    <p><strong>peek(Consumer&lt;T&gt; action):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Performs an action on each element without modifying the stream.
+                            Useful for debugging.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">peek</span>(<span class="variable">name</span> -> <span
+                            class="keyword">System</span>.<span class="method">out</span>.<span
+                            class="method">println</span>(<span class="string">"Name: "</span> + <span class="variable">name</span>))<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>());<br>
+                    </div>
+
+                    <p><strong>takeWhile(Predicate&lt;T&gt; predicate) (Java 9+):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Takes elements from the stream as long as the predicate is true.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4, 5);<br>
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">taken</span>
+                        = <span class="variable">numbers</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">takeWhile</span>(<span class="variable">n</span> -> <span
+                            class="variable">n</span> < <span class="variable">4</span>)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// [1, 2, 3]</span><br>
+                    </div>
+
+                    <p><strong>dropWhile(Predicate&lt;T&gt; predicate) (Java 9+):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Drops elements from the stream as long as the predicate is true.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4, 5);<br>
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">dropped</span>
+                        = <span class="variable">numbers</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">dropWhile</span>(<span class="variable">n</span> -> <span
+                            class="variable">n</span> < <span class="variable">4</span>)<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span class="comment">// [4, 5]</span><br>
+                    </div>
+
+                    <h3>13. Terminal Operations</h3>
+                    <p>Terminal operations produce a result or a side-effect and terminate the stream pipeline. They
+                        trigger the processing of the elements in the stream.</p>
+
+                    <p><strong>forEach(Consumer&lt;T&gt; action):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Iterates over each element and performs the given action.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="variable">names</span>.<span class="method">stream</span>().<span class="method">forEach</span>(<span
+                            class="type">System</span>::<span class="method">out</span>.<span
+                            class="method">println</span>);<br>
+                    </div>
+
+                    <p><strong>collect(Collector&lt;? super T, A, R&gt; collector):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Accumulates the elements into a collection or other result
+                            containers. Common collectors include <span class="type">Collectors</span>.<span
+                                    class="method">toList</span>(), <span class="type">Collectors</span>.<span
+                                    class="method">toSet</span>(), and <span class="type">Collectors</span>.<span
+                                    class="method">toMap</span>().
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">collectedNames</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>()<br>
+                        &nbsp;&nbsp;.<span class="method">collect</span>(<span class="type">Collectors</span>.<span
+                            class="method">toList</span>()); <span
+                            class="comment">// ["John", "Jane", "Jack"]</span><br>
+                    </div>
+
+                    <p><strong>reduce(T identity, BinaryOperator&lt;T&gt; accumulator):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Reduces the elements to a single result using an associative
+                            accumulation function and an identity value.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4);<br>
+                        <span class="type">int</span> <span class="variable">sum</span> = <span
+                            class="variable">numbers</span>.<span class="method">stream</span>().<span class="method">reduce</span>(0,
+                        <span class="type">Integer</span>::<span class="method">sum</span>); <span
+                            class="comment">// 10</span><br>
+                    </div>
+
+                    <p><strong>reduce(BinaryOperator&lt;T&gt; accumulator):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Reduces the elements to a single result using an associative
+                            accumulation function. Returns an Optional if the stream is not empty.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4);<br>
+                        <span class="type">Optional</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">sum</span> = <span class="variable">numbers</span>.<span class="method">stream</span>().<span
+                            class="method">reduce</span>(<span class="type">Integer</span>::<span
+                            class="method">sum</span>); <span class="comment">// Optional[10]</span><br>
+                    </div>
+
+                    <p><strong>count():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Counts the number of elements in the stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">long</span> <span class="variable">count</span> = <span class="variable">names</span>.<span
+                            class="method">stream</span>().<span class="method">count</span>(); <span class="comment">// 3</span><br>
+                    </div>
+
+                    <p><strong>anyMatch(Predicate&lt;T&gt; predicate):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Checks if any element matches the given predicate. Returns true if
+                            any element matches, otherwise false.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">boolean</span> <span class="variable">hasNameWithJ</span> = <span
+                            class="variable">names</span>.<span class="method">stream</span>().<span class="method">anyMatch</span>(<span
+                            class="variable">name</span> -> <span class="variable">name</span>.<span class="method">startsWith</span>(<span
+                            class="string">"J"</span>)); <span class="comment">// true</span><br>
+                    </div>
+
+                    <p><strong>allMatch(Predicate&lt;T&gt; predicate):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Checks if all elements match the given predicate. Returns true if
+                            all elements match, otherwise false.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">boolean</span> <span class="variable">allNamesStartWithJ</span> = <span
+                            class="variable">names</span>.<span class="method">stream</span>().<span class="method">allMatch</span>(<span
+                            class="variable">name</span> -> <span class="variable">name</span>.<span class="method">startsWith</span>(<span
+                            class="string">"J"</span>)); <span class="comment">// false</span><br>
+                    </div>
+
+                    <p><strong>noneMatch(Predicate&lt;T&gt; predicate):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Checks if no elements match the given predicate. Returns true if
+                            no elements match, otherwise false.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">boolean</span> <span class="variable">noNamesStartWithX</span> = <span
+                            class="variable">names</span>.<span class="method">stream</span>().<span class="method">noneMatch</span>(<span
+                            class="variable">name</span> -> <span class="variable">name</span>.<span class="method">startsWith</span>(<span
+                            class="string">"X"</span>)); <span class="comment">// true</span><br>
+                    </div>
+
+                    <p><strong>findFirst():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns an Optional describing the first element of the stream, if
+                            present.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Optional</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">firstName</span> = <span class="variable">names</span>.<span
+                            class="method">stream</span>().<span class="method">findFirst</span>(); <span
+                            class="comment">// Optional[John]</span><br>
+                    </div>
+
+                    <p><strong>findAny():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns an Optional describing some element of the stream, if
+                            present. In parallel streams, this might not be the first element.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Optional</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">anyName</span> = <span class="variable">names</span>.<span class="method">stream</span>().<span
+                            class="method">findAny</span>(); <span class="comment">// Optional[John] (or any other element in parallel streams)</span><br>
+                    </div>
+
+                    <p><strong>max(Comparator&lt;? super T&gt; comparator):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns the maximum element of the stream according to the given
+                            comparator.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4);<br>
+                        <span class="type">Optional</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">max</span> = <span class="variable">numbers</span>.<span class="method">stream</span>().<span
+                            class="method">max</span>(<span class="type">Integer</span>::<span
+                            class="method">compareTo</span>); <span class="comment">// Optional[4]</span><br>
+                    </div>
+
+                    <p><strong>min(Comparator&lt;? super T&gt; comparator):</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns the minimum element of the stream according to the given
+                            comparator.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">numbers</span> = <span class="type">Arrays</span>.<span class="method">asList</span>(1,
+                        2, 3, 4);<br>
+                        <span class="type">Optional</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">min</span> = <span class="variable">numbers</span>.<span class="method">stream</span>().<span
+                            class="method">min</span>(<span class="type">Integer</span>::<span
+                            class="method">compareTo</span>); <span class="comment">// Optional[1]</span><br>
+                    </div>
+                    <p><strong>toArray():</strong></p>
+                    <ul>
+                        <li><strong>Purpose:</strong> Collects the elements into an array.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">List</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">names</span> = <span class="type">Arrays</span>.<span
+                            class="method">asList</span>(<span class="string">"John"</span>, <span
+                            class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">String</span>[] <span class="variable">nameArray</span> = <span
+                            class="variable">names</span>.<span class="method">stream</span>().<span class="method">toArray</span>(<span
+                            class="type">String</span>[]::<span class="method">new</span>); <span class="comment">// ["John", "Jane", "Jack"]</span><br>
+                    </div>
+                    <h3>14. Collectors Methods</h3>
+                    <p>The <code>Collectors</code> class in Java 8 is a utility class that provides various
+                        implementations of the <code>Collector</code> interface. These implementations can be used to
+                        accumulate elements from a stream into collections, perform reductions, and more. Here’s a
+                        detailed overview of the methods in the <code>Collectors</code> class:</p>
+
+                    <h4>1. toList()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Collects the elements of a stream into a <code>List</code>.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">list</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>).<span
+                            class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());
+                        <span class="comment">// ["a", "b", "c"]</span>
+                    </div>
+
+                    <h4>2. toSet()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Collects the elements of a stream into a <code>Set</code>.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Set</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">set</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"b"</span>,
+                        <span class="string">"c"</span>, <span class="string">"a"</span>).<span
+                            class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toSet</span>());
+                        <span class="comment">// ["a", "b", "c"]</span>
+                    </div>
+
+                    <h4>3. toMap(Function<? super T, ? extends K> keyMapper, Function<? super T, ? extends V>
+                        valueMapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Collects the elements into a <code>Map</code>, using provided
+                            functions to generate keys and values.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Map</span>&lt;<span class="type">String</span>, <span
+                            class="type">Integer</span>&gt; <span class="variable">map</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"bb"</span>,
+                        <span class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toMap</span>(<span
+                            class="type">String</span>::<span class="method">toUpperCase</span>, <span class="type">String</span>::<span
+                            class="method">length</span>));<br>
+                        <span class="comment">// {"A"=1, "BB"=2, "CCC"=3}</span>
+                    </div>
+
+                    <h4>4. toMap(Function<? super T, ? extends K> keyMapper, Function<? super T, ? extends V>
+                        valueMapper, BinaryOperator
+                        <V> mergeFunction)
+                    </h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Collects the elements into a <code>Map</code>, allowing for a
+                            merge function to handle duplicate keys.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Map</span>&lt;<span class="type">String</span>, <span
+                            class="type">Integer</span>&gt; <span class="variable">map</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"b"</span>,
+                        <span class="string">"a"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toMap</span>(<span
+                            class="type">Function</span>::<span class="method">identity</span>, <span class="type">String</span>::<span
+                            class="method">length</span>, (<span class="type">existing</span>, <span class="type">replacement</span>)
+                        -> <span class="type">existing</span>));<br>
+                        <span class="comment">// {"a"=1, "b"=1}</span>
+                    </div>
+
+                    <h4>5. joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Concatenates the elements of a stream into a single
+                            <code>String</code>, with optional delimiter, prefix, and suffix.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">String</span> <span class="variable">result</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"b"</span>,
+                        <span class="string">"c"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">joining</span>(<span
+                            class="string">", "</span>, <span class="string">"["</span>, <span class="string">"]"</span>));
+                        <span class="comment">// "[a, b, c]"</span>
+                    </div>
+
+                    <h4>6. groupingBy(Function<? super T, ? extends K> classifier)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Groups the elements by a classifier function. Returns a
+                            <code>Map</code> where keys are the result of applying the classifier function, and values
+                            are lists of items.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Map</span>&lt;<span class="type">Integer</span>, <span
+                            class="type">List</span>&lt;<span class="type">String</span>&gt;&gt; <span class="variable">groupedByLength</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">groupingBy</span>(<span
+                            class="type">String</span>::<span class="method">length</span>));<br>
+                        <span class="comment">// {1=["a"], 2=["bb"], 3=["ccc"]}</span>
+                    </div>
+
+                    <h4>7. groupingBy(Function<? super T, ? extends K> classifier, Collector<? super T, A, D>
+                        downstream)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Groups the elements by a classifier function, and then applies a
+                            downstream collector to the grouped values.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Map</span>&lt;<span class="type">Integer</span>, <span
+                            class="type">Set</span>&lt;<span class="type">String</span>&gt;&gt; <span class="variable">groupedByLength</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">groupingBy</span>(<span
+                            class="type">String</span>::<span class="method">length</span>, <span class="type">Collectors</span>.<span
+                            class="method">toSet</span>()));<br>
+                        <span class="comment">// {1=[a], 2=[bb], 3=[ccc]}</span>
+                    </div>
+
+                    <h4>8. partitioningBy(Predicate<? super T> predicate)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Partitions the elements into two groups based on a predicate.
+                            Returns a <code>Map</code> with Boolean keys.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Map</span>&lt;<span class="type">Boolean</span>, <span
+                            class="type">List</span>&lt;<span class="type">String</span>&gt;&gt; <span class="variable">partitioned</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">partitioningBy</span>(<span
+                            class="type">s</span> -> <span class="type">s</span>.<span class="method">length</span>()
+                        &gt; 1));<br>
+                        <span class="comment">// {false=[a], true=[bb, ccc]}</span>
+                    </div>
+
+                    <h4>9. counting()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Counts the number of elements in the stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">long</span> <span class="variable">count</span> = <span
+                            class="type">Stream</span>.<span class="method">of</span>(<span class="string">"a"</span>,
+                        <span class="string">"b"</span>, <span class="string">"c"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">counting</span>());<br>
+                        <span class="comment">// 3</span>
+                    </div>
+
+                    <h4>10. summingInt(ToIntFunction<? super T> mapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Sums the integer values produced by applying the provided function
+                            to each element.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">int</span> <span class="variable">sum</span> = <span
+                            class="type">Stream</span>.<span class="method">of</span>(<span class="string">"a"</span>,
+                        <span class="string">"bb"</span>, <span class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">summingInt</span>(<span
+                            class="type">String</span>::<span class="method">length</span>));<br>
+                        <span class="comment">// 6</span>
+                    </div>
+
+                    <h4>11. averagingInt(ToIntFunction<? super T> mapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Averages the integer values produced by applying the provided
+                            function to each element.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">double</span> <span class="variable">average</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"bb"</span>,
+                        <span class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">averagingInt</span>(<span
+                            class="type">String</span>::<span class="method">length</span>));<br>
+                        <span class="comment">// 2.0</span>
+                    </div>
+
+                    <h4>12. summarizingInt(ToIntFunction<? super T> mapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Produces an <code>IntSummaryStatistics</code> describing various
+                            statistics, including count, sum, min, average, and max.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">IntSummaryStatistics</span> <span class="variable">stats</span> = <span
+                            class="type">Stream</span>.<span class="method">of</span>(<span class="string">"a"</span>,
+                        <span class="string">"bb"</span>, <span class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">summarizingInt</span>(<span
+                            class="type">String</span>::<span class="method">length</span>));<br>
+                        <span class="comment">// count=3, sum=6, min=1, average=2.0, max=3</span>
+                    </div>
+
+                    <h4>13. mapping(Function<? super T, ? extends U> mapper, Collector<? super U, A, R> downstream)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Applies a mapping function to each element and then collects the
+                            result with a downstream collector.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">result</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">mapping</span>(<span
+                            class="type">String</span>::<span class="method">length</span>, <span class="type">Collectors</span>.<span
+                            class="method">toList</span>()));<br>
+                        <span class="comment">// [1, 2, 3]</span>
+                    </div>
+
+                    <h4>14. reducing(identity, BinaryOperator)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Performs a reduction on the elements using an identity value and
+                            an associative accumulation function.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">int</span> <span class="variable">sum</span> = <span
+                            class="type">Stream</span>.<span class="method">of</span>(1, 2, 3)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">reducing</span>(0,
+                        <span class="type">Integer</span>::<span class="method">sum</span>));<br>
+                        <span class="comment">// 6</span>
+                    </div>
+
+                    <h3>15. Other Stream Methods</h3>
+                    <p>In addition to the <code>Collectors</code> methods, the <code>Stream</code> interface offers a
+                        wide array of methods for processing streams. Here’s a detailed overview:</p>
+
+                    <h4>1. filter(Predicate<? super T> predicate)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of the elements that match the given
+                            predicate.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">filtered</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">filter</span>(<span class="type">s</span> -> <span
+                            class="type">s</span>.<span class="method">length</span() &gt; 1)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// ["bb", "ccc"]</span>
+                    </div>
+
+                    <h4>2. map(Function<? super T, ? extends R> mapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of the results of applying the given
+                            function to the elements.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">mapped</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">map</span>(<span class="type">String</span>::<span
+                            class="method">length</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [1, 2, 3]</span>
+                    </div>
+
+                    <h4>3. flatMap(Function<? super T, ? extends Stream<? extends R>> mapper)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream that is the result of replacing each element of
+                            this stream with the contents of a mapped stream produced by applying the given function.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">flatMapped</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(<span
+                            class="string">"a"</span>, <span class="string">"bb"</span>, <span
+                            class="string">"ccc"</span>)<br>
+                        .<span class="method">flatMap</span>(<span class="type">s</span> -> <span
+                            class="type">Stream</span>.<span class="method">of</span>(<span class="type">s</span>.<span
+                            class="method">split</span>(<span class="string">""</span>))<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [a, b, b, c, c, c]</span>
+                    </div>
+
+                    <h4>4. distinct()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of distinct elements.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">distinct</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(1, 2, 2, 3, 3, 3)<br>
+                        .<span class="method">distinct</span>()<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [1, 2, 3]</span>
+                    </div>
+
+                    <h4>5. sorted()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of the elements sorted according to
+                            their natural order or by a provided comparator.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">sorted</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(3, 1, 2)<br>
+                        .<span class="method">sorted</span>()<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [1, 2, 3]</span>
+                    </div>
+
+                    <h4>6. limit(long maxSize)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of the elements of this stream,
+                            truncated to be no longer than <code>maxSize</code> in length.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">limited</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(1, 2, 3, 4, 5)<br>
+                        .<span class="method">limit</span>(3)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [1, 2, 3]</span>
+                    </div>
+
+                    <h4>7. skip(long n)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a stream consisting of the remaining elements of this
+                            stream after discarding the first <code>n</code> elements.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">skipped</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(1, 2, 3, 4, 5)<br>
+                        .<span class="method">skip</span>(2)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// [3, 4, 5]</span>
+                    </div>
+
+                    <h4>8. forEach(Consumer<? super T> action)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Performs an action for each element of the stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Stream</span>.<span class="method">of</span>(<span class="string">"a"</span>,
+                        <span class="string">"b"</span>, <span class="string">"c"</span>)<br>
+                        .<span class="method">forEach</span>(<span class="type">System</span>::<span
+                            class="method">out</span>.<span class="method">println</span>);<br>
+                        <span class="comment">// prints a b c</span>
+                    </div>
+
+                    <h4>9. peek(Consumer<? super T> action)</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Performs an action on each element as it is consumed from the
+                            stream. Useful for debugging.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">Integer</span>&gt; <span class="variable">peeked</span>
+                        = <span class="type">Stream</span>.<span class="method">of</span>(1, 2, 3)<br>
+                        .<span class="method">peek</span>(<span class="type">System</span>::<span
+                            class="method">out</span>.<span class="method">println</span>)<br>
+                        .<span class="method">collect</span>(<span class="type">Collectors</span>.<span class="method">toList</span>());<br>
+                        <span class="comment">// prints 1, 2, 3 and returns [1, 2, 3]</span>
+                    </div>
+
+                    <h4>10. findFirst()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns an <code>Optional</code> describing the first element of
+                            this stream, or an empty <code>Optional</code> if the stream is empty.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Optional</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">first</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"b"</span>,
+                        <span class="string">"c"</span>)<br>
+                        .<span class="method">findFirst</span>();<br>
+                        <span class="comment">// Optional[a]</span>
+                    </div>
+
+                    <h4>11. reduce(BinaryOperator
+                        <T> accumulator)
+                    </h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Performs a reduction on the elements of the stream using an
+                            associative accumulation function and returns an <code>Optional</code> describing the
+                            result.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">Optional</span>&lt;<span class="type">Integer</span>&gt; <span
+                            class="variable">sum</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(1, 2, 3)<br>
+                        .<span class="method">reduce</span>(<span class="type">Integer</span>::<span
+                            class="method">sum</span>);<br>
+                        <span class="comment">// Optional[6]</span>
+                    </div>
+
+                    <h4>12. toArray()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns an array containing the elements of this stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">String</span>[] <span class="variable">array</span> = <span class="type">Stream</span>.<span
+                            class="method">of</span>(<span class="string">"a"</span>, <span class="string">"b"</span>,
+                        <span class="string">"c"</span>)<br>
+                        .<span class="method">toArray</span>(<span class="type">String</span>[]::<span class="method">new</span>);<br>
+                        <span class="comment">// [a, b, c]</span>
+                    </div>
+                    <h4>13. iterator()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns an iterator over the elements of the stream.</li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">names</span>
+                        = <span class="type">Arrays</span>.<span class="method">asList</span>(<span class="string">"John"</span>,
+                        <span class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Iterator</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">iterator</span> = <span class="variable">names</span>.<span class="method">stream</span>().<span
+                            class="method">iterator</span>();<br>
+                        <span class="keyword">while</span> (<span class="variable">iterator</span>.<span class="method">hasNext</span>())
+                        {<br>
+                        &nbsp;&nbsp;<span class="type">System</span>.<span class="method">out</span>.<span
+                            class="method">println</span>(<span class="variable">iterator</span>.<span class="method">next</span>());<br>
+                        }<br>
+                    </div>
+
+                    <h4>14. spliterator()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a <code>Spliterator</code> for the elements of the stream.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">names</span>
+                        = <span class="type">Arrays</span>.<span class="method">asList</span>(<span class="string">"John"</span>,
+                        <span class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Spliterator</span>&lt;<span class="type">String</span>&gt; <span
+                            class="variable">spliterator</span> = <span class="variable">names</span>.<span
+                            class="method">stream</span>().<span class="method">spliterator</span>();<br>
+                        <span class="variable">spliterator</span>.<span class="method">forEachRemaining</span>(<span
+                            class="type">System</span>::<span class="method">out</span>.<span
+                            class="method">println</span>);<br>
+                    </div>
+
+                    <h4>15. isParallel()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns <code>true</code> if the stream is parallel,
+                            <code>false</code> otherwise.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">names</span>
+                        = <span class="type">Arrays</span>.<span class="method">asList</span>(<span class="string">"John"</span>,
+                        <span class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">boolean</span> <span class="variable">isParallel</span> = <span
+                            class="variable">names</span>.<span class="method">stream</span>().<span class="method">isParallel</span>();<br>
+                        <span class="comment">// false</span>
+                    </div>
+
+                    <h4>16. sequential()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a sequential stream with the same elements as the current
+                            stream.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">names</span>
+                        = <span class="type">Arrays</span>.<span class="method">asList</span>(<span class="string">"John"</span>,
+                        <span class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Stream</span>&lt;<span class="type">String</span>&gt; <span class="variable">sequentialStream</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>().<span class="method">parallel</span>().<span
+                            class="method">sequential</span>();<br>
+                    </div>
+
+                    <h4>17. parallel()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Returns a parallel stream with the same elements as the current
+                            stream.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="type">List</span>&lt;<span class="type">String</span>&gt; <span class="variable">names</span>
+                        = <span class="type">Arrays</span>.<span class="method">asList</span>(<span class="string">"John"</span>,
+                        <span class="string">"Jane"</span>, <span class="string">"Jack"</span>);<br>
+                        <span class="type">Stream</span>&lt;<span class="type">String</span>&gt; <span class="variable">parallelStream</span>
+                        = <span class="variable">names</span>.<span class="method">stream</span>().<span class="method">parallel</span>();<br>
+                    </div>
+
+                    <h4>18. close()</h4>
+                    <ul>
+                        <li><strong>Purpose:</strong> Closes the stream and releases any resources associated with it.
+                        </li>
+                    </ul>
+                    <div class="code">
+                        <span class="keyword">try</span> (<span class="type">Stream</span>&lt;<span
+                            class="type">String</span>&gt; <span class="variable">stream</span> = <span class="type">Files</span>.<span
+                            class="method">lines</span>(<span class="type">Paths</span>.<span class="method">get</span>(<span
+                            class="string">"file.txt"</span>))) {<br>
+                        &nbsp;&nbsp;<span class="variable">stream</span>.<span class="method">forEach</span>(<span
+                            class="type">System</span>::<span class="method">out</span>.<span
+                            class="method">println</span>);<br>
+                        } <span class="keyword">catch</span> (<span class="type">IOException</span> <span
+                            class="variable">e</span>) {<br>
+                        &nbsp;&nbsp;<span class="variable">e</span>.<span class="method">printStackTrace</span>();<br>
+                        }<br>
+                    </div>
+                    <p>These methods provide powerful ways to manipulate and process data in Java streams, enabling you
+                        to handle collections and sequences efficiently.</p>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../../java/java8/introduction.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../../java/java8/indetail.html">Next
+                    &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+                                                                          src="../../scripts/images/top.jpeg"/></button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

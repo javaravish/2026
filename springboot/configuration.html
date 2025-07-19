@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Configuration</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>SpringBoot</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../springboot/introduction.html">Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../springboot/configuration.html">Configuration</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/actuators.html">
+                            Actuators</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/async.html">
+                            Asynchronous</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/profiles.html">
+                            Profiles</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/caching.html">
+                            Caching</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/scheduling.html">
+                            Scheduling</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/logging.html">
+                            Logging</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../springboot/test.html">
+                            Testing</a></li>
+                        <h4>SpringBoot Security</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../springboot/security.html">Security</a></li>
+                        <h4>Miscellaneous</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../springboot/kafka.html">Kafka</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/springboot/springboot-interview-questions.html">SpringBoot
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../springboot/introduction.html">SpringBoot</a></li>
+                    <li><a href="../springboot/configuration.html">Configuration</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../springboot/introduction.html">SpringBoot</a></li>
+                    <li><a href="../springboot/configuration.html">Configuration</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk"> <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <h3>Spring Boot Configuration and Properties Files</h3>
+
+                    <h4>1. Application Properties</h4>
+                    <p>Spring Boot uses <code>application.properties</code> or <code>application.yml</code> files for
+                        configuration. By default, these files are located in the <code>src/main/resources</code>
+                        directory.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">server.port</span>=<span class="code-value">8080</span><br>
+                        <span class="code-keyword">spring.datasource.url</span>=<span class="code-value">jdbc:mysql://localhost:3306/mydb</span><br>
+                        <span class="code-keyword">spring.datasource.username</span>=<span
+                            class="code-value">user</span><br>
+                        <span class="code-keyword">spring.datasource.password</span>=<span
+                            class="code-value">password</span><br>
+                    </div>
+
+                    <h4>2. Application YAML</h4>
+                    <p>Alternatively, you can use <code>application.yml</code> for configuration:</p>
+
+                    <div class="code">
+                        <span class="code-keyword">server:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">port:</span> <span
+                            class="code-value">8080</span><br>
+                        <span class="code-keyword">spring:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">datasource:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">url:</span> <span
+                            class="code-value">jdbc:mysql://localhost:3306/mydb</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">username:</span>
+                        <span class="code-value">user</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">password:</span>
+                        <span class="code-value">password</span>
+                    </div>
+
+                    <h4>3. Profiles</h4>
+                    <p>Spring Boot allows you to define different configurations for different environments using
+                        profiles. For example, you can create <code>application-dev.properties</code> for development
+                        and <code>application-prod.properties</code> for production.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">spring.profiles.active</span>=<span class="code-value">dev</span>
+                    </div>
+
+                    <h4>4. Accessing Properties in Code</h4>
+                    <p>To access properties in your Spring Boot application, you can use the <code>@Value</code>
+                        annotation or the <code>Environment</code> abstraction.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.beans.factory.annotation.Value</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">MyComponent</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@Value</span>(<span class="code-value">"${server.port}"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">int port;</span><br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">printPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="code-identifier">System.out.println</span>(<span class="code-value">"Port: "</span> +
+                        <span class="code-identifier">port</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.core.env.Environment</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.beans.factory.annotation.Autowired</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">MyComponent</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@Autowired</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">private</span> <span
+                            class="code-identifier">Environment</span> <span class="code-identifier">env</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">printPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">String port</span>
+                        = <span class="code-identifier">env.getProperty</span>(<span
+                            class="code-value">"server.port"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="code-identifier">System.out.println</span>(<span class="code-value">"Port: "</span> +
+                        <span class="code-identifier">port</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>5. Using Configuration Classes</h4>
+                    <p>You can also create configuration classes to group related properties together using the <code>@ConfigurationProperties</code>
+                        annotation.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.boot.context.properties.ConfigurationProperties</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">@ConfigurationProperties</span>(<span
+                            class="code-value">"myapp"</span>)<br>
+                        <span class="code-keyword">public class</span> <span
+                            class="code-identifier">MyAppProperties</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">String</span>
+                        <span class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">int</span>
+                        <span class="code-identifier">port</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">String</span>
+                        <span class="code-identifier">getName</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span
+                            class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">setName</span>(<span class="code-identifier">String</span> <span
+                            class="code-identifier">name</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">this.name</span> =
+                        <span class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">int</span>
+                        <span class="code-identifier">getPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span
+                            class="code-identifier">port</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">setPort</span>(<span class="code-identifier">int</span> <span
+                            class="code-identifier">port</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">this.port</span> =
+                        <span class="code-identifier">port</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>6. Custom Property Sources</h4>
+                    <p>You can also add custom property sources using the <code>@PropertySource</code> annotation. This
+                        is useful for loading properties from external files.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.Configuration</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.PropertySource</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Configuration</span><br>
+                        <span class="code-keyword">@PropertySource</span>(<span class="code-value">"classpath:custom.properties"</span>)<br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">AppConfig</span>
+                        {<br>
+                        }
+                    </div>
+                    <h3>Reading Values in a Spring Boot Application</h3>
+
+                    <h4>1. Using the `@Value` Annotation</h4>
+                    <p>The <code>@Value</code> annotation is used to inject values from properties files directly into
+                        fields in Spring-managed beans.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.beans.factory.annotation.Value</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">MyComponent</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@Value</span>(<span class="code-value">"${server.port}"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">int</span>
+                        <span class="code-identifier">port</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">printPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="code-identifier">System.out.println</span>(<span class="code-value">"Port: "</span> +
+                        <span class="code-identifier">port</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>2. Using the `Environment` Abstraction</h4>
+                    <p>The <code>Environment</code> abstraction provides a more flexible way to access properties and
+                        environment-specific configurations.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.core.env.Environment</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.beans.factory.annotation.Autowired</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">MyComponent</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@Autowired</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">private</span> <span
+                            class="code-identifier">Environment</span> <span class="code-identifier">env</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">printPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">String port</span>
+                        = <span class="code-identifier">env.getProperty</span>(<span
+                            class="code-value">"server.port"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="code-identifier">System.out.println</span>(<span class="code-value">"Port: "</span> +
+                        <span class="code-identifier">port</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>3. Using `@ConfigurationProperties` Annotation</h4>
+                    <p>The <code>@ConfigurationProperties</code> annotation allows you to bind properties from the
+                        configuration file to a POJO, grouping related properties together.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.boot.context.properties.ConfigurationProperties</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.stereotype.Component</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Component</span><br>
+                        <span class="code-keyword">@ConfigurationProperties</span>(<span
+                            class="code-value">"myapp"</span>)<br>
+                        <span class="code-keyword">public class</span> <span
+                            class="code-identifier">MyAppProperties</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">String</span>
+                        <span class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">private</span> <span class="code-identifier">int</span>
+                        <span class="code-identifier">port</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">String</span>
+                        <span class="code-identifier">getName</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span
+                            class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">setName</span>(<span class="code-identifier">String</span> <span
+                            class="code-identifier">name</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">this.name</span> =
+                        <span class="code-identifier">name</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">int</span>
+                        <span class="code-identifier">getPort</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span
+                            class="code-identifier">port</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public</span> <span class="code-identifier">void</span>
+                        <span class="code-identifier">setPort</span>(<span class="code-identifier">int</span> <span
+                            class="code-identifier">port</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">this.port</span> =
+                        <span class="code-identifier">port</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>4. Using `@PropertySource` for Custom Property Files</h4>
+                    <p>The <code>@PropertySource</code> annotation is used to specify additional property files to be
+                        loaded by Spring.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.Configuration</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.PropertySource</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Configuration</span><br>
+                        <span class="code-keyword">@PropertySource</span>(<span class="code-value">"classpath:custom.properties"</span>)<br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">AppConfig</span>
+                        {<br>
+                        }
+                    </div>
+
+                    <h3>Loading Environment-Specific Files in Spring Boot</h3>
+
+                    <h4>1. Profile-Specific Configuration Files</h4>
+                    <p>Spring Boot supports profile-specific configuration files. You can define configuration files for
+                        different profiles by using a naming convention.</p>
+
+                    <div class="code">
+                        <!-- application.properties for default profile -->
+                        <span class="code-keyword"># application.properties</span><br>
+                        <span class="code-value">server.port=8080</span><br>
+                        <span class="code-value">spring.datasource.url=jdbc:mysql://localhost:3306/mydb</span><br>
+                    </div>
+
+                    <div class="code">
+                        <!-- application-dev.properties for dev profile -->
+                        <span class="code-keyword"># application-dev.properties</span><br>
+                        <span class="code-value">server.port=8081</span><br>
+                        <span class="code-value">spring.datasource.url=jdbc:mysql://localhost:3306/devdb</span><br>
+                    </div>
+
+                    <div class="code">
+                        <!-- application-prod.properties for prod profile -->
+                        <span class="code-keyword"># application-prod.properties</span><br>
+                        <span class="code-value">server.port=80</span><br>
+                        <span class="code-value">spring.datasource.url=jdbc:mysql://localhost:3306/proddb</span><br>
+                    </div>
+
+                    <h4>2. Activating Profiles</h4>
+                    <p>You can activate a specific profile in various ways:</p>
+
+                    <div class="code">
+                        <span class="code-keyword"># In application.properties</span><br>
+                        <span class="code-value">spring.profiles.active=dev</span><br>
+                    </div>
+
+                    <div class="code">
+                        <span class="code-keyword"># In application.yml</span><br>
+                        <span class="code-value">spring:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">profiles:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">active:</span>
+                        <span class="code-value">dev</span><br>
+                    </div>
+
+                    <div class="code">
+                        <span class="code-keyword"># As a command-line argument</span><br>
+                        <span class="code-value">--spring.profiles.active=prod</span><br>
+                    </div>
+
+                    <div class="code">
+                        <span class="code-keyword"># As an environment variable</span><br>
+                        <span class="code-value">SPRING_PROFILES_ACTIVE=prod</span><br>
+                    </div>
+
+                    <h4>3. Customizing Profile-Specific File Loading</h4>
+                    <p>In addition to the default behavior, you can load custom property files based on the active
+                        profile using the <code>@PropertySource</code> annotation.</p>
+
+                    <div class="code">
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.Configuration</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.context.annotation.PropertySource</span>;<br>
+                        <span class="code-keyword">import</span> <span class="code-identifier">org.springframework.core.env.Environment</span>;<br>
+                        <br>
+                        <span class="code-keyword">@Configuration</span><br>
+                        <span class="code-keyword">public class</span> <span class="code-identifier">AppConfig</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@PropertySource</span>(<span
+                            class="code-value">"classpath:application-${spring.profiles.active}.properties"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">public</span> <span
+                            class="code-identifier">void</span> <span
+                            class="code-identifier">loadProperties</span>(<span
+                            class="code-identifier">Environment</span> <span class="code-identifier">env</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-identifier">String</span>
+                        <span class="code-identifier">profile</span> = <span
+                            class="code-identifier">env.getProperty</span>(<span class="code-value">"spring.profiles.active"</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="code-identifier">System.out.println</span>(<span class="code-value">"Active profile: "</span>
+                        + <span class="code-identifier">profile</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <h3><code class="annotation">@EnableConfigurationProperties</code> in Spring Boot</h3>
+
+                    <h4>What is <code class="annotation">@EnableConfigurationProperties</code>?</h4>
+                    <p>
+                        The <code class="annotation">@EnableConfigurationProperties</code> annotation is used in Spring
+                        Boot to enable support for <code class="annotation">@ConfigurationProperties</code>. This
+                        annotation allows you to bind external configuration properties (from <code>application.properties</code>
+                        or <code>application.yml</code> files) to a Java bean.
+                    </p>
+
+                    <h4>When to Use <code class="annotation">@EnableConfigurationProperties</code></h4>
+                    <ul>
+                        <li><strong>Binding Configuration Properties to POJOs:</strong> Use <code class="annotation">@EnableConfigurationProperties</code>
+                            when you have a configuration class annotated with <code class="annotation">@ConfigurationProperties</code>
+                            that needs to be registered with the Spring context. This is particularly useful for binding
+                            related properties to a single configuration class.
+                        </li>
+                        <li><strong>Enabling Configuration Properties in Non-Spring Boot Applications:</strong> If you
+                            are using Spring Framework (without Spring Boot) or a custom Spring Boot setup where <code
+                                    class="annotation">@ConfigurationProperties</code> is not automatically enabled, you
+                            need to use <code class="annotation">@EnableConfigurationProperties</code> to make it work.
+                        </li>
+                        <li><strong>Custom Configuration:</strong> When you need to create custom configuration classes
+                            for specific use cases and inject these configurations as beans, <code class="annotation">@EnableConfigurationProperties</code>
+                            ensures that these properties are correctly bound and available in the application context.
+                        </li>
+                    </ul>
+
+                    <h4>How to Use <code class="annotation">@EnableConfigurationProperties</code></h4>
+
+                    <h3>1. Create a Configuration Properties Class</h3>
+                    <p>
+                        Define a POJO with fields corresponding to the configuration properties. Annotate this class
+                        with <code class="annotation">@ConfigurationProperties</code> and <code class="annotation">@Component</code>
+                        or <code class="annotation">@Configuration</code>.
+                    </p>
+                    <div class="code">
+                        <code>
+                            <span class="annotation">@Component</span>
+                            <span class="annotation">@ConfigurationProperties</span>(prefix = "myapp")<br><br>
+
+                            public <span class="keyword">class</span> <span class="class-name">MyAppProperties</span>
+                            {<br>
+                            <span class="keyword">private</span> <span class="variable">String</span> url;<br>
+                            <span class="keyword">private</span> <span class="variable">int</span> timeout;<br>
+                            <span class="comment">// Getters and Setters</span><br><br>
+
+                            <span class="keyword">public</span> <span class="variable">String</span> <span
+                                class="method">getUrl</span>() {<br>
+                            <span class="keyword">return</span> url;<br>
+                            }<br><br>
+
+                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">setUrl</span>(<span
+                                class="variable">String</span> url) {<br>
+                            <span class="keyword">this</span>.url = url;<br>
+                            }<br><br>
+
+                            <span class="keyword">public</span> <span class="variable">int</span> <span class="method">getTimeout</span>()
+                            {<br>
+                            <span class="keyword">return</span> timeout;<br>
+                            }<br><br>
+
+                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="method">setTimeout</span>(<span
+                                class="variable">int</span> timeout) {<br>
+                            <span class="keyword">this</span>.timeout = timeout;<br>
+                            }<br>
+                            }<br>
+                        </code>
+                    </div>
+                    <h3>2. Define the Properties in <code>application.properties</code> or <code>application.yml</code>
+                    </h3>
+                    <div class="code">
+                        <code>
+                            # application.properties
+                            myapp.url=http://example.com
+                            myapp.timeout=5000
+                        </code>
+                    </div>
+                    <div class="code">
+                        <code>
+                            # application.yml
+                            myapp:
+                            url: http://example.com
+                            timeout: 5000
+                        </code>
+                    </div>
+
+                    <h3>3. Enable Configuration Properties in Your Main Application Class</h3>
+                    <p>
+                        If you are using Spring Boot, you usually don't need to explicitly use <code class="annotation">@EnableConfigurationProperties</code>
+                        as Spring Boot auto-configures it for you. However, if you are configuring it manually or in a
+                        non-Spring Boot application, use <code class="annotation">@EnableConfigurationProperties</code>
+                        in your configuration class.
+                    </p>
+                    <div class="code">
+                        <code>
+                            <span class="import">import</span> <span class="variable">org.springframework.boot.SpringApplication</span>;<br>
+                            <span class="import">import</span> <span class="variable">org.springframework.boot.autoconfigure.SpringBootApplication</span>;<br>
+                            <span class="import">import</span> <span class="variable">org.springframework.boot.context.properties.EnableConfigurationProperties</span>;<br><br>
+
+                            <span class="annotation">@SpringBootApplication</span> <br>
+                            <span class="annotation">@EnableConfigurationProperties</span>(<span class="class-name">MyAppProperties</span>.class)<br><br>
+
+                            <span class="keyword">public</span> <span class="class-name">class</span> <span
+                                class="class-name">MyApplication</span> {<br>
+                            <span class="keyword">public static void</span> <span class="method">main</span>(<span
+                                class="variable">String[]</span> args) {<br>
+                            <span class="variable">SpringApplication.run</span>(<span
+                                class="class-name">MyApplication</span>.class, args);<br>
+                            }<br>
+                            }<br>
+                        </code>
+                    </div>
+
+                    <h3>4. Inject the Configuration Properties Bean</h3>
+                    <p>
+                        You can now inject the <code class="class-name">MyAppProperties</code> bean into your Spring
+                        components.
+                    </p>
+                    <div class="code">
+                        <code>
+                            <span class="import">import</span> <span class="variable">org.springframework.beans.factory.annotation.Autowired</span>;<br>
+                            <span class="import">import</span> <span class="variable">org.springframework.stereotype.Service</span>;<br><br>
+
+                            <span class="annotation">@Service</span><br>
+                            <span class="keyword">public</span> <span class="class-name">class</span> <span
+                                class="class-name">MyService</span> {<br>
+                            <span class="keyword">private final</span> <span class="class-name">MyAppProperties</span>
+                            <span class="variable">properties</span>; <br><br>
+
+                            <span class="annotation">@Autowired</span><br>
+                            <span class="keyword">public</span> <span class="class-name">MyService</span>(<span
+                                class="class-name">MyAppProperties</span> <span class="variable">properties</span>)
+                            {<br>
+                            <span class="keyword">this</span>.<span class="variable">properties</span> = <span
+                                class="variable">properties</span>;<br>
+                            }<br><br>
+
+                            <span class="keyword">public void</span> <span class="method">printProperties</span>() {<br>
+                            <span class="variable">System.out.println</span>(<span class="string">"URL: "</span> + <span
+                                class="variable">properties.getUrl</span>());<br>
+                            <span class="variable">System.out.println</span>(<span class="string">"Timeout: "</span> +
+                            <span class="variable">properties.getTimeout</span>());<br>
+                            }<br>
+                            }<br>
+                        </code>
+                    </div>
+
+                    <h4>Summary</h4>
+                    <ul>
+                        <li><strong>What:</strong> <code class="annotation">@EnableConfigurationProperties</code> is
+                            used to enable support for <code class="annotation">@ConfigurationProperties</code> beans in
+                            a Spring application.
+                        </li>
+                        <li><strong>When to Use:</strong>
+                            <ul>
+                                <li>To bind external configuration properties to a Java bean.</li>
+                                <li>When using Spring (without Spring Boot) or custom Spring Boot setups.</li>
+                                <li>To inject configuration properties into Spring components.</li>
+                            </ul>
+                        </li>
+                        <li><strong>How:</strong>
+                            <ul>
+                                <li>Create a configuration properties class annotated with <code class="annotation">@ConfigurationProperties</code>.
+                                </li>
+                                <li>Define the properties in <code>application.properties</code> or <code>application.yml</code>.
+                                </li>
+                                <li>Use <code class="annotation">@EnableConfigurationProperties</code> to enable
+                                    property binding.
+                                </li>
+                                <li>Inject the configuration properties bean where needed.</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <p>This approach ensures that your application’s configuration is externalized, making it more
+                        flexible and easier to manage across different environments.</p>
+                    <p><strong>Auto-configuration</strong> in Spring Boot is a mechanism that attempts to automatically
+                        configure your Spring application based on the dependencies present on the classpath. It is a
+                        powerful feature that simplifies the setup of Spring applications by providing sensible
+                        defaults.</p>
+
+                    <h3>How Auto-Configuration Works Internally</h3>
+
+                    <p>Spring Boot auto-configuration works through the following mechanisms:</p>
+                    <ul>
+                        <li><strong>Conditional Configuration:</strong> Auto-configuration classes use <code>@Conditional</code>
+                            annotations to conditionally apply configurations based on the presence of certain classes
+                            or properties.
+                        </li>
+                        <li><strong>Spring Factories:</strong> The <code>META-INF/spring.factories</code> file is used
+                            to register auto-configuration classes. Spring Boot reads this file to discover available
+                            auto-configurations.
+                        </li>
+                        <li><strong>Classpath Scanning:</strong> Spring Boot scans the classpath for certain classes and
+                            configurations to determine which auto-configuration classes should be applied.
+                        </li>
+                    </ul>
+
+                    <h3>Enabling and Disabling Auto-Configuration</h3>
+
+                    <p>Spring Boot provides flexibility to enable or disable auto-configuration as needed. Here’s how
+                        you can manage auto-configuration:</p>
+
+                    <h3>1. Enable Auto-Configuration</h3>
+
+                    <p>By default, Spring Boot auto-configuration is enabled. When you use the <code>@SpringBootApplication</code>
+                        annotation, it includes <code>@EnableAutoConfiguration</code> which activates
+                        auto-configuration.</p>
+
+                    <div class="code">
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyApplication</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span
+                            class="method-name">main</span>(<span class="variable">String[] args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">SpringApplication.run</span>(<span class="class-name">MyApplication</span>.class,
+                        <span class="variable">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h3>2. Disable Auto-Configuration</h3>
+
+                    <p>To disable specific auto-configuration classes, you can use the
+                        <code>@SpringBootApplication</code> annotation’s <code>exclude</code> attribute or specify
+                        exclusions in the <code>application.properties</code> or <code>application.yml</code> file.</p>
+
+                    <h4>Using the `exclude` Attribute</h4>
+                    <div class="code">
+                        <span class="keyword">@SpringBootApplication</span>(<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">exclude</span> = <span class="class-name">DataSourceAutoConfiguration</span>.class<br>
+                        )
+                    </div>
+
+                    <h4>Using `application.properties` or `application.yml`</h4>
+                    <p>To exclude auto-configuration classes in <code>application.properties</code>:</p>
+                    <div class="code">
+                        <span class="keyword">spring.autoconfigure.exclude</span>=<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</span>
+                    </div>
+
+                    <p>To exclude auto-configuration classes in <code>application.yml</code>:</p>
+                    <div class="code">
+                        <span class="keyword">spring:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">autoconfigure:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">exclude:</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration</span>
+                    </div>
+
+                    <h3>3. Conditional Configuration</h3>
+
+                    <p>Auto-configuration classes use various <code>@Conditional</code> annotations to determine if they
+                        should be applied. For example:</p>
+
+                    <div class="code">
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@ConditionalOnClass</span>(<span class="variable">DataSource.class</span>)<br>
+                        <span class="keyword">public class</span> <span
+                            class="class-name">DataSourceConfiguration</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                            class="class-name">DataSource</span> <span class="method-name">dataSource</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                            class="keyword">new</span> <span class="class-name">DataSource</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <p>The above code shows how a bean will only be created if the <code>DataSource</code> class is
+                        present on the classpath, using the <code>@ConditionalOnClass</code> annotation.</p>
+                    <h4>Note</h4>
+                    <div class="note">
+                        Spring Boot automatically loads properties from <code>application.properties</code> or <code>application.yml</code>.
+                        Use <code>@ConfigurationProperties</code> for grouping properties and
+                        <code>@PropertySource</code> for custom property files.
+                    </div>
+
+
+                    <p><strong>Spring Boot starters</strong> are a set of pre-configured dependencies and settings that
+                        simplify the setup of common functionalities in Spring Boot applications. They are designed to
+                        reduce the complexity of managing dependencies and configurations by bundling them into cohesive
+                        units.</p>
+
+                    <h3>Why Use Spring Boot Starters?</h3>
+
+                    <p>Starters help developers by:</p>
+                    <ul>
+                        <li><strong>Simplifying Dependency Management:</strong> Instead of manually adding multiple
+                            dependencies, you can include a starter that bundles all necessary libraries.
+                        </li>
+                        <li><strong>Providing Consistent Defaults:</strong> Starters come with sensible default
+                            configurations that can be customized as needed.
+                        </li>
+                        <li><strong>Encouraging Best Practices:</strong> By using starters, you follow established
+                            conventions and best practices that are already integrated into the starters.
+                        </li>
+                    </ul>
+
+                    <h3>Common Starters</h3>
+
+                    <p>Here are a few commonly used Spring Boot starters:</p>
+
+                    <ul>
+                        <li><code>spring-boot-starter-web</code>: Includes dependencies for building web applications.
+                            It includes Spring MVC, Jackson, and an embedded Tomcat server.
+                        </li>
+                        <li><code>spring-boot-starter-data-jpa</code>: Provides support for JPA (Java Persistence API)
+                            and Hibernate. It includes libraries for data access and transaction management.
+                        </li>
+                        <li><code>spring-boot-starter-security</code>: Adds security features to your application,
+                            including authentication and authorization, using Spring Security.
+                        </li>
+                        <li><code>spring-boot-starter-test</code>: Contains testing libraries like JUnit, Hamcrest, and
+                            Mockito, making it easier to write and run tests.
+                        </li>
+                    </ul>
+
+                    <h3>Creating Custom Starters</h3>
+
+                    <p>Creating a custom starter allows you to package a set of libraries and configurations into a
+                        reusable module. This is useful for sharing common setups across multiple projects.</p>
+
+                    <h3>Steps to Create a Custom Starter</h3>
+
+                    <h4>1. Set Up Your Custom Starter Project</h4>
+                    <p>Create a new Maven or Gradle project for your custom starter.</p>
+
+                    <div class="code">
+                        <span class="keyword">mvn</span> archetype:generate -DgroupId=<span
+                            class="variable">com.example</span> -DartifactId=<span
+                            class="variable">my-custom-starter</span> -DarchetypeArtifactId=<span class="variable">maven-archetype-quickstart</span>
+                        -DinteractiveMode=<span class="variable">false</span>
+                    </div>
+
+                    <h4>2. Add Dependencies</h4>
+                    <p>Add the dependencies your starter will use in the build configuration file:</p>
+
+                    <h5>For Maven:</h5>
+                    <div class="code">
+                        <span class="keyword">&lt;dependencies&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;<span class="variable">org.springframework.boot</span>&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;<span class="variable">spring-boot-starter</span>&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        &lt;/dependencies&gt;
+                    </div>
+
+                    <h5>For Gradle:</h5>
+                    <div class="code">
+                        <span class="keyword">dependencies</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">implementation</span> '<span class="variable">org.springframework.boot:spring-boot-starter</span>'<br>
+                        }
+                    </div>
+
+                    <h4>3. Create Auto-Configuration Classes</h4>
+                    <p>Define configuration classes that will be applied automatically by Spring Boot:</p>
+
+                    <div class="code">
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">public class</span> <span
+                            class="class-name">MyCustomAutoConfiguration</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Bean</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span
+                            class="class-name">SomeBean</span> <span class="method-name">someBean</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                            class="keyword">new</span> <span class="class-name">SomeBean</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+
+                    <h4>4. Create `META-INF/spring.factories`</h4>
+                    <p>This file registers your auto-configuration classes with Spring Boot:</p>
+
+                    <div class="code">
+                        <span class="keyword">org.springframework.boot.autoconfigure.EnableAutoConfiguration</span>=<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="variable">com.example.MyCustomAutoConfiguration</span>
+                    </div>
+
+                    <h4>5. Package and Publish Your Starter</h4>
+                    <p>Build and publish your starter so it can be used in other projects:</p>
+
+                    <div class="code">
+                        <span class="keyword">mvn</span> clean install
+                    </div>
+
+                    <h3>Example Usage of Custom Starter</h3>
+
+                    <p>To use your custom starter in a Spring Boot application, follow these steps:</p>
+
+                    <h4>1. Add the Starter Dependency</h4>
+                    <p>Include the custom starter in your application’s build configuration:</p>
+
+                    <div class="code">
+                        <span class="keyword">&lt;dependencies&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;dependency&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;groupId&gt;<span class="variable">com.example</span>&lt;/groupId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;artifactId&gt;<span class="variable">my-custom-starter</span>&lt;/artifactId&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;version&gt;<span
+                            class="variable">1.0.0</span>&lt;/version&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/dependency&gt;<br>
+                        &lt;/dependencies&gt;
+                    </div>
+
+                    <h4>2. Use Auto-Configured Beans</h4>
+                    <p>Utilize the beans configured by your starter in your application:</p>
+
+                    <div class="code">
+                        <span class="keyword">@RestController</span><br>
+                        <span class="keyword">public class</span> <span class="class-name">MyController</span> {<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">private final</span> <span class="class-name">SomeBean</span>
+                        <span class="variable">someBean</span>;<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Autowired</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="class-name">MyController</span>(<span
+                            class="class-name">SomeBean</span> <span class="variable">someBean</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">this</span>.<span
+                            class="variable">someBean</span> = <span class="variable">someBean</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        <br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@GetMapping</span>(<span
+                            class="variable">"/bean"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span> <span class="keyword">String</span>
+                        <span class="method-name">getBean</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                            class="variable">someBean</span>.<span class="method-name">toString</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../springboot/introduction.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../springboot/actuators.html">Next &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img height="30" width="30" src="../scripts/images/top.jpeg"/>
+        </button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

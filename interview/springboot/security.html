@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>SpringBoot Interview</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <script>
+        function closeOtherDetails(id) {
+            const details = document.getElementsByTagName('details');
+            for (let i = 0; i < details.length; i++) {
+                if (details[i].id !== id) {
+                    details[i].removeAttribute('open');
+                }
+            }
+        }
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+                                                            src="../../scripts/images/nani1.png" alt="Home"/>
+            <h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+                                                                          href="../../home.html"><img height="25"
+                                                                                                      width="25"
+                                                                                                      src="../../scripts/images/home.png"></i>
+                </a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide">
+                    <input type="checkbox" id="switch-theme-checkbox"/>
+                    <span class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/springboot-interview-questions.html">SpringBoot Basic</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/configuration.html">Configuration</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/actuator.html">Actuator</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-1.html">SpringBoot Interview-1</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-2.html">SpringBoot Interview-2</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-3.html">SpringBoot Interview-3</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/batch.html">Batch Interview</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/security.html">Security Interview</a>
+
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+                    <li><a href="../springboot/springboot-interview-questions.html">Springboot Interview
+                        Questions</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+                    <li><a href="../springboot/springboot-interview-questions.html">Springboot Interview
+                        Questions</a></li>
+                </ul>
+
+            </nav>
+            <article>
+                <div>
+                    <h4>Spring Security Interview Questions</h4>
+                    <div class="card-body">
+                        <h4>
+                            <b>1. Spring Security Basic Interview Questions</b>
+                        </h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. What is Spring Security, and how does it work?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security is a powerful and highly customizable authentication and
+                                    access control framework for Java applications. It provides comprehensive
+                                    security services for Java EE-based enterprise software applications. Spring
+                                    Security works by intercepting requests to secure resources and applying
+                                    security checks before allowing access.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. How does Spring Security provide authentication and authorization support
+                                for Spring applications?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides authentication by verifying the identity of a
+                                    user attempting to access an application. It supports various authentication
+                                    mechanisms such as form-based login, HTTP Basic/Digest authentication, LDAP,
+                                    OAuth, etc. Authorization in Spring Security involves granting access rights to
+                                    authenticated users based on their roles or permissions defined in the
+                                    application.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. What are some common authentication methods supported by Spring Security?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Common authentication methods supported by Spring Security include:
+                                <ul>
+                                    <li>Form-based authentication</li>
+                                    <li>HTTP Basic authentication</li>
+                                    <li>HTTP Digest authentication</li>
+                                    <li>LDAP authentication</li>
+                                    <li>OAuth (2.0) authentication</li>
+                                    <li>OpenID Connect authentication</li>
+                                    <li>JWT (JSON Web Token) authentication</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. Can you explain the role of Spring Security in the OAuth2 authorization
+                                framework?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides robust support for implementing OAuth2
+                                    authorization servers and resource servers. It allows developers to secure
+                                    RESTful APIs and web applications using OAuth2 tokens. Spring Security OAuth
+                                    provides endpoints for authorization, token issuance, and token validation,
+                                    ensuring secure communication between client applications and resource servers.
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. How does Spring Security integrate with LDAP for authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security integrates with LDAP (Lightweight Directory Access
+                                    Protocol) for authentication by configuring an LDAP authentication provider. It
+                                    establishes a connection to the LDAP server and authenticates users based on
+                                    their credentials stored in the LDAP directory. Configuration involves setting
+                                    up LDAP server details, binding credentials, and defining user search filters.
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. What do you mean by Dependency Injection?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Dependency Injection (DI) is a design pattern in which objects receive
+                                    their dependencies from an external source rather than creating them internally.
+                                    In Spring Framework, DI is facilitated through inversion of control (IoC)
+                                    containers, where dependencies are injected into a class's constructor, methods,
+                                    or fields. This promotes loose coupling, testability, and modular design.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. What are Spring Dispatcher Servlet and Context Loader Listener?</summary>
+                            <div class="toggle-content">
+                                <p>Answer:
+                                <ul>
+                                    <li><b>Spring Dispatcher Servlet:</b> It is the front controller in Spring MVC
+                                        web applications that handles incoming HTTP requests and dispatches them to
+                                        the appropriate controllers for processing. It acts as a central hub for
+                                        request handling and facilitates the execution of Spring MVC components like
+                                        controllers, interceptors, and view resolvers.</li>
+                                    <li><b>Context Loader Listener:</b> It is a listener in Spring MVC applications
+                                        that loads and manages the root application context for the Spring IoC
+                                        container. It initializes the Spring IoC container with beans defined in the
+                                        application's configuration files and manages their lifecycle.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. What is View Resolver in Spring?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: View Resolver in Spring MVC is responsible for mapping logical view names
+                                    returned by controllers to actual view implementations. It resolves the view
+                                    names to specific view technologies (JSP, Thymeleaf, Freemarker, etc.) and
+                                    handles rendering of the response to the client. View Resolver configuration is
+                                    typically defined in the Spring MVC configuration file (dispatcher servlet
+                                    configuration).</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. Explain the AOP module.</summary>
+                            <div class="toggle-content">
+                                <p>Answer:
+                                <ul>
+                                    <li>Aspect-Oriented Programming (AOP) is a programming paradigm that allows
+                                        modularization of cross-cutting concerns in software applications.</li>
+                                    <li>In Spring Framework, the AOP module provides support for aspect-oriented
+                                        programming by allowing developers to define aspects (cross-cutting
+                                        concerns) and apply them to Spring-managed beans.</li>
+                                    <li>AOP in Spring uses runtime proxies (dynamic proxies) to intercept method
+                                        invocations and execute advice (code that defines a cross-cutting concern)
+                                        before, after, or around method execution.</li>
+                                    <li>It helps achieve modularity, separation of concerns, and promotes reusable
+                                        code.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. List some of the benefits of IoC.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Inversion of Control (IoC) in Spring Framework offers several benefits:
+                                <ul>
+                                    <li>Loose coupling: Dependencies between components are managed externally,
+                                        reducing the direct dependency between classes.</li>
+                                    <li>Modular design: Components are more modular and easier to maintain, as they
+                                        focus on their core responsibilities.</li>
+                                    <li>Testability: IoC promotes easier unit testing by allowing dependencies to be
+                                        mocked or stubbed during testing.</li>
+                                    <li>Flexibility: Components can be easily replaced or configured without
+                                        changing the application's core logic.</li>
+                                    <li>Encapsulation: Dependencies are hidden from the client, promoting
+                                        encapsulation and abstraction.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. What is the role of the @Required annotation?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: The `@Required` annotation in Spring is used to indicate that a
+                                    particular bean property must be set during bean initialization through XML or
+                                    Java configuration. It is typically applied to setter methods or fields within a
+                                    bean class to enforce mandatory property initialization. If a required property
+                                    is not set, a `BeanInitializationException` is thrown during application
+                                    startup.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. Can we have multiple Spring configuration files in one project?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Yes, Spring allows multiple configuration files (XML or Java-based) to be
+                                    used in a single project. Configuration files can be modularized based on
+                                    functionality, environment, or logical groupings. They can be imported into one
+                                    another using `<import>` tags in XML configuration or `@Import` annotation in
+                                        Java configuration, facilitating better organization and management of
+                                        application settings.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. How does Spring Security handle session management?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security manages sessions by providing mechanisms to control and
+                                    monitor user session lifecycle within web applications. It supports various
+                                    session management strategies such as in-memory, JDBC-based, or custom session
+                                    management implementations. Spring Security can handle concurrent session
+                                    control, session fixation protection, and session timeout configurations to
+                                    ensure secure session management.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. Can you describe the difference between in-memory authentication and JDBC
+                                authentication in Spring Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer:
+                                <ul>
+                                    <li><b>In-memory authentication:</b> User credentials (username/password) are
+                                        stored in-memory within the application's configuration. This approach is
+                                        suitable for applications with a small number of users or for testing
+                                        purposes but is not recommended for production environments due to security
+                                        concerns.</li>
+                                    <li><b>JDBC authentication:</b> User credentials are stored in a relational
+                                        database (usually using tables like `users`, `authorities`, etc.). Spring
+                                        Security integrates with JDBC to authenticate users against database
+                                        records, providing more secure and scalable authentication for enterprise
+                                        applications.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. How does Spring Security handle user authorization?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security handles user authorization by evaluating the roles and
+                                    permissions assigned to authenticated users. It uses access control rules
+                                    defined in configuration (XML or Java-based) to grant or deny access to secured
+                                    resources (URLs, methods, etc.). Authorization decisions are typically based on
+                                    the roles associated with a user's authentication credentials, ensuring that
+                                    only authorized users can perform specific actions within the application.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. Can you explain the concept of role-based access control in Spring
+                                Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Role-based access control (RBAC) is a security model in Spring Security
+                                    that defines access permissions based on user roles. Each user is assigned one
+                                    or more roles (e.g., ADMIN, USER) that determine their access rights to
+                                    different parts of the application. Access control rules are configured using
+                                    `intercept-url` elements or annotations like `@PreAuthorize`, `@Secured`, etc.
+                                    Spring Security evaluates these roles during runtime to enforce access
+                                    restrictions and permissions.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. How does Spring Security handle password hashing and encryption?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides mechanisms for secure password storage using
+                                    hashing and encryption techniques. Passwords are typically hashed using strong
+                                    hashing algorithms (e.g., BCrypt, PBKDF2) before storing them in the database.
+                                    Spring Security offers built-in support for password encoding through
+                                    `PasswordEncoder` interfaces and implementations. It ensures that passwords are
+                                    stored securely and are not exposed in plain text, protecting user credentials
+                                    from unauthorized access.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. Can you describe the use of Spring Security's method security feature?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's method security feature allows developers to enforce
+                                    security rules at the method level based on user roles or permissions. It
+                                    supports annotations like `@PreAuthorize`, `@PostAuthorize`, `@Secured`, and
+                                    `@RolesAllowed` to secure methods and restrict access to authorized users only.
+                                    Method-level security annotations provide fine-grained access control and are
+                                    commonly used in service layer methods or controller methods within Spring
+                                    applications.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. How does Spring Security support the integration of single sign-on systems?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security facilitates the integration of single sign-on (SSO)
+                                    systems by supporting protocols such as OAuth2, OpenID Connect, SAML (Security
+                                    Assertion Markup Language), etc. SSO enables users to authenticate once and gain
+                                    access to multiple applications or services without re-authenticating. Spring
+                                    Security provides client libraries and configuration options to integrate with
+                                    SSO providers, ensuring seamless authentication and authorization across
+                                    distributed systems.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. Can you describe the use of Spring Security's remember-me feature?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's remember-me feature allows users to remain
+                                    authenticated across sessions by storing a persistent login token (e.g., cookie)
+                                    on the client side. It provides a convenient way for users to bypass
+                                    re-authentication on subsequent visits to the application, enhancing user
+                                    experience without compromising security. Remember-me tokens are securely
+                                    managed by Spring Security and can be configured with expiration policies and
+                                    token validation mechanisms.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details21" onclick="closeOtherDetails('details21')">
+                            <summary>21. How can you configure Spring Security to support multi-factor
+                                authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security supports multi-factor authentication (MFA) by integrating
+                                    additional authentication factors alongside traditional username/password
+                                    credentials. MFA enhances security by requiring users to verify their identity
+                                    using multiple factors such as SMS codes, email tokens, biometric scans, etc.
+                                    Spring Security provides `AuthenticationManager` configurations and
+                                    customization options to implement MFA strategies, ensuring robust
+                                    authentication mechanisms against unauthorized access.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details22" onclick="closeOtherDetails('details22')">
+                            <summary>22. Can you explain the use of Spring Security's SAML support for federated
+                                authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's SAML (Security Assertion Markup Language) support
+                                    enables federated authentication for web applications by integrating with SAML
+                                    identity providers (IdPs). SAML allows users to authenticate once with their
+                                    identity provider and gain access to multiple service providers (SPs) without
+                                    re-authenticating. Spring Security manages SAML assertions, metadata exchange,
+                                    and single sign-on (SSO) workflows to establish trust between IdPs and SPs,
+                                    ensuring secure federated authentication across distributed environments.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details23" onclick="closeOtherDetails('details23')">
+                            <summary>23. How does Spring Security integrate with the Java Authentication and
+                                Authorization Service (JAAS)?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides integration with JAAS (Java Authentication and
+                                    Authorization Service) through `JaasAuthenticationProvider` and
+                                    `JaasGrantedAuthority` implementations. JAAS allows applications to leverage
+                                    pluggable authentication modules (PAMs) for user authentication and
+                                    authorization based on security policies defined in the `login.config` file.
+                                    Spring Security configures JAAS providers and authentication callbacks to
+                                    establish secure user sessions and enforce access controls using JAAS APIs.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details24" onclick="closeOtherDetails('details24')">
+                            <summary>24. Can you explain the use of Spring Security's OAuth2 support for
+                                authorization?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's OAuth2 support enables secure authorization for RESTful
+                                    APIs and web applications by implementing OAuth2 authorization server and
+                                    resource server configurations. OAuth2 defines authorization flows (e.g.,
+                                    authorization code, implicit, client credentials, password grant) to grant
+                                    limited access tokens to client applications based on user consent and
+                                    permissions. Spring Security manages OAuth2 tokens, client registrations, and
+                                    authorization grants to ensure secure access to protected resources.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details25" onclick="closeOtherDetails('details25')">
+                            <summary>25. How can you integrate Spring Security with a third-party authentication
+                                service like Google or Facebook?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security supports integration with third-party authentication
+                                    services like Google, Facebook, GitHub, etc., using OAuth2/OpenID Connect
+                                    protocols. Integration involves configuring OAuth2 client details (client ID,
+                                    client secret) provided by the third-party service, and setting up redirect URIs
+                                    and authorization scopes. Spring Security handles OAuth2 flows (e.g.,
+                                    authorization code grant) to authenticate users via third-party providers,
+                                    ensuring secure and seamless authentication for web applications.</p>
+                            </div>
+                        </details></br>
+                        <h4>
+                            <b>2. Spring Security Intermediate Interview Questions</b>
+                        </h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. How does Spring Security handle security for RESTful web services?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security secures RESTful web services by providing mechanisms for
+                                    authentication (e.g., OAuth2, Basic Authentication, JWT) and authorization
+                                    (e.g., method-level security annotations, access control rules). It ensures that
+                                    only authenticated and authorized users can access protected endpoints. Spring
+                                    Security integrates seamlessly with frameworks like Spring MVC or Spring WebFlux
+                                    to enforce security policies for RESTful APIs.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. Can you describe the use of Spring Security's method security annotations?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's method security annotations (e.g., `@Secured`,
+                                    `@PreAuthorize`, `@PostAuthorize`, `@RolesAllowed`) allow developers to secure
+                                    Java methods based on user roles, permissions, or custom expressions.
+                                    Annotations can be applied at the method level to restrict access to
+                                    authenticated users with specific roles or capabilities. Method security
+                                    annotations provide fine-grained control over access rights and help enforce
+                                    security policies within Spring applications.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. How can you customize Spring Security's authentication and authorization
+                                behavior using expression-based access control?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security supports expression-based access control using SpEL
+                                    (Spring Expression Language) within security annotations (`@PreAuthorize`,
+                                    `@PostAuthorize`, etc.). Developers can define complex authorization rules using
+                                    logical expressions, method parameters, or custom functions. Expression-based
+                                    access control allows conditional access decisions based on user attributes,
+                                    request context, or business logic, providing flexible and dynamic security
+                                    configurations in Spring applications.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. Can you explain the use of Spring Security's remember-me persistence using a
+                                database or other persistent store?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's remember-me functionality allows users to remain
+                                    authenticated across sessions by storing a persistent token (e.g., cookie) on
+                                    the client side. To persist remember-me tokens in a database or other persistent
+                                    store, developers can customize `PersistentTokenRepository` implementations
+                                    provided by Spring Security. This ensures secure management and retrieval of
+                                    remember-me tokens across application restarts or sessions, enhancing user
+                                    convenience without compromising security.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. How can you integrate Spring Security with a front-end framework like
+                                Angular or React?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integration of Spring Security with front-end frameworks like Angular or
+                                    React involves securing RESTful APIs used by these frameworks. Developers can
+                                    implement authentication mechanisms such as OAuth2 or JWT (JSON Web Token) to
+                                    authenticate users from Angular or React applications against Spring Security.
+                                    Authentication tokens are passed securely between client and server, ensuring
+                                    that only authorized users can access protected resources. Front-end
+                                    applications handle login/logout UI and token management, while Spring Security
+                                    enforces server-side security policies.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. How does Spring Security handle password hashing and encryption?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides built-in support for password hashing and
+                                    encryption to secure user credentials stored in databases. Passwords are hashed
+                                    using strong algorithms (e.g., BCrypt, PBKDF2) before storage to prevent
+                                    unauthorized access in case of data breaches. Spring Security's
+                                    `PasswordEncoder` interface and its implementations facilitate secure password
+                                    encoding and validation, ensuring that passwords are not stored in plain text
+                                    and are resistant to brute-force attacks.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. Can you explain how Spring Security protects web applications?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security protects web applications by providing comprehensive
+                                    security features such as authentication, authorization, session management,
+                                    CSRF (Cross-Site Request Forgery) protection, and secure password management. It
+                                    integrates with Spring MVC or Spring WebFlux to enforce security policies for
+                                    HTTP requests, ensuring that only authenticated users with appropriate roles or
+                                    permissions can access protected resources. Spring Security mitigates common web
+                                    security threats and vulnerabilities, providing robust protection for Java-based
+                                    web applications.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. How can you customize Spring Security for your application's specific needs?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security allows customization through configuration and extension
+                                    points tailored to application-specific security requirements. Developers can
+                                    customize authentication providers, access control rules, session management
+                                    strategies, password policies, and integration with external identity providers.
+                                    Custom security filters, handlers, and listeners can be implemented to enforce
+                                    specialized security behaviors or integrate with third-party security
+                                    frameworks. Spring Security's modular architecture supports flexible
+                                    customization to address diverse security challenges in enterprise applications.
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. How does Spring Security integrate with other security frameworks like SAML
+                                and CAS?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides integration with SAML (Security Assertion Markup
+                                    Language) and CAS (Central Authentication Service) for single sign-on (SSO) and
+                                    federated authentication scenarios. Integration involves configuring SAML or CAS
+                                    authentication providers, identity providers (IdPs), and service providers (SPs)
+                                    to establish trust and exchange authentication assertions. Spring Security
+                                    manages SSO workflows, authentication tokens, and user sessions across multiple
+                                    applications or domains, ensuring seamless and secure integration with external
+                                    identity management systems.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. How can you test Spring Security configurations in your application?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Testing Spring Security configurations involves using unit tests,
+                                    integration tests, or end-to-end tests to verify security behaviors and policies
+                                    within the application. Mocking frameworks (e.g., Mockito, PowerMock) can
+                                    simulate authentication tokens, user roles, and HTTP requests to test access
+                                    control rules, method security annotations, and authentication providers. Spring
+                                    Security Test module provides utilities (e.g., `@WithMockUser`,
+                                    `@WithAnonymousUser`) to simplify testing of security configurations and ensure
+                                    consistent security enforcement across application components.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. What is a security realm, and how does it relate to authentication in
+                                Spring Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: A security realm in Spring Security represents a domain or context where
+                                    authentication and authorization policies are enforced. It defines the scope of
+                                    security configurations, including authentication providers, access control
+                                    rules, and user roles specific to a particular application or environment.
+                                    Realms encapsulate security contexts and manage authentication mechanisms (e.g.,
+                                    LDAP realm, database realm) tailored to authenticate users and enforce security
+                                    policies within Spring applications.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. Can you explain the concept of a security context in Spring Security?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer:
+                                <ul>
+                                    <li>A security context in Spring Security represents the current state of
+                                        security information associated with a user session or thread.</li>
+                                    <li>It includes details such as authenticated principal (user), granted
+                                        authorities (roles), and authentication credentials.</li>
+                                    <li>The `SecurityContextHolder` manages the security context, providing access
+                                        to authentication objects and security-related data throughout the
+                                        application.</li>
+                                    <li>Security context propagation ensures consistent security enforcement across
+                                        application layers, supporting secure access control and authorization
+                                        decisions.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. Explain Spring Security's AuthenticationEventPublisher and authentication
+                                event handling?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security's `AuthenticationEventPublisher` notifies application
+                                    components about authentication events (e.g., successful login, failed login)
+                                    during user authentication processes.</p>
+                                <p>Authentication event handlers can be customized to log events, send
+                                    notifications, or perform additional security actions based on authentication
+                                    outcomes.</p>
+                                <p>Custom `AuthenticationFailureHandler` and `AuthenticationSuccessHandler`
+                                    implementations can intercept authentication events and execute
+                                    application-specific logic.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. What is salting, and explain its importance?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Salting is a technique used in password hashing to enhance security by
+                                    adding a random value (salt) to each password before hashing.</p>
+                                <p>Salting prevents attackers from using precomputed hash tables (rainbow tables)
+                                    for common passwords and ensures unique hash values even for identical
+                                    passwords.</p>
+                                <p>Spring Security supports salted password hashing with algorithms like BCrypt,
+                                    offering robust protection against brute-force attacks and password cracking
+                                    techniques.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. What is UserDetailsService, and explain its implementations?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `UserDetailsService` is an interface in Spring Security used to retrieve
+                                    user details (username, password, roles) from a data source (e.g., database,
+                                    LDAP).</p>
+                                <p>Implementations of `UserDetailsService` load user information during
+                                    authentication and populate `UserDetails` objects with user credentials and
+                                    authorities.</p>
+                                <p>Spring Security provides `UserDetailsService` implementations like
+                                    `JdbcUserDetailsManager`, `InMemoryUserDetailsManager`, and custom
+                                    implementations for flexible user management and authentication workflows.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. What is DelegatingPasswordEncoder?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `DelegatingPasswordEncoder` in Spring Security is a composite password
+                                    encoder that delegates password hashing to specific `PasswordEncoder`
+                                    implementations based on password encoding identifiers (e.g., `{bcrypt}`,
+                                    `{pbkdf2}`).</p>
+                                <p>It supports password migration and algorithm upgrades by encoding passwords with
+                                    the appropriate hash functions and ensuring backward compatibility with existing
+                                    stored passwords.</p>
+                                <p>DelegatingPasswordEncoder simplifies password management and security
+                                    configuration in Spring applications, providing a unified interface for password
+                                    encoding and validation.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. Can you describe how to configure Spring Security for a web application?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Configuring Spring Security for a web application involves:</p>
+                                <ul>
+                                    <li>Adding Spring Security dependencies to the project build file (e.g., Maven,
+                                        Gradle).</li>
+                                    <li>Creating a security configuration class extending
+                                        `WebSecurityConfigurerAdapter`.</li>
+                                    <li>Defining authentication providers, access control rules, and session
+                                        management settings.</li>
+                                    <li>Securing HTTP endpoints using method security annotations or security
+                                        configurations.</li>
+                                    <li>Customizing login/logout processing, CSRF protection, and error handling.
+                                    </li>
+                                    <li>Testing and verifying security configurations using unit tests or
+                                        integration tests.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. Can you describe how to integrate Spring Security with LDAP for
+                                authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integrating Spring Security with LDAP for authentication involves:</p>
+                                <ul>
+                                    <li>Configuring LDAP server connection details (URL, base DN) in Spring Security
+                                        configuration.</li>
+                                    <li>Defining `LdapAuthenticationProvider` to authenticate users against LDAP
+                                        directory.</li>
+                                    <li>Customizing `LdapAuthoritiesPopulator` to retrieve user roles and
+                                        authorities from LDAP attributes.</li>
+                                    <li>Configuring authentication parameters (username, password) and bind settings
+                                        for LDAP authentication.</li>
+                                    <li>Testing LDAP authentication using Spring Security test utilities and
+                                        verifying integration with LDAP directory services.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. Can you describe how to use Spring Security's method security annotations
+                                to secure a method?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Securing a method using Spring Security annotations involves:</p>
+                                <ul>
+                                    <li>Annotating the method with `@PreAuthorize`, `@PostAuthorize`, `@Secured`, or
+                                        `@RolesAllowed`.</li>
+                                    <li>Defining authorization expressions or role-based restrictions within
+                                        annotation parameters.</li>
+                                    <li>Configuring `GlobalMethodSecurityConfiguration` to enable method security
+                                        annotations.</li>
+                                    <li>Creating `UserDetailsService` or `AuthenticationProvider` beans to
+                                        authenticate users and assign roles.</li>
+                                    <li>Testing method security annotations using mock user contexts and verifying
+                                        access control decisions.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. Can you describe how to customize the login process using Spring Security's
+                                authentication providers?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Customizing the login process with Spring Security authentication
+                                    providers involves:</p>
+                                <ul>
+                                    <li>Implementing `AuthenticationProvider` interface to authenticate users using
+                                        custom credentials.</li>
+                                    <li>Configuring `AuthenticationManagerBuilder` with `AuthenticationProvider`
+                                        beans for user authentication.</li>
+                                    <li>Handling authentication requests and returning `Authentication` objects with
+                                        user details and granted authorities.</li>
+                                    <li>Customizing authentication success/failure handling using
+                                        `AuthenticationSuccessHandler` and `AuthenticationFailureHandler`.</li>
+                                    <li>Testing authentication providers with mock user credentials and verifying
+                                        authentication outcomes.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+                        <h4>
+                            <b>3. Spring Security Adavnced Interview Questions</b>
+                        </h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. How does Spring Security handle session management?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security manages sessions by providing mechanisms for session
+                                    creation, tracking, and invalidation.</p>
+                                <p>It supports various session management strategies such as cookie-based sessions,
+                                    URL rewriting, and custom session management.</p>
+                                <p>Developers can configure session fixation protection, concurrent session control,
+                                    and session timeout settings in Spring Security.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. Can you explain the difference between authentication and authorization in
+                                the context of Spring Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Authentication verifies the identity of a user (who they claim to be)
+                                    using credentials like username/password, tokens, or certificates.</p>
+                                <p>Authorization determines whether an authenticated user has the necessary
+                                    permissions (roles, authorities) to access a resource or perform an action.</p>
+                                <p>Spring Security handles both authentication (verifying user identity) and
+                                    authorization (granting access based on roles/permissions) in web applications.
+                                </p>
+                            </div>
+                        </details></br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. How does Spring Security integrate with OAuth2 for authorization?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides comprehensive support for OAuth2, a widely used
+                                    authorization framework.</p>
+                                <p>It includes OAuth2 client and server implementations, enabling applications to
+                                    act as OAuth2 clients to access protected resources and as OAuth2 resource
+                                    servers to secure APIs.</p>
+                                <p>Spring Security OAuth2 simplifies integration with OAuth2 providers (e.g.,
+                                    Google, Facebook) and allows customization of token endpoints, scopes, and
+                                    client configurations.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. Explain CSRF. How does Spring help in preventing CSRF?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: CSRF (Cross-Site Request Forgery) is an attack where unauthorized
+                                    commands are transmitted from a user that the web application trusts.</p>
+                                <p>Spring Security mitigates CSRF attacks by generating and validating unique tokens
+                                    (CSRF tokens) in forms or AJAX requests.</p>
+                                <p>It provides CSRF protection by default for web applications, ensuring that
+                                    requests originated from malicious websites are rejected if they lack valid CSRF
+                                    tokens.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. How can you secure a REST API using Spring Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: To secure a REST API with Spring Security:</p>
+                                <ul>
+                                    <li>Use authentication mechanisms such as Basic Authentication, OAuth2, or JWT
+                                        (JSON Web Tokens) to verify the identity of clients.</li>
+                                    <li>Configure method-level security annotations or URL-based security rules to
+                                        restrict access to API endpoints based on user roles or permissions.</li>
+                                    <li>Implement CSRF protection, CORS (Cross-Origin Resource Sharing) policies,
+                                        and secure communication protocols (HTTPS) to enhance API security.</li>
+                                    <li>Customize error handling, access denied responses, and token management for
+                                        secure API interactions.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. Can you explain the role of the SecurityContext in Spring Security?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: The SecurityContext in Spring Security stores security-related
+                                    information for the current user session or thread.</p>
+                                <p>It includes details like authenticated principal (user), granted authorities
+                                    (roles), and optionally, authentication credentials.</p>
+                                <p>SecurityContext is managed by SecurityContextHolder and facilitates access to
+                                    security data across application components, ensuring consistent security
+                                    enforcement.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. How does Spring Security handle password hashing and encryption?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Security provides built-in support for secure password storage
+                                    using hashing algorithms (e.g., BCrypt, PBKDF2).</p>
+                                <p>Passwords are hashed with salt to prevent rainbow table attacks and stored
+                                    securely in databases or identity stores.</p>
+                                <p>Spring Security's `PasswordEncoder` interface and its implementations manage
+                                    password hashing and validation, ensuring strong security practices.</p>
+                            </div>
+                        </details></br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. Can you describe the process of integrating Spring Security with LDAP for
+                                authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integrating Spring Security with LDAP for authentication involves:</p>
+                                <ul>
+                                    <li>Configuring LDAP server connection details (URL, base DN) in Spring Security
+                                        configuration.</li>
+                                    <li>Defining `LdapAuthenticationProvider` to authenticate users against LDAP
+                                        directory using bind credentials.</li>
+                                    <li>Customizing `LdapAuthoritiesPopulator` to retrieve user roles and attributes
+                                        from LDAP entries.</li>
+                                    <li>Mapping LDAP attributes to Spring Security user details (username, password,
+                                        roles) for authentication purposes.</li>
+                                    <li>Testing LDAP authentication integration and verifying user authentication
+                                        against LDAP identity store.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. How can you configure Spring Security to use multiple authentication
+                                providers?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: To configure Spring Security with multiple authentication providers:</p>
+                                <ul>
+                                    <li>Implement `AuthenticationProvider` interface for each authentication source
+                                        (e.g., LDAP, database).</li>
+                                    <li>Configure `AuthenticationManagerBuilder` with multiple authentication
+                                        providers in Spring Security configuration.</li>
+                                    <li>Use `ProviderManager` to delegate authentication requests to appropriate
+                                        `AuthenticationProvider` based on provider order.</li>
+                                    <li>Specify authentication provider details (e.g., userDetailsService,
+                                        passwordEncoder) for each provider to validate user credentials.</li>
+                                    <li>Test authentication flow with mock user credentials and verify successful
+                                        authentication using configured authentication providers.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. Can you explain how to use Spring Security to secure a Single Page
+                                Application (SPA)?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Securing a Single Page Application (SPA) with Spring Security involves:
+                                </p>
+                                <ul>
+                                    <li>Implementing OAuth2 or JWT-based authentication mechanisms for user login
+                                        and token management.</li>
+                                    <li>Configuring CORS (Cross-Origin Resource Sharing) policies to allow SPA to
+                                        communicate securely with back-end APIs.</li>
+                                    <li>Securing API endpoints with method-level security annotations or URL-based
+                                        access control rules.</li>
+                                    <li>Customizing error handling, session management, and CSRF protection to
+                                        enhance SPA security.</li>
+                                    <li>Integrating front-end authentication workflows with back-end Spring Security
+                                        configurations for seamless user authentication and authorization.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. How can you customize the login process in Spring Security?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Customizing the login process in Spring Security involves:</p>
+                                <ul>
+                                    <li>Implementing `AuthenticationProvider` or `UserDetailsService` interface to
+                                        authenticate users using custom credentials (e.g., LDAP, database).</li>
+                                    <li>Configuring `AuthenticationManagerBuilder` with authentication providers,
+                                        password encoders, and user details services.</li>
+                                    <li>Customizing login form, login processing URL, success/failure handlers, and
+                                        logout URL using Spring Security configuration.</li>
+                                    <li>Integrating login page UI with back-end authentication workflows and
+                                        security configurations.</li>
+                                    <li>Testing custom login process with mock user credentials and verifying
+                                        authentication outcomes.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. How can you use Spring Security to implement role-based access control?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implementing role-based access control (RBAC) with Spring Security
+                                    involves:</p>
+                                <ul>
+                                    <li>Defining user roles and authorities in a user details service or
+                                        authentication provider (e.g., database, LDAP).</li>
+                                    <li>Securing methods, URLs, or resources using `@PreAuthorize`, `@Secured`, or
+                                        `@RolesAllowed` annotations.</li>
+                                    <li>Configuring access control rules based on user roles and permissions using
+                                        Spring Security expressions.</li>
+                                    <li>Mapping roles to specific privileges or operations in the application to
+                                        enforce fine-grained access control.</li>
+                                    <li>Testing role-based access control scenarios with mock user roles and
+                                        verifying access permissions based on configured security rules.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. Can you explain how to use Spring Security to secure a method-level in a
+                                Spring MVC application?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Securing a method-level in a Spring MVC application with Spring Security
+                                    involves:</p>
+                                <ul>
+                                    <li>Annotating methods with security annotations like `@PreAuthorize`,
+                                        `@PostAuthorize`, `@Secured`, or `@RolesAllowed`.</li>
+                                    <li>Defining authorization expressions or role-based restrictions within method
+                                        security annotations.</li>
+                                    <li>Configuring `GlobalMethodSecurityConfiguration` to enable method-level
+                                        security annotations.</li>
+                                    <li>Creating `UserDetailsService` or `AuthenticationProvider` beans to
+                                        authenticate users and assign roles.</li>
+                                    <li>Testing method security annotations with mock user contexts and verifying
+                                        access control decisions.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. How can you use Spring Security to perform authentication and authorization
+                                in a microservices architecture?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implementing authentication and authorization in a microservices
+                                    architecture with Spring Security involves:</p>
+                                <ul>
+                                    <li>Using OAuth2 or JWT-based authentication mechanisms for secure communication
+                                        between microservices.</li>
+                                    <li>Configuring centralized authentication servers (authorization servers) to
+                                        issue and validate tokens for microservice clients.</li>
+                                    <li>Securing microservice endpoints with method-level security annotations or
+                                        URL-based access control rules.</li>
+                                    <li>Implementing service-to-service authentication and authorization using
+                                        secure communication protocols (HTTPS) and token-based authentication.</li>
+                                    <li>Testing microservices security configurations with mock tokens and verifying
+                                        secure communication between microservices.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. Can you explain how to use Spring Security to authenticate users against a
+                                database?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Authenticating users against a database with Spring Security involves:
+                                </p>
+                                <ul>
+                                    <li>Configuring `UserDetailsService` to load user details (username, password,
+                                        roles) from a database.</li>
+                                    <li>Implementing `UserDetailsService` interface to retrieve user information and
+                                        populate `UserDetails` objects.</li>
+                                    <li>Using `JdbcUserDetailsManager` or custom DAO classes to manage user
+                                        accounts, passwords, and authorities.</li>
+                                    <li>Configuring authentication provider or authentication manager with
+                                        database-based user details service.</li>
+                                    <li>Testing authentication against database credentials and verifying user
+                                        authentication outcomes.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. How can you use Spring Security to implement Remember Me functionality?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implementing Remember Me functionality with Spring Security involves:</p>
+                                <ul>
+                                    <li>Configuring `rememberMe()` in Spring Security configuration to enable
+                                        persistent login sessions.</li>
+                                    <li>Specifying key, token validity period, and secure token repository (e.g.,
+                                        database) for Remember Me tokens.</li>
+                                    <li>Customizing Remember Me cookie parameters, including name, path, and domain
+                                        settings.</li>
+                                    <li>Handling Remember Me authentication requests and validating persistent login
+                                        tokens during subsequent user sessions.</li>
+                                    <li>Testing Remember Me functionality with mock user sessions and verifying
+                                        automatic login behavior.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. Can you explain how to use Spring Security to integrate with a third-party
+                                authentication provider such as Google or Facebook?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integrating Spring Security with third-party authentication providers
+                                    (e.g., Google, Facebook) involves:</p>
+                                <ul>
+                                    <li>Registering OAuth2 client credentials and redirect URIs with third-party
+                                        providers (e.g., Google Developer Console, Facebook Developers).</li>
+                                    <li>Configuring Spring Security OAuth2 client settings to authenticate users
+                                        with OAuth2 authorization codes or tokens.</li>
+                                    <li>Implementing OAuth2 authentication flow, including user consent, token
+                                        exchange, and authentication callback handling.</li>
+                                    <li>Customizing user details service or user authentication provider to map
+                                        OAuth2 user attributes (e.g., email, profile information).</li>
+                                    <li>Testing OAuth2 authentication with third-party providers and verifying user
+                                        login using OAuth2 credentials.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. How can you use Spring Security to secure WebSockets?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Securing WebSockets with Spring Security involves:</p>
+                                <ul>
+                                    <li>Configuring WebSocket message broker endpoints (e.g., STOMP) in Spring MVC
+                                        or Spring Boot applications.</li>
+                                    <li>Implementing WebSocket security configuration using
+                                        `WebSocketMessageBrokerConfigurer` or
+                                        `AbstractSecurityWebSocketMessageBrokerConfigurer`.</li>
+                                    <li>Defining WebSocket message destination prefixes, authorization rules, and
+                                        message handling interceptors.</li>
+                                    <li>Securing WebSocket connections with Spring Security principles, including
+                                        authentication tokens and access control lists (ACLs).</li>
+                                    <li>Testing WebSocket security configurations with WebSocket clients and
+                                        verifying secure message exchange.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. Can you explain how to use Spring Security to perform two-factor
+                                authentication?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implementing two-factor authentication (2FA) with Spring Security
+                                    involves:</p>
+                                <ul>
+                                    <li>Configuring `TwoFactorAuthenticationProvider` or
+                                        `TwoFactorAuthenticationFilter` to verify additional authentication factors
+                                        (e.g., SMS code, OTP).</li>
+                                    <li>Implementing `UserDetailsService` to load user details and associated
+                                        two-factor authentication settings.</li>
+                                    <li>Customizing login flow to prompt users for second authentication factor
+                                        after primary authentication (e.g., username/password).</li>
+                                    <li>Storing two-factor authentication tokens securely and validating user
+                                        responses against expected verification codes.</li>
+                                    <li>Testing two-factor authentication scenarios with mock user sessions and
+                                        verifying successful login with dual authentication factors.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. How can you use Spring Security to implement a custom authentication
+                                mechanism?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implementing a custom authentication mechanism with Spring Security
+                                    involves:</p>
+                                <ul>
+                                    <li>Extending `AbstractAuthenticationProcessingFilter` or implementing
+                                        `AuthenticationProvider` interface to handle custom authentication logic.
+                                    </li>
+                                    <li>Configuring `AuthenticationManagerBuilder` with custom authentication
+                                        providers, user details services, and password encoders.</li>
+                                    <li>Defining authentication processing filters, request headers, or token
+                                        formats for custom authentication protocols (e.g., HMAC, OAuth).</li>
+                                    <li>Customizing authentication success/failure handling, session management, and
+                                        user roles/permissions based on custom authentication decisions.</li>
+                                    <li>Testing custom authentication flows with simulated user requests and
+                                        verifying authentication outcomes using custom credentials.</li>
+                                </ul>
+                            </div>
+                        </details></br>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

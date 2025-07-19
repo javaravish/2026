@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Java Map Interview Questions</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+					src="../../scripts/images/nani1.png" alt="Home" />
+				<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+							href="../../home.html"><img height="25" width="25"
+								src="../../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/random.html">Java
+								Core</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-interview-questions.html">Java
+								Basics</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-abstraction.html">Java
+								Abstraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-encapsulation.html">Java
+								Encapsulation</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-polymorphism.html">Java
+								Polymorphism</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-inheritance.html">Java
+								Inheritance </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-string.html">Java
+								String</a></li>
+							<li class="nav-item"><a class="nav-link"
+													href="../java/java-overloading-Overriding.html">Java
+								Overloading and Overriding</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-exception.html">Java
+								Exception Handling</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-multithreading.html">Java
+								Multithreading</a></li>
+							<h4> Collections Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/java-collections.html">Java
+								Collections </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-list.html">Java
+								List </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-set.html">Java
+								Set </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-map.html">Java
+								Map</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/miscellaneous.html">Java
+								Advanced</a></li>
+							<h4> Java Programming Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/programs.html">Java
+								Programs </a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-hashmap.html"> Map Interview Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html"> Interview Questions</a></li>
+						<li><a href="../java/java-hashmap.html"> Map Interview Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4>Java Hash Interview Questions</h4>
+					<div class="card-body">
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. How does a HashMap work in Java?</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap in Java:</strong> HashMap is a data structure that stores
+									key-value pairs. It uses hashing to store elements and provides average O(1)
+									time complexity for put and get operations.</p>
+								<p>When you put a key-value pair into a HashMap:
+								<ul>
+									<li>HashMap calculates the hash code of the key.</li>
+									<li>Using this hash code, it determines the index to store the key-value pair in
+										an array (bucket).</li>
+									<li>If multiple keys hash to the same index (collision), HashMap uses a linked
+										list (or tree in Java 8+) to store these key-value pairs.</li>
+									<li>To retrieve a value based on a key, HashMap calculates the hash code again,
+										finds the appropriate bucket, and then compares keys using
+										<code>equals()</code> method to find the exact key-value pair.
+									</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. What is the distinction between HashMap and HashTable in the Java
+								programming language?</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap vs HashTable:</strong></p>
+								<ul>
+									<li><strong>Thread safety:</strong> HashMap is not synchronized and is not
+										thread-safe. HashTable is synchronized and is thread-safe.</li>
+									<li><strong>Null keys and values:</strong> HashMap allows one null key and any
+										number of null values. HashTable does not allow null keys or values.</li>
+									<li><strong>Performance:</strong> HashMap is generally faster than HashTable for
+										single-threaded operations due to lack of synchronization.</li>
+									<li><strong>Iterators:</strong> Iterator in HashMap is fail-fast while the
+										enumerator for HashTable is not.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. How do you synchronize access to a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To synchronize access to a HashMap:</p>
+								<pre><code>
+							Map&lt;Key, Value&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;&gt;());
+							        </code></pre>
+								<p>This creates a synchronized wrapper around the HashMap, ensuring thread-safe
+									access to its methods.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. How does the load factor of a HashMap affect its performance?</summary>
+							<div class="toggle-content">
+								<p><strong>Load factor:</strong> Determines when to resize the HashMap. It
+									represents how full the HashMap can be before it needs to increase its capacity.
+								</p>
+								<p>A smaller load factor means less collision but higher space overhead. A larger
+									load factor means more collision but lower space overhead.</p>
+								<p>Typical load factor is 0.75. Higher load factors improve space efficiency but
+									increase the chances of collisions.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. How does the initial capacity of a HashMap affect its performance?</summary>
+							<div class="toggle-content">
+								<p><strong>Initial capacity:</strong> Specifies the initial size of the HashMap. A
+									larger initial capacity reduces the number of rehash operations but increases
+									memory consumption initially.</p>
+								<p>Choosing an appropriate initial capacity can improve performance by reducing the
+									frequency of resizing.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. Can a HashMap have a negative capacity in Java programming?</summary>
+							<div class="toggle-content">
+								<p>No, a HashMap cannot have a negative capacity in Java programming. The capacity
+									must be a non-negative integer.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. How do you iterate over the keys and values of a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p><strong>Iterating over keys and values:</strong></p>
+								<pre><code>
+							HashMap&lt;Key, Value&gt; map = new HashMap&lt;&gt;();
+							// Iterating over keys
+							for (Key key : map.keySet()) {
+							    System.out.println("Key: " + key);
+							}
+							// Iterating over values
+							for (Value value : map.values()) {
+							    System.out.println("Value: " + value);
+							}
+							// Iterating over entries
+							for (Map.Entry&lt;Key, Value&gt; entry : map.entrySet()) {
+							    System.out.println("Key: " + entry.getKey() + ", Value: " + entry.getValue());
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. Can the order of the elements in a HashMap change during its lifetime in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>Yes, the order of elements in a HashMap can change during its lifetime. It does
+									not guarantee any specific order of elements.</p>
+								<p>The iteration order depends on the hash codes of keys and the order in which
+									elements are added/removed.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. How exactly does one go about clearing an entire HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To clear an entire HashMap:</p>
+								<pre><code>
+							HashMap&lt;Key, Value&gt; map = new HashMap&lt;&gt;();
+							map.clear(); // Removes all key-value pairs from the map
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. How do you create a thread-safe HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To create a thread-safe HashMap:</p>
+								<pre><code>
+							Map&lt;Key, Value&gt; synchronizedMap = Collections.synchronizedMap(new HashMap&lt;&gt;());
+							        </code></pre>
+								<p>This creates a synchronized wrapper around the HashMap, ensuring thread-safe
+									access to its methods.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. What is a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap:</strong> It is a part of the Java Collections Framework and
+									stores key-value pairs.</p>
+								<p>It uses hashing to store and retrieve elements, providing average O(1) time
+									complexity for put and get operations.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. How does a HashMap store and retrieve data?</summary>
+							<div class="toggle-content">
+								<p><strong>Storing data:</strong> HashMap stores data using key-value pairs. It
+									calculates the hash code of the key to determine the index (bucket) where the
+									key-value pair will be stored.</p>
+								<p><strong>Retrieving data:</strong> To retrieve a value based on a key, HashMap
+									calculates the hash code again, finds the appropriate bucket, and then uses the
+									<code>equals()</code> method to find the exact key-value pair.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. What kind of data structure does a HashMap in Java have behind the surface?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap data structure:</strong> Behind the scenes, HashMap uses an array
+									of linked lists (or in Java 8+, a combination of linked lists and balanced
+									trees) to store key-value pairs.</p>
+								<p>This allows HashMap to efficiently handle collisions by storing multiple
+									key-value pairs in the same bucket.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. What sets a Java HashMap apart from an ArrayList, and how do you use one vs
+								the other?</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap vs ArrayList:</strong></p>
+								<ul>
+									<li><strong>Usage:</strong> HashMap is used to store key-value pairs, providing
+										quick access to values based on keys. ArrayList is used to store a
+										collection of elements in a sequence.</li>
+									<li><strong>Access:</strong> HashMap provides faster access (average O(1)) for
+										retrieving elements using keys. ArrayList provides faster access (O(1)) for
+										retrieving elements using indices.</li>
+									<li><strong>Structure:</strong> HashMap uses hashing to store elements, while
+										ArrayList uses a dynamic array.</li>
+									<li><strong>Element uniqueness:</strong> HashMap keys must be unique, while
+										ArrayList allows duplicate elements.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. How do you create a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To create a HashMap:</p>
+								<pre><code>
+							HashMap&lt;Key, Value&gt; map = new HashMap&lt;&gt;();
+							        </code></pre>
+								<p>This creates an empty HashMap with the default initial capacity (16) and load
+									factor (0.75).</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. How exactly does one go about populating a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To populate a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							map.put("C", 3);
+							        </code></pre>
+								<p>This adds key-value pairs ("A", 1), ("B", 2), and ("C", 3) to the HashMap.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. How do you retrieve an element from a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To retrieve an element from a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							int value = map.get("A"); // Retrieves value associated with key "A"
+							System.out.println("Value: " + value); // Output: Value: 1
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. How do you update an element in a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To update an element in a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							map.put("A", 10); // Updates value associated with key "A" to 10
+							System.out.println("Updated value: " + map.get("A")); // Output: Updated value: 10
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. In Java, what is the procedure for removing an element from a HashMap?
+							</summary>
+							<div class="toggle-content">
+								<p>To remove an element from a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							map.remove("A"); // Removes key-value pair with key "A"
+							System.out.println("Size after removal: " + map.size()); // Output: Size after removal: 1
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. How do you check if a key or value exists in a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To check if a key or value exists in a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							boolean keyExists = map.containsKey("A"); // Checks if key "A" exists
+							boolean valueExists = map.containsValue(2); // Checks if value 2 exists
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>21. How do you get the size of a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To get the size of a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							int size = map.size(); // Retrieves the number of key-value pairs in the map
+							System.out.println("Size of HashMap: " + size); // Output: Size of HashMap: 2
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>22. How do you check if a HashMap is empty in Java?</summary>
+							<div class="toggle-content">
+								<p>To check if a HashMap is empty:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							boolean isEmpty = map.isEmpty(); // Checks if the map contains no key-value pairs
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>23. How do you clear a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To clear a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							map.clear(); // Removes all key-value pairs from the map
+							System.out.println("Size after clearing: " + map.size()); // Output: Size after clearing: 0
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>24. How do you iterate over the elements of a HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>To iterate over the elements of a HashMap:</p>
+								<pre><code>
+							HashMap&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("A", 1);
+							map.put("B", 2);
+							// Using enhanced for-loop
+							for (String key : map.keySet()) {
+							    System.out.println("Key: " + key + ", Value: " + map.get(key));
+							}
+							// Using forEach method (Java 8+)
+							map.forEach((key, value) -&gt; System.out.println("Key: " + key + ", Value: " + value));
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>25. Can a HashMap have multiple keys with the same value in Java?</summary>
+							<div class="toggle-content">
+								<p>Yes, a HashMap can have multiple keys with the same value in Java. Keys are
+									unique, but values can be duplicated.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>26. Can a HashMap have null keys and null values in Java?</summary>
+							<div class="toggle-content">
+								<p>Yes, a HashMap can have one null key and any number of null values in Java.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>27. What is the time complexity of the basic operations of a HashMap in Java
+								(put, get, remove)?</summary>
+							<div class="toggle-content">
+								<p><strong>Time complexity:</strong></p>
+								<ul>
+									<li><strong>put(key, value):</strong> O(1) on average, O(n) in worst case (due
+										to collision resolution).</li>
+									<li><strong>get(key):</strong> O(1) on average, O(n) in worst case (due to
+										collision resolution).</li>
+									<li><strong>remove(key):</strong> O(1) on average, O(n) in worst case (due to
+										collision resolution).</li>
+								</ul>
+								<p>Where n is the number of elements in the HashMap.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>28. What happens when a HashMap reaches its maximum capacity in Java?</summary>
+							<div class="toggle-content">
+								<p>When a HashMap reaches its maximum capacity (threshold), it will resize itself by
+									doubling the capacity of its underlying array (rehashing).</p>
+								<p>This ensures that the HashMap maintains its performance characteristics (average
+									O(1) time complexity for put and get operations) as it grows.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>29. Can a HashMap be sorted in Java? If so, how?</summary>
+							<div class="toggle-content">
+								<p>No, a HashMap does not maintain any order of its elements. To sort a HashMap
+									based on keys or values, you need to extract its entries into a List and then
+									sort the List.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>30. What is the use of a HashMap in real-world applications?</summary>
+							<div class="toggle-content">
+								<p><strong>Real-world applications:</strong></p>
+								<ul>
+									<li><strong>Data storage:</strong> HashMap is used to store key-value pairs
+										efficiently, making it suitable for caching, memoization, and indexing.</li>
+									<li><strong>Lookup tables:</strong> HashMap provides quick access to values
+										based on keys, making it useful for implementing dictionaries, databases,
+										and associative arrays.</li>
+									<li><strong>Configuration settings:</strong> HashMap can store configuration
+										parameters where keys represent settings and values represent corresponding
+										values.</li>
+									<li><strong>Application state:</strong> HashMap can store application state
+										information, facilitating quick access and modification of state variables.
+									</li>
+								</ul>
+							</div>
+						</details></br>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. How does a HashMap handle collision in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap handles collisions by using a technique called chaining. In case of a
+									collision (i.e., when multiple keys hash to the same index), HashMap stores
+									these keys and their corresponding values as a linked list at that index in the
+									underlying array. When retrieving a value for a key, HashMap uses the key's hash
+									code to find the correct bucket (index) and then compares the keys using their
+									equals() method to find the exact match within the linked list.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. Can a HashMap have multiple keys with the same value in Java? How do you
+								implement this, and what is the time complexity of the basic operations?</summary>
+							<div class="toggle-content">
+								<p>
+									Yes, a HashMap can have multiple keys with the same value. To implement this,
+									you would store the values as a collection (such as a List or Set) associated
+									with each key in the HashMap. The time complexity of basic operations (put, get,
+									remove) is O(1) on average, assuming a good hash function and uniform
+									distribution of keys, but can degrade to O(n) in the worst case due to collision
+									handling.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. How do you create a custom key class for use with a HashMap, and what
+								considerations do you need to take into account when implementing hashCode and
+								equals methods?</summary>
+							<div class="toggle-content">
+								<p>
+									To create a custom key class:
+								<ul>
+									<li>Override hashCode() method to generate a unique integer for each key.</li>
+									<li>Override equals(Object obj) method to define how key equality should be
+										determined.</li>
+								</ul>
+								Considerations include ensuring consistency (equal objects must produce the same
+								hash code), efficiency (hashCode should be computed quickly), and correctness
+								(equals should be reflexive, symmetric, transitive, and consistent).
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. What is the difference between a HashMap and a LinkedHashMap in Java, and
+								when should you use one over the other?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap: Does not maintain insertion order. Offers O(1) time complexity for
+									basic operations but does not guarantee order of iteration.<br>
+									LinkedHashMap: Maintains insertion order of keys. Iteration order is the order
+									in which keys were inserted. Useful when iteration order matters or when
+									implementing a cache.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. How does a HashMap handle collisions, and how does this impact the time
+								complexity of the basic operations (put, get, remove)? How does a HashMap's
+								collision handling strategy compare to other map data structures, such as a TreeMap
+								or a LinkedHashMap?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap uses chaining to handle collisions, impacting worst-case time complexity
+									to O(n) due to linear traversal of linked lists at each bucket. TreeMap uses a
+									red-black tree for ordering, resulting in O(log n) complexity for basic
+									operations, making it slower but ordered. LinkedHashMap maintains order of
+									insertion, impacting performance minimally compared to HashMap.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. How do you create a thread-safe HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can create a thread-safe HashMap using Collections.synchronizedMap(new
+									HashMap<>()) or using ConcurrentHashMap which provides built-in thread safety
+										using various locking techniques and is more efficient for concurrent
+										access.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. How do you implement LRU Cache in Java using HashMap?</summary>
+							<div class="toggle-content">
+								<p>
+									Implement LRU (Least Recently Used) Cache using a combination of HashMap and a
+									doubly linked list. HashMap stores key-value pairs for quick lookup, while the
+									linked list keeps track of recently accessed elements. Eviction policy removes
+									least recently used elements when the cache reaches its capacity.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. How do you create a HashMap with a custom comparator in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap does not support custom comparators directly as it relies on hash codes
+									and equals methods of keys. Instead, consider using TreeMap which allows custom
+									comparators through its constructor.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. Can the order of the elements in a HashMap change during its lifetime in
+								Java? If so, under what circumstances?</summary>
+							<div class="toggle-content">
+								<p>
+									Yes, the order of elements in a HashMap can change during its lifetime,
+									especially during resizing or rehashing operations. The order is not guaranteed
+									and can depend on the order of insertion, hash code distribution, and capacity
+									adjustments.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. Implement a function countWords(String text) that takes a string as input
+								and returns a Map<String, Integer> that maps each word in the input string to the
+									number of times it appears in the string.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public Map&lt;String, Integer&gt; countWords(String text) {
+							    Map&lt;String, Integer&gt; wordCountMap = new HashMap<>();
+							    String[] words = text.split("\\s+"); // Split by whitespace
+							    for (String word : words) {
+							        word = word.replaceAll("[^a-zA-Z]", "").toLowerCase(); // Remove non-alphabetic characters
+							        if (!word.isEmpty()) {
+							            wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
+							        }
+							    }
+							    return wordCountMap;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. How does the performance of a HashMap compare to other map implementations
+								(e.g. TreeMap, LinkedHashMap) in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap generally provides O(1) average time complexity for basic operations
+									(put, get, remove), but can degrade to O(n) in worst-case scenarios due to
+									collisions. TreeMap provides O(log n) time complexity due to red-black tree
+									structure, making it slower but ordered. LinkedHashMap has similar performance
+									to HashMap but maintains insertion order.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. How do you convert a HashMap to a List or Set in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can convert a HashMap to a List or Set using constructors of ArrayList,
+									LinkedList, HashSet, or TreeSet.
+								<ul>
+									<li>To convert to a List:
+										<code>List&lt;Map.Entry&lt;K, V&gt;&gt; list = new ArrayList&lt;&gt;(map.entrySet());</code>
+									</li>
+									<li>To convert to a Set:
+										<code>Set&lt;Map.Entry&lt;K, V&gt;&gt; set = new HashSet&lt;&gt;(map.entrySet());</code>
+									</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. How do you merge two HashMaps in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can merge two HashMaps using the putAll() method or using Java 8 Stream API.
+								<pre><code>
+							Map&lt;K, V&gt; map1 = new HashMap&lt;&gt;();
+							Map&lt;K, V&gt; map2 = new HashMap&lt;&gt;();
+							map1.putAll(map2); // Using putAll method
+							// OR
+							map2.forEach((key, value) -&gt; map1.merge(key, value, (v1, v2) -&gt; v1 + v2)); // Using Stream API
+							            </code></pre>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. How do you create a HashMap with a fixed size in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You cannot directly create a HashMap with a fixed size, but you can use
+									HashMap's initial capacity and load factor to control resizing behavior.
+								<pre><code>
+							int fixedSize = 100;
+							Map&lt;K, V&gt; map = new HashMap&lt;&gt;(fixedSize);
+							            </code></pre>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. How do you create a HashMap that automatically removes expired entries in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can create a time-based eviction policy using a combination of HashMap and a
+									scheduling mechanism (such as TimerTask or ScheduledExecutorService) to remove
+									entries based on expiration time.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. Implement a function removeDuplicates(int[] array) that takes an array of
+								integers as input and returns a new array with duplicate elements removed. The
+								returned array should preserve the original order of the elements in the input
+								array.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public int[] removeDuplicates(int[] array) {
+							    Set&lt;Integer&gt; set = new LinkedHashSet&lt;&gt;();
+							    for (int num : array) {
+							        set.add(num);
+							    }
+							    int[] result = new int[set.size()];
+							    int index = 0;
+							    for (int num : set) {
+							        result[index++] = num;
+							    }
+							    return result;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. How do you create a HashMap with weak keys in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can create a HashMap with weak keys using java.lang.ref.WeakHashMap class.
+								<pre><code>
+							Map&lt;Key, Value&gt; weakHashMap = new WeakHashMap&lt;&gt;();
+							            </code></pre>
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. How do you create a HashMap with weak values in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap does not directly support weak values. You can use
+									java.lang.ref.WeakHashMap to achieve weak values.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. How do you create a HashMap with soft values in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap does not directly support soft values. You can use
+									java.lang.ref.SoftHashMap from external libraries or implement a custom solution
+									using java.lang.ref.SoftReference.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. Implement a function longestSubstring(String s) that takes a string as
+								input and returns the length of the longest substring without repeating characters.
+							</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public int longestSubstring(String s) {
+							    if (s == null || s.isEmpty()) return 0;
+							    Map&lt;Character, Integer&gt; charMap = new HashMap&lt;&gt;();
+							    int maxLength = 0;
+							    for (int start = 0, end = 0; end &lt; s.length(); end++) {
+							        char currentChar = s.charAt(end);
+							        if (charMap.containsKey(currentChar)) {
+							            start = Math.max(charMap.get(currentChar) + 1, start);
+							        }
+							        charMap.put(currentChar, end);
+							        maxLength = Math.max(maxLength, end - start + 1);
+							    }
+							    return maxLength;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+						<details onclick="closeOtherDetails('details2')">
+							<summary>1. How do you optimize the performance of a HashMap in a high-concurrency
+								environment in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									To optimize HashMap performance in high-concurrency environments:
+								<ul>
+									<li>Use ConcurrentHashMap instead of HashMap to provide thread-safety without
+										blocking read operations.</li>
+									<li>Adjust initial capacity and load factor based on expected concurrency and
+										size to minimize resizing overhead.</li>
+									<li>Consider using custom hashing strategies to reduce hash collisions.</li>
+									<li>Use read-write locks or synchronized blocks for complex operations spanning
+										multiple HashMap accesses.</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>2. How do you implement a distributed HashMap in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a distributed HashMap typically involves using distributed caching
+									solutions or distributed data grids like Hazelcast or Redisson in Java. These
+									frameworks provide built-in support for distributing HashMap-like data
+									structures across multiple nodes in a networked environment.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>3. How do you implement a HashMap with persistence in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with persistence in Java can be achieved using
+									serialization and deserialization techniques. You can serialize the HashMap to
+									disk using ObjectOutputStream and store it as a file. For more advanced
+									persistence requirements, consider using databases like SQLite or frameworks
+									like Apache Hadoop or Apache Cassandra for distributed storage.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>4. How do you implement a HashMap with transactions in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									HashMap does not inherently support transactions. For transactional behavior,
+									consider using databases with ACID properties (Atomicity, Consistency,
+									Isolation, Durability) like MySQL, PostgreSQL, or NoSQL databases like MongoDB
+									with transaction support. Alternatively, you can implement your own
+									transactional logic using software transactional memory (STM) or synchronized
+									blocks with rollback mechanisms.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>5. How do you implement a HashMap with lazy loading in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implement lazy loading in HashMap by initializing values only when they are
+									accessed for the first time. This can be achieved using ConcurrentHashMap's
+									computeIfAbsent() method or implementing a custom lazy-loading mechanism using
+									synchronization or atomic variables to ensure thread-safety.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>6. How do you implement a HashMap with cache eviction in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implement cache eviction in HashMap by setting a maximum size and using
+									strategies like Least Recently Used (LRU) or Least Frequently Used (LFU). You
+									can extend LinkedHashMap and override its removeEldestEntry() method or use
+									third-party caching libraries like Ehcache or Caffeine that provide built-in
+									support for eviction policies.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>7. Implement a function mostFrequent(int[] nums) that takes an array of
+								integers as input and returns the number that appears most frequently in the array.
+								If multiple numbers have the same highest frequency, return any of them.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public int mostFrequent(int[] nums) {
+							    Map&lt;Integer, Integer&gt; frequencyMap = new HashMap&lt;&gt;();
+							    for (int num : nums) {
+							        frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
+							    }
+							    int mostFrequentNum = nums[0];
+							    int maxFrequency = 0;
+							    for (Map.Entry&lt;Integer, Integer&gt; entry : frequencyMap.entrySet()) {
+							        if (entry.getValue() &gt; maxFrequency) {
+							            maxFrequency = entry.getValue();
+							            mostFrequentNum = entry.getKey();
+							        }
+							    }
+							    return mostFrequentNum;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>8. Implement a function uniqueCharacters(String s) that takes a string as input
+								and returns a string containing all the unique characters in the input string, in
+								the order in which they appear.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public String uniqueCharacters(String s) {
+							    Set&lt;Character&gt; uniqueChars = new LinkedHashSet&lt;&gt;();
+							    for (char c : s.toCharArray()) {
+							        uniqueChars.add(c);
+							    }
+							    StringBuilder result = new StringBuilder();
+							    for (char c : uniqueChars) {
+							        result.append(c);
+							    }
+							    return result.toString();
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>9. Implement a function countPairs(int[] nums, int target) that takes an array
+								of integers and a target integer as input, and returns the number of pairs of
+								integers in the array that add up to the target.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public int countPairs(int[] nums, int target) {
+							    Map&lt;Integer, Integer&gt; numCountMap = new HashMap&lt;&gt;();
+							    int pairCount = 0;
+							    for (int num : nums) {
+							        int complement = target - num;
+							        if (numCountMap.containsKey(complement)) {
+							            pairCount += numCountMap.get(complement);
+							        }
+							        numCountMap.put(num, numCountMap.getOrDefault(num, 0) + 1);
+							    }
+							    return pairCount;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>10. Implement a function palindromePairs(List&lt;String&gt; words) that takes a
+								list of strings as input and returns a list of pairs of strings from the input list
+								that can be concatenated to form a palindrome.</summary>
+							<div class="toggle-content">
+								<pre><code>
+							public List&lt;List&lt;String&gt;&gt; palindromePairs(List&lt;String&gt; words) {
+							    List&lt;List&lt;String&gt;&gt; result = new ArrayList&lt;&gt;();
+							    Map&lt;String, Integer&gt; wordIndexMap = new HashMap&lt;&gt;();
+							    for (int i = 0; i &lt; words.size(); i++) {
+							        wordIndexMap.put(words.get(i), i);
+							    }
+							    for (int i = 0; i &lt; words.size(); i++) {
+							        String word = words.get(i);
+							        for (int j = 0; j &lt;= word.length(); j++) {
+							            String left = word.substring(0, j);
+							            String right = word.substring(j);
+							            if (isPalindrome(left)) {
+							                String reversedRight = new StringBuilder(right).reverse().toString();
+							                if (wordIndexMap.containsKey(reversedRight) && wordIndexMap.get(reversedRight) != i) {
+							                    result.add(Arrays.asList(reversedRight, word));
+							                }
+							            }
+							            if (!right.isEmpty() && isPalindrome(right)) {
+							                String reversedLeft = new StringBuilder(left).reverse().toString();
+							                if (wordIndexMap.containsKey(reversedLeft) && wordIndexMap.get(reversedLeft) != i) {
+							                    result.add(Arrays.asList(word, reversedLeft));
+							                }
+							            }
+							        }
+							    }
+							    return result;
+							}
+							
+							private boolean isPalindrome(String s) {
+							    int left = 0;
+							    int right = s.length() - 1;
+							    while (left &lt; right) {
+							        if (s.charAt(left++) != s.charAt(right--)) {
+							            return false;
+							        }
+							    }
+							    return true;
+							}
+							        </code></pre>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>11. How do you implement a HashMap with a custom entry class in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									You can implement a HashMap with a custom entry class by extending
+									AbstractMap.SimpleEntry or implementing Map.Entry interface.
+								<pre><code>
+							public class CustomEntry&lt;K, V&gt; implements Map.Entry&lt;K, V&gt; {
+							    private final K key;
+							    private V value;
+							
+							    public CustomEntry(K key, V value) {
+							        this.key = key;
+							        this.value = value;
+							    }
+							
+							    @Override
+							    public K getKey() {
+							        return key;
+							    }
+							
+							    @Override
+							    public V getValue() {
+							        return value;
+							    }
+							
+							    @Override
+							    public V setValue(V value) {
+							        V oldValue = this.value;
+							        this.value = value;
+							        return oldValue;
+							    }
+							
+							    // Override hashCode and equals methods
+							}
+							            </code></pre>
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>12. How do you implement a HashMap with a custom key and value generator in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with a custom key and value generator involves defining
+									interfaces or classes for key and value generators and using them to generate
+									keys and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>13. How do you implement a HashMap with a custom key and value serializer in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with custom key and value serializers involves defining
+									interfaces or classes for key and value serializers and using them to serialize
+									and deserialize keys and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>14. How do you implement a HashMap with a custom key and value de-serializer in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with custom key and value de-serializers involves
+									defining interfaces or classes for key and value de-serializers and using them
+									to de-serialize keys and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>15. How do you implement a HashMap with a custom key and value factory in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with a custom key and value factory involves defining
+									interfaces or classes for key and value factories and using them to create keys
+									and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>16. How do you implement a HashMap with a custom key and value transformer in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with a custom key and value transformer involves defining
+									interfaces or classes for key and value transformers and using them to transform
+									keys and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>17. How do you implement a HashMap with a custom key and value filter in Java?
+							</summary>
+							<div class="toggle-content">
+								<p>
+									Implementing a HashMap with a custom key and value filter involves defining
+									interfaces or classes for key and value filters and using them to filter keys
+									and values for HashMap entries.
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>18. How do you handle concurrency issues in a HashMap in a high-concurrency
+								environment in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									To handle concurrency issues in HashMap in high-concurrency environments:
+								<ul>
+									<li>Use ConcurrentHashMap instead of HashMap to allow concurrent access without
+										blocking read operations.</li>
+									<li>Use synchronized blocks or read-write locks for complex operations spanning
+										multiple HashMap accesses.</li>
+									<li>Consider using volatile or atomic variables for fine-grained synchronization
+										of individual HashMap operations.</li>
+									<li>Implement custom concurrency control mechanisms based on specific
+										application requirements.</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>19. How do you compare the performance of different map implementations (e.g.
+								HashMap, TreeMap, LinkedHashMap) in Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Performance comparison of map implementations involves benchmarking operations
+									such as put, get, and remove across different map implementations (HashMap,
+									TreeMap, LinkedHashMap):
+								<ul>
+									<li>HashMap provides O(1) average-case time complexity for put and get
+										operations, but unordered.</li>
+									<li>TreeMap provides O(log n) time complexity for put and get operations with
+										keys sorted in natural order.</li>
+									<li>LinkedHashMap maintains insertion order with slightly higher performance
+										overhead than HashMap.</li>
+									<li>Consider specific use cases like frequent updates, ordered iteration, or
+										memory footprint to choose the appropriate map implementation.</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>20. How do you design a scalable and maintainable HashMap implementation in
+								Java?</summary>
+							<div class="toggle-content">
+								<p>
+									Designing a scalable and maintainable HashMap implementation in Java involves
+									considerations such as concurrency, performance, and extensibility:
+								<ul>
+									<li>Choose appropriate synchronization mechanisms like ConcurrentHashMap for
+										concurrency.</li>
+									<li>Optimize initial capacity and load factor to balance memory usage and
+										performance.</li>
+									<li>Implement eviction policies for managing memory usage, e.g., LRU (Least
+										Recently Used) caching.</li>
+									<li>Support customization through interfaces for serializers, transformers, and
+										filters.</li>
+									<li>Use design patterns like factory method for object creation and decorator
+										for additional behaviors.</li>
+									<li>Document and test thoroughly to ensure reliability, scalability, and
+										maintainability.</li>
+								</ul>
+								</p>
+							</div>
+						</details></br>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary" href="../java/java-set.html">&lArr;
+							Previous</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

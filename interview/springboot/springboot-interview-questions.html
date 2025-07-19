@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>SpringBoot Interview</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <script>
+        function closeOtherDetails(id) {
+            const details = document.getElementsByTagName('details');
+            for (let i = 0; i < details.length; i++) {
+                if (details[i].id !== id) {
+                    details[i].removeAttribute('open');
+                }
+            }
+        }
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+                                                            src="../../scripts/images/nani1.png" alt="Home"/>
+            <h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+                                                                          href="../../home.html"><img height="25"
+                                                                                                      width="25"
+                                                                                                      src="../../scripts/images/home.png"></i>
+                </a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide">
+                    <input type="checkbox" id="switch-theme-checkbox"/>
+                    <span class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;">
+        <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/springboot-interview-questions.html">SpringBoot
+                            Basic</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/configuration.html">Configuration</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/actuator.html">Actuator</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-1.html">SpringBoot Interview-1</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-2.html">SpringBoot Interview-2</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/interview-3.html">SpringBoot Interview-3</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/jpa.html">JPA Interview</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/batch.html">Batch Interview</a>
+                        <li class="nav-item"><a class="nav-link"
+                                                href="../springboot/security.html">Security Interview</a>
+
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+                    <li><a href="../springboot/springboot-interview-questions.html">Springboot Interview
+                        Questions</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+                    <li><a href="../springboot/springboot-interview-questions.html">Springboot Interview
+                        Questions</a></li>
+                </ul>
+
+            </nav>
+            <article>
+                <div>
+                    <h4>SpringBoot Interview Questions</h4>
+                    <div class="card-body">
+                        <h4><b>1. SpringBoot Basic Interview Questions</b></h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. What is Spring Boot? How does it benefit to develop RESTful web services?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot is a framework that simplifies the setup and development of
+                                    Java applications, especially web applications and microservices. It provides
+                                    defaults for configuration so that developers can focus more on business logic
+                                    rather than infrastructure.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. What are the features of Spring Boot for developing microservices
+                                applications?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot offers features like embedded servers, production-ready
+                                    metrics, health checks, externalized configuration management, and easy
+                                    integration with various other Spring projects. These features make it ideal for
+                                    building microservices.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. What are the key features of Spring Boot that make it superior over JAX-RS?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot's convention-over-configuration approach, auto-configuration,
+                                    and starter dependencies make it easier and faster to set up and develop RESTful
+                                    services compared to JAX-RS, which requires more manual configuration and setup.
+                                </p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. Why do we encourage using Spring Boot over other frameworks?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot simplifies and accelerates application development by
+                                    providing default configurations, eliminating boilerplate code, and integrating
+                                    seamlessly with other Spring projects. It also supports a wide range of
+                                    deployment options and third-party libraries.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. How does Spring Boot work internally?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot uses convention-over-configuration and auto-configuration
+                                    principles. It scans the classpath, detects libraries, and automatically
+                                    configures beans and components based on dependencies and properties, reducing
+                                    the need for manual configuration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. What is the important dependency of a Spring Boot application?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: The `spring-boot-starter` dependency is crucial in a Spring Boot
+                                    application. It includes all essential dependencies and configurations required
+                                    to start a Spring Boot project, such as embedded web server, Spring Core, and
+                                    default configurations.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. What are the basic components of Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Basic components include auto-configuration, starter dependencies,
+                                    embedded servers (like Tomcat, Jetty), Spring Boot CLI, Spring Boot Actuator,
+                                    and Spring Boot Starter parent.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. What is auto-configuration in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Auto-configuration in Spring Boot automatically configures the Spring
+                                    application based on the dependencies and classpath. It eliminates the need for
+                                    explicit configuration files and reduces boilerplate code, making development
+                                    faster and simpler.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. What is a Spring Boot Starter?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Starters are a set of convenient dependency descriptors that
+                                    you can include in your application. They provide a quick way to add typical
+                                    dependencies needed for a specific feature or functionality in your application.
+                                </p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. What is Spring Boot CLI?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot CLI (Command Line Interface) allows you to run and test
+                                    Spring Boot applications from the command line. It supports Groovy-based
+                                    scripting and offers features like application generation, testing, and running
+                                    scripts.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. What is Spring Boot Initializr?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Initializr is a web-based tool that helps you bootstrap a new
+                                    Spring Boot application quickly. It allows you to select dependencies, customize
+                                    application properties, and download a pre-configured Spring Boot project.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. What is a Spring Boot interceptor? Why do we need this feature, and what
+                                are real use case scenarios where a Spring Boot interceptor fits?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot interceptors are used to intercept client requests and server
+                                    responses. They are useful for implementing cross-cutting concerns such as
+                                    logging, authentication, authorization, and performance monitoring. Real use
+                                    cases include logging request details, validating authentication tokens, and
+                                    enforcing access control.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. What are the important annotations for Spring REST? What are their use
+                                cases?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Important annotations include `@RestController`, `@RequestMapping`,
+                                    `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, `@RequestBody`,
+                                    and `@ResponseBody`. They are used for defining RESTful endpoints, mapping HTTP
+                                    requests to controller methods, handling request and response bodies, and
+                                    specifying HTTP methods.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. What is Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot is an open-source Java-based framework used to create
+                                    standalone, production-grade Spring-based applications with minimal setup and
+                                    configuration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. Why do you need Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot simplifies and accelerates application development by
+                                    providing default configurations, reducing boilerplate code, and integrating
+                                    seamlessly with other Spring projects and third-party libraries.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. Explain the main or entry-level method of a Spring Boot application.
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: The main method of a Spring Boot application serves as the entry point.
+                                    It bootstraps the Spring context by invoking
+                                    `SpringApplication.run(Application.class, args)`, which starts the embedded web
+                                    server and initializes the application.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. Is it possible to have a Spring Boot Application without using
+                                `@SpringBootApplication` annotation? If yes, explain why you would do that.
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Yes, it's possible to create a Spring Boot application without
+                                    `@SpringBootApplication` by manually configuring components using separate
+                                    annotations like `@Configuration`, `@EnableAutoConfiguration`, and
+                                    `@ComponentScan`. This approach provides more fine-grained control over
+                                    configuration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. Can you explain Component Scanning in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Component scanning in Spring Boot automatically detects and registers
+                                    Spring beans (components, services, controllers) within the classpath. It uses
+                                    annotations like `@Component`, `@Service`, `@Repository`, and `@Controller` to
+                                    identify and manage Spring-managed beans.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. What is Spring Boot Actuator? What features does it provide, and how can
+                                you customize or add more?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Actuator is a subproject of Spring Boot that provides
+                                    production-ready features to monitor and manage Spring applications. It includes
+                                    health checks, metrics, info endpoints, auditing, and environment details. You
+                                    can customize Actuator endpoints and add custom metrics by extending its
+                                    functionality.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. How do you make sure your changes are loaded without restarting the Spring
+                                Boot Application when running in Embedded Server mode?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Use Spring Boot DevTools, which provides automatic restarts, hot swapping
+                                    of code changes, and live reload of static resources. This allows you to see
+                                    changes immediately without restarting the application.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details21" onclick="closeOtherDetails('details21')">
+                            <summary>21. How will you go about security in a Spring Boot Application?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implement security features using Spring Security, which provides
+                                    authentication, authorization, and other security mechanisms. Configure security
+                                    settings using annotations (`@EnableWebSecurity`, `@EnableGlobalMethodSecurity`)
+                                    and define security rules (`@Secured`, `@PreAuthorize`) based on application
+                                    requirements.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details22" onclick="closeOtherDetails('details22')">
+                            <summary>22. Explain different features of Spring Boot.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Features include auto-configuration, starters, embedded servers (Tomcat,
+                                    Jetty), production-ready metrics (Actuator), Spring Boot CLI, Spring Boot
+                                    DevTools, externalized configuration management, and seamless integration with
+                                    Spring ecosystem.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details23" onclick="closeOtherDetails('details23')">
+                            <summary>23. How do you generate a Spring Boot-based Project? What is the recommended
+                                approach?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Use Spring Initializr (via web UI or IDE plugin) to generate a Spring
+                                    Boot project. Select dependencies, customize application details, and download
+                                    the project as a ZIP file. This approach ensures a standardized and manageable
+                                    project setup.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details24" onclick="closeOtherDetails('details24')">
+                            <summary>24. What is Spring Boot CLI? Can you list out its advantages?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot CLI (Command Line Interface) is a tool for running and
+                                    testing Spring Boot applications from the command line using Groovy scripts.
+                                    Advantages include rapid prototyping, simplified development, and scripting
+                                    capabilities for automating tasks.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details25" onclick="closeOtherDetails('details25')">
+                            <summary>25. What are Spring Boot Starters?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Starters are pre-configured dependencies that simplify the
+                                    inclusion of common libraries and configurations needed for specific features
+                                    (like web applications, data access, messaging). They streamline application
+                                    setup and reduce configuration overhead.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details26" onclick="closeOtherDetails('details26')">
+                            <summary>26. Where do you define properties in a Spring Boot application? Explain
+                                different property formats supported.
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Properties in Spring Boot can be defined in `application.properties` or
+                                    `application.yml` files. They support various formats like key-value pairs
+                                    (`key=value`), YAML format (`key: value`), and environment-specific profiles
+                                    (`application-{profile}.properties` or `application-{profile}.yml`).</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details27" onclick="closeOtherDetails('details27')">
+                            <summary>27. Explain the difference between Embedded Server & War file.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Embedded server in Spring Boot (like Tomcat, Jetty) runs within the
+                                    application process, allowing applications to be self-contained and easily
+                                    executable. WAR (Web Application Archive) files require an external servlet
+                                    container (like Tomcat) for deployment, making them less portable and more
+                                    complex.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details28" onclick="closeOtherDetails('details28')">
+                            <summary>28. What is Spring Boot DevTools and how does it help in development?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot DevTools is a set of tools for enhancing development
+                                    productivity. It provides features like automatic restarts, live reload of
+                                    changes (HTML, CSS, JavaScript), and configuration properties updates without
+                                    restarting the application, improving development efficiency.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details29" onclick="closeOtherDetails('details29')">
+                            <summary>29. How do you configure logging in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Configure logging in Spring Boot using `application.properties` or
+                                    `application.yml` with logging-specific properties (`logging.level`,
+                                    `logging.file`, `logging.pattern`). Use logging frameworks like Logback or
+                                    Log4j2, and customize logging behavior as per application requirements.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details30" onclick="closeOtherDetails('details30')">
+                            <summary>30. What is a Spring Boot auto-configuration report and how do you use it?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot auto-configuration report lists auto-configured beans and
+                                    configurations during application startup. You can view this report by enabling
+                                    `debug` logging for `org.springframework.boot.autoconfigure`, helping to
+                                    understand how Spring Boot configures beans and dependencies.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details31" onclick="closeOtherDetails('details31')">
+                            <summary>31. What are the different property sources available in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Property sources in Spring Boot include system properties (`-D`),
+                                    environment variables, `application.properties`, `application.yml`, and external
+                                    property files. Spring Boot merges these sources to resolve properties, allowing
+                                    flexible configuration management.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details32" onclick="closeOtherDetails('details32')">
+                            <summary>32. Explain the concept of profiles in Spring Boot and how to use them.
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Profiles in Spring Boot allow defining multiple configurations for
+                                    different environments (like `dev`, `test`, `prod`). Use `@Profile` annotation
+                                    on components or define `application-{profile}.properties` or
+                                    `application-{profile}.yml` to activate profiles. Profiles help in managing
+                                    environment-specific settings and configurations.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details33" onclick="closeOtherDetails('details33')">
+                            <summary>33. What is Spring Boot DevTools and how does it help in development?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot DevTools is a set of tools for enhancing development
+                                    productivity. It provides features like automatic restarts, live reload of
+                                    changes (HTML, CSS, JavaScript), and configuration properties updates without
+                                    restarting the application, improving development efficiency.</p>
+                            </div>
+                        </details>
+                        </br>
+                        <h4><b>2. SpringBoot Intermediate Interview Questions</b></h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. How is Spring Boot different from Spring?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring is a comprehensive framework that provides a wide range of
+                                    features and functionalities for building enterprise Java applications. Spring
+                                    Boot, on the other hand, is built on top of the Spring framework and aims to
+                                    simplify the setup and development of Spring applications by providing
+                                    auto-configuration and convention-over-configuration principles.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. Why is Spring Boot suitable for Microservices based cloud applications?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot's features such as embedded servers, production-ready metrics
+                                    via Spring Boot Actuator, externalized configuration management, and seamless
+                                    integration with cloud platforms (like AWS, Azure, etc.) make it ideal for
+                                    developing and deploying microservices-based cloud applications.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. What is a Spring IoC container?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring IoC (Inversion of Control) container is responsible for managing
+                                    Java objects (beans) and their dependencies. It uses Dependency Injection to
+                                    provide dependencies to beans, thereby promoting loose coupling and enhancing
+                                    the testability and reusability of code.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. What is Dependency Injection? What are the types of Dependency Injection?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Dependency Injection (DI) is a design pattern used in Spring to inject
+                                    the dependencies of a class from an external source, rather than creating them
+                                    internally. Types of DI in Spring are Constructor Injection, Setter Injection,
+                                    and Field Injection.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. What are Spring beans?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring beans are Java objects that are managed by the Spring IoC
+                                    container. They are defined in the Spring configuration file
+                                    (`applicationContext.xml` or through annotations) and are instantiated,
+                                    configured, and managed by the container.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. What is the difference between BeanFactory and ApplicationContext?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: BeanFactory is the core interface for accessing Spring beans and provides
+                                    basic bean functionalities like instantiation, configuration, and dependency
+                                    injection. ApplicationContext extends BeanFactory and provides additional
+                                    features such as event propagation, internationalization, resource loading, and
+                                    AOP integration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. Elaborate ApplicationContext and its role in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: ApplicationContext is a central interface in Spring for managing Spring
+                                    beans. In Spring Boot, it plays a crucial role by providing advanced features
+                                    like auto-configuration, externalized configuration management, environment
+                                    management, and integration with other Spring projects.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. Which Annotation do you use to enable Spring Boot? Elaborate.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `@SpringBootApplication` is the main annotation used to enable Spring
+                                    Boot features in a Java class. It combines `@Configuration`,
+                                    `@EnableAutoConfiguration`, and `@ComponentScan` annotations, enabling Spring
+                                    Boot to auto-configure the application based on the dependencies present in the
+                                    classpath.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. How do you implement Exception Handling in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Exception handling in Spring Boot is achieved using `@ControllerAdvice`
+                                    and `@ExceptionHandler` annotations. `@ControllerAdvice` allows centralized
+                                    exception handling across multiple controllers, while `@ExceptionHandler`
+                                    methods handle specific exceptions and return custom error responses.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. Explain the Database/Repository annotations used in Spring?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: In Spring Boot, database/repository annotations like `@Entity`,
+                                    `@Repository`, `@Autowired`, `@Transactional`, and `@Query` are used for
+                                    defining entities, repositories, dependency injection of repositories,
+                                    transaction management, and custom SQL queries respectively.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. Can you create a custom Spring Boot starter?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Yes, you can create a custom Spring Boot starter by defining a Maven or
+                                    Gradle project that includes specific dependencies and auto-configuration. It
+                                    should contain a `META-INF/spring.factories` file listing auto-configuration
+                                    classes and be published to a repository for reuse.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. What is Aspect-Oriented Programming?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Aspect-Oriented Programming (AOP) is a programming paradigm that allows
+                                    modularization of cross-cutting concerns (logging, transaction management) into
+                                    separate aspects. In Spring Boot, AOP is implemented using `@Aspect` and advice
+                                    annotations (`@Before`, `@After`, `@Around`) to intercept method executions.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. What is Spring Boot DevTools?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot DevTools is a set of tools that enhances the development
+                                    experience by providing features like automatic restarts, live reloading of
+                                    changes (HTML, CSS, JavaScript), and configuration properties updates without
+                                    restarting the application.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. What is Spring Application Properties and how is it used?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Application Properties (`application.properties` or
+                                    `application.yml`) are used to externalize configuration settings in Spring
+                                    Boot. They define key-value pairs for configuring various aspects of the
+                                    application such as database settings, logging levels, and server
+                                    configurations.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. How can you do Integration Testing with Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integration testing in Spring Boot can be performed using tools like
+                                    JUnit and Spring Test. You can use `@SpringBootTest` to load the Spring
+                                    application context and `@AutoConfigureMockMvc` or `@WebMvcTest` to test REST
+                                    APIs. MockMvc is used for simulating HTTP requests and verifying responses.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. What are different ways of running a Spring Boot Application?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: You can run a Spring Boot application as a standalone JAR file using
+                                    `java -jar`, using an embedded server (Tomcat, Jetty) via `mvn spring-boot:run`,
+                                    or deploying as a WAR file in a servlet container like Tomcat or Jetty.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. Explain various `@Conditional` Annotations in Spring Boot.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `@Conditional` annotations in Spring Boot allow conditional bean
+                                    registration based on certain conditions (like bean existence, environment
+                                    properties, profiles). Examples include `@ConditionalOnClass`,
+                                    `@ConditionalOnProperty`, `@ConditionalOnBean`, etc., which control bean
+                                    instantiation based on conditions.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. Explain the use of Spring Boot Maven plugin?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Maven plugin (`spring-boot-maven-plugin`) provides utilities
+                                    to package, run, and manage Spring Boot applications directly from Maven. It
+                                    allows building executable JARs or WARs, running the application with embedded
+                                    servers, and managing dependencies and configurations.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. How can you change the output artifact of a Spring Boot application from
+                                JAR to WAR?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: To change the output artifact from JAR to WAR in Spring Boot, modify the
+                                    `pom.xml` file by changing the packaging type to `war` and extending
+                                    `SpringBootServletInitializer` in the main application class. Also, exclude the
+                                    embedded servlet container dependency.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. What is the difference between Spring Boot 1 and Spring Boot 2?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot 2 introduced several updates and improvements over Spring
+                                    Boot 1, including support for Spring Framework 5, Java 8 as minimum requirement,
+                                    reactive programming with WebFlux, enhanced actuator endpoints, improved
+                                    metrics, and better support for Kotlin.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details21" onclick="closeOtherDetails('details21')">
+                            <summary>21. How do you integrate Spring Boot with Hibernate?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integrate Spring Boot with Hibernate by configuring data source
+                                    properties (`application.properties` or `application.yml`), defining entity
+                                    classes annotated with `@Entity`, creating repository interfaces extending
+                                    `JpaRepository`, and enabling transaction management using
+                                    `@EnableTransactionManagement`.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details22" onclick="closeOtherDetails('details22')">
+                            <summary>22. What does Spring Boot offer with respect to Messaging using
+                                ConnectionFactory?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot simplifies messaging using JMS (Java Message Service) with
+                                    `ConnectionFactory` configuration. It provides auto-configuration for messaging
+                                    components, simplifies JMS template usage, and supports messaging frameworks
+                                    like ActiveMQ, RabbitMQ, and others.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details23" onclick="closeOtherDetails('details23')">
+                            <summary>23. What is AMQP? What does Spring Boot offer with respect to Messaging with
+                                AMQP?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: AMQP (Advanced Message Queuing Protocol) is a messaging protocol. Spring
+                                    Boot provides auto-configuration for AMQP-based messaging using RabbitMQ,
+                                    allowing easy integration and configuration of message listeners, message
+                                    converters, and RabbitMQ properties.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details24" onclick="closeOtherDetails('details24')">
+                            <summary>24. What is Spring Boot Admin? How do you configure it?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Admin is a community project for monitoring and managing
+                                    Spring Boot applications. Configure it by adding
+                                    `spring-boot-admin-starter-server` dependency, enabling it with
+                                    `@EnableAdminServer`, and configuring endpoints, security, and client
+                                    registration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details25" onclick="closeOtherDetails('details25')">
+                            <summary>25. Name & explain Common Boot Starters.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Common Boot Starters in Spring Boot include `spring-boot-starter-web`
+                                    (for web applications), `spring-boot-starter-data-jpa` (for JPA data access),
+                                    `spring-boot-starter-test` (for testing), `spring-boot-starter-security` (for
+                                    security), and others. They provide pre-configured dependencies for common
+                                    functionalities.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details26" onclick="closeOtherDetails('details26')">
+                            <summary>26. Explain how you go about logging configuration in Spring Boot.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Configure logging in Spring Boot using `application.properties` or
+                                    `application.yml` with properties like `logging.level`, `logging.file`, and
+                                    `logging.pattern`. Use logging frameworks like Logback or Log4j2, and customize
+                                    logging behavior as per application requirements.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details27" onclick="closeOtherDetails('details27')">
+                            <summary>27. Explain Spring Boot Starter Parent.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `spring-boot-starter-parent` is the parent Maven project that provides
+                                    dependency management and plugin configuration for Spring Boot applications. It
+                                    ensures consistent versions of Spring Boot dependencies across modules and
+                                    simplifies project configuration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details28" onclick="closeOtherDetails('details28')">
+                            <summary>28. Is it possible to have a Spring Boot Application without Spring Boot
+                                Starter Parent? If yes, when will you do that?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Yes, it is possible to have a Spring Boot application without
+                                    `spring-boot-starter-parent` by manually managing dependencies and
+                                    configurations in the `pom.xml`. This approach might be necessary in legacy
+                                    projects or when customizing dependency versions.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details29" onclick="closeOtherDetails('details29')">
+                            <summary>29. Explain how you will integrate Swagger with Spring Boot.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Integrate Swagger with Spring Boot by adding `springfox-swagger2` and
+                                    `springfox-swagger-ui` dependencies, configuring `Docket` bean in a
+                                    `@Configuration` class, and annotating REST controllers with Swagger annotations
+                                    (`@Api`, `@ApiOperation`). Customize Swagger UI and security settings as
+                                    required.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details30" onclick="closeOtherDetails('details30')">
+                            <summary>30. How do you configure security in a Spring Boot application?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Configure security in Spring Boot using `spring-boot-starter-security`
+                                    dependency, `@EnableWebSecurity`, and `@Configuration` classes. Define security
+                                    rules using `HttpSecurity` and `@EnableGlobalMethodSecurity`, and customize
+                                    authentication providers, access rules, and session management.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details31" onclick="closeOtherDetails('details31')">
+                            <summary>31. What are the new features in Spring Boot 3.x?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: As of now, Spring Boot 3.x hasn't been officially released. New features
+                                    are typically announced with each major release, focusing on improvements in
+                                    Spring Framework integration, support for new Java versions, enhanced dependency
+                                    management, and updated auto-configuration capabilities.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details32" onclick="closeOtherDetails('details32')">
+                            <summary>32. How do you handle data validation in Spring Boot applications?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Handle data validation in Spring Boot using validation annotations
+                                    (`@NotNull`, `@Size`, etc.) on entity fields or DTOs, implementing custom
+                                    validators (`@Constraint`, `Validator` interface), and using `@Valid` annotation
+                                    in controller methods to trigger validation and handle validation errors.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details33" onclick="closeOtherDetails('details33')">
+                            <summary>33. What is Spring Boot Admin and how is it configured?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot Admin is a community project for monitoring and managing
+                                    Spring Boot applications. Configure it by adding
+                                    `spring-boot-admin-starter-server` dependency, enabling it with
+                                    `@EnableAdminServer`, and configuring endpoints, security, and client
+                                    registration.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details34" onclick="closeOtherDetails('details34')">
+                            <summary>34. How do you customize the Actuator endpoints in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Customize Actuator endpoints in Spring Boot by defining custom health
+                                    indicators (`HealthIndicator`), creating custom Actuator endpoints (`@Endpoint`
+                                    and `@ReadOperation`), securing endpoints using Spring Security, and exposing or
+                                    hiding endpoints based on application requirements.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details35" onclick="closeOtherDetails('details35')">
+                            <summary>35. Explain the use of `@Value` annotation in Spring Boot.</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `@Value` annotation in Spring Boot is used for injecting values from
+                                    properties files (`application.properties` or `application.yml`) or environment
+                                    variables into Spring components (beans). It allows accessing property values as
+                                    String, primitives, arrays, or collections.</p>
+                            </div>
+                        </details>
+                        </br>
+                        <h4><b>3. SpringBoot IntAdvanced Interview Questions</b></h4>
+                        <details id="details1" onclick="closeOtherDetails('details1')">
+                            <summary>1. How does Spring Boot handle runtime exceptions internally, and what
+                                annotations do you use to declare user-defined exceptions? Any real-time scenario
+                                where Spring Boot fits to handle the exception.
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Boot uses its centralized exception handling mechanism to handle
+                                    runtime exceptions. To declare user-defined exceptions, you can use
+                                    `@ResponseStatus` annotation or create custom exception classes extending
+                                    `RuntimeException` and annotate them with `@ResponseStatus`. Spring Boot is
+                                    suitable for handling exceptions in scenarios like REST APIs where consistent
+                                    error handling across layers is crucial.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details2" onclick="closeOtherDetails('details2')">
+                            <summary>2. Spring Boot example to develop an Exception handler?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: To develop an exception handler in Spring Boot, create a class annotated
+                                    with `@ControllerAdvice` and define methods annotated with `@ExceptionHandler`
+                                    for specific exception types. These methods handle exceptions thrown by
+                                    controllers and return custom error responses.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details3" onclick="closeOtherDetails('details3')">
+                            <summary>3. What is Swagger? How do you implement it for a Spring Boot application?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Swagger is a toolset for documenting and testing RESTful APIs. To
+                                    implement Swagger in a Spring Boot application, add dependencies for
+                                    `springfox-swagger2` and `springfox-swagger-ui` in `pom.xml`, configure `Docket`
+                                    bean in a `@Configuration` class, and annotate controllers with Swagger
+                                    annotations like `@Api` and `@ApiOperation`.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details4" onclick="closeOtherDetails('details4')">
+                            <summary>4. What are Spring Profiles? How do you implement them using Spring Boot?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Profiles allow you to define different configurations for
+                                    different environments (like development, testing, production). In Spring Boot,
+                                    you define profiles using `application-{profile}.properties` or
+                                    `application-{profile}.yml` files and activate them using
+                                    `spring.profiles.active` property in `application.properties`.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details5" onclick="closeOtherDetails('details5')">
+                            <summary>5. What Is the Difference Between Hibernate and Spring Data JPA?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Hibernate is an ORM (Object-Relational Mapping) framework that provides
+                                    data persistence and retrieval services. Spring Data JPA is a part of the Spring
+                                    Data project that simplifies JPA (Java Persistence API) usage. Spring Data JPA
+                                    provides repositories and custom query methods for data access.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details6" onclick="closeOtherDetails('details6')">
+                            <summary>6. What Is a Circular Dependency?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Circular Dependency in Spring occurs when two or more beans depend on
+                                    each other directly or indirectly. It creates a situation where Spring cannot
+                                    resolve dependencies. To resolve this, use `@Lazy` annotation, setter injection,
+                                    or refactor the beans to avoid direct circular references.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details7" onclick="closeOtherDetails('details7')">
+                            <summary>7. When should you use @Component vs @Bean annotations?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Use `@Component` annotation to auto-detect and instantiate beans during
+                                    component scanning. Use `@Bean` annotation in a `@Configuration` class to
+                                    explicitly declare and instantiate beans. Use `@Component` for auto-discovery
+                                    and `@Bean` for manual configuration of beans.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details8" onclick="closeOtherDetails('details8')">
+                            <summary>8. How to implement Caching in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implement caching in Spring Boot by adding `spring-boot-starter-cache`
+                                    dependency, configuring caching provider (`@EnableCaching`), annotating methods
+                                    to cache (`@Cacheable`, `@CachePut`, `@CacheEvict`), and configuring cache
+                                    properties in `application.properties` or `application.yml`.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details9" onclick="closeOtherDetails('details9')">
+                            <summary>9. What is the difference between Singleton and Prototype scope in Spring?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Singleton scope creates a single instance per Spring IoC container
+                                    (default). Prototype scope creates a new instance every time it is requested.
+                                    Singleton is suitable for stateless beans, and Prototype is suitable for
+                                    stateful beans or when new instances are needed on every request.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details10" onclick="closeOtherDetails('details10')">
+                            <summary>10. Can you highlight the difference between @RequestMapping, @RequestParam,
+                                @RequestBody, and @PathVariable annotations?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer:
+                                <ul>
+                                    <li>`@RequestMapping`: Maps HTTP requests to handler methods.</li>
+                                    <li>`@RequestParam`: Binds HTTP request parameter to method parameter.</li>
+                                    <li>`@RequestBody`: Binds HTTP request body to method parameter (for POST and
+                                        PUT requests).
+                                    </li>
+                                    <li>`@PathVariable`: Extracts URI template variable to method parameter.</li>
+                                </ul>
+                                </p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details11" onclick="closeOtherDetails('details11')">
+                            <summary>11. What is REST? How to build RESTful service using Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: REST (Representational State Transfer) is an architectural style for
+                                    designing networked applications. To build a RESTful service using Spring Boot,
+                                    create a Spring Boot application with `@RestController`, define handler methods
+                                    annotated with HTTP methods (`@GetMapping`, `@PostMapping`, etc.), and return
+                                    data in JSON/XML format.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details12" onclick="closeOtherDetails('details12')">
+                            <summary>12. What is HATEOAS in RESTful applications?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: HATEOAS (Hypermedia as the Engine of Application State) in RESTful
+                                    applications means including hypermedia links in the response returned by the
+                                    server. Clients can navigate through the application by following these links.
+                                    Spring HATEOAS module provides support for creating RESTful APIs with
+                                    hypermedia.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details13" onclick="closeOtherDetails('details13')">
+                            <summary>13. Explain the difference between @Controller and @RestController annotation?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: `@Controller` is used to create MVC controllers that handle HTTP requests
+                                    and return a view. `@RestController` combines `@Controller` and `@ResponseBody`,
+                                    returning data directly formatted as JSON or XML (typically used for RESTful
+                                    APIs).</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details14" onclick="closeOtherDetails('details14')">
+                            <summary>14. What is @Autowired annotation? How is @Qualifier used with it?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: `@Autowired` annotation injects dependencies in Spring-managed beans
+                                    automatically. `@Qualifier` annotation is used with `@Autowired` to specify
+                                    which bean to inject when multiple beans of the same type are present. It helps
+                                    resolve ambiguity in dependency injection.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details15" onclick="closeOtherDetails('details15')">
+                            <summary>15. What is Microservices? How is it different from monolithic applications?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Microservices is an architectural style where applications are built as a
+                                    collection of small, independent services, each running in its own process and
+                                    communicating through lightweight mechanisms. It differs from monolithic
+                                    applications where all functionality is bundled into a single unit.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details16" onclick="closeOtherDetails('details16')">
+                            <summary>16. What is Spring Cloud Contract?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Spring Cloud Contract is a framework for consumer-driven contract testing
+                                    of microservices. It defines contracts (agreements) between services about the
+                                    data they exchange. Contracts are defined in a human-readable form and can be
+                                    verified independently by both consumer and provider services.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details17" onclick="closeOtherDetails('details17')">
+                            <summary>17. What is Hystrix and how can it be implemented in the Spring Boot
+                                application?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Hystrix is a latency and fault tolerance library designed to isolate
+                                    points of access to remote systems, services, and 3rd party libraries. In Spring
+                                    Boot, Hystrix can be implemented by adding
+                                    `spring-cloud-starter-netflix-hystrix` dependency, annotating methods with
+                                    `@HystrixCommand`, and configuring fallback methods to handle failures.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details18" onclick="closeOtherDetails('details18')">
+                            <summary>18. What is Service Discovery and how can it be enabled in Spring Boot?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Service Discovery is a mechanism where services register themselves and
+                                    discover other services dynamically. In Spring Boot, service discovery can be
+                                    enabled using Netflix Eureka or Spring Cloud Consul. Services register
+                                    themselves with a service registry, and clients discover services through the
+                                    registry.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details19" onclick="closeOtherDetails('details19')">
+                            <summary>19. What is Reactive Programming? How can it be enabled using Spring?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Reactive Programming is a programming paradigm for asynchronous
+                                    programming with non-blocking streams of data. In Spring, Reactive Programming
+                                    can be enabled using Spring WebFlux module, which provides reactive programming
+                                    support with publishers like Flux and Mono.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details20" onclick="closeOtherDetails('details20')">
+                            <summary>20. What is Cloud Foundry?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Cloud Foundry is an open-source platform as a service (PaaS) that
+                                    provides a platform for building, deploying, and managing applications on cloud
+                                    infrastructure. It supports multiple programming languages and frameworks,
+                                    including Spring Boot, and automates application lifecycle management.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details21" onclick="closeOtherDetails('details21')">
+                            <summary>21. What is ELK stack?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: ELK stack is a combination of three open-source projects: Elasticsearch,
+                                    Logstash, and Kibana. Elasticsearch is a distributed search and analytics
+                                    engine, Logstash is a server-side data processing pipeline, and Kibana is a
+                                    visualization tool for Elasticsearch data. It is commonly used for log
+                                    aggregation and analysis.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details22" onclick="closeOtherDetails('details22')">
+                            <summary>22. How do you handle transactions in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Transactions in Spring Boot are handled using `@Transactional`
+                                    annotation. Add `spring-boot-starter-data-jpa` dependency for JPA transactions
+                                    or configure `DataSourceTransactionManager` for JDBC transactions. Annotate
+                                    service methods with `@Transactional` to demarcate transaction boundaries.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details23" onclick="closeOtherDetails('details23')">
+                            <summary>23. What are the best practices for performance tuning in Spring Boot
+                                applications?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Best practices for performance tuning in Spring Boot include optimizing
+                                    database queries, enabling caching, reducing unnecessary logging, using
+                                    connection pooling, configuring thread pools, minimizing object creation, and
+                                    using monitoring tools to identify bottlenecks.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details24" onclick="closeOtherDetails('details24')">
+                            <summary>24. How do you implement distributed tracing in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implement distributed tracing in Spring Boot using tools like Zipkin or
+                                    Spring Cloud Sleuth. Add dependencies, configure tracing in
+                                    `application.properties` or `application.yml`, and annotate service methods with
+                                    `@NewSpan` to trace requests across microservices.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details25" onclick="closeOtherDetails('details25')">
+                            <summary>25. How do you implement Spring Cloud Config in a Spring Boot application?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Implement Spring Cloud Config in Spring Boot by adding
+                                    `spring-cloud-starter-config` dependency, configuring `bootstrap.properties` or
+                                    `bootstrap.yml` with config server URL, and defining configuration files
+                                    (`application-{profile}.properties` or `application-{profile}.yml`) in a
+                                    centralized config server.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details26" onclick="closeOtherDetails('details26')">
+                            <summary>26. What is Circuit Breaker pattern and how do you implement it using Spring
+                                Boot?
+                            </summary>
+                            <div class="toggle-content">
+                                <p>Answer: Circuit Breaker pattern is used to handle faults and latency in
+                                    distributed systems. In Spring Boot, implement Circuit Breaker using Netflix
+                                    Hystrix or Resilience4j libraries. Annotate methods with `@HystrixCommand` or
+                                    `@CircuitBreaker`, configure fallback methods, and define circuit breaker
+                                    properties.</p>
+                            </div>
+                        </details>
+                        </br>
+
+                        <details id="details27" onclick="closeOtherDetails('details27')">
+                            <summary>27. How do you secure RESTful APIs in Spring Boot?</summary>
+                            <div class="toggle-content">
+                                <p>Answer: Secure RESTful APIs in Spring Boot using Spring Security. Add
+                                    `spring-boot-starter-security` dependency, configure security rules
+                                    (`WebSecurityConfigurerAdapter`), define authentication providers
+                                    (`UserDetailsService`), and secure endpoints with method-level security
+                                    annotations (`@Secured`, `@PreAuthorize`).</p>
+                            </div>
+                        </details>
+                        </br>
+                    </div>
+                    <h2>31. What is Spring Boot, and how does it differ from the traditional Spring Framework?</h2>
+                    <p>Answer: Spring Boot is an extension of the Spring Framework that simplifies the setup and
+                        development of Spring applications. It provides a range of features to streamline the
+                        development process, including:</p>
+                    <ul>
+                        <li><b>Auto-Configuration:</b> Automatically configures application settings based on the
+                            dependencies present in the classpath.
+                        </li>
+                        <li><b>Standalone Applications:</b> Allows you to create standalone applications with embedded
+                            servers (e.g., Tomcat, Jetty).
+                        </li>
+                        <li><b>Production-Ready Features:</b> Provides production-ready features like health checks and
+                            metrics through Spring Boot Actuator.
+                        </li>
+                        <li><b>Convention Over Configuration:</b> Reduces the need for manual configuration by using
+                            sensible defaults.
+                        </li>
+                    </ul>
+                    <p>Spring Boot applications typically use <span class="keyword">@SpringBootApplication</span> as the
+                        main configuration annotation, which is a combination of <span
+                                class="keyword">@Configuration</span>, <span
+                                class="keyword">@EnableAutoConfiguration</span>, and <span class="keyword">@ComponentScan</span>.
+                    </p>
+                    <p>In contrast, traditional Spring applications require more manual configuration and do not come
+                        with embedded servers out of the box.</p>
+
+                    <h2>32. What is Spring Boot Starter, and how is it used?</h2>
+                    <p>Answer: Spring Boot Starters are a set of convenient dependency descriptors that you can include
+                        in your application. They provide a set of dependencies and configurations for common
+                        functionalities (e.g., web development, data access) and simplify dependency management.</p>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword"><!-- Add this to your pom.xml for Maven or build.gradle for Gradle --></span><br>
+                        <span class="keyword">org.springframework.boot</span><br>
+                        <span class="keyword">spring-boot-starter-web</span>
+                    </div>
+                    <p>In this example, including <span class="string">spring-boot-starter-web</span> in your project
+                        will bring in all the necessary dependencies for building web applications (e.g., Spring MVC,
+                        Tomcat).</p>
+
+                    <h2>33. What is Spring Boot Actuator?</h2>
+                    <p>Answer: Spring Boot Actuator is a module in Spring Boot that provides built-in features to
+                        monitor and manage Spring Boot applications. It includes endpoints that expose various metrics,
+                        health checks, and other operational information about the application.</p>
+                    <p>Commonly used endpoints include:</p>
+                    <ul>
+                        <li><b>/actuator/health:</b> Provides application health information.</li>
+                        <li><b>/actuator/metrics:</b> Exposes various metrics related to the application (e.g., memory
+                            usage, garbage collection).
+                        </li>
+                        <li><b>/actuator/env:</b> Displays environment properties and configuration.</li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword"><!-- Add this to your pom.xml for Maven or build.gradle for Gradle --></span><br>
+                        <span class="keyword">org.springframework.boot</span><br>
+                        <span class="keyword">spring-boot-starter-actuator</span>
+                    </div>
+                    <p>Including <span class="string">spring-boot-starter-actuator</span> in your project will enable
+                        these actuator endpoints.</p>
+
+                    <h2>34. What is Spring Boot DevTools?</h2>
+                    <p>Answer: Spring Boot DevTools is a module that provides additional development-time features to
+                        improve the development experience. It includes features like automatic restarts, live reload,
+                        and configurations to help with development.</p>
+                    <p>Features include:</p>
+                    <ul>
+                        <li><b>Automatic Restart:</b> Automatically restarts the application when code changes are
+                            detected.
+                        </li>
+                        <li><b>Live Reload:</b> Automatically reloads the browser when static resources change.</li>
+                        <li><b>Configuration for Development:</b> Provides configurations to facilitate faster
+                            development (e.g., disabling caching).
+                        </li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword"><!-- Add this to your pom.xml for Maven or build.gradle for Gradle --></span><br>
+                        <span class="keyword">org.springframework.boot</span><br>
+                        <span class="keyword">spring-boot-devtools</span>
+                    </div>
+                    <p>Including <span class="string">spring-boot-devtools</span> in your project will enable these
+                        development-time features.</p>
+
+                    <h2>35. What is the Spring Boot Initializr?</h2>
+                    <p>Answer: The Spring Boot Initializr is a web-based tool that helps generate a Spring Boot project
+                        with the required dependencies and configurations. It provides a user-friendly interface to
+                        select project metadata, dependencies, and packaging options, and generates a project structure
+                        for you to start developing.</p>
+                    <p>Example:</p>
+                    <ul>
+                        <li>Visit <a href="https://start.spring.io">Spring Boot Initializr</a>.</li>
+                        <li>Select the project metadata (e.g., group, artifact, name).</li>
+                        <li>Choose the dependencies you need (e.g., Spring Web, Spring Data JPA).</li>
+                        <li>Generate the project and download it.</li>
+                    </ul>
+                    <p>This tool simplifies the setup process and helps you get started quickly with a new Spring Boot
+                        application.</p>
+
+                    <h2>36. What is Spring Data JPA?</h2>
+                    <p>Answer: Spring Data JPA is a part of the Spring Data project that provides an abstraction layer
+                        for JPA (Java Persistence API). It simplifies the implementation of data access layers and
+                        repositories by providing built-in support for JPA, making it easier to interact with relational
+                        databases.</p>
+                    <p>Key features include:</p>
+                    <ul>
+                        <li><b>Repository Abstraction:</b> Provides repository interfaces to handle CRUD operations
+                            without requiring boilerplate code.
+                        </li>
+                        <li><b>Query Methods:</b> Allows you to define query methods directly in repository interfaces.
+                        </li>
+                        <li><b>Pagination and Sorting:</b> Supports pagination and sorting out of the box.</li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">public interface</span> <span class="class">UserRepository</span> <span
+                            class="keyword">extends</span> <span class="class">JpaRepository&lt;User, Long&gt;</span>
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">List&lt;User&gt;</span> <span class="method">findByLastName</span>(<span
+                            class="keyword">String</span> <span class="variable">lastName</span>);<br>
+                        }
+                    </div>
+                    <p>In this example, <span class="class">UserRepository</span> extends <span class="class">JpaRepository</span>,
+                        providing built-in methods for CRUD operations and the ability to define custom query methods.
+                    </p>
+
+                    <h2>37. What is Spring Security?</h2>
+                    <p>Answer: Spring Security is a framework that provides comprehensive security services for Java
+                        applications. It offers authentication, authorization, and other security features to protect
+                        applications from various security threats.</p>
+                    <p>Key features include:</p>
+                    <ul>
+                        <li><b>Authentication:</b> Supports various authentication mechanisms (e.g., username/password,
+                            OAuth2, LDAP).
+                        </li>
+                        <li><b>Authorization:</b> Provides access control and role-based access management.</li>
+                        <li><b>Protection Against Common Attacks:</b> Offers protection against common security
+                            vulnerabilities (e.g., CSRF, XSS).
+                        </li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">@Configuration</span><br>
+                        <span class="keyword">@EnableWebSecurity</span><br>
+                        <span class="keyword">public class</span> <span class="class">SecurityConfig</span> <span
+                            class="keyword">extends</span> <span class="class">WebSecurityConfigurerAdapter</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@Override</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">protected void</span> <span class="method">configure</span>(<span
+                            class="class">HttpSecurity</span> <span class="variable">http</span>) throws <span
+                            class="class">Exception</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">http</span>.<span
+                            class="method">authorizeRequests</span>()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">.antMatchers</span>(<span class="string">"/admin/**"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">.hasRole</span>(<span
+                            class="string">"ADMIN"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">.anyRequest</span>()<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">.authenticated</span>();<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <p>In this example, the configuration ensures that only users with the "ADMIN" role can access URLs
+                        under "/admin/**", and all other requests must be authenticated.</p>
+
+                    <h2>38. What is Spring Cloud?</h2>
+                    <p>Answer: Spring Cloud is a set of tools and frameworks for building and managing cloud-native
+                        applications. It provides solutions for common challenges in distributed systems, such as
+                        configuration management, service discovery, circuit breakers, and distributed tracing.</p>
+                    <p>Key components include:</p>
+                    <ul>
+                        <li><b>Config Server:</b> Centralized configuration management for applications.</li>
+                        <li><b>Eureka:</b> Service discovery and registration.</li>
+                        <li><b>Zuul:</b> API gateway and routing.</li>
+                        <li><b>Hystrix:</b> Circuit breaker pattern for fault tolerance.</li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">@EnableEurekaClient</span><br>
+                        <span class="keyword">public class</span> <span class="class">Application</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method">main</span>(<span
+                            class="keyword">String[]</span> <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">SpringApplication</span>.<span class="method">run</span>(<span
+                            class="class">Application</span>.class, <span class="variable">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <p>In this example, the <span class="keyword">@EnableEurekaClient</span> annotation registers the
+                        application with Eureka for service discovery.</p>
+
+                    <h2>39. What is the Spring Boot auto-configuration feature?</h2>
+                    <p>Answer: Spring Boot auto-configuration is a feature that automatically configures Spring
+                        application contexts based on the dependencies and beans present in the classpath. It reduces
+                        the need for manual configuration by applying sensible defaults and creating configurations
+                        automatically based on the libraries and properties found.</p>
+                    <p>Example:</p>
+                    <p>If you include a dependency like <span class="string">spring-boot-starter-data-jpa</span> in your
+                        project, Spring Boot will automatically configure a <span class="class">DataSource</span>, <span
+                                class="class">EntityManagerFactory</span>, and <span
+                                class="class">TransactionManager</span> based on your application's settings and
+                        database configurations.</p>
+
+                    <h2>40. How does Spring Boot handle application properties?</h2>
+                    <p>Answer: Spring Boot handles application properties using a file named <span class="string">application.properties</span>
+                        or <span class="string">application.yml</span> located in the <span class="string">src/main/resources</span>
+                        directory. These files are used to configure application settings and externalize configuration
+                        properties.</p>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="string">server.port=8080</span><br>
+                        <span class="string">spring.datasource.url=jdbc:mysql://localhost:3306/mydb</span><br>
+                        <span class="string">spring.datasource.username=root</span><br>
+                        <span class="string">spring.datasource.password=secret</span>
+                    </div>
+                    <p>In this example, the application properties file is used to set the server port and database
+                        connection settings. Spring Boot automatically reads these properties and applies them to the
+                        application context.</p>
+
+                    <h2>41. What are Spring Boot profiles, and how are they used?</h2>
+                    <p>Answer: Spring Boot profiles are a way to create different configurations for different
+                        environments (e.g., development, testing, production). You can define beans and configurations
+                        specific to each profile, allowing for environment-specific settings and behavior.</p>
+                    <p>To use profiles, you can define properties for each profile in the application properties file or
+                        use separate property files named <span class="string">application-{profile}.properties</span>
+                        (e.g., <span class="string">application-dev.properties</span>).</p>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="string"># application-dev.properties</span><br>
+                        <span class="string">server.port=8081</span><br>
+                        <span class="string">spring.datasource.url=jdbc:h2:mem:testdb</span>
+                    </div>
+                    <p>To activate a profile, you can set the <span class="string">spring.profiles.active</span>
+                        property:</p>
+                    <div class="code">
+                        <span class="string">spring.profiles.active=dev</span>
+                    </div>
+                    <p>This setup will use the properties defined in <span
+                            class="string">application-dev.properties</span> when the "dev" profile is active.</p>
+
+                    <h2>42. What is the role of @SpringBootApplication annotation?</h2>
+                    <p>Answer: The <span class="keyword">@SpringBootApplication</span> annotation is a convenience
+                        annotation that combines three core annotations:</p>
+                    <ul>
+                        <li><b>@Configuration:</b> Indicates that the class provides Spring configuration.</li>
+                        <li><b>@EnableAutoConfiguration:</b> Enables Spring Boot's auto-configuration mechanism.</li>
+                        <li><b>@ComponentScan:</b> Enables component scanning, allowing Spring to discover and register
+                            beans in the application context.
+                        </li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class">Application</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method">main</span>(<span
+                            class="keyword">String[]</span> <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">SpringApplication</span>.<span class="method">run</span>(<span
+                            class="class">Application</span>.class, <span class="variable">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <p>In this example, the <span class="keyword">@SpringBootApplication</span> annotation is used to
+                        set up a Spring Boot application with default configurations and enable auto-configuration and
+                        component scanning.</p>
+
+                    <h2>43. How does Spring Boot handle dependency management?</h2>
+                    <p>Answer: Spring Boot handles dependency management through its starter dependencies. Starter
+                        dependencies are a set of convenient dependency descriptors that include a collection of
+                        commonly used dependencies and configurations for various functionalities (e.g., web
+                        development, data access).</p>
+                    <p>By using starter dependencies, you can avoid the need to specify each individual dependency, as
+                        the starters provide a curated set of dependencies that are known to work well together.</p>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword"><!-- In Maven pom.xml --></span><br>
+                        <span class="keyword">org.springframework.boot</span><br>
+                        <span class="keyword">spring-boot-starter-web</span>
+                    </div>
+                    <p>In this example, including <span class="string">spring-boot-starter-web</span> brings in
+                        dependencies for Spring MVC and an embedded web server (e.g., Tomcat) without needing to specify
+                        each dependency individually.</p>
+
+                    <h2>44. What are Spring Boot auto-configurations, and how do they work?</h2>
+                    <p>Answer: Spring Boot auto-configurations are configurations that Spring Boot automatically applies
+                        based on the dependencies and beans present in the classpath. They help simplify the
+                        configuration of Spring applications by providing sensible defaults and automatically setting up
+                        commonly used components based on the application's needs.</p>
+                    <p>Auto-configuration classes are typically annotated with <span
+                            class="keyword">@Configuration</span> and are included in the application context based on
+                        the presence of certain classes or properties. You can customize or disable auto-configurations
+                        by using properties or overriding specific configurations.</p>
+                    <p>Example:</p>
+                    <p>If you have a dependency for Spring Data JPA in your project, Spring Boot will automatically
+                        configure a <span class="class">DataSource</span>, <span
+                                class="class">EntityManagerFactory</span>, and <span
+                                class="class">TransactionManager</span> for you.</p>
+
+                    <h2>45. How do you override a Spring Boot auto-configuration?</h2>
+                    <p>Answer: To override a Spring Boot auto-configuration, you can provide your own custom
+                        configuration that takes precedence over the default auto-configuration. This can be achieved in
+                        several ways:</p>
+                    <ul>
+                        <li><b>Custom Configuration Class:</b> Define your own configuration class and use it to
+                            override or customize the auto-configuration.
+                        </li>
+                        <li><b>Application Properties:</b> Set specific properties in the <span class="string">application.properties</span>
+                            or <span class="string">application.yml</span> file to change the default behavior.
+                        </li>
+                        <li><b>Excluding Auto-Configuration:</b> Use the <span class="keyword">@SpringBootApplication(exclude = ...)</span>
+                            annotation to exclude specific auto-configuration classes.
+                        </li>
+                    </ul>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">@SpringBootApplication</span><br>
+                        <span class="keyword">public class</span> <span class="class">Application</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public static void</span> <span class="method">main</span>(<span
+                            class="keyword">String[]</span> <span class="variable">args</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
+                            class="keyword">SpringApplication</span>.<span class="method">run</span>(<span
+                            class="class">Application</span>.class, <span class="variable">args</span>);<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <p>In this example, you can exclude specific auto-configuration classes if they do not fit your
+                        needs.</p>
+
+                    <h2>46. What is Spring Boot’s approach to error handling?</h2>
+                    <p>Answer: Spring Boot provides a default error handling mechanism that includes a basic error page
+                        and JSON error responses. This mechanism is provided by the <span class="class">BasicErrorController</span>
+                        and <span class="class">ErrorAttributes</span> classes.</p>
+                    <p>You can customize error handling by defining your own error pages or implementing custom <span
+                            class="keyword">ErrorController</span> implementations. You can also customize error
+                        responses by using <span class="string">application.properties</span> or <span class="string">application.yml</span>
+                        configurations.</p>
+                    <p>Example:</p>
+                    <div class="code">
+                        <span class="keyword">@Controller</span><br>
+                        <span class="keyword">public class</span> <span class="class">CustomErrorController</span> <span
+                            class="keyword">implements</span> <span class="class">ErrorController</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">@RequestMapping</span>(<span class="string">"/error"</span>)<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public String</span> <span class="method">handleError</span>()
+                        {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span
+                            class="string">"custom-error"</span>;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                    <p>In this example, a custom error controller returns a view named "custom-error" for error
+                        responses.</p>
+
+                </div>
+            </article>
+        </div>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

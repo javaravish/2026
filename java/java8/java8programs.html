@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>Java 8 Programs</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png"/>
+    <link rel="stylesheet" href="../../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../../home.html"> <img width="40" height="25" src="../../scripts/images/nani1.png"
+                                                            alt="Home"/>
+            <h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../../home.html"><img
+                        height="25" width="25" src="../../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Java 8 Features</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/introduction.html">Introduction</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/features.html">Features</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/indetail.html">Java 8 In Detail</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../java/java8/java8programs.html">Java 8
+                            Programs</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../../interview/java/java-8-interview-questions.html">Java
+                            8
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../../home.html">Home</a></li>
+                    <li><a href="../../java/introduction.html">Java</a></li>
+                    <li><a href="../../java/java8programs.html">Java 8 Programs</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../../home.html">Home</a></li>
+                    <li><a href="../../java/java8/java8programs.html">Java 8 Programs</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk">
+                <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <h4><b>Java 8 Coding and Programming
+                        Interview Questions and Answers</b>
+                    </h4>
+                    <p id="3554"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph=""><strong class="no gs">1. Given a list of integers, find
+                        out all the even numbers that exist in the list using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="9a10"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">EvenNumber</span>{<br>    <span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>      List&lt;Integer&gt; list = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">32</span>);<br>            list.stream()<br>                .filter(n -&gt; n%<span
+                            class="hljs-number">2</span> == <span class="hljs-number">0</span>)<br>                .forEach(System.out::println);<br>        }<br>    }<br><br><br>Output: <br><span
+                            class="hljs-number">10</span>, <span class="hljs-number">8</span>, <span
+                            class="hljs-number">98</span>, <span class="hljs-number">32</span></span></pre>
+                    <p id="3554"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">2. <strong class="no gs">Given a list of integers, find out
+                        all the numbers starting with 1 using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="a6aa"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">NumberStartingWithOne</span>{<br>    <span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>            List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">32</span>);<br>            myList.stream()<br>                  .map(s -&gt; s + <span
+                            class="hljs-string">""</span>) <span
+                            class="hljs-comment">// Convert integer to String</span><br>                  .filter(s -&gt; s.startsWith(<span
+                            class="hljs-string">"1"</span>))<br>                  .forEach(System.out::println);<br>    }<br>}<br><br>Output:<br><span
+                            class="hljs-number">10</span>, <span class="hljs-number">15</span></span></pre>
+                    <p id="eddf"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">3. <strong class="no gs">How to find duplicate elements in
+                        a given integers list in java using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0c7f"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">DuplicateElements</span> {<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br>          Set&lt;Integer&gt; set = <span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">HashSet</span>();<br>          myList.stream()<br>                .filter(n -&gt; !set.add(n))<br>                .forEach(System.out::println);<br>  }<br>}<br><br>Output:<br><span
+                            class="hljs-number">98</span>, <span class="hljs-number">15</span></span></pre>
+                    <p id="817e"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">4. <strong class="no gs">Given the list of integers, find
+                        the first element of the list using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0804"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">FindFirstElement</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br>          myList.stream()<br>                .findFirst()<br>                .ifPresent(System.out::println);<br>  }<br>}<br><br>Output:<br><span
+                            class="hljs-number">10</span></span></pre>
+                    <p id="e32d"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">5. <strong class="no gs">Given a list of integers, find the
+                        total number of elements present in the list using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="4fd7"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">FindTheTotalNumberOfElements</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br>          <span
+                            class="hljs-type">long</span> <span class="hljs-variable">count</span> <span
+                            class="hljs-operator">=</span>  myList.stream()<br>                              .count();<br>          System.out.println(count);                    <br>  }<br>}<br><br>Output:<br><span
+                            class="hljs-number">9</span></span></pre>
+                    <p id="d341"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">6. <strong class="no gs">Given a list of integers, find the
+                        maximum value element present in it using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="f878"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">FindMaxElement</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br>          <span
+                            class="hljs-type">int</span> <span class="hljs-variable">max</span> <span
+                            class="hljs-operator">=</span>  myList.stream()<br>                           .max(Integer::compare)<br>                           .get();<br>          System.out.println(max);                    <br>  }<br>}<br><br>Output:<br><span
+                            class="hljs-number">98</span></span></pre>
+                    <p id="d469"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">7. <strong class="no gs">Given a String, find the first
+                        non-repeated character in it using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="8b0b"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><span
+                            class="hljs-keyword">import</span> java.util.function.Function;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">FirstNonRepeated</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>    <span
+                            class="hljs-type">String</span> <span class="hljs-variable">input</span> <span
+                            class="hljs-operator">=</span> <span class="hljs-string">"Java articles are Awesome"</span>;<br>    <br>    <span
+                            class="hljs-type">Character</span> <span class="hljs-variable">result</span> <span
+                            class="hljs-operator">=</span> input.chars() <span
+                            class="hljs-comment">// Stream of String       </span><br>            .mapToObj(s -&gt; Character.toLowerCase(Character.valueOf((<span
+                            class="hljs-type">char</span>) s))) <span class="hljs-comment">// First convert to Character object and then to lowercase         </span><br>            .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::<span
+                            class="hljs-keyword">new</span>, Collectors.counting())) <span class="hljs-comment">//Store the chars in map with count </span><br>            .entrySet()<br>            .stream()<br>            .filter(entry -&gt; entry.getValue() == <span
+                            class="hljs-number">1L</span>)<br>            .map(entry -&gt; entry.getKey())<br>            .findFirst()<br>            .get();<br>    System.out.println(result);                    <br>    }<br>}<br><br>Output:<br>j</span></pre>
+                    <p id="a3c3"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">8. <strong class="no gs">Given a String, find the first
+                        repeated character in it using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="c680"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><span
+                            class="hljs-keyword">import</span> java.util.function.Function;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">FirstRepeated</span>{<br>  <span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          <span
+                            class="hljs-type">String</span> <span class="hljs-variable">input</span> <span
+                            class="hljs-operator">=</span> <span class="hljs-string">"Java Articles are Awesome"</span>;<br><br>          <span
+                            class="hljs-type">Character</span> <span class="hljs-variable">result</span> <span
+                            class="hljs-operator">=</span> input.chars() <span
+                            class="hljs-comment">// Stream of String       </span><br>                                  .mapToObj(s -&gt; Character.toLowerCase(Character.valueOf((<span
+                            class="hljs-type">char</span>) s))) <span class="hljs-comment">// First convert to Character object and then to lowercase         </span><br>                                  .collect(Collectors.groupingBy(Function.identity(), LinkedHashMap::<span
+                            class="hljs-keyword">new</span>, Collectors.counting())) <span class="hljs-comment">//Store the chars in map with count </span><br>                                  .entrySet()<br>                                  .stream()<br>                                  .filter(entry -&gt; entry.getValue() &gt; <span
+                            class="hljs-number">1L</span>)<br>                                  .map(entry -&gt; entry.getKey())<br>                                  .findFirst()<br>                                  .get();<br>          System.out.println(result);                    <br>  }<br>}<br><br><br>Output:<br>a</span></pre>
+                    <p id="0113"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">9. <strong class="no gs">Given a list of integers, sort all
+                        the values present in it using Stream functions?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="884d"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><span
+                            class="hljs-keyword">import</span> java.util.function.Function;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">SortValues</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br><br>           myList.stream()<br>                 .sorted()<br>                 .forEach(System.out::println);<br>  }<br>}<br><br>Output:<br> <span
+                            class="hljs-number">8</span><br><span class="hljs-number">10</span><br><span
+                            class="hljs-number">15</span><br><span class="hljs-number">15</span><br><span
+                            class="hljs-number">25</span><br><span class="hljs-number">32</span><br><span
+                            class="hljs-number">49</span><br><span class="hljs-number">98</span><br><span
+                            class="hljs-number">98</span></span></pre>
+                    <p id="e76f"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">10. <strong class="no gs">Given a list of integers, sort
+                        all the values present in it in descending order using Stream functions?</strong>
+                    </p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="f84b"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.stream.*;<br><span
+                            class="hljs-keyword">import</span> java.util.function.Function;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">SortDescending</span>{<br>  <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String args[])</span> {<br>          List&lt;Integer&gt; myList = Arrays.asList(<span
+                            class="hljs-number">10</span>,<span class="hljs-number">15</span>,<span class="hljs-number">8</span>,<span
+                            class="hljs-number">49</span>,<span class="hljs-number">25</span>,<span class="hljs-number">98</span>,<span
+                            class="hljs-number">98</span>,<span class="hljs-number">32</span>,<span class="hljs-number">15</span>);<br><br>           myList.stream()<br>                 .sorted(Collections.reverseOrder())<br>                 .forEach(System.out::println);<br>  }<br>}<br><br>Output:<br><span
+                            class="hljs-number">98</span><br><span class="hljs-number">98</span><br><span
+                            class="hljs-number">49</span><br><span class="hljs-number">32</span><br><span
+                            class="hljs-number">25</span><br><span class="hljs-number">15</span><br><span
+                            class="hljs-number">15</span><br><span class="hljs-number">10</span><br><span
+                            class="hljs-number">8</span></span></pre>
+                    <p id="5c38"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">11. Given an integer array <code
+                            class="cw pd pe pf ou b">nums</code>, return <code class="cw pd pe pf ou b">true</code>
+                        if any value appears <strong class="no gs">at
+                            least twice</strong> in the array, and return <code
+                                class="cw pd pe pf ou b">false</code> if every element is distinct.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="5805"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span
+                            class="hljs-title.function">containsDuplicate</span><span class="hljs-params">(<span
+                            class="hljs-type">int</span>[] nums)</span> {<br>    List&lt;Integer&gt; list = Arrays.stream(nums)<br>                               .boxed()<br>                               .collect(Collectors.toList());<br>    Set&lt;Integer&gt; set = <span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">HashSet</span>&lt;&gt;(list);<br>     <span
+                            class="hljs-keyword">if</span>(set.size() == list.size()) {<br>       <span
+                            class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>   } <br>      <span
+                            class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>  }<br><br>Input: nums = [<span
+                            class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+                            class="hljs-number">3</span>,<span class="hljs-number">1</span>]<br>Output: <span
+                            class="hljs-literal">true</span><br><br>Input: nums = [<span
+                            class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+                            class="hljs-number">3</span>,<span class="hljs-number">4</span>]<br>Output: <span
+                            class="hljs-literal">false</span></span></pre>
+                    <p id="b889"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">12. <strong class="no gs">How will you get the current date
+                        and time using Java 8 Date and Time API?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0561"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">class</span> <span class="hljs-title.class">Java8</span> {<br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br>        System.out.println(<span
+                            class="hljs-string">"Current Local Date: "</span> + java.time.LocalDate.now());<br>        <span
+                            class="hljs-comment">//Used LocalDate API to get the date</span><br>        System.out.println(<span
+                            class="hljs-string">"Current Local Time: "</span> + java.time.LocalTime.now());<br>        <span
+                            class="hljs-comment">//Used LocalTime API to get the time</span><br>        System.out.println(<span
+                            class="hljs-string">"Current Local Date and Time: "</span> + java.time.LocalDateTime.now());<br>        <span
+                            class="hljs-comment">//Used LocalDateTime API to get both date and time</span><br>    }<br>}</span></pre>
+                    <p id="17a2"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">13. <strong class="no gs">Write a Java 8 program to
+                        concatenate two Streams?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="bcd5"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.Arrays;<br><span
+                            class="hljs-keyword">import</span> java.util.List;<br><span
+                            class="hljs-keyword">import</span> java.util.stream.Stream;<br> <br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">Java8</span> {<br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br> <br>        List&lt;String&gt; list1 = Arrays.asList(<span
+                            class="hljs-string">"Java"</span>, <span class="hljs-string">"8"</span>);<br>        List&lt;String&gt; list2 = Arrays.asList(<span
+                            class="hljs-string">"explained"</span>, <span class="hljs-string">"through"</span>, <span
+                            class="hljs-string">"programs"</span>);<br> <br>        Stream&lt;String&gt; concatStream = Stream.concat(list1.stream(), list2.stream());<br>         <br>        <span
+                            class="hljs-comment">// Concatenated the list1 and list2 by converting them into Stream</span><br> <br>        concatStream.forEach(str -&amp;gt; System.out.print(str + <span
+                            class="hljs-string">" "</span>));<br>         <br>        <span class="hljs-comment">// Printed the Concatenated Stream</span><br>         <br>    }<br>}</span></pre>
+                    <p id="4ca6"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">14. <strong class="no gs">Java 8 program to perform cube on
+                        list elements and filter numbers greater than 50.</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="82b7"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.*;<br><br><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">Main</span> {<br>    <span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br>       List&lt;Integer&gt; integerList = Arrays.asList(<span
+                            class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span
+                            class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span
+                            class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span
+                            class="hljs-number">3</span>);<br>       integerList.stream()<br>                  .map(i -&gt; i*i*i)<br>                  .filter(i -&gt; i&gt;<span
+                            class="hljs-number">50</span>)<br>                  .forEach(System.out::println);<br>    }<br>}  <br><br>Output:<br><span
+                            class="hljs-number">64</span><br><span class="hljs-number">125</span><br><span
+                            class="hljs-number">216</span><br><span class="hljs-number">343</span></span></pre>
+                    <p id="a303"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">15. <strong class="no gs">Write a Java 8 program to sort an
+                        array and then convert the sorted array into Stream?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="70d8"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">import</span> java.util.Arrays;<br> <br><span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">class</span> <span class="hljs-title.class">Java8</span> {<br> <br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br>        <span class="hljs-type">int</span> arr[] = { <span
+                            class="hljs-number">99</span>, <span class="hljs-number">55</span>, <span
+                            class="hljs-number">203</span>, <span class="hljs-number">99</span>, <span
+                            class="hljs-number">4</span>, <span class="hljs-number">91</span> };<br>        Arrays.parallelSort(arr);<br>        <span
+                            class="hljs-comment">// Sorted the Array using parallelSort()</span><br>         <br>        Arrays.stream(arr).forEach(n &gt; System.out.print(n + <span
+                            class="hljs-string">" "</span>));<br>        <span class="hljs-comment">/* Converted it into Stream and then<br>           printed using forEach */</span><br>    }<br>}</span></pre>
+                    <p id="1748"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">16. <strong class="no gs">How to use map to convert object
+                        into Uppercase in Java 8?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="95a1"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">Java8</span> {<br> <br>    <span class="hljs-keyword">public</span> <span
+                            class="hljs-keyword">static</span> <span class="hljs-built_in">void</span> <span
+                            class="hljs-title.function">main</span>(<span class="hljs-params"><span
+                            class="hljs-built_in">String</span>[] args</span>) {<br>        <span
+                            class="hljs-title.class">List</span>&lt;<span class="hljs-title.class">String</span>&gt; nameLst = names.<span
+                            class="hljs-title.function">stream</span>()<br>                                    .<span
+                            class="hljs-title.function">map</span>(<span class="hljs-title.class">String</span>::toUpperCase)<br>                                    .<span
+                            class="hljs-title.function">collect</span>(<span class="hljs-title.class">Collectors</span>.<span
+                            class="hljs-title.function">toList</span>());<br>        <span class="hljs-title.class">System</span>.<span
+                            class="hljs-property">out</span>.<span
+                            class="hljs-title.function">println</span>(nameLst);<br>    }<br>}<br><br><span
+                            class="hljs-attr">output</span>:<br><span class="hljs-variable.constant">AA</span>, <span
+                            class="hljs-variable.constant">BB</span>, <span
+                            class="hljs-variable.constant">CC</span>, <span
+                            class="hljs-variable.constant">DD</span></span></pre>
+                    <p id="ce96"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">17. <strong class="no gs">How to convert a List of objects
+                        into a Map by considering duplicated keys and store them in sorted order?</strong>
+                    </p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="296b"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">TestNotes</span> {<br><br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br><br>    List&lt;Notes&gt; noteLst = <span
+                            class="hljs-keyword">new</span> <span
+                            class="hljs-title.class">ArrayList</span>&lt;&gt;();<br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">1</span>, <span class="hljs-string">"note1"</span>, <span
+                            class="hljs-number">11</span>));<br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">2</span>, <span class="hljs-string">"note2"</span>, <span
+                            class="hljs-number">22</span>));<br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">3</span>, <span class="hljs-string">"note3"</span>, <span
+                            class="hljs-number">33</span>));<br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">4</span>, <span class="hljs-string">"note4"</span>, <span
+                            class="hljs-number">44</span>));<br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">5</span>, <span class="hljs-string">"note5"</span>, <span
+                            class="hljs-number">55</span>));<br><br>    noteLst.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Notes</span>(<span
+                            class="hljs-number">6</span>, <span class="hljs-string">"note4"</span>, <span
+                            class="hljs-number">66</span>));<br><br><br>    Map&lt;String, Long&gt; notesRecords = noteLst.stream()<br>                                            .sorted(Comparator<br>                                            .comparingLong(Notes::getTagId)<br>                                            .reversed()) <span
+                            class="hljs-comment">// sorting is based on TagId 55,44,33,22,11</span><br>                                            .collect(Collectors.toMap<br>                                            (Notes::getTagName, Notes::getTagId,<br>                                            (oldValue, newValue) -&gt; oldValue,LinkedHashMap::<span
+                            class="hljs-keyword">new</span>));<br><span class="hljs-comment">// consider old value 44 for dupilcate key</span><br><span
+                            class="hljs-comment">// it keeps order</span><br>        System.out.println(<span
+                            class="hljs-string">"Notes : "</span> + notesRecords);<br>    }<br>}</span></pre>
+                    <p id="a434"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">18. <strong class="no gs">How to count each element/word
+                        from the String ArrayList in Java8?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="85df"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">TestNotes</span> {<br><br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br>        List&lt;String&gt; names = Arrays.asList(<span
+                            class="hljs-string">"AA"</span>, <span class="hljs-string">"BB"</span>, <span
+                            class="hljs-string">"AA"</span>, <span class="hljs-string">"CC"</span>);<br>        Map&lt;String,Long&gt; namesCount = names<br>                                .stream()<br>                                .collect(<br>                                 Collectors.groupingBy(<br>                                   Function.identity()<br>                                 , Collectors.counting()<br>                                 ));<br>        System.out.println(namesCount);<br>  }<br>}<br><br>Output:<br>{CC=<span
+                            class="hljs-number">1</span>, BB=<span class="hljs-number">1</span>, AA=<span
+                            class="hljs-number">2</span>}</span></pre>
+                    <p id="b880"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">19. <strong class="no gs">How to find only duplicate
+                        elements with its count from the String ArrayList in Java8?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="b819"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">TestNotes</span> {<br><br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> <br>      List&lt;String&gt; names = Arrays.asList(<span
+                            class="hljs-string">"AA"</span>, <span class="hljs-string">"BB"</span>, <span
+                            class="hljs-string">"AA"</span>, <span class="hljs-string">"CC"</span>);<br>      Map&lt;String,Long&gt; namesCount = names<br>                                   .stream()<br>                       .filter(x-&gt;Collections.frequency(names, x)&gt;<span
+                            class="hljs-number">1</span>)<br>                       .collect(Collectors.groupingBy<br>                       (Function.identity(), Collectors.counting()));<br>      System.out.println(namesCount);<br>  }<br>}<br><br>Output:<br>{AA=<span
+                            class="hljs-number">2</span>}</span></pre>
+                    <p id="d2c7"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">20.<strong class="no gs"> How to check if list is empty in
+                        Java 8 using Optional, if not null iterate through the list and print the
+                        object?</strong></p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="66a6"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph="">Optional<span
+                            class="hljs-selector-class">.ofNullable</span>(noteLst)<br>            <span
+                            class="hljs-selector-class">.orElseGet</span>(Collections::emptyList) <span
+                            class="hljs-comment">// creates empty immutable list: [] in case noteLst is null</span><br>            <span
+                            class="hljs-selector-class">.stream</span>()<span class="hljs-selector-class">.filter</span>(Objects::nonNull) <span
+                            class="hljs-comment">//loop throgh each object and consider non null objects</span><br>            <span
+                            class="hljs-selector-class">.map</span>(note -&gt; Notes::getTagName) <span
+                            class="hljs-comment">// method reference, consider only tag name</span><br>            <span
+                            class="hljs-selector-class">.forEach</span>(System.out::println); <span
+                            class="hljs-comment">// it will print tag names</span></span></pre>
+                    <p id="341e"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">21. Write a Program to find the Maximum element in an
+                        array?</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="d2c1"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-type">int</span> <span class="hljs-title.function">findMaxElement</span><span
+                            class="hljs-params">(<span class="hljs-type">int</span>[] arr)</span> {<br>  <span
+                            class="hljs-keyword">return</span> Arrays.stream(arr).max().getAsInt();<br>}<br><br>Input: <span
+                            class="hljs-number">12</span>,<span class="hljs-number">19</span>,<span class="hljs-number">20</span>,<span
+                            class="hljs-number">88</span>,<span class="hljs-number">00</span>,<span class="hljs-number">9</span><br>output: <span
+                            class="hljs-number">88</span></span></pre>
+                    <p id="4932"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">22. Write a program to print the count of each character in
+                        a String?</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0102"
+                                                                              class="ox oy gr ou b bf oz pa l pb pc"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">findCountOfChars</span><span
+                            class="hljs-params">(String s)</span> {<br>Map&lt;String, Long&gt; map = Arrays.stream(s.split(<span
+                            class="hljs-string">""</span>))<br>                              .map(String::toLowerCase)<br>                              .collect(Collectors<br>                              .groupingBy(str -&gt; str, <br>                                LinkedHashMap::<span
+                            class="hljs-keyword">new</span>, Collectors.counting()));<br>}<br><br>Input: <span
+                            class="hljs-type">String</span> <span class="hljs-variable">s</span> <span
+                            class="hljs-operator">=</span> <span class="hljs-string">"string data to count each character"</span>;<br>Output: {s=<span
+                            class="hljs-number">1</span>, t=<span class="hljs-number">5</span>, r=<span
+                            class="hljs-number">3</span>, i=<span class="hljs-number">1</span>, n=<span
+                            class="hljs-number">2</span>, g=<span class="hljs-number">1</span>,  =<span
+                            class="hljs-number">5</span>, d=<span class="hljs-number">1</span>, a=<span
+                            class="hljs-number">5</span>, o=<span class="hljs-number">2</span>, c=<span
+                            class="hljs-number">4</span>, u=<span class="hljs-number">1</span>, e=<span
+                            class="hljs-number">2</span>, h=<span class="hljs-number">2</span>}</span></pre>
+
+                    <p id="c75a"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">We will use the below Employee class employeeList as an
+                        example to solve the questions.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0d9b"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span
+                            class="hljs-title.class">Employee</span> {<br><br>    <span class="hljs-type">int</span> id;<br>    String name;<br>    <span
+                            class="hljs-type">int</span> age;<br>    String gender;<br>    String department;<br>    <span
+                            class="hljs-type">int</span> yearOfJoining;<br>    <span class="hljs-type">double</span> salary;<br><br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-title.function">Employee</span><span
+                            class="hljs-params">(<span class="hljs-type">int</span> id, String name, <span
+                            class="hljs-type">int</span> age, String gender, String department, <span class="hljs-type">int</span> yearOfJoining, <span
+                            class="hljs-type">double</span> salary)</span> <br>    {<br>        <span
+                            class="hljs-built_in">this</span>.id = id;<br>        <span
+                            class="hljs-built_in">this</span>.name = name;<br>        <span
+                            class="hljs-built_in">this</span>.age = age;<br>        <span
+                            class="hljs-built_in">this</span>.gender = gender;<br>        <span class="hljs-built_in">this</span>.department = department;<br>        <span
+                            class="hljs-built_in">this</span>.yearOfJoining = yearOfJoining;<br>        <span
+                            class="hljs-built_in">this</span>.salary = salary;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span
+                            class="hljs-title.function">getId</span><span class="hljs-params">()</span> <br>    {<br>        <span
+                            class="hljs-keyword">return</span> id;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> String <span
+                            class="hljs-title.function">getName</span><span class="hljs-params">()</span> <br>    {<br>        <span
+                            class="hljs-keyword">return</span> name;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span
+                            class="hljs-title.function">getAge</span><span class="hljs-params">()</span> <br>    {<br>        <span
+                            class="hljs-keyword">return</span> age;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> String <span class="hljs-title.function">getGender</span><span
+                            class="hljs-params">()</span> <br>    {<br>        <span class="hljs-keyword">return</span> gender;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> String <span
+                            class="hljs-title.function">getDepartment</span><span class="hljs-params">()</span> <br>    {<br>        <span
+                            class="hljs-keyword">return</span> department;<br>    }<br>    <span class="hljs-keyword">public</span> <span
+                            class="hljs-type">int</span> <span class="hljs-title.function">getYearOfJoining</span><span
+                            class="hljs-params">()</span> <br>    {<br>        <span class="hljs-keyword">return</span> yearOfJoining;<br>    }<br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span
+                            class="hljs-title.function">getSalary</span><span
+                            class="hljs-params">()</span> <br>    {<br>        <span class="hljs-keyword">return</span> salary;<br>    }<br>    <span
+                            class="hljs-meta">@Override</span><br>    <span
+                            class="hljs-keyword">public</span> String <span
+                            class="hljs-title.function">toString</span><span class="hljs-params">()</span> <br>    {<br>        <span
+                            class="hljs-keyword">return</span> <span class="hljs-string">"Id : "</span>+id<br>                +<span
+                            class="hljs-string">", Name : "</span>+name<br>                +<span class="hljs-string">", age : "</span>+age<br>                +<span
+                            class="hljs-string">", Gender : "</span>+gender<br>                +<span
+                            class="hljs-string">", Department : "</span>+department<br>                +<span
+                            class="hljs-string">", Year Of Joining : "</span>+yearOfJoining<br>                +<span
+                            class="hljs-string">", Salary : "</span>+salary;<br>    }<br><br>    <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">main</span><span
+                            class="hljs-params">(String[] args)</span> {<br>        List&lt;Employee&gt; employeeList = <span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">ArrayList</span>&lt;Employee&gt;();<br><br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">111</span>, <span class="hljs-string">"Jiya Brein"</span>, <span
+                            class="hljs-number">32</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"HR"</span>, <span class="hljs-number">2011</span>, <span
+                            class="hljs-number">25000.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">122</span>, <span class="hljs-string">"Paul Niksui"</span>, <span
+                            class="hljs-number">25</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Sales And Marketing"</span>, <span
+                            class="hljs-number">2015</span>, <span class="hljs-number">13500.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">133</span>, <span class="hljs-string">"Martin Theron"</span>, <span
+                            class="hljs-number">29</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Infrastructure"</span>, <span class="hljs-number">2012</span>, <span
+                            class="hljs-number">18000.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">144</span>, <span class="hljs-string">"Murali Gowda"</span>, <span
+                            class="hljs-number">28</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Product Development"</span>, <span
+                            class="hljs-number">2014</span>, <span class="hljs-number">32500.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">155</span>, <span class="hljs-string">"Nima Roy"</span>, <span
+                            class="hljs-number">27</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"HR"</span>, <span class="hljs-number">2013</span>, <span
+                            class="hljs-number">22700.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">166</span>, <span class="hljs-string">"Iqbal Hussain"</span>, <span
+                            class="hljs-number">43</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Security And Transport"</span>, <span class="hljs-number">2016</span>, <span
+                            class="hljs-number">10500.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">177</span>, <span class="hljs-string">"Manu Sharma"</span>, <span
+                            class="hljs-number">35</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Account And Finance"</span>, <span
+                            class="hljs-number">2010</span>, <span class="hljs-number">27000.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">188</span>, <span class="hljs-string">"Wang Liu"</span>, <span
+                            class="hljs-number">31</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Product Development"</span>, <span
+                            class="hljs-number">2015</span>, <span class="hljs-number">34500.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">199</span>, <span class="hljs-string">"Amelia Zoe"</span>, <span
+                            class="hljs-number">24</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"Sales And Marketing"</span>, <span
+                            class="hljs-number">2016</span>, <span class="hljs-number">11500.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">200</span>, <span class="hljs-string">"Jaden Dough"</span>, <span
+                            class="hljs-number">38</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Security And Transport"</span>, <span class="hljs-number">2015</span>, <span
+                            class="hljs-number">11000.5</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">211</span>, <span class="hljs-string">"Jasna Kaur"</span>, <span
+                            class="hljs-number">27</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"Infrastructure"</span>, <span class="hljs-number">2014</span>, <span
+                            class="hljs-number">15700.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">222</span>, <span class="hljs-string">"Nitin Joshi"</span>, <span
+                            class="hljs-number">25</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Product Development"</span>, <span
+                            class="hljs-number">2016</span>, <span class="hljs-number">28200.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">233</span>, <span class="hljs-string">"Jyothi Reddy"</span>, <span
+                            class="hljs-number">27</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"Account And Finance"</span>, <span
+                            class="hljs-number">2013</span>, <span class="hljs-number">21300.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">244</span>, <span class="hljs-string">"Nicolus Den"</span>, <span
+                            class="hljs-number">24</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Sales And Marketing"</span>, <span
+                            class="hljs-number">2017</span>, <span class="hljs-number">10700.5</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">255</span>, <span class="hljs-string">"Ali Baig"</span>, <span
+                            class="hljs-number">23</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Infrastructure"</span>, <span class="hljs-number">2018</span>, <span
+                            class="hljs-number">12700.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">266</span>, <span class="hljs-string">"Sanvi Pandey"</span>, <span
+                            class="hljs-number">26</span>, <span class="hljs-string">"Female"</span>, <span
+                            class="hljs-string">"Product Development"</span>, <span
+                            class="hljs-number">2015</span>, <span class="hljs-number">28900.0</span>));<br>        employeeList.add(<span
+                            class="hljs-keyword">new</span> <span class="hljs-title.class">Employee</span>(<span
+                            class="hljs-number">277</span>, <span class="hljs-string">"Anuj Chettiar"</span>, <span
+                            class="hljs-number">31</span>, <span class="hljs-string">"Male"</span>, <span
+                            class="hljs-string">"Product Development"</span>, <span
+                            class="hljs-number">2012</span>, <span class="hljs-number">35700.0</span>));<br>    }<br> }</span></pre>
+                    <p id="e21e"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">Now, using the above employeeList, let us solve the
+                        list of questions.</p>
+                    <p id="049f"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">1. Find out the count of male and female employees
+                        present in the organization?</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="5398"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">getCountOfMaleFemale</span><span class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         Map&lt;String, Long&gt; noOfMaleAndFemaleEmployees=<br>         employeeList.stream()<br>                     .collect(Collectors.groupingBy<br>                     (Employee::getGender, Collectors.counting()));    <br>         System.out.println(noOfMaleAndFemaleEmployees);<br>     }<br><br> Output: {Male=<span
+                            class="hljs-number">11</span>, Female=<span class="hljs-number">6</span>}</span></pre>
+                    <p id="049f"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">2. Write a program to print the names of all
+                        departments in the organization.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="b561"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span
+                            class="hljs-title.function">getDepartmentName</span><span class="hljs-params">(List&lt;Employee&gt; employeeList)</span>{<br>         employeeList.stream()<br>         .map(Employee::getDepartment)<br>         .distinct()<br>         .forEach(System.out::println);<br>     }<br><br><br> Output: <br> HR<br> Sales And Marketing<br> Infrastructure<br> Product Development<br> Security And Transport<br> Account And Finance</span></pre>
+                    <p id="9ac9"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">3. Find the average age of Male and Female Employees.
+                    </p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="9cc4"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">getGender</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>    Map&lt;String, Double&gt; avgAge = employeeList.stream()<br>                                 .collect(Collectors.groupingBy<br>                                 (Employee::getGender, <br>                                 Collectors.averagingInt<br>                                 (Employee::getAge)));<br>                 System.out.println(avgAge);<br>     }<br><br> Output: {Male=<span
+                            class="hljs-number">30.181818181818183</span>, Female=<span class="hljs-number">27.166666666666668</span>}</span></pre>
+                    <p id="688e"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">4. Get the Names of employees who joined after 2015.
+                    </p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="7766"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">getNameOfEmp</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         employeeList.stream()<br>         .filter(e -&gt; e.getYearOfJoining() &gt; <span
+                            class="hljs-number">2015</span>)<br>         .map(Employee::getName)<br>         .forEach(System.out::println);<br>     }<br><br> Output: <br> Iqbal Hussain<br> Amelia Zoe<br> Nitin Joshi<br> Nicolus Den<br> Ali Baig</span></pre>
+                    <p id="d43a"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">5. Count the number of employees in each department.
+                    </p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="80df"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">countByDept</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         Map&lt;String, Long&gt; countByDept = employeeList.stream()<br>                                         .collect(Collectors.groupingBy<br>                                         (Employee::getDepartment, <br>                                         Collectors.counting()));<br>         Set&lt;Entry&lt;String, Long&gt;&gt; entrySet = countByDept.entrySet();<br>         <span
+                            class="hljs-keyword">for</span> (Entry&lt;String, Long&gt; entry : entrySet)<br>         {<br>             System.out.println(entry.getKey()+<span
+                            class="hljs-string">" : "</span>+entry.getValue());<br>         }<br>     }<br><br> Output:<br> Product Development : <span
+                            class="hljs-number">5</span><br> Security And Transport : <span class="hljs-number">2</span><br> Sales And Marketing : <span
+                            class="hljs-number">3</span><br> Infrastructure : <span class="hljs-number">3</span><br> HR : <span
+                            class="hljs-number">2</span><br> Account And Finance : <span
+                            class="hljs-number">2</span></span></pre>
+                    <p id="3669"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">6. Find out the average salary of each department.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0dda"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">avgSalary</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         Map&lt;String, Double&gt; avgSalary = employeeList.stream()<br>                                         .collect(Collectors.groupingBy<br>                                                 (Employee::getDepartment, <br>                                                 Collectors.averagingDouble(Employee::getSalary)));<br>         Set&lt;Entry&lt;String, Double&gt;&gt; entrySet = avgSalary.entrySet();<br>         <span
+                            class="hljs-keyword">for</span> (Entry&lt;String, Double&gt; entry : entrySet) <br>         {<br>             System.out.println(entry.getKey()+<span
+                            class="hljs-string">" : "</span>+entry.getValue());<br>         }<br>     }<br><br> Output:<br> Product Development : <span
+                            class="hljs-number">31960.0</span><br> Security And Transport : <span class="hljs-number">10750.25</span><br> Sales And Marketing : <span
+                            class="hljs-number">11900.166666666666</span><br> Infrastructure : <span
+                            class="hljs-number">15466.666666666666</span><br> HR : <span
+                            class="hljs-number">23850.0</span><br> Account And Finance : <span class="hljs-number">24150.0</span></span></pre>
+                    <p id="7d00"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">7. Find out the oldest employee, his/her age and
+                        department?</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="fdc9"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">oldestEmp</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         Optional&lt;Employee&gt; oldestEmp = employeeList.stream()<br>                                             .max(Comparator<br>                                                     .comparingInt(Employee::getAge));        <span
+                            class="hljs-type">Employee</span> <span class="hljs-variable">oldestEmployee</span> <span
+                            class="hljs-operator">=</span> oldestEmp .get();<br><br>         System.out.println(<span
+                            class="hljs-string">"Name : "</span>+oldestEmployee.getName());    <br>         System.out.println(<span
+                            class="hljs-string">"Age : "</span>+oldestEmployee.getAge());     <br>         System.out.println(<span
+                            class="hljs-string">"Department : "</span>+oldestEmployee.getDepartment());<br>     }<br><br> Output:<br> Name : Iqbal Hussain<br> Age : <span
+                            class="hljs-number">43</span><br> Department : Security And Transport</span></pre>
+                    <p id="4bea"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">8. Find out the average and total salary of the
+                        organization.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="ac2b"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">getEmpSalary</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         <span
+                            class="hljs-type">DoubleSummaryStatistics</span> <span
+                            class="hljs-variable">empSalary</span> <span class="hljs-operator">=</span> employeeList.stream()<br>                                                 .collect(Collectors<br>                                                         .summarizingDouble(Employee::getSalary));<br><br>         System.out.println(<span
+                            class="hljs-string">"Average Salary = "</span>+empSalary.getAverage());<br>         System.out.println(<span
+                            class="hljs-string">"Total Salary = "</span>+empSalary.getSum());<br>     }<br><br> Output:<br> <span
+                            class="hljs-type">Average</span> <span class="hljs-variable">Salary</span> <span
+                            class="hljs-operator">=</span> <span class="hljs-number">21141.235294117647</span><br> <span
+                            class="hljs-type">Total</span> <span class="hljs-variable">Salary</span> <span
+                            class="hljs-operator">=</span> <span class="hljs-number">359401.0</span></span></pre>
+                    <p id="a4cc"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">9. List down the employees of each department.</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="0d7e"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""> <span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">listDownDept</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>         Map&lt;String, List&lt;Employee&gt;&gt; empList = employeeList.stream()<br>                                                 .collect(Collectors<br>                                                         .groupingBy(Employee::getDepartment));<br><br>         Set&lt;Entry&lt;String, List&lt;Employee&gt;&gt;&gt; entrySet = empList.entrySet();<br><br>         <span
+                            class="hljs-keyword">for</span> (Entry&lt;String, List&lt;Employee&gt;&gt; entry : entrySet) <br>         {<br>             System.out.println(<span
+                            class="hljs-string">"--------------------------------------"</span>);    <br>             System.out.println(<span
+                            class="hljs-string">"Employees In "</span>+entry.getKey() + <span
+                            class="hljs-string">" : "</span>);<br>             System.out.println(<span
+                            class="hljs-string">"--------------------------------------"</span>);<br><br>             List&lt;Employee&gt; list = entry.getValue();<br>             <span
+                            class="hljs-keyword">for</span> (Employee e : list) <br>             {<br>                 System.out.println(e.getName());<br>             }<br>         }<br>     }<br><br> Output:<br> Employees In Product Development :<br> ————————————–<br> Murali Gowda<br> Wang Liu<br> Nitin Joshi<br> Sanvi Pandey<br> Anuj Chettiar<br> ————————————–<br> Employees In Security And Transport :<br> ————————————–<br> Iqbal Hussain<br> Jaden Dough<br> ————————————–<br> Employees In Sales And Marketing :<br> ————————————–<br> Paul Niksui<br> Amelia Zoe<br> Nicolus Den<br> ————————————–<br> Employees In Infrastructure :<br> ————————————–<br> Martin Theron<br> Jasna Kaur<br> Ali Baig<br> ————————————–<br> Employees In HR :<br> ————————————–<br> Jiya Brein<br> Nima Roy<br> ————————————–<br> Employees In Account And Finance :<br> ————————————–<br> Manu Sharma<br> Jyothi Reddy</span></pre>
+                    <p id="49fe"
+                       class="pw-post-body-paragraph nm nn gr no b np nq nr ns nt nu nv nw nx ny nz oa ob oc od oe of og oh oi oj gk bj"
+                       data-selectable-paragraph="">10. Find out the highest experienced employees in the
+                        organization</p>
+                    <pre
+                            class="nz oa ob oc od oe of og bo oh ba bj"><span id="3af2"
+                                                                              class="ou ov gr or b bf ow ox l oy oz"
+                                                                              data-selectable-paragraph=""><span
+                            class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                            class="hljs-keyword">void</span> <span class="hljs-title.function">seniorEmp</span><span
+                            class="hljs-params">(List&lt;Employee&gt; employeeList)</span> {<br>        Optional&lt;Employee&gt; seniorEmp = employeeList.stream()<br>                                        .sorted(Comparator<br>                                                .comparingInt(Employee::getYearOfJoining)).findFirst();<br><br>        <span
+                            class="hljs-type">Employee</span> <span
+                            class="hljs-variable">seniorMostEmployee</span> <span class="hljs-operator">=</span> seniorEmp.get();<br><br>        System.out.println(<span
+                            class="hljs-string">"Senior Most Employee Details :"</span>);<br>        System.out.println(<span
+                            class="hljs-string">"----------------------------"</span>);<br>        System.out.println(<span
+                            class="hljs-string">"ID : "</span>+seniorMostEmployee.getId());<br>        System.out.println(<span
+                            class="hljs-string">"Name : "</span>+seniorMostEmployee.getName());<br>        System.out.println(<span
+                            class="hljs-string">"Age : "</span>+seniorMostEmployee.getAge());<br>    }<br><br>Output:<br>Senior Most Employee Details :<br>—————————-<br>ID : <span
+                            class="hljs-number">177</span><br>Name : Manu Sharma<br>Age : <span
+                            class="hljs-number">35</span></span></pre>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary"
+                                         href="../../java/java8/indetail.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link"
+                                         href="../../interview/java/java-8-interview-questions.html">Next
+                    &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+                                                                          src="../../scripts/images/top.jpeg"/></button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi
+        Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

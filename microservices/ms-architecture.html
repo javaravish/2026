@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Microservices Architecture</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png" />
+	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+	<link rel="stylesheet" href="../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+					alt="Home" />
+				<h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+								height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Microservice</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/ms-intro.html">Introduction</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/ms-architecture.html">Microservices Architecture</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/registry-discovery.html">Service Registry and Discovery</a>
+							</li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/config-server.html">Config Server</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/api-gateway.html">API Gateway</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/zuul.html">Zuul
+									Gateway</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/circuit-breaker.html">Circuit Breaker</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/resilience4j.html">Resilience4j</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/web-client.html">WebClient</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/open-feign.html">Feign Client</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/sleuth.html">Zipkin and Sleuth</a></li>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../microservices/saga.html">Saga
+									Pattern</a></li>
+							<h4>Interview Questions</h4>
+							<li class="nav-item" data-depth="1"><a class="nav-link"
+									href="../interview/springboot/microservices.html">Microservices Interview
+									Questions</a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/ms-intro.html">Microservices</a></li>
+						<li><a href="../springboot/ms-architecture.html">Microservices Architecture</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../home.html">Home</a></li>
+						<li><a href="../springboot/ms-intro.html">Microservices</a></li>
+						<li><a href="../springboot/ms-architecture.html">Microservices Architecture</a></li>
+					</ul>
+
+				</nav>
+				<a class="div-to-desk">
+					<br>
+				</a>
+				<article>
+					<div class="entry-content" itemprop="text">
+						<div class="post-body entry-content float-container" id="post-body-6364877011564702432">
+							<p>In this tutorial, we will discuss how to create a typical microservices architecture
+								using Spring boot and Spring cloud.</p><b>Spring Boot</b> is a very popular Java
+							framework for building Restful web services and microservices. The main goal of Spring Boot
+							is to quickly create Spring-based applications without requiring developers to write the
+							same boilerplate configuration again and again.<br><br><b>Spring Cloud</b> provides various
+							tools or modules for developers to build common design patterns to solve different
+							infrastructural concerns in Microservices projects and focus on their main business
+							problems.<div><br></div>
+							<div>In the Java community, Spring Boot and Spring Cloud become a de-facto standard for
+								building microservices architecture.<br>
+								<h1 style="text-align: left;"><span><a name="more"></a></span>What are Microservices or
+									Microservices Architecture?</h1>Well, a microservice architecture enables large
+								teams to build scalable applications that are composed of many loosely coupled services.
+								<br><br>Here is what a typical microservice architecture looks like. For example,
+								consider this microservice architecture for a simple shopping cart application. It has
+								different services like <b>product service</b>, <b>inventory service</b>, and <b>stock
+									service</b>, and these are the independent and loosely coupled services in the
+								microservices projects.
+								Each microservice has its own
+								database. For example, <b>product service</b> has its own database, <b>inventory
+									service</b> has its own database, and <b>stock service</b> has its own database.
+								<br><br>In the microservices project, all the microservices are loosely coupled. So
+								loosely coupled, meaning all the services in a microservices project are independent of
+								each other and each microservice should be developed independently and each microservice
+								should be deployed independently and each microservice should be scaled independently.
+								<br><br>So basically Microservice following characteristics:<br>
+								<ul style="text-align: left;">
+									<li>Each microservice can have its own database. </li>
+									<li>Each microservice should be developed independently</li>
+									<li>Each microservice should be deployed independently </li>
+									<li>Each microservice should be scaled independently</li>
+								</ul>
+								<p
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;; font-size: 16px;">
+								</p>
+								<h1 style="text-align: left;">Microservices Architecture using Spring Boot and Spring
+									Cloud</h1>Well, we are going to use the <b>Employee Management </b>Project as an
+								example to create a microservices architecture. <div class="separator"
+									style="clear: both; text-align: center;"><img src="../scripts/images/micro.png"/>
+								</div>Well, you can take any example of any project. For example, you can take an
+								e-commerce application or you can take any healthcare domain-related application. So you
+								can take any project as an example, but follow the same steps to create a microservice
+								architecture using Spring Boot and Spring Cloud. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									Core Microservices</h2>Consider we have developed three core backend Spring boot
+								microservices such as <b>employee service</b>, <b>department service,</b> and
+								<b>organization service,</b> and all these three microservices have their own databases.
+								You can use a relational database or NoSQL database as a database for these
+								microservices. So whenever you create a microservice in your project, make sure that
+								each microservice should have its own database. All right. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									Microservices Communication</h2>Once we build these 3 microservices. Next, we'll see
+								how these microservices communicate with each other. Well, there are different ways to
+								make a REST API call from one microservice to another Microservice. For example, we can
+								use a RestTemplate or WebClient or Spring cloud-provided open feign library. All right.
+								<br><br>Well, there are two types of communication styles. One is synchronous and
+								another is asynchronous. <br><br>In the case of synchronous, we can use the HTTP
+								protocol to make an HTTP request from one microservice to the microservice. <br><br>And
+								in the case of asynchronous communication, we have to use a message broker for
+								asynchronous communication between multiple microservices. For example, we can use
+								RabbitMQ or Apache Kafka as a message broker in order to make an asynchronous
+								communication between multiple microservices and each microservice in a microservices
+								project can expose REST APIs.
+							</div>
+							<div><br></div>
+							<div><br></div>
+							<div>Well, Spring Cloud provides a Spring
+								Cloud Netflix Eureka Based Service Registry module that we can use to implement
+								service registry and discovery patterns in our microservices project. Well, service
+								Registry and discovery is a really essential pattern that we can use to avoid hard
+								coding hostnames and ports. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									Config-Server to Externalize the Configurations</h2>Next, we will implement a config
+								server to externalize the configurations of all these three microservices into a central
+								place which is the git repository.&nbsp;</div>
+							<div><br></div>
+							<div>Well, Spring cloud provides a Spring cloud config module that we can use to implement a
+								config server to externalize the configuration files of all these three microservices
+								into a central place. We are going to use the git repository as storage for the config
+								server. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									API Gateway Pattern</h2>
+								<div>Well, once we know how to use the config server to externalize the configuration
+									files. Next, we have to implement an API gateway.&nbsp;</div>
+								<div><br></div>
+								<div>Well, API Gateway plays a very important role in our microservices architecture. So
+									whenever a client wants to make a call to different microservices, the client has to
+									remember the host names and ports of all these microservices. So there should be a
+									solution where a client can send a request to the central component so that is where
+									the API gateway comes into the picture. So whenever a client sends a request to the
+									backend microservices, then the client has to send a request to the API gateway
+									first, and then the API gateway based on the routing rules will route that request
+									to the appropriate microservice. So this is how the API gateway plays an important
+									role in a microservices architecture.</div><br>Well, Spring Cloud provides Spring
+								Cloud Gateway module to implement API gateway patterns in a microservices
+								architecture. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									Distributed Tracing</h2>Next, once you know how to implement an API gateway in a
+								microservices project, next you can implement distributed tracing in a microservices
+								architecture. Well, Spring Cloud provides a Spring Cloud sleuth module, which we can use
+								to implement distributed tracing in our microservices project. <br><br>Well, along with
+								Spring Cloud Sleuth, we'll also use Zipkin to visualize the tracing log information in a
+								user interface. Well, Zipkin provides a user interface to track and trace information
+								through web applications. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									React Front Service</h2>Next, you can use React/Angular to create a client-side
+								service that will make a call to backend microservices. <h2
+									style="background-color: white; font-family: -apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;;">
+									Circuit Breaker Pattern</h2>Next, you can implement a circuit breaker pattern in an
+								employee service because the employee service is internally calling department service,
+								and let's say due to some reason, department service is down then employee service won't
+								get a response from the department server, isn't it? And then again, employee service
+								will send an internal server error to the API gateway and then API Gateway will send
+								that response back to the client. All right. So in order to avoid this kind of issue, we
+								can use a circuit breaker pattern. <br><br>So this circuit breaker pattern helps the
+								employee service to avoid continuous calls to the department service Whenever department
+								service is done and this circuit breaker pattern will help employee service to return
+								some default response back to the API Gateway and the API Gateway will send that default
+								response to the client. <br><br>All right. So this is a simple microservices
+								architecture using Spring Boot and Spring Cloud.
+							</div>
+							<style>
+								table {
+									border-collapse: collapse;
+									border-spacing: 0;
+									width: 100%;
+									border: 1px solid #ddd;
+								}
+
+								th,
+								td {
+									text-align: left;
+									padding: 8px;
+								}
+
+								tr:nth-child(even) {
+									background-color: #f2f2f2
+								}
+							</style>
+							<h1>Microservice Cheat Sheet</h1>
+							<img src="../springboot/images/MS.png" />
+
+							<p>Table for Microservice all services</p>
+							<div style="overflow-x:auto;">
+								<table>
+									<tr>
+										<th>Service</th>
+										<th>Dependency</th>
+										<th>Properties</th>
+										<th>Annotations</th>
+									</tr>
+									<tr>
+										<td>Eureka Server</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+											</dependency>
+										</td>
+										<td>eureka.client.registerWithEureka = false<br>
+											eureka.client.fetchRegistry = false
+										</td>
+										<td>@EnableEurekaServer</td>
+									</tr>
+									<tr>
+										<td>Eureka Client</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+											</dependency>
+										</td>
+										<td>eureka.instance.prefer-ip-address =
+											true<br>
+											eureka.client.registerWithEureka = true<br>
+											eureka.client.fetchRegistry = true<br>
+											eureka.client.service-url.defaultZone = http://localhost:8761/eureka</td>
+										<td>@EnableEurekaClient</td>
+									</tr>
+									<tr>
+										<td>Config Server</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-config</artifactId>
+											</dependency>
+										</td>
+										<td>
+											spring.cloud.config.server.git.uri=https://github.com/RameshMF/microservices-config-repo.git<br>
+											spring.cloud.config.server.git.skipSslValidation=true<br>
+											spring.cloud.config.server.git.clone-on-start=true</td>
+										<br>
+										<br>
+										spring.config.import=optional:configserver:http://localhost:8888
+										<td>@EnableConfigServer</td>
+									</tr>
+									<tr>
+										<td>API Gateway</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-gateway</artifactId>
+											</dependency><br>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+											</dependency>
+										</td>
+										<td>
+											eureka.instance.client.serviceUrl.defaultZone=http://localhost:8761/eureka/<br>
+											<br>
+											spring.cloud.gateway.routes[0].id=USER-SERVICE<br>
+											spring.cloud.gateway.routes[0].uri=lb://USER-SERVICE<br>
+											spring.cloud.gateway.routes[0].predicates[0]=Path=/api/users/**
+										</td><br>
+										<td>@EnableEurekaClient</td>
+									</tr>
+									<tr>
+										<td>Circuit Breaker</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+											</dependency>
+										</td>
+										<td></td>
+										<td>@EnableCircuitBreaker
+											@HystrixCommand(fallbackMethod = "getDefaultProductInventoryByCode",
+											commandProperties = {
+											@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds",
+											value = "3000"),
+											@HystrixProperty(name = "circuitBreaker.errorThresholdPercentage",
+											value="60")
+											}
+											)</td>
+									</tr>
+									<tr>
+										<td>Resilience4j</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.boot</groupId>
+												<artifactId>spring-boot-starter-aop</artifactId>
+											</dependency><br>
+
+											<dependency>
+												<groupId>io.github.resilience4j</groupId>
+												<artifactId>resilience4j-spring-boot2</artifactId>
+											</dependency><br>
+											<dependency>
+												<groupId>io.github.resilience4j</groupId>
+												<artifactId>resilience4j-reactor</artifactId>
+											</dependency>
+											<br>
+											<br>
+											In the circuit breaker, there are 3 states
+											Closed, Open, and Half-Open.
+										</td>
+										<td>
+											resilience4j.circuitbreaker.configs.shared.register-health-indicator=true<br>
+											resilience4j.circuitbreaker.configs.shared.sliding-window-type=count_based<br>
+											resilience4j.circuitbreaker.configs.shared.sliding-window-size=5<br>
+											resilience4j.circuitbreaker.configs.shared.failure-rate-threshold=40<br>
+											resilience4j.circuitbreaker.configs.shared.slow-call-rate-threshold=40<br>
+											resilience4j.circuitbreaker.configs.shared.permitted-number-of-calls-in-half-open-state=1<br>
+											resilience4j.circuitbreaker.configs.shared.max-wait-duration-in-half-open-state=10s<br>
+											resilience4j.circuitbreaker.configs.shared.wait-duration-in-open-state=10s<br>
+											resilience4j.circuitbreaker.configs.shared.slow-call-duration-threshold=2s<br>
+											resilience4j.circuitbreaker.configs.shared.writable-stack-trace-enabled=true<br>
+											resilience4j.circuitbreaker.configs.shared.automatic-transition-from-open-to-half-open-enabled=true<br>
+
+											resilience4j.circuitbreaker.instances.example.base-config=shared</td>
+										<td>@CircuitBreaker(name =
+											RESILIENCE4J_INSTANCE_NAME, fallbackMethod =
+											FALLBACK_METHOD)</td>
+									</tr>
+									<tr>
+										<td>Zipkin and Sleuth</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-zipkin</artifactId>
+											</dependency><br>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-sleuth</artifactId>
+											</dependency>
+										</td>
+										<td>
+											spring.zipkin.base-url=http://localhost:9411/</td>
+										<td>@EnableSleuth</td>
+									</tr>
+									<tr>
+										<td>Feign client</td>
+										<td>
+											<dependency>
+												<groupId>org.springframework.cloud</groupId>
+												<artifactId>spring-cloud-starter-openfeign</artifactId>
+											</dependency>
+										</td>
+										<td></td>
+										<td>@EnableFeignClients
+											@FeignClient(value = "DEPARTMENT-SERVICE", url = "http://localhost:8080")
+											public interface APIClient {
+											@GetMapping(value = "/api/departments/{id}")
+											DepartmentDto getDepartmentById(@PathVariable("id") Long departmentId);
+											}</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../microservices/ms-intro.html">&lArr; Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../microservices/registry-discovery.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

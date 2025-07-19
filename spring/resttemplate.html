@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="RaviKalyan">
+    <title>RestTemplate</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../scripts/images/tab_logo.png"/>
+    <link rel='dns-prefetch' href='http://fonts.googleapis.com/'/>
+    <link rel="stylesheet" href="../scripts/css/site.css">
+    <link rel='stylesheet' id='blogus-google-fonts-css'
+          href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+          type='text/css' media='all'/>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+            rel="stylesheet"/>
+    <script>
+        !function (theme, navWidth) {
+            if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+            if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+        }(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+            localStorage && localStorage.getItem('nav-width'))
+    </script>
+    <style>
+        @media screen and (min-width: 1025px) {
+            .div-to-desk {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+
+        @media screen and (max-width: 1025px) {
+            .div-to-hide {
+                display: none;
+                /* Hide the div on screens smaller than 1025px (mobile) */
+            }
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="../home.html"> <img width="40" height="25" src="../scripts/images/nani1.png"
+                                                         alt="Home"/>
+            <h5 href="../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+        </a>
+        <h4 class="div-to-desk berkshire-swash-regular" href="../home.html">Ravish</h4>
+        <button class="navbar-burger" data-target="topbar-nav">
+            <span></span> <span></span> <span></span>
+        </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item" style="text-align: center;">
+                <div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link" href="../home.html"><img
+                        height="25" width="25" src="../scripts/images/home.png"></i></a></div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/introduction.html">Java</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../spring/introduction.html">Spring</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../springboot/introduction.html">SpringBoot</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../microservices/ms-intro.html">Microservices</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../java/java8/introduction.html">Java 8
+                        Features</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../DP/introduction.html">Design
+                        Patterns</a>
+                </div>
+                <div class="navbar-item is-hoverable">
+                    <a class="navbar-link" href="../interview/interview-questions.html">Interview
+                        Questions</a>
+                </div>
+                <label class="theme-toggler div-to-hide"> <input type="checkbox" id="switch-theme-checkbox"/> <span
+                        class="icon"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+    <label class="theme-toggler div-to-desk" style="top: 22px;"> <input type="checkbox" id="switch-theme-mobile"/>
+        <span class="icon"></span>
+    </label>
+</nav>
+
+<div class="body">
+    <div class="nav-container">
+        <aside class="nav">
+            <div class="nav-panel-menu is-active" data-panel="menu">
+                <li class="nav-item" data-depth="0">
+                    <ul class="nav-list">
+                        <h4>Spring Concepts</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/introduction.html">Spring
+                            Introduction</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/spring-core.html">Spring Core</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/mvc.html">Spring
+                            Web</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/aop.html">Spring
+                            AOP</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/exceptions.html">Spring Exceptions</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/jpa.html">Spring
+                            JPA</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/transactions.html">Spring
+                            Transactions</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/batch.html">Spring
+                            Batch</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link" href="../spring/resttemplate.html">Spring
+                            Rest Template</a></li>
+                        <h4>Spring Annotations</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-core.html">Core
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-mvc.html">MVC Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-transactions.html">Transactions
+                            & Error Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-configuration.html">Configuration
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-aop.html">AOP Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-jpa.html">JPA Annotations</a>
+                        </li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cloud.html">Cloud
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-scheduling.html">Scheduling
+                            Annotations</a></li>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../spring/annotations-cache-error.html">Caching
+                            Annotations</a></li>
+                        <h4>Interview Questions</h4>
+                        <li class="nav-item" data-depth="1"><a class="nav-link"
+                                                               href="../interview/spring/spring-interview-questions.html">Spring
+                            Interview Questions</a></li>
+                    </ul>
+                </li>
+            </div>
+        </aside>
+    </div>
+    <main class="article">
+        <div class="toolbar">
+            <button class="navbar-burger" id="nav-toggle-1">
+                <span></span> <span></span> <span></span>
+            </button>
+            <nav class="breadcrumbs">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/resttemplate.html">RestTemplate</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="doc">
+            <nav class="breadcrumbs div-to-hide">
+                <ul>
+                    <li><a href="../home.html">Home</a></li>
+                    <li><a href="../spring/introduction.html">Spring</a></li>
+                    <li><a href="../spring/resttemplate.html">RestTemplate</a></li>
+                </ul>
+
+            </nav>
+            <a class="div-to-desk"> <br>
+            </a>
+            <article>
+                <div class="entry-content" itemprop="text">
+                    <div class="slide">
+                        <div class="post">
+                            <div class="post-title-container">
+                                <a name="6979497397369996769"></a>
+                                <h3 class="post-title entry-title">Spring Boot
+                                    Microservices Communication Example using RestTemplate</h3>
+                            </div>
+                            <div class="post-body entry-content float-container" id="post-body-6979497397369996769">
+                                <p>In this tutorial, we will learn how to create multiple
+                                    Spring boot microservices and how to use RestTemplate class to
+                                    make Synchronous communication between multiple microservices.</p>
+                                <p>There are two styles of&nbsp;Microservices
+                                    Communications:</p>
+                                <p></p>
+                                <ol style="text-align: left;">
+                                    <li>Synchronous Communication</li>
+                                    <li>Asynchronous Communication</li>
+                                </ol>
+                                <p></p>
+                                <h1 style="text-align: left;">
+                                    <span><a name="more"></a></span>Synchronous Communication
+                                </h1>
+                                <div>In the case of Synchronous Communication, the client
+                                    sends a request and waits for a response from the service. The
+                                    important point here is that the protocol (HTTP/HTTPS) is
+                                    synchronous and the client code can only continue its task
+                                    when it receives the HTTP server response.&nbsp;
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    For example, <b>Microservice1 acts as a client that sends
+                                    a request and waits for a response from Microservice2.</b>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>We can use RestTemplate or WebClient or Spring Cloud
+                                    Open Feign library to make a Synchronous Communication
+                                    multiple microservices.
+                                </div>
+                                <div>
+                                    <h1>Asynchronous Communication</h1>
+                                </div>
+                                <div>In the case of Asynchronous Communication, The
+                                    client sends a request and does not wait for a response from
+                                    the service. The client will continue executing its task - It
+                                    doesn’t wait for the response from the service.&nbsp;
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    For example,&nbsp;<b>Microservice1 acts as a client that
+                                    sends a request and doesn't wait for a response from
+                                    Microservice2.</b>
+                                </div>
+                                <div>
+                                    <b><br></b>
+                                </div>
+                                <div>We can use Message brokers such as RabbitMQ and
+                                    Apache Kafka to make Asynchronous Communication between
+                                    multiple microservices.
+                                </div>
+                                <h1 style="text-align: left;">What we will Build?</h1>
+                                <div>
+                                    Well, we will create two microservices such as <i>department-service</i>
+                                    and <i>user-service</i> and we will make a REST API call from
+                                    <i>user-service</i> to <i>department-service</i> to fetch a
+                                    particular user department.
+                                </div>
+                                <div class="separator" style="clear: both; text-align: center;">
+                                    <a
+                                            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAcFE4g0wrXpF0JD-u5CH3-aZ-7IXq9V1ndyk0v8sWQldBp4OIxkt5DpR6ItaxfDbIIRL8K03WSibgw9_W4E9-aigmkghtY4iG8LkKLub1kqDh98SqB5POzsCkwI_KEtYKDaxWvB8R_OEmBViy479i5loWe9q0yi690zEqYOe7ob7Lsmt7uIkx2vnq/s1920/Spring%20Boot%20Microservices.006.jpeg"><img
+                                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiAcFE4g0wrXpF0JD-u5CH3-aZ-7IXq9V1ndyk0v8sWQldBp4OIxkt5DpR6ItaxfDbIIRL8K03WSibgw9_W4E9-aigmkghtY4iG8LkKLub1kqDh98SqB5POzsCkwI_KEtYKDaxWvB8R_OEmBViy479i5loWe9q0yi690zEqYOe7ob7Lsmt7uIkx2vnq/s16000/Spring%20Boot%20Microservices.006.jpeg"
+                                            title="Spring Boot Microservices Communication Example using RestTemplate"></a>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>We will create a separate MySQL database for each
+                                    microservice.
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>We will create and set up two Spring boot projects
+                                    as two microservices in IntelliJ IDEA.
+                                </div>
+                                <div>
+                                    <h1>Creating DepartmentService Microservice</h1>
+                                </div>
+                                <div>
+                                    Let's first create and setup the&nbsp;<i>department-service</i>
+                                    Spring boot project in IntelliJ IDEA
+                                </div>
+                                <h2 style="text-align: left;">1. Create and setup spring
+                                    boot project (department-service) in IntelliJ IDEA</h2>
+                                <div>
+                                    <p
+                                            style="font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Symbol&amp;amp; quot;; font-size: 16px;">
+											<span
+                                                    face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                    style="color: #24292f;">Let's create a Spring boot
+												project using the&nbsp;</span><a href="https://start.spring.io/"
+                                                                                 rel="nofollow"
+                                                                                 style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; box-sizing: border-box; color: #3d85c6; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-weight: bold; text-decoration-line: none; transition: color 80ms cubic-bezier(0.33, 1, 0.68, 1) 0s, background-color 0s ease 0s, box-shadow 0s ease 0s, border-color 0s ease 0s;">spring
+                                        initializr</a>.
+                                    </p>
+                                    <p
+                                            style="font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Symbol&amp;amp; quot;; font-size: 16px;">
+                                        Refer to the below screenshot to enter details while creating
+                                        the spring boot application&nbsp;<span
+                                            face="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;"
+                                            style="color: #24292f;">using the&nbsp;</span><a
+                                            href="https://start.spring.io/" rel="nofollow"
+                                            style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; box-sizing: border-box; color: #3d85c6; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-weight: bold; text-decoration-line: none; transition: color 80ms cubic-bezier(0.33, 1, 0.68, 1) 0s, background-color 0s ease 0s, box-shadow 0s ease 0s, border-color 0s ease 0s;">spring
+                                        initializr</a>:
+                                    </p>
+                                    <div class="separator" style="clear: both; text-align: center;">
+                                        <a
+                                                href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDkbEmkeZVyANIw-ZQ2Nq81wqcfBnCg2GGgPx9QZn1buGgjlZqN7p_Zbb43bCsPGjRksbzdgJXCa3Tdq8cFxKgF-Is2wPt2UriB8wGoYa9vUugFZazE1l6cA8JzjNNiHg48waUSbaDXfFzZFqwmcQTFG3uDb41dpdyRGIlLy7YLWsXC0ylZ7Pw7azI/s2554/Screenshot%202022-10-02%20at%2012.07.27%20PM.png"><img
+                                                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDkbEmkeZVyANIw-ZQ2Nq81wqcfBnCg2GGgPx9QZn1buGgjlZqN7p_Zbb43bCsPGjRksbzdgJXCa3Tdq8cFxKgF-Is2wPt2UriB8wGoYa9vUugFZazE1l6cA8JzjNNiHg48waUSbaDXfFzZFqwmcQTFG3uDb41dpdyRGIlLy7YLWsXC0ylZ7Pw7azI/s16000/Screenshot%202022-10-02%20at%2012.07.27%20PM.png"></a>
+                                    </div>
+                                    <div>
+											<span
+                                                    face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;"
+                                                    style="background-color: white; font-size: 16px;">Click
+												on Generate button to download the Spring boot project as a
+												zip file. Unzip the zip file and import the Spring boot
+												project in IntelliJ IDEA.</span>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    Here is the <i>pom.xml</i> file for your reference:
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs xml">
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span
+        class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span
+        class="hljs-attr">xmlns:xsi</span>=<span
+        class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="hljs-attr">xsi:schemaLocation</span>=<span
+            class="hljs-string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.4<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">version</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span
+                                                    class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>net.javaguides<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>department-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">version</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>department-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>department-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>17<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span
+                    class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>runtime<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">scope</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">optional</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">scope</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+
+	<span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span
+                        class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span
+                        class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+											</code>
+										</pre>
+                                    <h2 style="text-align: left;">DepartmentService -
+                                        Configure MySQL Database</h2>
+                                </div>
+                                <div>
+										<span
+                                                face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                style="background-color: white; color: #24292e; font-size: 16px;">Since
+											we’re using MySQL as our database, we need to configure the
+											URL, username, and password so that our Spring boot can
+											establish a connection with the database on startup.</span>
+                                </div>
+                                <div>
+										<span
+                                                face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                style="background-color: white; color: #24292e; font-size: 16px;"><br></span>
+                                </div>
+                                <div>
+										<span
+                                                face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                style="background-color: white; color: #24292e; font-size: 16px;">Open
+											the&nbsp;</span><span
+                                        style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">src/main/resources/application.properties</span><span
+                                        face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                        style="background-color: white; color: #24292e; font-size: 16px;">&nbsp;file
+											and add the following properties to it:</span>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs ini">
+<span class="hljs-attr">spring.datasource.url</span>=jdbc:mysql://localhost:<span
+                                                    class="hljs-number">3306</span>/department_db
+<span class="hljs-attr">spring.datasource.username</span>=root
+<span class="hljs-attr">spring.datasource.password</span>=Mysql@<span
+                                                    class="hljs-number">123</span>
+
+<span class="hljs-attr">spring.jpa.properties.hibernate.dialect</span>=org.hibernate.dialect.MySQLDialect
+<span class="hljs-attr">spring.jpa.hibernate.ddl-auto</span>=update</code>
+										</pre>
+                                </div>
+                                <div>
+                                    <div
+                                            style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                        Don’t forget to change the&nbsp;<span
+                                            style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.datasource.username</span>&nbsp;and&nbsp;<span
+                                            style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.datasource.password</span>&nbsp;as
+                                        per your MySQL installation. Also, create a database
+                                        named&nbsp;<b>department_db</b>&nbsp;in MySQL before
+                                        proceeding to the next section.
+                                    </div>
+                                    <div
+                                            style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                        You don’t need to create any tables. The tables will
+                                        automatically be created by Hibernate from the&nbsp;<span
+                                            style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">Department</span>entity
+                                        that we will define in the next step. This is made possible
+                                        by the property&nbsp;<span
+                                            style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.jpa.hibernate.ddl-auto
+												= update.</span>
+                                    </div>
+                                </div>
+                                <h2 style="text-align: left;">DepartmentService - Create
+                                    Department JPA Entity</h2>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs kotlin">
+<span class="hljs-keyword">package</span> net.javaguides.departmentservice.entity;
+
+<span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.NoArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Setter;
+
+<span class="hljs-meta">@Entity</span>
+<span class="hljs-meta">@Table(name = <span
+        class="hljs-meta-string">"departments"</span>)</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-meta">@Setter</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                    class="hljs-keyword">class</span> <span class="hljs-title">Department</span> </span>{
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span>
+    <span class="hljs-keyword">private</span> <span
+                                                    class="hljs-built_in">Long</span> id;
+    <span class="hljs-keyword">private</span> String departmentName;
+    <span class="hljs-keyword">private</span> String departmentAddress;
+    <span class="hljs-keyword">private</span> String departmentCode;
+}</code>
+										</pre>
+                                </div>
+                                <h2 style="text-align: left;">DepartmentService - Create
+                                    Spring Data JPA Repository</h2>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs css">
+<span class="hljs-selector-tag">package</span> <span
+                                                    class="hljs-selector-tag">net</span><span
+                                                    class="hljs-selector-class">.javaguides</span><span
+                                                    class="hljs-selector-class">.departmentservice</span><span
+                                                    class="hljs-selector-class">.repository</span>;
+
+<span class="hljs-selector-tag">import</span> <span
+                                                    class="hljs-selector-tag">net</span><span
+                                                    class="hljs-selector-class">.javaguides</span><span
+                                                    class="hljs-selector-class">.departmentservice</span><span
+                                                    class="hljs-selector-class">.entity</span><span
+                                                    class="hljs-selector-class">.Department</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                    class="hljs-selector-tag">org</span><span
+                                                    class="hljs-selector-class">.springframework</span><span
+                                                    class="hljs-selector-class">.data</span><span
+                                                    class="hljs-selector-class">.jpa</span><span
+                                                    class="hljs-selector-class">.repository</span><span
+                                                    class="hljs-selector-class">.JpaRepository</span>;
+
+<span class="hljs-selector-tag">public</span> <span
+                                                    class="hljs-selector-tag">interface</span> <span
+                                                    class="hljs-selector-tag">DepartmentRepository</span> <span
+                                                    class="hljs-selector-tag">extends</span> <span
+                                                    class="hljs-selector-tag">JpaRepository</span>&lt;<span
+                                                    class="hljs-selector-tag">Department</span>, <span
+                                                    class="hljs-selector-tag">Long</span>&gt; {
+}</code>
+										</pre>
+                                </div>
+                                <div>
+                                    <h2>DepartmentService - Create Service Layer</h2>
+                                </div>
+                                <div>
+                                    <h4 data-sourcepos="82:1-82:32" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        DepartmentService Interface</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs java">
+<span class="hljs-keyword">package</span> net.javaguides.departmentservice.service;
+
+<span class="hljs-keyword">import</span> net.javaguides.departmentservice.entity.Department;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">interface</span> <span
+                                                        class="hljs-title">DepartmentService</span> </span>{
+    <span class="hljs-function">Department <span
+            class="hljs-title">saveDepartment</span><span
+            class="hljs-params">(Department department)</span></span>;
+
+    <span class="hljs-function">Department <span
+            class="hljs-title">getDepartmentById</span><span
+            class="hljs-params">(Long departmentId)</span></span>;
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 data-sourcepos="94:1-94:32" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        DepartmentServiceImpl class</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs css">
+<span class="hljs-selector-tag">package</span> <span
+                                                        class="hljs-selector-tag">net</span><span
+                                                        class="hljs-selector-class">.javaguides</span><span
+                                                        class="hljs-selector-class">.departmentservice</span><span
+                                                        class="hljs-selector-class">.service</span><span
+                                                        class="hljs-selector-class">.impl</span>;
+
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">lombok</span><span
+                                                        class="hljs-selector-class">.AllArgsConstructor</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">lombok</span><span
+                                                        class="hljs-selector-class">.extern</span><span
+                                                        class="hljs-selector-class">.slf4j</span><span
+                                                        class="hljs-selector-class">.Slf4j</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">net</span><span
+                                                        class="hljs-selector-class">.javaguides</span><span
+                                                        class="hljs-selector-class">.departmentservice</span><span
+                                                        class="hljs-selector-class">.entity</span><span
+                                                        class="hljs-selector-class">.Department</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">net</span><span
+                                                        class="hljs-selector-class">.javaguides</span><span
+                                                        class="hljs-selector-class">.departmentservice</span><span
+                                                        class="hljs-selector-class">.repository</span><span
+                                                        class="hljs-selector-class">.DepartmentRepository</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">net</span><span
+                                                        class="hljs-selector-class">.javaguides</span><span
+                                                        class="hljs-selector-class">.departmentservice</span><span
+                                                        class="hljs-selector-class">.service</span><span
+                                                        class="hljs-selector-class">.DepartmentService</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                        class="hljs-selector-tag">org</span><span
+                                                        class="hljs-selector-class">.springframework</span><span
+                                                        class="hljs-selector-class">.stereotype</span><span
+                                                        class="hljs-selector-class">.Service</span>;
+
+<span class="hljs-keyword">@Service</span>
+@AllArgsConstructor
+@Slf4j
+public class DepartmentServiceImpl implements DepartmentService {
+
+    <span class="hljs-selector-tag">private</span> <span
+                                                        class="hljs-selector-tag">DepartmentRepository</span> <span
+                                                        class="hljs-selector-tag">departmentRepository</span>;
+
+    <span class="hljs-keyword">@Override</span>
+    public Department saveDepartment(Department department) {
+        <span class="hljs-selector-tag">return</span> <span
+                                                        class="hljs-selector-tag">departmentRepository</span><span
+                                                        class="hljs-selector-class">.save</span>(<span
+                                                        class="hljs-selector-tag">department</span>);
+    }
+
+    <span class="hljs-keyword">@Override</span>
+    public Department getDepartmentById(Long departmentId) {
+        <span class="hljs-selector-tag">return</span> <span
+                                                        class="hljs-selector-tag">departmentRepository</span><span
+                                                        class="hljs-selector-class">.findById</span>(<span
+                                                        class="hljs-selector-tag">departmentId</span>)<span
+                                                        class="hljs-selector-class">.get</span>();
+    }
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 data-sourcepos="123:1-123:56" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 1.25em; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        DepartmentService - Create Controller Layer:
+                                        DepartmentController</h3>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs kotlin">
+<span class="hljs-keyword">package</span> net.javaguides.departmentservice.controller;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> net.javaguides.departmentservice.entity.Department;
+<span class="hljs-keyword">import</span> net.javaguides.departmentservice.service.DepartmentService;
+<span class="hljs-keyword">import</span> org.springframework.http.HttpStatus;
+<span class="hljs-keyword">import</span> org.springframework.http.ResponseEntity;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.<span
+                                                        class="hljs-keyword">annotation</span>.*;
+
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping(<span
+        class="hljs-meta-string">"api/departments"</span>)</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">class</span> <span class="hljs-title">DepartmentController</span> </span>{
+
+    <span class="hljs-keyword">private</span> DepartmentService departmentService;
+
+    <span class="hljs-meta">@PostMapping</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;Department&gt; saveDepartment(<span
+                                                        class="hljs-meta">@RequestBody</span> Department department){
+        Department savedDepartment = departmentService.saveDepartment(department);
+        <span class="hljs-keyword">return</span> new ResponseEntity&lt;&gt;(savedDepartment, HttpStatus.CREATED);
+    }
+
+    <span class="hljs-meta">@GetMapping(<span
+            class="hljs-meta-string">"{id}"</span>)</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;Department&gt; getDepartmentById(<span
+                                                        class="hljs-meta">@PathVariable(<span
+                                                        class="hljs-meta-string">"id"</span>)</span> <span
+                                                        class="hljs-built_in">Long</span> departmentId){
+        Department department = departmentService.getDepartmentById(departmentId);
+        <span class="hljs-keyword">return</span> ResponseEntity.ok(department);
+    }
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <h2 style="text-align: left;">DepartmentService - Start
+                                    Spring Boot Application</h2>
+                                <div>
+                                    <div
+                                            style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                        Two ways we can start the standalone Spring boot
+                                        application.&nbsp;
+                                    </div>
+                                    <div
+                                            style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                        1. From the root directory of the application and type the
+                                        following command to run it -
+                                    </div>
+                                    <pre
+                                            style="background-color: #f6f8fa; border-radius: 3px; border: 1px solid rgb(61, 133, 198); box-sizing: border-box; color: #24292e; font-family: SFMono-Regular, Consolas,&amp; amp; quot; Liberation Mono&amp;amp; quot; , Menlo , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code class="hljs ruby"
+                                                  style="background: initial; border-radius: 3px; border: 0px; box-sizing: border-box; color: #333333; display: inline; font-family: SFMono-Regular, Consolas,&amp; amp; quot; Liberation Mono&amp;amp; quot; , Menlo , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;">
+												<span class="hljs-variable" style="color: #df5000;"><span
+                                                        class="hljs-variable"><span
+                                                        class="hljs-variable">$ </span></span></span>mvn spring-<span
+                                                    class="hljs-symbol" style="color: #0086b3;"><span
+                                                    class="hljs-symbol"><span
+                                                    class="hljs-symbol">boot:</span></span></span>run
+</code>
+										</pre>
+                                    <div
+                                            style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px;">
+                                        2. From your IDE, run the <i>DepartmentServiceApplication.main()</i>
+                                        method as a standalone Java class that will start the
+                                        embedded Tomcat server on port 8080 and point the browser
+                                        to&nbsp;<a href="http://localhost:8080/" rel="nofollow"
+                                                   style="background: initial; box-sizing: border-box; color: #0366d6; font-weight: bold; text-decoration-line: none;">http://localhost:8080/</a>.
+                                    </div>
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    <h2>DepartmentService - Test REST APIs using Postman
+                                        Client</h2>
+                                </div>
+                                <h3 style="text-align: left;">Save Department REST API:</h3>
+                                <div class="separator" style="clear: both; text-align: center;">
+                                    <a
+                                            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGUAmDV-GCTl8_agLhlS_NAMQu-O_CXVC5XnLPlMb5MVb6pfvBl_NDpxRCa2etDXAZVs_27MNb0U9FiF8uZF1_p_IRUpKZkGKYSqK3OF6lFdqJa6MrZTdosOzaCfUqEA7GT_Iki7WVqRGmEcOfz8EA0XrjpmfXXTWjWco13V0o0qfS9Iug5_FetXq6/s1728/Screenshot%202022-10-02%20at%2012.20.56%20PM.png"><img
+                                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGUAmDV-GCTl8_agLhlS_NAMQu-O_CXVC5XnLPlMb5MVb6pfvBl_NDpxRCa2etDXAZVs_27MNb0U9FiF8uZF1_p_IRUpKZkGKYSqK3OF6lFdqJa6MrZTdosOzaCfUqEA7GT_Iki7WVqRGmEcOfz8EA0XrjpmfXXTWjWco13V0o0qfS9Iug5_FetXq6/s16000/Screenshot%202022-10-02%20at%2012.20.56%20PM.png"></a>
+                                </div>
+                                <br>
+                                <h3 style="text-align: left;">Get Single Department REST
+                                    API:</h3>
+                                <div>
+                                    <br>
+                                </div>
+                                <div class="separator" style="clear: both; text-align: center;">
+                                    <a
+                                            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsQICGERMQnU1p37kDGJKyE4ZGPtuNZ6i9Qmzfnhi41yFenIVcntaGA7Qfg_nQIRGsKfQipULKwyv6gRB2AkFhLuOBL7Ahn1-NkrVlBBr_Vz2K1wyba--7WJ5OgXY-ZSPJ3-gVYu3F_bqwBLKPYxmvEfPKCDa646IUGY4IrRw2pLHxzP8yIV-XCguq/s1728/Screenshot%202022-10-02%20at%2012.21.35%20PM.png"><img
+                                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsQICGERMQnU1p37kDGJKyE4ZGPtuNZ6i9Qmzfnhi41yFenIVcntaGA7Qfg_nQIRGsKfQipULKwyv6gRB2AkFhLuOBL7Ahn1-NkrVlBBr_Vz2K1wyba--7WJ5OgXY-ZSPJ3-gVYu3F_bqwBLKPYxmvEfPKCDa646IUGY4IrRw2pLHxzP8yIV-XCguq/s16000/Screenshot%202022-10-02%20at%2012.21.35%20PM.png"></a>
+                                </div>
+                                <br>
+                                <div>
+                                    <div>
+                                        <h1>2. Creating UserService Microservice</h1>
+                                    </div>
+                                    <div>
+                                        Let's first create and setup the&nbsp;<i>user-service</i>&nbsp;Spring
+                                        boot project in IntelliJ IDEA
+                                    </div>
+                                    <h2>1. Create and setup spring boot project
+                                        (user-service) in IntelliJ IDEA</h2>
+                                    <div>
+                                        <p
+                                                style="font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Symbol&amp;amp; quot;; font-size: 16px;">
+												<span
+                                                        face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                        style="color: #24292f;">Let's create a Spring boot
+													project using the&nbsp;</span><a href="https://start.spring.io/"
+                                                                                     rel="nofollow"
+                                                                                     style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; box-sizing: border-box; color: #3d85c6; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-weight: bold; text-decoration-line: none; transition: color 80ms cubic-bezier(0.33, 1, 0.68, 1) 0s, background-color 0s ease 0s, box-shadow 0s ease 0s, border-color 0s ease 0s;">spring
+                                            initializr</a>.
+                                        </p>
+                                        <p
+                                                style="font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Symbol&amp;amp; quot;; font-size: 16px;">
+                                            Refer to the below screenshot to enter details while
+                                            creating the spring boot application&nbsp;<span
+                                                face="-apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;"
+                                                style="color: #24292f;">using the&nbsp;</span><a
+                                                href="https://start.spring.io/" rel="nofollow"
+                                                style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; box-sizing: border-box; color: #3d85c6; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-weight: bold; text-decoration-line: none; transition: color 80ms cubic-bezier(0.33, 1, 0.68, 1) 0s, background-color 0s ease 0s, box-shadow 0s ease 0s, border-color 0s ease 0s;">spring
+                                            initializr</a>:
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="separator" style="clear: both; text-align: center;">
+                                    <a
+                                            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS8Bo9pRlWBEw7HIXLBG5hj6I8wLyeJ3TvZGav2PaXngWh6xKs1slCXmd7b1Rei-XvoEKi4xKxzFWopMKtl8f6X-lO9VmvG8Mrn3h6pnF1kcTqEP0vEwo5UDc6aT3VvavGx1tNTgzeKqZAXGygU9GxzKWfZQofLoQ8xDIacUvvug0KyBYgmENF_kAs/s2560/Screenshot%202022-10-02%20at%2012.24.33%20PM.png"><img
+                                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS8Bo9pRlWBEw7HIXLBG5hj6I8wLyeJ3TvZGav2PaXngWh6xKs1slCXmd7b1Rei-XvoEKi4xKxzFWopMKtl8f6X-lO9VmvG8Mrn3h6pnF1kcTqEP0vEwo5UDc6aT3VvavGx1tNTgzeKqZAXGygU9GxzKWfZQofLoQ8xDIacUvvug0KyBYgmENF_kAs/s16000/Screenshot%202022-10-02%20at%2012.24.33%20PM.png"></a>
+                                </div>
+                                <br>
+                                <div>
+                                    <div>
+											<span
+                                                    face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, &quot;Segoe UI Symbol&quot;"
+                                                    style="background-color: white; font-size: 16px;">Click
+												on Generate button to download the Spring boot project as a
+												zip file. Unzip the zip file and import the Spring boot
+												project in IntelliJ IDEA.</span>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    Here is the&nbsp;<i>pom.xml</i>&nbsp;file for your reference:
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs xml">
+<span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">project</span> <span
+        class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://maven.apache.org/POM/4.0.0"</span> <span
+        class="hljs-attr">xmlns:xsi</span>=<span
+        class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span>
+	<span class="hljs-attr">xsi:schemaLocation</span>=<span
+            class="hljs-string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">modelVersion</span>&gt;</span>4.0.0<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">modelVersion</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.7.4<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">version</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span
+                                                    class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>net.javaguides<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>user-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.0.1-SNAPSHOT<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">version</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>user-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">description</span>&gt;</span>user-service<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">description</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">java.version</span>&gt;</span>17<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">java.version</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">properties</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span
+                    class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jpa<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>runtime<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">scope</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">optional</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-test<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">scope</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>
+
+	<span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span
+                        class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span
+                        class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+				<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+					<span class="hljs-tag">&lt;<span class="hljs-name">excludes</span>&gt;</span>
+						<span class="hljs-tag">&lt;<span class="hljs-name">exclude</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span
+                                                    class="hljs-tag">&lt;/<span
+                                                    class="hljs-name">groupId</span>&gt;</span>
+							<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span
+                                                    class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+						<span class="hljs-tag">&lt;/<span class="hljs-name">exclude</span>&gt;</span>
+					<span class="hljs-tag">&lt;/<span class="hljs-name">excludes</span>&gt;</span>
+				<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+			<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">project</span>&gt;</span>
+											</code>
+										</pre>
+                                </div>
+                                <h2 style="text-align: left;">UserService - Configure
+                                    MySQL Database</h2>
+                                <div>
+                                    <div>
+											<span
+                                                    face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                                    style="background-color: white; color: #24292e; font-size: 16px;">Open
+												the&nbsp;</span><span
+                                            style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">src/main/resources/application.properties</span><span
+                                            face="-apple-system, &quot;system-ui&quot;, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;"
+                                            style="background-color: white; color: #24292e; font-size: 16px;">&nbsp;file
+												and add the following properties to it:</span>
+                                    </div>
+                                    <div>
+                                        <br>
+                                    </div>
+                                    <div>
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs ini">
+<span class="hljs-attr">spring.datasource.url</span>=jdbc:mysql://localhost:<span
+                                                        class="hljs-number">3306</span>/employee_db
+<span class="hljs-attr">spring.datasource.username</span>=root
+<span class="hljs-attr">spring.datasource.password</span>=Mysql@<span
+                                                        class="hljs-number">123</span>
+
+<span class="hljs-attr">spring.jpa.properties.hibernate.dialect</span>=org.hibernate.dialect.MySQLDialect
+<span class="hljs-attr">spring.jpa.hibernate.ddl-auto</span>=update</code>
+											</pre>
+                                    </div>
+                                    <div>
+                                        <div
+                                                style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                            Don’t forget to change the&nbsp;<span
+                                                style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.datasource.username</span>&nbsp;and&nbsp;<span
+                                                style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.datasource.password</span>&nbsp;as
+                                            per your MySQL installation. Also, create a database
+                                            named&nbsp;<b>employee_db</b>&nbsp;in MySQL before
+                                            proceeding to the next section.
+                                        </div>
+                                        <div
+                                                style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                            You don’t need to create any tables. The tables will
+                                            automatically be created by Hibernate from the&nbsp;<span
+                                                style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">User</span>entity
+                                            that we will define in the next step. This is made possible
+                                            by the property&nbsp;<span
+                                                style="background-color: rgba(27, 31, 35, 0.05); color: #d73a49; font-family: Consolas,&amp; amp; quot; liberation mono&amp;amp; quot; , Courier , monospace; font-size: 14.4px; font-style: initial; padding: 0.2em 0.4em;">spring.jpa.hibernate.ddl-auto
+													= update.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h2>UserService - Change the Server Port</h2>
+                                    <div>Note that the department service Spring boot
+                                        project is running on the default tomcat server port 8080.
+                                    </div>
+                                    <div>For user service, we need to change the embedded
+                                        tomcat server port to 8081 using the below property:
+                                    </div>
+                                    <div>
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs ini">
+													<span class="hljs-attr">server.port</span> = <span
+                                                        class="hljs-number">8081</span>
+												</code>
+											</pre>
+                                    </div>
+                                    <h2>UserService - Create User JPA Entity</h2>
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+<code style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+class="hljs typescript">package net.javaguides.userservice.entity;
+
+<span class="hljs-keyword">import</span> javax.persistence.*;
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.NoArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Setter;
+
+<span class="hljs-meta">@Entity</span>
+<span class="hljs-meta">@Table</span>(name = <span class="hljs-string">"users"</span>)
+<span class="hljs-meta">@Setter</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">class</span> <span
+                                                        class="hljs-title">User</span> </span>{
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
+    <span class="hljs-keyword">private</span> Long id;
+    <span class="hljs-keyword">private</span> <span
+                                                        class="hljs-built_in">String</span> firstName;
+    <span class="hljs-keyword">private</span> <span
+                                                        class="hljs-built_in">String</span> lastName;
+    <span class="hljs-meta">@Column</span>(nullable = <span
+                                                        class="hljs-literal">false</span>, unique = <span
+                                                        class="hljs-literal">true</span>)
+    <span class="hljs-keyword">private</span> <span
+                                                        class="hljs-built_in">String</span> email;
+    <span class="hljs-keyword">private</span> <span
+                                                        class="hljs-built_in">String</span> departmentId;
+}</code>
+										</pre>
+                                </div>
+                                <div>
+                                    <h2>UserService - Create Spring Data JPA Repository</h2>
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs css">
+<span class="hljs-selector-tag">package</span> <span
+                                                    class="hljs-selector-tag">net</span><span
+                                                    class="hljs-selector-class">.javaguides</span><span
+                                                    class="hljs-selector-class">.userservice</span><span
+                                                    class="hljs-selector-class">.repository</span>;
+
+<span class="hljs-selector-tag">import</span> <span
+                                                    class="hljs-selector-tag">net</span><span
+                                                    class="hljs-selector-class">.javaguides</span><span
+                                                    class="hljs-selector-class">.userservice</span><span
+                                                    class="hljs-selector-class">.entity</span><span
+                                                    class="hljs-selector-class">.User</span>;
+<span class="hljs-selector-tag">import</span> <span
+                                                    class="hljs-selector-tag">org</span><span
+                                                    class="hljs-selector-class">.springframework</span><span
+                                                    class="hljs-selector-class">.data</span><span
+                                                    class="hljs-selector-class">.jpa</span><span
+                                                    class="hljs-selector-class">.repository</span><span
+                                                    class="hljs-selector-class">.JpaRepository</span>;
+
+<span class="hljs-selector-tag">public</span> <span
+                                                    class="hljs-selector-tag">interface</span> <span
+                                                    class="hljs-selector-tag">UserRepository</span> <span
+                                                    class="hljs-selector-tag">extends</span> <span
+                                                    class="hljs-selector-tag">JpaRepository</span>&lt;<span
+                                                    class="hljs-selector-tag">User</span>, <span
+                                                    class="hljs-selector-tag">Long</span>&gt; {
+
+}</code>
+										</pre>
+                                </div>
+                                <h2 style="text-align: left;">UserService - Create DTO
+                                    Classes</h2>
+                                <div>
+                                    <h4 data-sourcepos="251:1-251:18" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        DepartmentDto</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+<code style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+class="hljs typescript">package net.javaguides.userservice.dto;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.NoArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Setter;
+
+<span class="hljs-meta">@Setter</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                            class="hljs-keyword">class</span> <span class="hljs-title">DepartmentDto</span> </span>{
+    <span class="hljs-keyword">private</span> Long id;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> departmentName;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> departmentAddress;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> departmentCode;
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 data-sourcepos="271:1-271:12" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        UserDto</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+class="hljs typescript">package net.javaguides.userservice.dto;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.NoArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Setter;
+
+<span class="hljs-meta">@Setter</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                            class="hljs-keyword">class</span> <span class="hljs-title">UserDto</span> </span>{
+    <span class="hljs-keyword">private</span> Long id;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> firstName;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> lastName;
+    <span class="hljs-keyword">private</span> <span
+                                                            class="hljs-built_in">String</span> email;
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 data-sourcepos="291:1-291:16" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        ResponseDto</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs java">
+<span class="hljs-keyword">package</span> net.javaguides.userservice.dto;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Getter;
+<span class="hljs-keyword">import</span> lombok.NoArgsConstructor;
+<span class="hljs-keyword">import</span> lombok.Setter;
+
+<span class="hljs-meta">@Setter</span>
+<span class="hljs-meta">@Getter</span>
+<span class="hljs-meta">@NoArgsConstructor</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">class</span> <span class="hljs-title">ResponseDto</span> </span>{
+    <span class="hljs-keyword">private</span> DepartmentDto department;
+    <span class="hljs-keyword">private</span> UserDto user;
+}</code>
+											</pre>
+                                    </div>
+                                </div>
+                                <h2 style="text-align: left;">UserService - Configure
+                                    RestTemplate as Spring Bean</h2>
+                                <div>Let's configure RestTemplate class as Spring bean so
+                                    that we can inject and use it.
+                                </div>
+                                <div>
+										<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                             style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+class="hljs typescript">package net.javaguides.userservice;
+
+<span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;
+<span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;
+<span class="hljs-keyword">import</span> org.springframework.web.client.RestTemplate;
+
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">class</span> <span class="hljs-title">UserServiceApplication</span> </span>{
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span
+                                                        class="hljs-built_in">void</span> <span
+                                                        class="hljs-function"><span class="hljs-title">main</span>(<span
+                                                        class="hljs-params"><span class="hljs-built_in">String</span>[] args</span>)</span> {
+        SpringApplication.run(UserServiceApplication.class, args);
+    }
+
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-keyword">public</span> RestTemplate <span
+                                                        class="hljs-function"><span
+                                                        class="hljs-title">restTemplate</span>(<span
+                                                        class="hljs-params"></span>)</span>{
+        <span class="hljs-keyword">return</span> <span
+                                                        class="hljs-keyword">new</span> RestTemplate();
+    }
+}</code>
+										</pre>
+                                </div>
+                                <h2 style="text-align: left;">UserService - Create Service
+                                    Layer</h2>
+                                <div>
+                                    <h4 data-sourcepos="310:1-310:26" dir="auto"
+                                        style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                        UserService Interface</h4>
+                                    <div class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                         style="background-color: white; box-sizing: border-box; color: #24292f; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; overflow: auto; position: relative;">
+											<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                 style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+												<code
+                                                        style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                        class="hljs java">
+<span class="hljs-keyword">package</span> net.javaguides.userservice.service;
+
+<span class="hljs-keyword">import</span> net.javaguides.userservice.dto.ResponseDto;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.entity.User;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                        class="hljs-keyword">interface</span> <span
+                                                        class="hljs-title">UserService</span> </span>{
+    <span class="hljs-function">User <span class="hljs-title">saveUser</span><span
+            class="hljs-params">(User user)</span></span>;
+
+    <span class="hljs-function">ResponseDto <span
+            class="hljs-title">getUser</span><span class="hljs-params">(Long userId)</span></span>;
+}
+</code>
+											</pre>
+                                        <div>
+                                            <code
+                                                    style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;">
+                                                <h4 data-sourcepos="333:1-333:26" dir="auto"
+                                                    style="box-sizing: border-box; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; line-height: 1.25; margin-bottom: 16px; margin-top: 24px;">
+                                                    UserServiceImpl
+                                                    class</h4>
+                                                <div
+                                                        class="snippet-clipboard-content notranslate position-relative overflow-auto"
+                                                        style="box-sizing: border-box; font-family: -apple-system,&amp; amp; quot; system-ui &amp;amp; quot; , &amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; overflow: auto; position: relative;">
+														<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                                             style="background-color: var(- -color-canvas-subtle); border-radius: 6px; box-sizing: border-box; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+															<code
+                                                                    style="background: transparent; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                                    class="hljs java">
+<span class="hljs-keyword">package</span> net.javaguides.userservice.service.impl;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.dto.DepartmentDto;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.dto.ResponseDto;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.dto.UserDto;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.entity.User;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.repository.UserRepository;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.service.UserService;
+<span class="hljs-keyword">import</span> org.springframework.http.ResponseEntity;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Service;
+<span class="hljs-keyword">import</span> org.springframework.web.client.RestTemplate;
+
+<span class="hljs-meta">@Service</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                                    class="hljs-keyword">class</span> <span
+                                                                    class="hljs-title">UserServiceImpl</span> <span
+                                                                    class="hljs-keyword">implements</span> <span
+                                                                    class="hljs-title">UserService</span> </span>{
+
+    <span class="hljs-keyword">private</span> UserRepository userRepository;
+    <span class="hljs-keyword">private</span> RestTemplate restTemplate;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span
+            class="hljs-title">saveUser</span><span
+            class="hljs-params">(User user)</span> </span>{
+        <span class="hljs-keyword">return</span> userRepository.save(user);
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> ResponseDto <span
+            class="hljs-title">getUser</span><span
+            class="hljs-params">(Long userId)</span> </span>{
+
+        ResponseDto responseDto = <span class="hljs-keyword">new</span> ResponseDto();
+        User user = userRepository.findById(userId).get();
+        UserDto userDto = mapToUser(user);
+
+        ResponseEntity&lt;DepartmentDto&gt; responseEntity = restTemplate
+                .getForEntity(<span class="hljs-string">"http://localhost:8080/api/departments/"</span> + user.getDepartmentId(),
+                DepartmentDto.class);
+
+        DepartmentDto departmentDto = responseEntity.getBody();
+
+        System.out.println(responseEntity.getStatusCode());
+
+        responseDto.setUser(userDto);
+        responseDto.setDepartment(departmentDto);
+
+        <span class="hljs-keyword">return</span> responseDto;
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">private</span> UserDto <span
+            class="hljs-title">mapToUser</span><span
+            class="hljs-params">(User user)</span></span>{
+        UserDto userDto = <span class="hljs-keyword">new</span> UserDto();
+        userDto.setId(user.getId());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setLastName(user.getLastName());
+        userDto.setEmail(user.getEmail());
+        <span class="hljs-keyword">return</span> userDto;
+    }
+}</code>
+												</pre>
+                                                </div>
+                                            </code>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    Note that we are using <i>RestTemplate</i> to make a REST API
+                                    call to department-service:
+                                </div>
+                                <div>
+									<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                         style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+<code style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+class="hljs coffeescript">ResponseEntity&lt;DepartmentDto&gt; responseEntity = restTemplate.getForEntity(<span class="hljs-string">"http://localhost:8080/api/departments/"</span> + user.getDepartmentId(),
+ DepartmentDto.<span class="hljs-keyword">class</span>);</code>
+										</pre>
+                                </div>
+                                <h2 style="text-align: left;">UserService - Create
+                                    Controller Layer: UserController</h2>
+                                <div>
+									<pre class="nz oa ob oc od oe of og bo oh ba bj"
+                                         style="border-radius: 6px; box-sizing: border-box; color: #24292f; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; margin-top: 0px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+											<code
+                                                    style="background-attachment: initial; background-clip: initial; background-image: initial; background-origin: initial; background-position: initial; background-repeat: initial; background-size: initial; border-radius: 6px; border: 0px; box-sizing: border-box; display: inline; font-family: ui-monospace, SFMono-Regular,&amp; amp; quot; SF Mono&amp;amp; quot; , Menlo , Consolas, &amp;amp; quot; Liberation Mono&amp;amp; quot; , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;"
+                                                    class="hljs kotlin">
+<span class="hljs-keyword">package</span> net.javaguides.userservice.controller;
+
+<span class="hljs-keyword">import</span> lombok.AllArgsConstructor;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.dto.ResponseDto;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.entity.User;
+<span class="hljs-keyword">import</span> net.javaguides.userservice.service.UserService;
+<span class="hljs-keyword">import</span> org.springframework.http.HttpStatus;
+<span class="hljs-keyword">import</span> org.springframework.http.ResponseEntity;
+<span class="hljs-keyword">import</span> org.springframework.web.bind.<span
+                                                    class="hljs-keyword">annotation</span>.*;
+
+<span class="hljs-meta">@RestController</span>
+<span class="hljs-meta">@RequestMapping(<span
+        class="hljs-meta-string">"api/users"</span>)</span>
+<span class="hljs-meta">@AllArgsConstructor</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span
+                                                    class="hljs-keyword">class</span> <span class="hljs-title">UserController</span> </span>{
+
+    <span class="hljs-keyword">private</span> UserService userService;
+
+    <span class="hljs-meta">@PostMapping</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;User&gt; saveUser(<span
+                                                    class="hljs-meta">@RequestBody</span> User user){
+        User savedUser = userService.saveUser(user);
+        <span class="hljs-keyword">return</span> new ResponseEntity&lt;&gt;(savedUser, HttpStatus.CREATED);
+    }
+
+    <span class="hljs-meta">@GetMapping(<span
+            class="hljs-meta-string">"{id}"</span>)</span>
+    <span class="hljs-keyword">public</span> ResponseEntity&lt;ResponseDto&gt; getUser(<span
+                                                    class="hljs-meta">@PathVariable(<span
+                                                    class="hljs-meta-string">"id"</span>)</span> <span
+                                                    class="hljs-built_in">Long</span> userId){
+        ResponseDto responseDto = userService.getUser(userId);
+        <span class="hljs-keyword">return</span> ResponseEntity.ok(responseDto);
+    }
+}</code>
+										</pre>
+                                </div>
+                                <div>
+                                    <h2>UserService - Start Spring Boot Application</h2>
+                                    <div>
+                                        <div  style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                            Two ways we can start the standalone Spring boot
+                                            application.&nbsp;
+                                        </div>
+                                        <div
+                                                style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px; margin-bottom: 16px;">
+                                            1. From the root directory of the application and type the
+                                            following command to run it -
+                                        </div>
+                                        <pre
+                                                style="background-color: #f6f8fa; border-radius: 3px; border: 1px solid rgb(61, 133, 198); box-sizing: border-box; color: #24292e; font-family: SFMono-Regular, Consolas,&amp; amp; quot; Liberation Mono&amp;amp; quot; , Menlo , monospace; font-size: 13.6px; line-height: 1.45; margin-bottom: 16px; overflow-wrap: normal; overflow: auto; padding: 16px;">
+<code class="hljs ruby" style="background: initial; border-radius: 3px; border: 0px; box-sizing: border-box; color: #333333; display: inline; font-family: SFMono-Regular, Consolas,&amp; amp; quot; Liberation Mono&amp;amp; quot; , Menlo , monospace; line-height: inherit; margin: 0px; overflow-wrap: normal; overflow: visible; padding: 0px; word-break: normal;">
+<span class="hljs-variable">$ </span></span></span>mvn spring-<span class="hljs-symbol" style="color: #0086b3;"><span class="hljs-symbol"><span class="hljs-symbol">boot:</span></span></span>run
+</code>
+											</pre>
+                                        <div
+                                                style="background-color: white; box-sizing: border-box; color: #24292e; font-family: -apple-system, BlinkMacSystemFont,&amp; amp; quot; Segoe UI&amp;amp; quot; , Helvetica , Arial, sans-serif, &amp;amp; quot; Apple Color Emoji&amp;amp; quot; , &amp; amp; quot; Segoe UI Emoji&amp;amp; quot;; font-size: 16px;">
+                                            2. From your IDE, run
+                                            the&nbsp;<i>UserServiceApplication.main()</i>&nbsp;method
+                                            as a standalone Java class that will start the embedded
+                                            Tomcat server on port 8080 and point the browser to&nbsp;<a
+                                                href="http://localhost:8081/" rel="nofollow"
+                                                style="background: initial; box-sizing: border-box; color: #0366d6; font-weight: bold; text-decoration-line: none;">http://localhost:8081/</a>.
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h2>UserService - Test REST APIs using Postman Client</h2>
+                                    </div>
+                                    <h3>
+                                        Save User REST API:<a
+                                            href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpXyXh4NgcAvkC9LTDZqobuHHm92eh8a4Rdlk9IRqI1Z72gNAV-cbIRn6la6nlMFFtfW-L4ETv5p5_29CkLKB0b58Io9Jk5T4T-41e4c65jPdDmAFtAu_DQFMoWXefk6Ml3SpWsRvxpdl8tGeXfuB3p_ZkQ-9S9AKQQ1apGi34iGhMMjwAR304lu9Q/s1732/Screenshot%202022-10-02%20at%2012.40.26%20PM.png"><img
+                                            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhpXyXh4NgcAvkC9LTDZqobuHHm92eh8a4Rdlk9IRqI1Z72gNAV-cbIRn6la6nlMFFtfW-L4ETv5p5_29CkLKB0b58Io9Jk5T4T-41e4c65jPdDmAFtAu_DQFMoWXefk6Ml3SpWsRvxpdl8tGeXfuB3p_ZkQ-9S9AKQQ1apGi34iGhMMjwAR304lu9Q/s16000/Screenshot%202022-10-02%20at%2012.40.26%20PM.png"></a>
+                                    </h3>
+                                </div>
+                                <h3 style="text-align: left;">
+                                    Get User REST API:&nbsp;<a
+                                        href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5Ne62jYh063QLbcEI7bSTBWOyv4-31Ht9_A7j5krua3K-wDneTKMy9DyJqH8WujxMe0ICrGwES_rfwz1CVCbfcSWRw4b1OYhPBfHUkfjwX1KMZBXhxVbI43bvIf6zt7orS01KU_tB6hgnDzRQbRQm2A2ndPh9IN4m_AkPjiwHpElLH7fnFznJacOw/s1732/Screenshot%202022-10-02%20at%2012.46.45%20PM.png"><img
+                                        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5Ne62jYh063QLbcEI7bSTBWOyv4-31Ht9_A7j5krua3K-wDneTKMy9DyJqH8WujxMe0ICrGwES_rfwz1CVCbfcSWRw4b1OYhPBfHUkfjwX1KMZBXhxVbI43bvIf6zt7orS01KU_tB6hgnDzRQbRQm2A2ndPh9IN4m_AkPjiwHpElLH7fnFznJacOw/s16000/Screenshot%202022-10-02%20at%2012.46.45%20PM.png"></a>
+                                </h3>
+                                <br>
+                                <div>Note that the response contains a Department for a
+                                    User.&nbsp; This demonstrates that we have successfully made a
+                                    REST API call from UserService to DepartmentService.
+                                </div>
+                                <h1 style="text-align: left;">Conclusion</h1>
+                                <div>
+                                    In this tutorial, we learned how to create multiple Spring
+                                    boot microservices and how to use <i>RestTemplate</i> class to
+                                    make Synchronous communication between multiple microservices.
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                                <div>
+                                    As of 5.0, the&nbsp;<i>RestTemplate</i>&nbsp;class is in
+                                    maintenance mode and soon will be deprecated. So the Spring
+                                    team recommended
+                                    using&nbsp;<i>org.springframework.web.reactive.client.WebClient&nbsp;</i>has
+                                    a modern API and supports sync, async, and streaming
+                                    scenarios.
+                                </div>
+                                <div>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="card-footer">
+            <ul class="pagination justify-content-center mb-4">
+                <li class="page-item"><a class="page-link btn-outline-primary" href="../spring/batch.html">&lArr;
+                    Previous</a></li>
+                <li class="page-item"><a class="page-link" href="../spring/annotations-core.html">Next &rArr;</a></li>
+            </ul>
+        </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img height="30" width="30" src="../scripts/images/top.jpeg"/>
+        </button>
+    </main>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    })
+</script>
+<script>
+    // Get the button
+    let mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {scrollFunction()};
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    }
+</script>
+<script src="../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+    <p>
+        ©
+        <script>var d = new Date();
+			document.write(d.getFullYear());
+        </script>
+        , The content is copyrighted to Ravi Kalyan Kolloju.
+    </p>
+</footer>
+
+</html>

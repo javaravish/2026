@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Java Collections Interview Questions</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+					src="../../scripts/images/nani1.png" alt="Home" />
+				<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+			</a>
+			<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+			<button class="navbar-burger" data-target="topbar-nav">
+				<span></span> <span></span> <span></span>
+			</button>
+		</div>
+		<div id="topbar-nav" class="navbar-menu">
+			<div class="navbar-end">
+				<div class="navbar-item" style="text-align: center;">
+					<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+							href="../../home.html"><img height="25" width="25"
+								src="../../scripts/images/home.png"></i></a></div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/introduction.html">Java</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+					</div>
+					<div class="navbar-item is-hoverable">
+						<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+					</div>
+					<label class="theme-toggler div-to-hide">
+						<input type="checkbox" id="switch-theme-checkbox" />
+						<span class="icon"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<label class="theme-toggler div-to-desk" style="top: 22px;">
+			<input type="checkbox" id="switch-theme-mobile" />
+			<span class="icon"></span>
+		</label>
+	</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/random.html">Java
+								Core</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-interview-questions.html">Java
+								Basics</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-abstraction.html">Java
+								Abstraction</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-encapsulation.html">Java
+								Encapsulation</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-polymorphism.html">Java
+								Polymorphism</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-inheritance.html">Java
+								Inheritance </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-string.html">Java
+								String</a></li>
+							<li class="nav-item"><a class="nav-link"
+													href="../java/java-overloading-Overriding.html">Java
+								Overloading and Overriding</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-exception.html">Java
+								Exception Handling</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-multithreading.html">Java
+								Multithreading</a></li>
+							<h4> Collections Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/java-collections.html">Java
+								Collections </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-list.html">Java
+								List </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-set.html">Java
+								Set </a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/java-map.html">Java
+								Map</a></li>
+							<li class="nav-item"><a class="nav-link" href="../java/miscellaneous.html">Java
+								Advanced</a></li>
+							<h4> Java Programming Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link" href="../java/programs.html">Java
+								Programs </a></li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../java/java-collections.html"> Collections Interview Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html"> Interview Questions</a></li>
+						<li><a href="../java/java-collections.html"> Collections Interview Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4>Java Collections Interview Questions</h4>
+					<div class="card-body">
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. What is Collection? What is a Collection Framework?</summary>
+							<div class="toggle-content">
+								<p>In Java, a <strong>Collection</strong> is an object that groups multiple elements
+									into a single unit. The <strong>Java Collections Framework</strong> (JCF) is a
+									set of classes and interfaces that provides a standardized architecture for
+									representing and manipulating collections.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>2. What are the key benefits of using the Java Collections Framework?</summary>
+							<div class="toggle-content">
+								<p>The Java Collections Framework offers several advantages:</p>
+								<ul>
+									<li><strong>Reusable data structures:</strong> Standard implementations of
+										common data structures like lists, sets, maps, etc.</li>
+									<li><strong>Efficiency:</strong> Optimized algorithms for operations such as
+										searching, sorting, and insertion/deletion.</li>
+									<li><strong>Type-safety:</strong> Generics ensure type-safety, preventing
+										runtime errors.</li>
+									<li><strong>Interoperability:</strong> Uniform interfaces allow collections to
+										work seamlessly with each other.</li>
+									<li><strong>Scalability:</strong> Supports scalable solutions for handling large
+										amounts of data.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>3. What are the basic interfaces of Java Collections Framework and how to
+								instantiate this interface?</summary>
+							<div class="toggle-content">
+								<p>The basic interfaces of the Java Collections Framework include:</p>
+								<ul>
+									<li><strong>List:</strong> Ordered collection (e.g., ArrayList, LinkedList)</li>
+									<li><strong>Set:</strong> Collection without duplicate elements (e.g., HashSet,
+										TreeSet)</li>
+									<li><strong>Queue:</strong> Collection designed for holding elements prior to
+										processing (e.g., PriorityQueue)</li>
+									<li><strong>Map:</strong> Key-value pair mapping (e.g., HashMap, TreeMap)</li>
+								</ul>
+								<p>To instantiate an interface in the Java Collections Framework, you typically use
+									a specific implementation class. For example:</p>
+								<pre><code>// Instantiate a List
+							List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							
+							// Instantiate a Set
+							Set&lt;String&gt; set = new HashSet&lt;&gt;();
+							
+							// Instantiate a Map
+							Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							</code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>4. Is there any other interface, which has some specific use case?</summary>
+							<div class="toggle-content">
+								<p>Yes, there are other interfaces in the Java Collections Framework that serve
+									specific purposes:</p>
+								<ul>
+									<li><strong>Deque:</strong> Double-ended queue supporting element insertion and
+										removal from both ends.</li>
+									<li><strong>SortedSet:</strong> A set that maintains elements in ascending
+										order.</li>
+									<li><strong>SortedMap:</strong> A map that maintains key-value pairs in
+										ascending order of keys.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>5. What is a Map interface, why it’s not a part of collection framework and
+								when to use?</summary>
+							<div class="toggle-content">
+								<p>The <strong>Map</strong> interface in Java represents a mapping between keys and
+									values. It is not strictly a part of the Collection Framework because it doesn't
+									inherit from the Collection interface. It is used when you need to store data as
+									key-value pairs and retrieve values based on keys.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>6. Describe various implementations of the Map interface and their use case
+								differences and map hierarchy diagram?</summary>
+							<div class="toggle-content">
+								<p>The Java <strong>Map</strong> interface has several implementations:</p>
+								<ul>
+									<li><strong>HashMap:</strong> Stores key-value pairs in a hash table, offering
+										average O(1) time complexity for put and get operations. Use when order is
+										not important and fast access is required.</li>
+									<li><strong>TreeMap:</strong> Stores key-value pairs in a sorted tree structure
+										based on the natural ordering of keys or a custom comparator. Use when
+										elements need to be stored in a sorted order.</li>
+									<li><strong>LinkedHashMap:</strong> Inherits from HashMap and maintains
+										insertion order of elements. Use when you need predictable iteration order.
+									</li>
+									<li><strong>ConcurrentHashMap:</strong> A thread-safe implementation of HashMap,
+										optimized for concurrent access. Use when you need thread safety without
+										locking the entire map.</li>
+								</ul>
+								<p><strong>Map Hierarchy Diagram:</strong></p>
+								<pre>
+							           Map
+							           / | \
+							     HashMap TreeMap LinkedHashMap
+							              |
+							       ConcurrentHashMap
+							        </pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>7. What is the difference between the HashMap, TreeMap and LinkedHashMap?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap:</strong> Stores key-value pairs in a hash table. Offers average
+									O(1) time complexity for put and get operations. Does not maintain any order.
+								</p>
+								<p><strong>TreeMap:</strong> Stores key-value pairs in a sorted tree structure.
+									Maintains elements in sorted order defined by natural ordering or a comparator.
+								</p>
+								<p><strong>LinkedHashMap:</strong> Inherits from HashMap and maintains the insertion
+									order of elements. Iteration order is predictable.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>8. How ArrayList and LinkedList differ from each other? What is the possible
+								use case where ArrayList and LinkedList fits?</summary>
+							<div class="toggle-content">
+								<p><strong>ArrayList:</strong></p>
+								<ul>
+									<li>Backed by a dynamic array, allowing fast random access and traversal.</li>
+									<li>Insertion/deletion operations can be slower due to array resizing.</li>
+									<li>Use when frequent access and iteration are required, and the list will not
+										undergo frequent insertions/deletions.</li>
+								</ul>
+								<p><strong>LinkedList:</strong></p>
+								<ul>
+									<li>Backed by a doubly linked list, allowing fast insertion/deletion operations.
+									</li>
+									<li>Traversal can be slower compared to ArrayList due to lack of random access.
+									</li>
+									<li>Use when frequent insertions/deletions are required, or when elements need
+										to be dynamically added or removed.</li>
+								</ul>
+								<p><strong>Use cases:</strong> ArrayList is suitable for scenarios where you need
+									fast access and iteration, while LinkedList is better for scenarios where you
+									need frequent insertions and deletions.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>9. How is HashSet differ from TreeSet? What is the use case, where HashSet and
+								TreeSet fits?</summary>
+							<div class="toggle-content">
+								<p><strong>HashSet:</strong></p>
+								<ul>
+									<li>Stores elements using a hash table mechanism.</li>
+									<li>Does not maintain any order of elements.</li>
+									<li>Provides average O(1) time complexity for add, remove, and contains
+										operations.</li>
+									<li>Use when order is not important and you need fast access.</li>
+								</ul>
+								<p><strong>TreeSet:</strong></p>
+								<ul>
+									<li>Stores elements in a sorted tree structure (Red-Black tree).</li>
+									<li>Maintains elements in sorted order defined by natural ordering or a
+										comparator.</li>
+									<li>Provides O(log n) time complexity for add, remove, and contains operations.
+									</li>
+									<li>Use when elements need to be stored in sorted order.</li>
+								</ul>
+								<p><strong>Use case:</strong> HashSet is suitable for scenarios where you need fast
+									access and uniqueness of elements. TreeSet is suitable when you need elements to
+									be stored and accessed in sorted order.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>10. What is the difference between SET and LIST Interface?</summary>
+							<div class="toggle-content">
+								<p>The main differences between the <strong>Set</strong> and <strong>List</strong>
+									interfaces in Java Collections Framework are:</p>
+								<ul>
+									<li><strong>Set:</strong> Does not allow duplicate elements. Does not maintain
+										insertion order (unless it's a SortedSet).</li>
+									<li><strong>List:</strong> Allows duplicate elements. Maintains elements in
+										insertion order.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>11. Where to use ArrayList and where to use LinkedList?</summary>
+							<div class="toggle-content">
+								<p>Use <strong>ArrayList</strong> when:</p>
+								<ul>
+									<li>You need fast iteration and random access.</li>
+									<li>The list will not undergo frequent insertions and deletions.</li>
+								</ul>
+								<p>Use <strong>LinkedList</strong> when:</p>
+								<ul>
+									<li>You need fast insertions and deletions.</li>
+									<li>The list will undergo frequent insertions and deletions.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>12. What is an Iterator? Explain with an Example.</summary>
+							<div class="toggle-content">
+								<p>An <strong>Iterator</strong> in Java is an object that enables you to traverse
+									through a collection and access its elements sequentially.</p>
+								<p>Example:</p>
+								<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							list.add("Java");
+							list.add("Python");
+							list.add("C++");
+							
+							Iterator&lt;String&gt; iterator = list.iterator();
+							while (iterator.hasNext()) {
+							    String element = iterator.next();
+							    System.out.println(element);
+							}
+							</code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>13. What is the difference between Stack and Queue?</summary>
+							<div class="toggle-content">
+								<p><strong>Stack:</strong> LIFO (Last In First Out) data structure where elements
+									are added and removed from the top.</p>
+								<p><strong>Queue:</strong> FIFO (First In First Out) data structure where elements
+									are added at the end and removed from the beginning.</p>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>14. What are the ways to convert an array of strings to list and list of
+								strings to array of strings?</summary>
+							<div class="toggle-content">
+								<p>To convert an array of strings to a list:</p>
+								<pre><code>String[] array = {"Java", "Python", "C++"};
+							List&lt;String&gt; list = Arrays.asList(array);
+							</code></pre>
+								<p>To convert a list of strings to an array:</p>
+								<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							list.add("Java");
+							list.add("Python");
+							list.add("C++");
+							
+							String[] array = list.toArray(new String[0]);
+							</code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>15. Write a program to sort a map based on value?</summary>
+							<div class="toggle-content">
+								<p>Here's a Java program to sort a Map based on its values:</p>
+								<pre><code>import java.util.*;
+							
+							public class SortMapByValue {
+							    public static void main(String[] args) {
+							        Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							        map.put("Java", 20);
+							        map.put("Python", 10);
+							        map.put("C++", 30);
+							
+							        List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new ArrayList&lt;&gt;(map.entrySet());
+							        
+							        Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, Integer&gt;&gt;() {
+							            public int compare(Map.Entry&lt;String, Integer&gt; o1, Map.Entry&lt;String, Integer&gt; o2) {
+							                return o1.getValue().compareTo(o2.getValue());
+							            }
+							        });
+							
+							        LinkedHashMap&lt;String, Integer&gt; sortedMap = new LinkedHashMap&lt;&gt;();
+							        for (Map.Entry&lt;String, Integer&gt; entry : list) {
+							            sortedMap.put(entry.getKey(), entry.getValue());
+							        }
+							
+							        System.out.println("Sorted Map by Value:");
+							        System.out.println(sortedMap);
+							    }
+							}
+							</code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>16. How to convert a HashMap to an ArrayList?</summary>
+							<div class="toggle-content">
+								<p>To convert a <code>HashMap</code> to an <code>ArrayList</code> in Java:</p>
+								<pre><code>Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();
+							map.put("Java", 20);
+							map.put("Python", 10);
+							map.put("C++", 30);
+							
+							List&lt;Map.Entry&lt;String, Integer&gt;&gt; list = new ArrayList&lt;&gt;(map.entrySet());
+							</code></pre>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>17. What are the different interfaces are there in Collection framework?
+							</summary>
+							<div class="toggle-content">
+								<p>The different interfaces in the Java Collections Framework include:</p>
+								<ul>
+									<li><strong>Collection:</strong> Root interface for all collection types.</li>
+									<li><strong>List:</strong> Ordered collection allowing duplicate elements.</li>
+									<li><strong>Set:</strong> Collection without duplicate elements.</li>
+									<li><strong>Queue:</strong> Collection designed for holding elements prior to
+										processing.</li>
+									<li><strong>Map:</strong> Key-value pair mapping.</li>
+									<li><strong>SortedSet:</strong> Set that maintains elements in sorted order.
+									</li>
+									<li><strong>SortedMap:</strong> Map that maintains key-value pairs in sorted
+										order of keys.</li>
+									<li><strong>Deque:</strong> Double-ended queue supporting element insertion and
+										removal from both ends.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>18. What is the difference between Iterator and ListIterator?</summary>
+							<div class="toggle-content">
+								<p>The main differences between <strong>Iterator</strong> and
+									<strong>ListIterator</strong> in Java are:
+								</p>
+								<ul>
+									<li><strong>Iterator:</strong> Supports forward traversal only. Can be used with
+										any collection.</li>
+									<li><strong>ListIterator:</strong> Extends Iterator to support bidirectional
+										traversal and allows modifications to the list during traversal.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>19. What are the different ways to iterate a List?</summary>
+							<div class="toggle-content">
+								<p>There are several ways to iterate through a List in Java:</p>
+								<ul>
+									<li><strong>Using for-each loop:</strong></li>
+									<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							list.add("Java");
+							list.add("Python");
+							list.add("C++");
+							
+							for (String element : list) {
+							    System.out.println(element);
+							}
+							</code></pre>
+									<li><strong>Using Iterator:</strong></li>
+									<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							list.add("Java");
+							list.add("Python");
+							list.add("C++");
+							
+							Iterator&lt;String&gt; iterator = list.iterator();
+							while (iterator.hasNext()) {
+							    String element = iterator.next();
+							    System.out.println(element);
+							}
+							</code></pre>
+									<li><strong>Using ListIterator (for Lists only):</strong></li>
+									<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+							list.add("Java");
+							list.add("Python");
+							list.add("C++");
+							
+							ListIterator&lt;String&gt; iterator = list.listIterator();
+							while (iterator.hasNext()) {
+							    String element = iterator.next();
+							    System.out.println(element);
+							}
+							</code></pre>
+								</ul>
+							</div>
+						</details></br>
+
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>20. What is the difference between Comparable and Comparator interface? How Are
+								They Used?</summary>
+							<div class="toggle-content">
+								<p>The main differences between <strong>Comparable</strong> and
+									<strong>Comparator</strong> interfaces in Java are:
+								</p>
+								<ul>
+									<li><strong>Comparable:</strong> Allows a class to be compared with itself. It
+										provides a single sorting sequence.</li>
+									<li><strong>Comparator:</strong> Allows the definition of multiple sorting
+										sequences. It is used to compare two different classes or objects.</li>
+								</ul>
+								<p><strong>Usage:</strong></p>
+								<ul>
+									<li><strong>Comparable:</strong> Implement this interface in a class whose
+										objects you want to compare. Override the <code>compareTo()</code> method to
+										define the default sorting behavior.</li>
+									<li><strong>Comparator:</strong> Implement this interface to define custom
+										sorting orders for classes that do not implement Comparable or for defining
+										multiple sorting orders.</li>
+								</ul>
+							</div>
+						</details></br>
+						<details onclick="closeOtherDetails('details2')">
+							<summary>1. How does HashMap work and how is it implemented in Java?</summary>
+							<div class="toggle-content">
+								<p><strong>HashMap</strong> in Java works based on hashing principles. It stores
+									key-value pairs using a hash table. Here’s how it works:</p>
+								<ul>
+									<li>When you put a key-value pair into a HashMap, the key's
+										<code>hashCode()</code> method is called to calculate a hash value.
+									</li>
+									<li>This hash value is then used to determine the index where the key-value pair
+										will be stored in an array called the bucket.</li>
+									<li>If multiple keys hash to the same index (collision), HashMap uses linked
+										lists (or in Java 8+, tree structures for large linked lists) to store these
+										key-value pairs in the same bucket.</li>
+									<li>To retrieve a value based on a key, HashMap calculates the hash value of the
+										key again, finds the appropriate bucket, and then uses the equals method to
+										find the exact key-value pair.</li>
+								</ul>
+								<p>Implementation: HashMap in Java is implemented using an array of nodes (buckets)
+									and employs techniques like linked lists (before Java 8) or balanced trees (Java
+									8+) to handle collisions efficiently.</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>2. What is the collision problem? How does HashMap perform collision detection
+								and collision prevention?</summary>
+							<div class="toggle-content">
+								<p><strong>Collision problem:</strong> Occurs when two different keys hash to the
+									same index in the HashMap array.</p>
+								<p><strong>Collision detection and prevention:</strong></p>
+								<ul>
+									<li><strong>Detection:</strong> HashMap detects collisions by comparing hash
+										codes and using the <code>equals()</code> method to ensure keys are unique
+										within a bucket.</li>
+									<li><strong>Prevention:</strong> It uses chaining (linked list in older
+										versions, tree in newer versions) to store multiple key-value pairs in the
+										same bucket. This allows HashMap to handle collisions gracefully without
+										losing data.</li>
+								</ul>
+								<p>Algorithms like tree structures (red-black trees) introduced in Java 8 help
+									maintain O(log n) performance for operations even when the number of collisions
+									increases.</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>3. What is the time complexity of putting and getting an element from a
+								HashMap? Which Map implementation provides better performance?</summary>
+							<div class="toggle-content">
+								<p><strong>Time complexity:</strong></p>
+								<ul>
+									<li><strong>Putting (insertion):</strong> O(1) on average. In the worst case
+										(when all keys hash to the same bucket), it can degrade to O(n).</li>
+									<li><strong>Getting (retrieval):</strong> O(1) on average, assuming a good hash
+										function and a uniform distribution of keys.</li>
+								</ul>
+								<p><strong>Performance:</strong> HashMap generally provides better performance for
+									most use cases due to its average constant-time complexity for put and get
+									operations.</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>4. What is the purpose of the initial capacity and load factor parameters of a
+								HashMap? What are their default values? How does the threshold decide the size?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>Initial capacity:</strong> Specifies the initial size of the HashMap. It
+									determines the number of buckets in the hash table when it is created.</p>
+								<p><strong>Load factor:</strong> Specifies when the HashMap should resize itself. It
+									is a measure of how full the HashMap can get before it needs to increase its
+									capacity.</p>
+								<p><strong>Default values:</strong></p>
+								<ul>
+									<li><strong>Initial capacity:</strong> 16 (meaning the hash table will have 16
+										buckets initially).</li>
+									<li><strong>Load factor:</strong> 0.75 (meaning the HashMap will resize when it
+										reaches 75% of its capacity).</li>
+								</ul>
+								<p><strong>Threshold:</strong> The threshold is calculated as the product of the
+									load factor and the current capacity. When the number of entries exceeds this
+									threshold, the HashMap is resized (rehashed).</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>5. What is the situation in which fail-fast and fail-safe iterators work? What
+								are the issues with using fail-safe iterators?</summary>
+							<div class="toggle-content">
+								<p><strong>Fail-fast iterators:</strong> Fail-fast iterators throw
+									<code>ConcurrentModificationException</code> if the collection is modified
+									structurally while iterating over it.
+								</p>
+								<p><strong>Fail-safe iterators:</strong> Do not throw
+									<code>ConcurrentModificationException</code>. They operate on a cloned copy of
+									the collection or use other mechanisms to ensure that modifications do not
+									affect ongoing iterations.
+								</p>
+								<p><strong>Situations:</strong></p>
+								<ul>
+									<li><strong>Fail-fast:</strong> Used in collections like ArrayList, HashMap,
+										etc., where concurrent modification during iteration is not supported.</li>
+									<li><strong>Fail-safe:</strong> Used in concurrent collections like
+										ConcurrentHashMap, CopyOnWriteArrayList, etc., where simultaneous
+										modifications are allowed.</li>
+								</ul>
+								<p><strong>Issues:</strong> Fail-safe iterators may not reflect the latest changes
+									in the collection and may lead to inconsistencies if modifications are expected
+									during iteration.</p>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>6. How can you use Comparable and Comparator interfaces to sort collections?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>Comparable interface:</strong> Allows a class to implement its own
+									natural ordering. Objects implementing Comparable can be sorted using
+									<code>Arrays.sort()</code> or <code>Collections.sort()</code>.
+								</p>
+								<p><strong>Comparator interface:</strong> Provides a way to define multiple sorting
+									sequences. It can be used to sort objects of classes that do not implement
+									Comparable or to override the natural ordering defined by Comparable.</p>
+								<p><strong>Usage:</strong></p>
+								<ul>
+									<li><strong>Comparable:</strong> Implement <code>Comparable&lt;T&gt;</code>
+										interface and override <code>compareTo()</code> method.</li>
+									<li><strong>Comparator:</strong> Implement <code>Comparator&lt;T&gt;</code>
+										interface and override <code>compare()</code> method, then pass it to
+										<code>sort()</code> method.
+									</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>7. When to use Iterator and Enumeration? What are the possible use cases?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>Iterator:</strong> Preferred choice for iterating through collections in
+									Java. It allows both read and remove operations.</p>
+								<p><strong>Enumeration:</strong> Legacy interface mainly used for iterating legacy
+									collections like <code>Vector</code> and <code>Hashtable</code>. It only
+									supports read operations.</p>
+								<p><strong>Use cases:</strong></p>
+								<ul>
+									<li><strong>Iterator:</strong> Used for iterating through modern collections
+										like ArrayList, HashMap, etc., where both read and remove operations are
+										required.</li>
+									<li><strong>Enumeration:</strong> Used for legacy collections like Vector and
+										Hashtable, where only read operations are needed.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>8. When to use Queue and Stack? What are the possible use cases?</summary>
+							<div class="toggle-content">
+								<p><strong>Queue:</strong> Used when elements are stored and accessed in a FIFO
+									(First In First Out) manner. Useful for implementing algorithms like
+									breadth-first search (BFS) and job scheduling.</p>
+								<p><strong>Stack:</strong> Used when elements are stored and accessed in a LIFO
+									(Last In First Out) manner. Useful for implementing algorithms like depth-first
+									search (DFS) and expression evaluation.</p>
+								<p><strong>Use cases:</strong></p>
+								<ul>
+									<li><strong>Queue:</strong> Used in scenarios like task scheduling, message
+										passing, and implementing buffer in producer-consumer problems.</li>
+									<li><strong>Stack:</strong> Used in scenarios like expression evaluation,
+										backtracking algorithms, and maintaining state in recursive algorithms.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>9. What is CopyOnWriteArrayList? How is it different from ArrayList in Java?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>CopyOnWriteArrayList:</strong> A thread-safe variant of ArrayList in
+									Java. It creates a new copy of the underlying array whenever an element is
+									added, modified, or removed, ensuring thread safety without synchronization.</p>
+								<p><strong>Differences from ArrayList:</strong></p>
+								<ul>
+									<li><strong>Thread safety:</strong> CopyOnWriteArrayList is thread-safe and does
+										not throw ConcurrentModificationException during iteration.</li>
+									<li><strong>Modification:</strong> Regular ArrayList allows concurrent
+										modification, which can lead to <code>ConcurrentModificationException</code>
+										if not synchronized.</li>
+									<li><strong>Performance:</strong> CopyOnWriteArrayList is suitable for
+										read-heavy and low-contention scenarios but can be inefficient for
+										write-heavy operations due to copying overhead.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>10. How does ConcurrentHashMap work? How does it provide thread safety?
+							</summary>
+							<div class="toggle-content">
+								<p><strong>ConcurrentHashMap:</strong> A thread-safe variant of HashMap in Java
+									introduced in Java 5. It allows concurrent read and write operations without
+									blocking the entire map.</p>
+								<p><strong>Thread safety:</strong></p>
+								<ul>
+									<li><strong>Segmentation:</strong> ConcurrentHashMap divides the map into
+										segments (buckets), and each segment can be locked independently during
+										updates, allowing concurrent read operations.</li>
+									<li><strong>Read operations:</strong> Multiple threads can read from
+										ConcurrentHashMap concurrently without blocking.</li>
+									<li><strong>Write operations:</strong> Updates are synchronized at segment
+										level, reducing contention compared to synchronized HashMap.</li>
+								</ul>
+							</div>
+						</details></br>
+
+						<details onclick="closeOtherDetails('details2')">
+							<summary>11. How does WeakHashMap differ from other HashMap implementations?</summary>
+							<div class="toggle-content">
+								<p><strong>WeakHashMap:</strong> A special implementation of Map where keys are
+									weakly referenced. It allows keys to be garbage collected when no longer in use,
+									making it useful for caching and memoization.</p>
+								<p><strong>Differences:</strong></p>
+								<ul>
+									<li><strong>Garbage collection:</strong> Keys in WeakHashMap are weakly
+										referenced, so they can be garbage collected if there are no strong
+										references to them outside the map.</li>
+									<li><strong>Usage:</strong> WeakHashMap is suitable for scenarios where
+										automatic cleanup of unused entries (keys) is desired, such as caching
+										temporary data or caching objects in memory-limited environments.</li>
+								</ul>
+							</div>
+						</details></br>
+					</div>
+				</article>
+			</div>
+			<div class="card-footer">
+				<ul class="pagination justify-content-center mb-4">
+					<li class="page-item"><a class="page-link btn-outline-primary"
+							href="../java/java-multithreading.html">&lArr;
+							Previous</a></li>
+					<li class="page-item"><a class="page-link" href="../java/java-list.html">Next
+							&rArr;</a></li>
+				</ul>
+			</div>
+			<button onclick="topFunction()" id="myBtn" title="Go to top"><img height="30" width="30"
+					src="../../scripts/images/top.jpeg" /></button>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>

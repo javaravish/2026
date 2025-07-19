@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="RaviKalyan">
+	<title>Microservices Interview</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../scripts/images/tab_logo.png" />
+	<link rel="stylesheet" href="../../scripts/css/site.css">
+	<link rel='stylesheet' id='blogus-google-fonts-css'
+		href='//fonts.googleapis.com/css?family=ABeeZee%7CAbel%7CAbril+Fatface%7CAclonica%7CAcme%7CActor%7CAdamina%7CAdvent+Pro%7CAguafina+Script%7CAkronim%7CAladin%7CAldrich%7CAlef%7CAlegreya%7CAlegreya+SC%7CAlegreya+Sans%7CAlegreya+Sans+SC%7CAlex+Brush%7CAlfa+Slab+One%7CAlice%7CAlike%7CAlike+Angular%7CAllan%7CAllerta%7CAllerta+Stencil%7CAllura%7CAlmendra%7CAlmendra+Display%7CAlmendra+SC%7CAmarante%7CAmaranth%7CAmatic+SC%7CAmatica+SC%7CAmethysta%7CAmiko%7CAmiri%7CAmita%7CAnaheim%7CAndada%7CAndika%7CAngkor%7CAnnie+Use+Your+Telescope%7CAnonymous+Pro%7CAntic%7CAntic+Didone%7CAntic+Slab%7CAnton%7CArapey%7CArbutus%7CArbutus+Slab%7CArchitects+Daughter%7CArchivo+Black%7CArchivo+Narrow%7CAref+Ruqaa%7CArima+Madurai%7CArimo%7CArizonia%7CArmata%7CArtifika%7CArvo%7CArya%7CAsap%7CAsar%7CAsset%7CAssistant%7CAstloch%7CAsul%7CAthiti%7CAtma%7CAtomic+Age%7CAubrey%7CAudiowide%7CAutour+One%7CAverage%7CAverage+Sans%7CAveria+Gruesa+Libre%7CAveria+Libre%7CAveria+Sans+Libre%7CAveria+Serif+Libre%7CBad+Script%7CBaloo%7CBaloo+Bhai%7CBaloo+Da%7CBaloo+Thambi%7CBalthazar%7CBangers%7CBasic%7CBattambang%7CBaumans%7CBayon%7CBelgrano%7CBelleza%7CBenchNine%7CBentham%7CBerkshire+Swash%7CBevan%7CBigelow+Rules%7CBigshot+One%7CBilbo%7CBilbo+Swash+Caps%7CBioRhyme%7CBioRhyme+Expanded%7CBiryani%7CBitter%7CBlack+Ops+One%7CBokor%7CBonbon%7CBoogaloo%7CBowlby+One%7CBowlby+One+SC%7CBrawler%7CBree+Serif%7CBubblegum+Sans%7CBubbler+One%7CBuda%7CBuenard%7CBungee%7CBungee+Hairline%7CBungee+Inline%7CBungee+Outline%7CBungee+Shade%7CButcherman%7CButterfly+Kids%7CCabin%7CCabin+Condensed%7CCabin+Sketch%7CCaesar+Dressing%7CCagliostro%7CCairo%7CCalligraffitti%7CCambay%7CCambo%7CCandal%7CCantarell%7CCantata+One%7CCantora+One%7CCapriola%7CCardo%7CCarme%7CCarrois+Gothic%7CCarrois+Gothic+SC%7CCarter+One%7CCatamaran%7CCaudex%7CCaveat%7CCaveat+Brush%7CCedarville+Cursive%7CCeviche+One%7CChanga%7CChanga+One%7CChango%7CChathura%7CChau+Philomene+One%7CChela+One%7CChelsea+Market%7CChenla%7CCherry+Cream+Soda%7CCherry+Swash%7CChewy%7CChicle%7CChivo%7CChonburi%7CCinzel%7CCinzel+Decorative%7CClicker+Script%7CCoda%7CCoda+Caption%7CCodystar%7CCoiny%7CCombo%7CComfortaa%7CComing+Soon%7CConcert+One%7CCondiment%7CContent%7CContrail+One%7CConvergence%7CCookie%7CCopse%7CCorben%7CCormorant%7CCormorant+Garamond%7CCormorant+Infant%7CCormorant+SC%7CCormorant+Unicase%7CCormorant+Upright%7CCourgette%7CCousine%7CCoustard%7CCovered+By+Your+Grace%7CCrafty+Girls%7CCreepster%7CCrete+Round%7CCrimson+Text%7CCroissant+One%7CCrushed%7CCuprum%7CCutive%7CCutive+Mono%7CDamion%7CDancing+Script%7CDangrek%7CDavid+Libre%7CDawning+of+a+New+Day%7CDays+One%7CDekko%7CDelius%7CDelius+Swash+Caps%7CDelius+Unicase%7CDella+Respira%7CDenk+One%7CDevonshire%7CDhurjati%7CDidact+Gothic%7CDiplomata%7CDiplomata+SC%7CDomine%7CDonegal+One%7CDoppio+One%7CDorsa%7CDosis%7CDr+Sugiyama%7CDroid+Sans%7CDroid+Sans+Mono%7CDroid+Serif%7CDuru+Sans%7CDynalight%7CEB+Garamond%7CEagle+Lake%7CEater%7CEconomica%7CEczar%7CEk+Mukta%7CEl+Messiri%7CElectrolize%7CElsie%7CElsie+Swash+Caps%7CEmblema+One%7CEmilys+Candy%7CEngagement%7CEnglebert%7CEnriqueta%7CErica+One%7CEsteban%7CEuphoria+Script%7CEwert%7CExo%7CExo+2%7CExpletus+Sans%7CFanwood+Text%7CFarsan%7CFascinate%7CFascinate+Inline%7CFaster+One%7CFasthand%7CFauna+One%7CFederant%7CFedero%7CFelipa%7CFenix%7CFinger+Paint%7CFira+Mono%7CFira+Sans%7CFjalla+One%7CFjord+One%7CFlamenco%7CFlavors%7CFondamento%7CFontdiner+Swanky%7CForum%7CFrancois+One%7CFrank+Ruhl+Libre%7CFreckle+Face%7CFredericka+the+Great%7CFredoka+One%7CFreehand%7CFresca%7CFrijole%7CFruktur%7CFugaz+One%7CGFS+Didot%7CGFS+Neohellenic%7CGabriela%7CGafata%7CGalada%7CGaldeano%7CGalindo%7CGentium+Basic%7CGentium+Book+Basic%7CGeo%7CGeostar%7CGeostar+Fill%7CGermania+One%7CGidugu%7CGilda+Display%7CGive+You+Glory%7CGlass+Antiqua%7CGlegoo%7CGloria+Hallelujah%7CGoblin+One%7CGochi+Hand%7CGorditas%7CGoudy+Bookletter+1911%7CGraduate%7CGrand+Hotel%7CGravitas+One%7CGreat+Vibes%7CGriffy%7CGruppo%7CGudea%7CGurajada%7CHabibi%7CHalant%7CHammersmith+One%7CHanalei%7CHanalei+Fill%7CHandlee%7CHanuman%7CHappy+Monkey%7CHarmattan%7CHeadland+One%7CHeebo%7CHenny+Penny%7CHerr+Von+Muellerhoff%7CHind%7CHind+Guntur%7CHind+Madurai%7CHind+Siliguri%7CHind+Vadodara%7CHoltwood+One+SC%7CHomemade+Apple%7CHomenaje%7CIM+Fell+DW+Pica%7CIM+Fell+DW+Pica+SC%7CIM+Fell+Double+Pica%7CIM+Fell+Double+Pica+SC%7CIM+Fell+English%7CIM+Fell+English+SC%7CIM+Fell+French+Canon%7CIM+Fell+French+Canon+SC%7CIM+Fell+Great+Primer%7CIM+Fell+Great+Primer+SC%7CIceberg%7CIceland%7CImprima%7CInconsolata%7CInder%7CIndie+Flower%7CInika%7CInknut+Antiqua%7CIrish+Grover%7CIstok+Web%7CItaliana%7CItalianno%7CItim%7CJacques+Francois%7CJacques+Francois+Shadow%7CJaldi%7CJim+Nightshade%7CJockey+One%7CJolly+Lodger%7CJomhuria%7CJosefin+Sans%7CJosefin+Slab%7CJoti+One%7CJudson%7CJulee%7CJulius+Sans+One%7CJunge%7CJura%7CJust+Another+Hand%7CJust+Me+Again+Down+Here%7CKadwa%7CKalam%7CKameron%7CKanit%7CKantumruy%7CKarla%7CKarma%7CKatibeh%7CKaushan+Script%7CKavivanar%7CKavoon%7CKdam+Thmor%7CKeania+One%7CKelly+Slab%7CKenia%7CKhand%7CKhmer%7CKhula%7CKite+One%7CKnewave%7CKotta+One%7CKoulen%7CKranky%7CKreon%7CKristi%7CKrona+One%7CKumar+One%7CKumar+One+Outline%7CKurale%7CLa+Belle+Aurore%7CLaila%7CLakki+Reddy%7CLalezar%7CLancelot%7CLateef%7CLato%7CLeague+Script%7CLeckerli+One%7CLedger%7CLekton%7CLemon%7CLemonada%7CLibre+Baskerville%7CLibre+Franklin%7CLife+Savers%7CLilita+One%7CLily+Script+One%7CLimelight%7CLinden+Hill%7CLobster%7CLobster+Two%7CLondrina+Outline%7CLondrina+Shadow%7CLondrina+Sketch%7CLondrina+Solid%7CLora%7CLove+Ya+Like+A+Sister%7CLoved+by+the+King%7CLovers+Quarrel%7CLuckiest+Guy%7CLusitana%7CLustria%7CMacondo%7CMacondo+Swash+Caps%7CMada%7CMagra%7CMaiden+Orange%7CMaitree%7CMako%7CMallanna%7CMandali%7CMarcellus%7CMarcellus+SC%7CMarck+Script%7CMargarine%7CMarko+One%7CMarmelad%7CMartel%7CMartel+Sans%7CMarvel%7CMate%7CMate+SC%7CMaven+Pro%7CMcLaren%7CMeddon%7CMedievalSharp%7CMedula+One%7CMeera+Inimai%7CMegrim%7CMeie+Script%7CMerienda%7CMerienda+One%7CMerriweather%7CMerriweather+Sans%7CMetal%7CMetal+Mania%7CMetamorphous%7CMetrophobic%7CMichroma%7CMilonga%7CMiltonian%7CMiltonian+Tattoo%7CMiniver%7CMiriam+Libre%7CMirza%7CMiss+Fajardose%7CMitr%7CModak%7CModern+Antiqua%7CMogra%7CMolengo%7CMolle%7CMonda%7CMonofett%7CMonoton%7CMonsieur+La+Doulaise%7CMontaga%7CMontez%7CMontserrat%7CMontserrat+Alternates%7CMontserrat+Subrayada%7CMoul%7CMoulpali%7CMountains+of+Christmas%7CMouse+Memoirs%7CMr+Bedfort%7CMr+Dafoe%7CMr+De+Haviland%7CMrs+Saint+Delafield%7CMrs+Sheppards%7CMukta+Vaani%7CMuli%7CMystery+Quest%7CNTR%7CNeucha%7CNeuton%7CNew+Rocker%7CNews+Cycle%7CNiconne%7CNixie+One%7CNobile%7CNokora%7CNorican%7CNosifer%7CNothing+You+Could+Do%7CNoticia+Text%7CNoto+Sans%7CNoto+Serif%7CNova+Cut%7CNova+Flat%7CNova+Mono%7CNova+Oval%7CNova+Round%7CNova+Script%7CNova+Slim%7CNova+Square%7CNumans%7CNunito%7COdor+Mean+Chey%7COffside%7COld+Standard+TT%7COldenburg%7COleo+Script%7COleo+Script+Swash+Caps%7COpen+Sans%7COpen+Sans+Condensed%7COranienbaum%7COrbitron%7COregano%7COrienta%7COriginal+Surfer%7COswald%7COver+the+Rainbow%7COverlock%7COverlock+SC%7COvo%7COxygen%7COxygen+Mono%7CPT+Mono%7CPT+Sans%7CPT+Sans+Caption%7CPT+Sans+Narrow%7CPT+Serif%7CPT+Serif+Caption%7CPacifico%7CPalanquin%7CPalanquin+Dark%7CPaprika%7CParisienne%7CPassero+One%7CPassion+One%7CPathway+Gothic+One%7CPatrick+Hand%7CPatrick+Hand+SC%7CPattaya%7CPatua+One%7CPavanam%7CPaytone+One%7CPeddana%7CPeralta%7CPermanent+Marker%7CPetit+Formal+Script%7CPetrona%7CPhilosopher%7CPiedra%7CPinyon+Script%7CPirata+One%7CPlaster%7CPlay%7CPlayball%7CPlayfair+Display%7CPlayfair+Display+SC%7CPodkova%7CPoiret+One%7CPoller+One%7CPoly%7CPompiere%7CPontano+Sans%7CPoppins%7CPort+Lligat+Sans%7CPort+Lligat+Slab%7CPragati+Narrow%7CPrata%7CPreahvihear%7CPress+Start+2P%7CPridi%7CPrincess+Sofia%7CProciono%7CPrompt%7CProsto+One%7CProza+Libre%7CPuritan%7CPurple+Purse%7CQuando%7CQuantico%7CQuattrocento%7CQuattrocento+Sans%7CQuestrial%7CQuicksand%7CQuintessential%7CQwigley%7CRacing+Sans+One%7CRadley%7CRajdhani%7CRakkas%7CRaleway%7CRaleway+Dots%7CRamabhadra%7CRamaraja%7CRambla%7CRammetto+One%7CRanchers%7CRancho%7CRanga%7CRasa%7CRationale%7CRavi+Prakash%7CRedressed%7CReem+Kufi%7CReenie+Beanie%7CRevalia%7CRhodium+Libre%7CRibeye%7CRibeye+Marrow%7CRighteous%7CRisque%7CRoboto%7CRoboto+Condensed%7CRoboto+Mono%7CRoboto+Slab%7CRochester%7CRock+Salt%7CRokkitt%7CRomanesco%7CRopa+Sans%7CRosario%7CRosarivo%7CRouge+Script%7CRozha+One%7CRubik%7CRubik+Mono+One%7CRubik+One%7CRuda%7CRufina%7CRuge+Boogie%7CRuluko%7CRum+Raisin%7CRuslan+Display%7CRusso+One%7CRuthie%7CRye%7CSacramento%7CSahitya%7CSail%7CSalsa%7CSanchez%7CSancreek%7CSansita+One%7CSarala%7CSarina%7CSarpanch%7CSatisfy%7CScada%7CScheherazade%7CSchoolbell%7CScope+One%7CSeaweed+Script%7CSecular+One%7CSevillana%7CSeymour+One%7CShadows+Into+Light%7CShadows+Into+Light+Two%7CShanti%7CShare%7CShare+Tech%7CShare+Tech+Mono%7CShojumaru%7CShort+Stack%7CShrikhand%7CSiemreap%7CSigmar+One%7CSignika%7CSignika+Negative%7CSimonetta%7CSintony%7CSirin+Stencil%7CSix+Caps%7CSkranji%7CSlabo+13px%7CSlabo+27px%7CSlackey%7CSmokum%7CSmythe%7CSniglet%7CSnippet%7CSnowburst+One%7CSofadi+One%7CSofia%7CSonsie+One%7CSorts+Mill+Goudy%7CSource+Code+Pro%7CSource+Sans+Pro%7CSource+Serif+Pro%7CSpace+Mono%7CSpecial+Elite%7CSpicy+Rice%7CSpinnaker%7CSpirax%7CSquada+One%7CSree+Krushnadevaraya%7CSriracha%7CStalemate%7CStalinist+One%7CStardos+Stencil%7CStint+Ultra+Condensed%7CStint+Ultra+Expanded%7CStoke%7CStrait%7CSue+Ellen+Francisco%7CSuez+One%7CSumana%7CSunshiney%7CSupermercado+One%7CSura%7CSuranna%7CSuravaram%7CSuwannaphum%7CSwanky+and+Moo+Moo%7CSyncopate%7CTangerine%7CTaprom%7CTauri%7CTaviraj%7CTeko%7CTelex%7CTenali+Ramakrishna%7CTenor+Sans%7CText+Me+One%7CThe+Girl+Next+Door%7CTienne%7CTillana%7CTimmana%7CTinos%7CTitan+One%7CTitillium+Web%7CTrade+Winds%7CTrirong%7CTrocchi%7CTrochut%7CTrykker%7CTulpen+One%7CUbuntu%7CUbuntu+Condensed%7CUbuntu+Mono%7CUltra%7CUncial+Antiqua%7CUnderdog%7CUnica+One%7CUnifrakturCook%7CUnifrakturMaguntia%7CUnkempt%7CUnlock%7CUnna%7CVT323%7CVampiro+One%7CVarela%7CVarela+Round%7CVast+Shadow%7CVesper+Libre%7CVibur%7CVidaloka%7CViga%7CVoces%7CVolkhov%7CVollkorn%7CVoltaire%7CWaiting+for+the+Sunrise%7CWallpoet%7CWalter+Turncoat%7CWarnes%7CWellfleet%7CWendy+One%7CWire+One%7CWork+Sans%7CYanone+Kaffeesatz%7CYantramanav%7CYatra+One%7CYellowtail%7CYeseva+One%7CYesteryear%7CYrsa%7CZeyada&#038;subset=latin%2Clatin-ext'
+		type='text/css' media='all' />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Elsie+Swash+Caps:wght@400;900&family=Kalam:wght@300;400;700&family=Pacifico&family=Satisfy&display=swap"
+		rel="stylesheet" />
+	<script>
+		!function (theme, navWidth) {
+			if (theme === 'dark') document.documentElement.classList.add('dark-theme')
+			if (navWidth) document.documentElement.style.setProperty('--nav-width', `${navWidth}px`)
+		}(localStorage && localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)') && 'dark'),
+			localStorage && localStorage.getItem('nav-width'))
+	</script>
+	<script>
+		function closeOtherDetails(id) {
+			const details = document.getElementsByTagName('details');
+			for (let i = 0; i < details.length; i++) {
+				if (details[i].id !== id) {
+					details[i].removeAttribute('open');
+				}
+			}
+		}
+	</script>
+	<style>
+		@media screen and (min-width: 1025px) {
+			.div-to-desk {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+
+		@media screen and (max-width: 1025px) {
+			.div-to-hide {
+				display: none;
+				/* Hide the div on screens smaller than 1025px (mobile) */
+			}
+		}
+	</style>
+</head>
+
+<body>
+<nav class="navbar">
+	<div class="navbar-brand">
+		<a class="navbar-item" href="../../home.html"> <img width="40" height="25"
+															src="../../scripts/images/nani1.png" alt="Home" />
+			<h5 href="../../home.html" class="div-to-hide berkshire-swash-regular">Ravish</h5>
+		</a>
+		<h4 class="div-to-desk berkshire-swash-regular" href="../../home.html">Ravish</h4>
+		<button class="navbar-burger" data-target="topbar-nav">
+			<span></span> <span></span> <span></span>
+		</button>
+	</div>
+	<div id="topbar-nav" class="navbar-menu">
+		<div class="navbar-end">
+			<div class="navbar-item" style="text-align: center;">
+				<div class="nav-item is-hoverable" style="top: .2rem;"><a class="nav-link"
+																		  href="../../home.html"><img height="25" width="25"
+																									  src="../../scripts/images/home.png"></i></a></div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../java/introduction.html">Java</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../spring/introduction.html">Spring</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../springboot/introduction.html">SpringBoot</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../microservices/ms-intro.html">Microservices</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../java/java8/introduction.html">Java 8 Features</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../DP/introduction.html">Design Patterns</a>
+				</div>
+				<div class="navbar-item is-hoverable">
+					<a class="navbar-link" href="../../interview/interview-questions.html">Interview Questions</a>
+				</div>
+				<label class="theme-toggler div-to-hide">
+					<input type="checkbox" id="switch-theme-checkbox" />
+					<span class="icon"></span>
+				</label>
+			</div>
+		</div>
+	</div>
+	<label class="theme-toggler div-to-desk" style="top: 22px;">
+		<input type="checkbox" id="switch-theme-mobile" />
+		<span class="icon"></span>
+	</label>
+</nav>
+
+	<div class="body">
+		<div class="nav-container">
+			<aside class="nav">
+				<div class="nav-panel-menu is-active" data-panel="menu">
+					<li class="nav-item" data-depth="0">
+						<ul class="nav-list">
+							<h4>Interview Questions</h4>
+							<li class="nav-item"><a class="nav-link"
+									href="../springboot/microservices.html">Microservices Interview</a>
+							</li>
+						</ul>
+					</li>
+				</div>
+			</aside>
+		</div>
+		<main class="article">
+			<div class="toolbar">
+				<button class="navbar-burger" id="nav-toggle-1">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../springboot/springboot-interview-questions.html"> Microservices Interview
+								Questions</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="doc">
+				<nav class="breadcrumbs div-to-hide">
+					<ul>
+						<li><a href="../../interview/interview-questions.html">Interview Questions</a></li>
+						<li><a href="../springboot/springboot-interview-questions.html"> Microservices Interview
+								Questions</a></li>
+					</ul>
+
+				</nav>
+				<article>
+					<h4> Microservices Interview Questions</h4>
+					<div class="card-body">
+						<h4><b>1. Microservices Basic Interview Questions</b></h4>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1.What is a microservice?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details2" onclick="closeOtherDetails('details2')">
+							<summary>2.How do microservices differ from monolithic architecture?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details3" onclick="closeOtherDetails('details3')">
+							<summary>3.What are the benefits of using microservices?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details4" onclick="closeOtherDetails('details4')">
+							<summary>4.How do microservices communicate with each other?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details5" onclick="closeOtherDetails('details5')">
+							<summary>5.What is REST and how is it used in microservices? </summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details6" onclick="closeOtherDetails('details6')">
+							<summary>6.How do you monitor microservices?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details7" onclick="closeOtherDetails('details7')">
+							<summary>7.What is API Gateway in microservices?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details8" onclick="closeOtherDetails('details8')">
+							<summary>8.Why are Microservices better than Monoliths? </summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details9" onclick="closeOtherDetails('details9')">
+							<summary>9.What are the challenges in microservices?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details10" onclick="closeOtherDetails('details10')">
+							<summary>10.Can each microservice in microservice architecture be written in a different
+								programming language? </summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<h4><b>2. Microservices Intermediate Interview Questions</b></h4>
+						<details id="details11" onclick="closeOtherDetails('details11')">
+							<summary>1. What are microservices and why would someone want to look at implementing
+								it.
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details12" onclick="closeOtherDetails('details12')">
+							<summary>2. When should one consider microservice kind of architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details13" onclick="closeOtherDetails('details13')">
+							<summary>3.How would you test microservice based architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details14" onclick="closeOtherDetails('details14')">
+							<summary>4.What is service discovery? And how is it helpful?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details15" onclick="closeOtherDetails('details15')">
+							<summary>5.What is client side and server side service discovery?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details16" onclick="closeOtherDetails('details16')">
+							<summary>6.Explain how can you scale a microservice based system?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details17" onclick="closeOtherDetails('details17')">
+							<summary>7.Define Microservices Architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details18" onclick="closeOtherDetails('details18')">
+							<summary>8.Difference between Microservices and SOA
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details19" onclick="closeOtherDetails('details19')">
+							<summary>9.What is Bounded Context?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details20" onclick="closeOtherDetails('details20')">
+							<summary>10.Characteristics of a microservices architecture
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details21" onclick="closeOtherDetails('details21')">
+							<summary>11.What are the benefits of using microservices architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details22" onclick="closeOtherDetails('details22')">
+							<summary>12.What is polyglot persistence? Can this idea be used in monolithic
+								applications as well?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details23" onclick="closeOtherDetails('details23')">
+							<summary>13.What is the 12 Factor App?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details24" onclick="closeOtherDetails('details24')">
+							<summary>14.hat are the challenges in microservices?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details25" onclick="closeOtherDetails('details25')">
+							<summary>15.Why Microservices are better than Monoliths?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details26" onclick="closeOtherDetails('details26')">
+							<summary>16.How to convert the large application into microservices architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details27" onclick="closeOtherDetails('details27')">
+							<summary>17.How to stop a Spring Boot based microservices at startup if it can not
+								connect
+								to the Config server during bootstrap?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details28" onclick="closeOtherDetails('details28')">
+							<summary>18.How to partition a large application into microservices architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details29" onclick="closeOtherDetails('details29')">
+							<summary>19.How big a single microservice should be?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details30" onclick="closeOtherDetails('details30')">
+							<summary>20.How do microservices communicate with each other?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details31" onclick="closeOtherDetails('details31')">
+							<summary>21.What should be preferred communication style in microservices: synchronous
+								or asynchronous?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details32" onclick="closeOtherDetails('details32')">
+							<summary>22.What is the difference between Orchestration and Choreography in
+								microservices context?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details33" onclick="closeOtherDetails('details33')">
+							<summary>23.How frequent a microservice be released into production?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details34" onclick="closeOtherDetails('details34')">
+							<summary>24.What are Cloud-Native applications?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details35" onclick="closeOtherDetails('details35')">
+							<summary>25.How will you develop microservices using Java?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details36" onclick="closeOtherDetails('details36')">
+							<summary>26.What is Spring Boot?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details37" onclick="closeOtherDetails('details37')">
+							<summary>27.What is API Gateway?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details38" onclick="closeOtherDetails('details38')">
+							<summary>28.How to achieve zero-downtime during the deployments?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details39" onclick="closeOtherDetails('details39')">
+							<summary>29.How to achieve zero-downtime deployment(blue/green) when there is a database
+								change?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details40" onclick="closeOtherDetails('details40')">
+							<summary>30.How to maintain ACID in microservice architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<details id="details41" onclick="closeOtherDetails('details41')">
+							<summary>31.What is Spring Cloud?</summary>
+							<div class="toggle-content">
+								<p>SpringBoot.</p>
+							</div>
+						</details>
+						</br>
+						<h4><b>3. Microservices Advanced Interview Questions</b></h4>
+						<details id="details1" onclick="closeOtherDetails('details1')">
+							<summary>1. What are some kind of challenges that distributed systems introduce?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Distributed systems introduce challenges such as network latency, data
+									consistency, fault tolerance, and complexity in managing communication between
+									services.</p>
+							</div>
+						</details></br>
+
+						<details id="details2" onclick="closeOtherDetails('details2')">
+							<summary>2. On what basis should microservices be defined?</summary>
+							<div class="toggle-content">
+								<p>Answer: Microservices should be defined based on business capabilities or
+									domain-driven design, ensuring each service is independently deployable and
+									scalable.</p>
+							</div>
+						</details></br>
+
+						<details id="details3" onclick="closeOtherDetails('details3')">
+							<summary>3. How to tackle service failures when there are dependent services?</summary>
+							<div class="toggle-content">
+								<p>Answer: Use strategies like circuit breakers, retries, timeouts, and graceful
+									degradation to handle service failures and minimize cascading failures in
+									microservice architectures.</p>
+							</div>
+						</details></br>
+
+						<details id="details4" onclick="closeOtherDetails('details4')">
+							<summary>4. How can one achieve automation in microservice-based architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Automation can be achieved through CI/CD pipelines, infrastructure as
+									code (IaC), container orchestration (e.g., Kubernetes), and automated testing
+									and deployment processes.</p>
+							</div>
+						</details></br>
+
+						<details id="details5" onclick="closeOtherDetails('details5')">
+							<summary>5. What should one do so that troubleshooting becomes easier in
+								microservice-based architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Implement centralized logging, monitoring, distributed tracing, and
+									proper error handling and reporting to simplify troubleshooting in
+									microservices.</p>
+							</div>
+						</details></br>
+
+						<details id="details6" onclick="closeOtherDetails('details6')">
+							<summary>6. How should microservices communicate with each other?</summary>
+							<div class="toggle-content">
+								<p>Answer: Microservices can communicate via synchronous (HTTP/REST, gRPC) or
+									asynchronous (messaging queues like Kafka, RabbitMQ) protocols, chosen based on
+									use case requirements.</p>
+							</div>
+						</details></br>
+
+						<details id="details7" onclick="closeOtherDetails('details7')">
+							<summary>7. How would you implement authentication in microservice architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Implement OAuth2, JWT (JSON Web Tokens), or API keys for authentication,
+									and use a centralized authentication service or federated identity management.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details8" onclick="closeOtherDetails('details8')">
+							<summary>8. What would be your logging strategy in a microservice architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Use structured logging, centralize logs using tools like ELK stack
+									(Elasticsearch, Logstash, Kibana), Splunk, or cloud-native logging services.</p>
+							</div>
+						</details></br>
+
+						<details id="details9" onclick="closeOtherDetails('details9')">
+							<summary>9. How does Docker help in microservice architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Docker provides lightweight containers that encapsulate microservices and
+									their dependencies, ensuring consistency across development, testing, and
+									production environments.</p>
+							</div>
+						</details></br>
+
+						<details id="details10" onclick="closeOtherDetails('details10')">
+							<summary>10. How would you manage application configuration in microservice running in a
+								container?</summary>
+							<div class="toggle-content">
+								<p>Answer: Use configuration management tools (like Spring Cloud Config, Consul,
+									etcd) to externalize and manage configuration settings, and use
+									environment-specific configuration profiles.</p>
+							</div>
+						</details></br>
+
+						<details id="details11" onclick="closeOtherDetails('details11')">
+							<summary>11. What is container orchestration and how does it help in a microservice
+								architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Container orchestration (e.g., Kubernetes, Docker Swarm) automates the
+									deployment, scaling, and management of containerized applications, which
+									simplifies operations and ensures high availability and scalability in
+									microservice architectures.</p>
+							</div>
+						</details></br>
+
+						<details id="details12" onclick="closeOtherDetails('details12')">
+							<summary>12. Explain the API gateway and why one should use it?</summary>
+							<div class="toggle-content">
+								<p>Answer: An API gateway acts as a single entry point for clients to access various
+									microservices. It handles authentication, rate limiting, routing, and can
+									provide metrics and analytics. Using an API gateway improves security,
+									simplifies client access, and helps in managing microservices architecture.</p>
+							</div>
+						</details></br>
+
+						<details id="details13" onclick="closeOtherDetails('details13')">
+							<summary>13. How will you ensure data consistency in microservice based architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Data consistency in microservices can be ensured by choosing the right
+									consistency model (e.g., eventual consistency), using distributed transactions
+									sparingly, implementing compensating transactions, and maintaining clear
+									boundaries between services to minimize distributed data dependencies.</p>
+							</div>
+						</details></br>
+
+						<details id="details14" onclick="closeOtherDetails('details14')">
+							<summary>14. What is event sourcing in microservices architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Event sourcing is a pattern where state changes are stored as a sequence
+									of events. These events are append-only and can be replayed to rebuild state. It
+									helps in achieving auditability, scalability, and allows for building
+									event-driven architectures.</p>
+							</div>
+						</details></br>
+
+						<details id="details15" onclick="closeOtherDetails('details15')">
+							<summary>15. How will you implement service discovery in microservices architecture?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Service discovery can be implemented using service registries like
+									Eureka, Consul, or Zookeeper. Services register themselves with the registry
+									upon startup, and clients query the registry to discover and locate available
+									service instances.</p>
+							</div>
+						</details></br>
+
+						<details id="details16" onclick="closeOtherDetails('details16')">
+							<summary>16. How will you use config-server for your development, stage and production
+								environment?</summary>
+							<div class="toggle-content">
+								<p>Answer: Config Server (e.g., Spring Cloud Config) can be used to centralize and
+									manage application configuration across different environments (dev, stage,
+									prod). Each environment can have its configuration repository, and
+									configurations are fetched by microservices at runtime.</p>
+							</div>
+						</details></br>
+
+						<details id="details17" onclick="closeOtherDetails('details17')">
+							<summary>17. How does Eureka Server work?</summary>
+							<div class="toggle-content">
+								<p>Answer: Eureka Server is a service registry in Netflix OSS. Microservices
+									register themselves with Eureka, and clients (other microservices or
+									applications) discover services by querying Eureka. Eureka Server helps in
+									achieving dynamic service discovery and load balancing.</p>
+							</div>
+						</details></br>
+
+						<details id="details18" onclick="closeOtherDetails('details18')">
+							<summary>18. What is Circuit Breaker Pattern?</summary>
+							<div class="toggle-content">
+								<p>Answer: Circuit Breaker Pattern is a design pattern used in microservices to
+									handle failures and latency issues. It monitors remote services for failures,
+									and if the failure rate exceeds a threshold, the circuit breaker trips, and
+									subsequent calls are avoided or handled differently (fallback methods, error
+									responses).</p>
+							</div>
+						</details></br>
+
+						<details id="details19" onclick="closeOtherDetails('details19')">
+							<summary>19. What are Open, Closed and Half-Open states of Circuit Breaker?</summary>
+							<div class="toggle-content">
+								<p>Answer:
+									- Closed: Circuit Breaker allows requests to pass through.
+									- Open: Circuit Breaker blocks requests and returns an error (short-circuit).
+									- Half-Open: Circuit Breaker allows a limited number of requests to pass through
+									to test if the remote service is operational again.</p>
+							</div>
+						</details></br>
+
+						<details id="details20" onclick="closeOtherDetails('details20')">
+							<summary>20. What are use-cases for Circuit Breaker Pattern and benefits of using
+								Circuit Breaker Pattern?</summary>
+							<div class="toggle-content">
+								<p>Answer: Use cases include preventing cascading failures, handling latency and
+									fault tolerance, and improving resilience in microservice architectures.
+									Benefits include improved system stability, reduced impact of failures, and
+									better user experience.</p>
+							</div>
+						</details></br>
+
+						<details id="details21" onclick="closeOtherDetails('details21')">
+							<summary>21. What is the difference between config first bootstrap and discovery first
+								bootstrap in the context of Spring Cloud Config client?</summary>
+							<div class="toggle-content">
+								<p>Answer: In config-first bootstrap, microservices fetch configuration from Spring
+									Cloud Config server before registering with the service registry (like Eureka).
+									In discovery-first bootstrap, microservices register with the service registry
+									first and then fetch configuration.</p>
+							</div>
+						</details></br>
+
+						<details id="details22" onclick="closeOtherDetails('details22')">
+							<summary>22. What is Strangulation Pattern in microservices architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Strangulation Pattern involves gradually replacing or migrating
+									monolithic applications by incrementally decomposing functionality into
+									microservices. It helps in minimizing risks and disruptions during migration to
+									microservices architecture.</p>
+							</div>
+						</details></br>
+
+						<details id="details23" onclick="closeOtherDetails('details23')">
+							<summary>23. What is Hystrix?</summary>
+							<div class="toggle-content">
+								<p>Answer: Hystrix is a latency and fault tolerance library from Netflix. It
+									implements the Circuit Breaker pattern to stop cascading failures across
+									distributed services, providing fallback options and real-time monitoring of
+									failures.</p>
+							</div>
+						</details></br>
+
+						<details id="details24" onclick="closeOtherDetails('details24')">
+							<summary>24. What are the main features of the Hystrix library?</summary>
+							<div class="toggle-content">
+								<p>Answer: Main features include circuit breakers, fallback methods, request
+									caching, request collapsing, and monitoring capabilities. Hystrix helps in
+									improving resilience and fault tolerance in microservices architectures.</p>
+							</div>
+						</details></br>
+
+						<details id="details25" onclick="closeOtherDetails('details25')">
+							<summary>25. What is the difference between using a Circuit Breaker and a naive approach
+								where we try/catch a remote method call and protect for failures?</summary>
+							<div class="toggle-content">
+								<p>Answer: Circuit Breaker provides control over failure handling and reduces the
+									impact of failures by quickly failing fast. Naive try/catch approach may lead to
+									increased latency and potential cascading failures.</p>
+							</div>
+						</details></br>
+
+						<details id="details26" onclick="closeOtherDetails('details26')">
+							<summary>26. How does Hystrix implement Bulkhead Design Pattern?</summary>
+							<div class="toggle-content">
+								<p>Answer: Hystrix implements bulkhead pattern by isolating dependencies into
+									separate thread pools (thread pool isolation). Each command executed by Hystrix
+									is wrapped in a thread pool, preventing one failing dependency from overwhelming
+									others.</p>
+							</div>
+						</details></br>
+
+						<details id="details27" onclick="closeOtherDetails('details27')">
+							<summary>27. In a microservices architecture, what are smart endpoints and dumb pipes?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Smart endpoints represent microservices that handle business logic and
+									data processing. Dumb pipes (like message brokers or API gateways) are simple,
+									passive communication channels that facilitate data exchange between
+									microservices without enforcing business logic.</p>
+							</div>
+						</details></br>
+
+						<details id="details28" onclick="closeOtherDetails('details28')">
+							<summary>28. How to handle versioning of microservices?</summary>
+							<div class="toggle-content">
+								<p>Answer: Versioning of microservices can be handled through URL versioning, header
+									versioning, or semantic versioning. Use backward-compatible changes and API
+									gateways for managing multiple versions to ensure smooth transition and
+									compatibility.</p>
+							</div>
+						</details></br>
+
+						<details id="details29" onclick="closeOtherDetails('details29')">
+							<summary>29. How to refresh configuration changes on the fly in Spring Cloud
+								environment?</summary>
+							<div class="toggle-content">
+								<p>Answer: Use Spring Cloud Bus with RabbitMQ or Kafka for broadcasting
+									configuration changes across microservices. Microservices can listen to
+									configuration updates and refresh their context on the fly.</p>
+							</div>
+						</details></br>
+
+						<details id="details30" onclick="closeOtherDetails('details30')">
+							<summary>30. How will you ignore certain exceptions in Hystrix fallback execution?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Use `@HystrixCommand(ignoreExceptions = YourException.class)` annotation
+									on fallback methods in Hystrix to ignore specific exceptions during fallback
+									execution.</p>
+							</div>
+						</details></br>
+
+						<details id="details31" onclick="closeOtherDetails('details31')">
+							<summary>31. Is it a good idea to share a common database across multiple microservices?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Sharing a common database can lead to coupling between microservices,
+									making them harder to scale independently and potentially compromising autonomy.
+									It's generally better to use database per service pattern or bounded contexts.
+								</p>
+							</div>
+						</details></br>
+
+						<details id="details32" onclick="closeOtherDetails('details32')">
+							<summary>32. What are best practices for microservices architecture?</summary>
+							<div class="toggle-content">
+								<p>Answer: Best practices include defining clear boundaries (bounded contexts),
+									using domain-driven design (DDD), implementing single responsibility principle
+									(SRP), using asynchronous communication, applying fault tolerance patterns, and
+									continuous monitoring and testing.</p>
+							</div>
+						</details></br>
+
+						<details id="details33" onclick="closeOtherDetails('details33')">
+							<summary>33. How will you implement caching for microservices?</summary>
+							<div class="toggle-content">
+								<p>Answer: Implement caching at different layers (in-memory cache, distributed cache
+									like Redis) to improve performance and reduce latency. Use caching strategies
+									based on data volatility, access patterns, and consistency requirements.</p>
+							</div>
+						</details></br>
+
+						<details id="details34" onclick="closeOtherDetails('details34')">
+							<summary>34. What is a good tool for documenting Microservices?</summary>
+							<div class="toggle-content">
+								<p>Answer: Tools like Swagger, Spring REST Docs, and API Blueprint are commonly used
+									for documenting microservices. These tools generate API documentation
+									automatically from code annotations or specifications.</p>
+							</div>
+						</details></br>
+
+						<details id="details35" onclick="closeOtherDetails('details35')">
+							<summary>35. Why Basic Authentication is not suitable in the Microservices Context?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Basic Authentication requires sending credentials with every request,
+									increasing the risk of security breaches. OAuth2 or JWT is preferred in
+									microservices for token-based authentication and improved security.</p>
+							</div>
+						</details></br>
+
+						<details id="details36" onclick="closeOtherDetails('details36')">
+							<summary>36. How does JWT look like?</summary>
+							<div class="toggle-content">
+								<p>Answer: JWT (JSON Web Token) is a compact, URL-safe token format consisting of
+									three parts: header, payload, and signature. It is used for securely
+									transmitting information between parties as a JSON object.</p>
+							</div>
+						</details></br>
+
+						<details id="details37" onclick="closeOtherDetails('details37')">
+							<summary>37. How OAuth2 Works?</summary>
+							<div class="toggle-content">
+								<p>Answer: OAuth2 is an authorization framework that allows third-party applications
+									to access user resources without exposing passwords. It involves token issuance,
+									client registration, and token validation via authorization and resource
+									servers.</p>
+							</div>
+						</details></br>
+
+						<details id="details38" onclick="closeOtherDetails('details38')">
+							<summary>38. What are the tools and libraries available for testing microservices?
+							</summary>
+							<div class="toggle-content">
+								<p>Answer: Tools include Postman, SoapUI, JUnit, TestNG for API testing, Pact for
+									consumer-driven contract testing, Gatling, JMeter for performance testing, and
+									Mockito, WireMock for mocking dependencies in unit tests.</p>
+							</div>
+						</details></br>
+
+						<details id="details39" onclick="closeOtherDetails('details39')">
+							<summary>39. What are the use cases for JWT?</summary>
+							<div class="toggle-content">
+								<p>Answer: JWT is used for secure authentication (e.g., OAuth2), single sign-on
+									(SSO), exchanging information securely between parties, and ensuring data
+									integrity and authenticity.</p>
+							</div>
+						</details></br>
+					</div>
+				</article>
+			</div>
+		</main>
+	</div>
+	<script>
+		window.addEventListener('DOMContentLoaded', () => {
+			window.scrollTo(0, 0);
+		})
+	</script>
+	<script>
+		// Get the button
+		let mybutton = document.getElementById("myBtn");
+
+		// When the user scrolls down 20px from the top of the document, show the button
+		window.onscroll = function () {scrollFunction()};
+
+		function scrollFunction() {
+			if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+				mybutton.style.display = "block";
+			} else {
+				mybutton.style.display = "none";
+			}
+		}
+		// When the user clicks on the button, scroll to the top of the document
+		function topFunction() {
+			document.body.scrollTop = 0;
+			document.documentElement.scrollTop = 0;
+		}
+	</script>
+	<script src="../../scripts/js/site.js"></script>
+</body>
+<footer class="footer">
+	<p>©
+		<script>var d = new Date();
+			document.write(d.getFullYear());</script>, The content is copyrighted to Ravi
+		Kalyan Kolloju.
+	</p>
+</footer>
+
+</html>
