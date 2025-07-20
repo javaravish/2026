@@ -1,176 +1,283 @@
-! function() {
+// ======================
+// NAVBAR BURGER TOGGLE
+// ======================
+(function() {
     "use strict";
-    var t = document.querySelector(".navbar-burger");
-    t && t.addEventListener("click", function(t) {
-        t.stopPropagation(), document.documentElement.classList.toggle("is-clipped--navbar"), this.classList.toggle("is-active");
-        t = document.getElementById(this.dataset.target);
-        {
-            var e;
-            t.classList.toggle("is-active") && (t.style.maxHeight = "", e = window.innerHeight - Math.round(t.getBoundingClientRect().top), parseInt(window.getComputedStyle(t).maxHeight, 10) !== e) && (t.style.maxHeight = e + "px")
+    const burger = document.querySelector(".navbar-burger");
+    if (!burger) return;
+
+    burger.addEventListener("click", function(event) {
+        event.stopPropagation();
+        document.documentElement.classList.toggle("is-clipped--navbar");
+        this.classList.toggle("is-active");
+
+        const target = document.getElementById(this.dataset.target);
+        if (!target) return;
+
+        if (target.classList.toggle("is-active")) {
+            target.style.maxHeight = "";
+            const targetHeight = window.innerHeight - Math.round(target.getBoundingClientRect().top);
+            const computedHeight = parseInt(window.getComputedStyle(target).maxHeight, 10);
+
+            if (computedHeight !== targetHeight) {
+                target.style.maxHeight = `${targetHeight}px`;
+            }
         }
-    }.bind(t))
-}();
+    });
+})();
 
-! function () {
-  "use strict";
-  var e = document.getElementById("switch-theme-checkbox");
-  if (!e) return;
-
-  // ✅ Load saved theme from localStorage on page load
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark-theme");
-    document.documentElement.setAttribute("data-theme", "dark");
-    e.checked = true;
-    e.parentElement.classList.add("active");
-  } else {
-    document.documentElement.classList.remove("dark-theme");
-    document.documentElement.setAttribute("data-theme", "light");
-    e.checked = false;
-    e.parentElement.classList.remove("active");
-  }
-
-  // ✅ Add listener for toggle change
-  e.addEventListener("change", function () {
-    document.documentElement.classList.toggle("dark-theme", this.checked);
-    document.documentElement.setAttribute("data-theme", this.checked ? "dark" : "light");
-
-    // Save to localStorage
-    localStorage.setItem("theme", this.checked ? "dark" : "light");
-
-    // Update class
-    this.checked
-      ? this.parentElement.classList.add("active")
-      : this.parentElement.classList.remove("active");
-  });
-}();
-
-
-! function () {
-  "use strict";
-  var e = document.getElementById("switch-theme-mobile");
-  if (!e) return;
-
-  // ✅ Load saved theme from localStorage on page load
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark") {
-    document.documentElement.classList.add("dark-theme");
-    document.documentElement.setAttribute("data-theme", "dark");
-    e.checked = true;
-    e.parentElement.classList.add("active");
-  } else {
-    document.documentElement.classList.remove("dark-theme");
-    document.documentElement.setAttribute("data-theme", "light");
-    e.checked = false;
-    e.parentElement.classList.remove("active");
-  }
-
-  // ✅ Add listener for toggle change
-  e.addEventListener("change", function () {
-    document.documentElement.classList.toggle("dark-theme", this.checked);
-    document.documentElement.setAttribute("data-theme", this.checked ? "dark" : "light");
-
-    // Save to localStorage
-    localStorage.setItem("theme", this.checked ? "dark" : "light");
-
-    // Update class
-    this.checked
-      ? this.parentElement.classList.add("active")
-      : this.parentElement.classList.remove("active");
-  });
-}();
-
-
-! function() {
+// ======================
+// THEME TOGGLE (DESKTOP & MOBILE) - Modified version
+// ======================
+function initThemeToggles() {
     "use strict";
-    var a, c, s, r = /^sect(\d)$/,
-        i = document.querySelector(".nav-container"),
-        o = document.querySelector("#nav-toggle-1"),
-        e = window.localStorage && "open" === window.localStorage.getItem("sidebar"),
-        d = (o.addEventListener("click", v), i.addEventListener("click", g), i.querySelector("[data-panel=menu]"));
 
-    function t() {
-        var e, t, n = window.location.hash;
-        if (n && (n.indexOf("%") && (n = decodeURIComponent(n)), !(e = d.querySelector('.nav-link[href="' + n + '"]')))) {
-            n = document.getElementById(n.slice(1));
-            if (n)
-                for (var i = n, o = document.querySelector("article.doc");
-                    (i = i.parentNode) && i !== o;) {
-                    var a = i.id;
-                    if ((a = a || (a = r.test(i.className)) && (i.firstElementChild || {}).id) && (e = d.querySelector('.nav-link[href="#' + a + '"]'))) break
+    // Try to get toggles immediately
+    let themeToggles = [
+        document.getElementById("switch-theme-checkbox"),
+        document.getElementById("switch-theme-mobile")
+    ].filter(Boolean);
+
+    // If not found, wait for header to load
+    if (themeToggles.length === 0) {
+        const observer = new MutationObserver(() => {
+            themeToggles = [
+                document.getElementById("switch-theme-checkbox"),
+                document.getElementById("switch-theme-mobile")
+            ].filter(Boolean);
+
+            if (themeToggles.length > 0) {
+                observer.disconnect();
+                setupThemeToggles(themeToggles);
+            }
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+        return;
+    }
+
+    setupThemeToggles(themeToggles);
+}
+
+function setupThemeToggles(themeToggles) {
+    const applyTheme = (isDark) => {
+        document.documentElement.classList.toggle("dark-theme", isDark);
+        document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+
+        themeToggles.forEach(toggle => {
+            toggle.checked = isDark;
+            toggle.parentElement.classList.toggle("active", isDark);
+        });
+    };
+
+    // Initialize theme
+    const savedTheme = localStorage.getItem("theme");
+    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initialTheme = savedTheme || (systemPrefersDark ? "dark" : "light");
+    applyTheme(initialTheme === "dark");
+
+    // Add event listeners
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener("change", function() {
+            applyTheme(this.checked);
+        });
+    });
+}
+
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    initThemeToggles();
+});
+
+// ======================
+// SIDEBAR NAVIGATION
+// ======================
+(function initSidebar() {
+    "use strict";
+    const navContainer = document.querySelector(".nav-container");
+    const navToggle = document.querySelector("#nav-toggle-1");
+    const menuPanel = navContainer?.querySelector("[data-panel=menu]");
+    const navElement = navContainer?.querySelector(".nav");
+
+    if (!navContainer || !navToggle || !menuPanel || !navElement) return;
+
+    // State variables
+    let activeNavItem = null;
+    const sectionRegex = /^sect(\d)$/;
+    const isSidebarOpen = localStorage?.getItem("sidebar") === "open";
+
+    // Helper functions
+    const deactivateAllItems = () => {
+        document.querySelectorAll(".nav-item.is-active").forEach(item => {
+            item.classList.remove("is-active", "is-current-path", "is-current-page");
+        });
+    };
+
+    const activateNavPath = (item) => {
+        let parent = item.parentNode;
+        while (parent && !parent.classList.contains("nav-menu")) {
+            if (parent.tagName === "LI" && parent.classList.contains("nav-item")) {
+                parent.classList.add("is-active", "is-current-path");
+            }
+            parent = parent.parentNode;
+        }
+        item.classList.add("is-active");
+    };
+
+    const scrollToItem = (container, item) => {
+        const containerRect = container.getBoundingClientRect();
+        const itemRect = item.getBoundingClientRect();
+        const computedStyle = window.getComputedStyle(navElement);
+
+        let containerHeight = containerRect.height;
+        if (computedStyle.position === "sticky") {
+            containerHeight -= containerRect.top - parseFloat(computedStyle.top);
+        }
+
+        container.scrollTop = Math.max(
+            0,
+            0.5 * (itemRect.height - containerHeight) + item.offsetTop
+        );
+    };
+
+    const handleNavItemClick = function() {
+        if (this.classList.toggle("is-active")) {
+            const marginTop = parseFloat(window.getComputedStyle(this).marginTop);
+            const itemRect = this.getBoundingClientRect();
+            const menuRect = menuPanel.getBoundingClientRect();
+            const scrollAmount = (itemRect.bottom - menuRect.top - menuRect.height + marginTop).toFixed();
+
+            if (scrollAmount > 0) {
+                menuPanel.scrollTop += Math.min(
+                    (itemRect.top - menuRect.top - marginTop).toFixed(),
+                    scrollAmount
+                );
+            }
+        }
+    };
+
+    // Initialize active navigation item
+    const initActiveItem = () => {
+        let hash = window.location.hash;
+        if (hash && hash.includes("%")) {
+            hash = decodeURIComponent(hash);
+        }
+
+        let targetItem = menuPanel.querySelector(`.nav-link[href="${hash}"]`);
+        if (!targetItem && hash) {
+            const targetElement = document.getElementById(hash.slice(1));
+            if (targetElement) {
+                let parent = targetElement;
+                const article = document.querySelector("article.doc");
+
+                while ((parent = parent.parentNode) && parent !== article) {
+                    const id = parent.id ||
+                        (sectionRegex.test(parent.className) ? (parent.firstElementChild || {}).id : null);
+
+                    if (id && (targetItem = menuPanel.querySelector(`.nav-link[href="#${id}"]`))) {
+                        break;
+                    }
                 }
+            }
         }
-        if (e) t = e.parentNode;
-        else {
-            if (!s) return;
-            e = (t = s).querySelector(".nav-link")
+
+        const parentItem = targetItem?.parentNode;
+        if (parentItem) {
+            deactivateAllItems();
+            parentItem.classList.add("is-current-page");
+            activateNavPath(parentItem);
+            scrollToItem(menuPanel, targetItem);
+            activeNavItem = parentItem;
+        } else if (activeNavItem) {
+            deactivateAllItems();
+            activateNavPath(activeNavItem);
+            scrollToItem(menuPanel, activeNavItem.querySelector(".nav-link"));
         }
-        t !== c && (h(d, ".nav-item.is-active").forEach(function(e) {
-            e.classList.remove("is-active", "is-current-path", "is-current-page")
-        }), t.classList.add("is-current-page"), u(c = t), p(d, e))
+    };
+
+    // Sidebar toggle functions
+    const openSidebar = (event) => {
+        if (navToggle.classList.contains("is-active")) return closeSidebar(event);
+
+        event.stopPropagation();
+        document.documentElement.classList.add("is-clipped--nav");
+        navToggle.classList.add("is-active");
+        navContainer.classList.add("is-active");
+
+        const navRect = navElement.getBoundingClientRect();
+        const newHeight = window.innerHeight - Math.round(navRect.top);
+
+        if (Math.round(navRect.height) !== newHeight) {
+            navElement.style.height = `${newHeight}px`;
+        }
+
+        document.documentElement.addEventListener("click", closeSidebar);
+    };
+
+    const closeSidebar = (event) => {
+        event?.stopPropagation();
+        document.documentElement.classList.remove("is-clipped--nav");
+        navToggle.classList.remove("is-active");
+        navContainer.classList.remove("is-active");
+        document.documentElement.removeEventListener("click", closeSidebar);
+    };
+
+    // Initialize sidebar state
+    if (isSidebarOpen) {
+        navToggle.classList.add("is-active");
+        navContainer.classList.add("is-active");
     }
 
-    function u(e) {
-        for (var t, n = e.parentNode; !(t = n.classList).contains("nav-menu");) "LI" === n.tagName && t.contains("nav-item") && t.add("is-active", "is-current-path"), n = n.parentNode;
-        e.classList.add("is-active")
+    // Set up event listeners
+    navToggle.addEventListener("click", openSidebar);
+    navContainer.addEventListener("click", (e) => e.stopPropagation());
+
+    // Initialize navigation items
+    menuPanel.querySelectorAll(".nav-item-toggle").forEach(toggle => {
+        const parent = toggle.parentElement;
+        const navText = toggle.nextElementSibling?.matches?.(".nav-text")
+            ? toggle.nextElementSibling
+            : null;
+
+        toggle.addEventListener("click", handleNavItemClick.bind(parent));
+        if (navText) {
+            navText.style.cursor = "pointer";
+            navText.addEventListener("click", handleNavItemClick.bind(parent));
+        }
+    });
+
+    // Version modal
+    document.querySelector("#browse-version")?.addEventListener("click", () => {
+        MicroModal.show("modal-versions", { disableScroll: true });
+    });
+
+    // Collapse toggle
+    document.querySelector("#nav-collapse-toggle")?.addEventListener("click", function() {
+        document.body.classList.toggle("nav-sm", !isSidebarOpen);
+        localStorage?.setItem("sidebar", isSidebarOpen ? "close" : "open");
+    });
+
+    // Hash-based navigation
+    if (menuPanel.querySelector('.nav-link[href^="#"]')) {
+        window.location.hash && initActiveItem();
+        window.addEventListener("hashchange", initActiveItem);
     }
 
-    function n() {
-        var e, t, n, i;
-        this.classList.toggle("is-active") && (e = parseFloat(window.getComputedStyle(this).marginTop), t = this.getBoundingClientRect(), n = d.getBoundingClientRect(), 0 < (i = (t.bottom - n.top - n.height + e).toFixed())) && (d.scrollTop += Math.min((t.top - n.top - e).toFixed(), i))
-    }
+    // Resizable sidebar
+    document.querySelector(".nav-resize")?.addEventListener("mousedown", () => {
+        const handleResize = (e) => {
+            const newWidth = Math.min(600, Math.max(250, e.x));
+            document.documentElement.style.setProperty("--nav-width", `${newWidth}px`);
+            localStorage?.setItem("nav-width", String(newWidth));
+        };
 
-    function v(e) {
-        if (o.classList.contains("is-active")) return m(e);
-        g(e);
-        var e = document.documentElement,
-            t = (e.classList.add("is-clipped--nav"), o.classList.add("is-active"), i.classList.add("is-active"), a.getBoundingClientRect()),
-            n = window.innerHeight - Math.round(t.top);
-        Math.round(t.height) !== n && (a.style.height = n + "px"), e.addEventListener("click", m)
-    }
-
-    function m(e) {
-        g(e);
-        e = document.documentElement;
-        e.classList.remove("is-clipped--nav"), o.classList.remove("is-active"), i.classList.remove("is-active"), e.removeEventListener("click", m)
-    }
-
-    function g(e) {
-        e.stopPropagation()
-    }
-
-    function p(e, t) {
-        var n = e.getBoundingClientRect(),
-            i = n.height,
-            o = window.getComputedStyle(a);
-        "sticky" === o.position && (i -= n.top - parseFloat(o.top)), e.scrollTop = Math.max(0, .5 * (t.getBoundingClientRect().height - i) + t.offsetTop)
-    }
-
-    function h(e, t) {
-        return [].slice.call(e.querySelectorAll(t))
-    }
-
-    function f(e) {
-        var e = Math.max(250, e.x),
-            e = Math.min(600, e);
-        e = e, document.documentElement.style.setProperty("--nav-width", e + "px"), window.localStorage && window.localStorage.setItem("nav-width", "" + e)
-    }
-    d && (a = i.querySelector(".nav"), c = d.querySelector(".is-current-page"), (s = c) ? (u(c), p(d, c.querySelector(".nav-link"))) : d.scrollTop = 0, h(d, ".nav-item-toggle").forEach(function(e) {
-        var t = e.parentElement,
-            e = (e.addEventListener("click", n.bind(t)), function(e, t) {
-                e = e.nextElementSibling;
-                return (!e || !t || e[e.matches ? "matches" : "msMatchesSelector"](t)) && e
-            }(e, ".nav-text"));
-        e && (e.style.cursor = "pointer", e.addEventListener("click", n.bind(t)))
-    }), document.querySelector("#browse-version").addEventListener("click", function() {
-        MicroModal.show("modal-versions", {
-            disableScroll: !0
-        })
-    }), document.querySelector("#nav-collapse-toggle").addEventListener("click", function() {
-        e ? document.body.classList.add("nav-sm") : document.body.classList.remove("nav-sm"), window.localStorage && window.localStorage.setItem("sidebar", e ? "close" : "open"), e = !e
-    }), d.querySelector('.nav-link[href^="#"]') && (window.location.hash && t(), window.addEventListener("hashchange", t)), document.querySelector(".nav-resize").addEventListener("mousedown", e => {
-        document.addEventListener("mousemove", f, !1), document.addEventListener("mouseup", () => {
-            document.removeEventListener("mousemove", f, !1)
-        }, !1)
-    }))
-}();
+        document.addEventListener("mousemove", handleResize);
+        document.addEventListener("mouseup", () => {
+            document.removeEventListener("mousemove", handleResize);
+        }, { once: true });
+    });
+})();

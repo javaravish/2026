@@ -1,61 +1,101 @@
-// Scroll to top on page load
+// ======================
+// SCROLL-TO-TOP FUNCTIONALITY
+// ======================
+
+// Scroll to top on initial page load
 window.addEventListener('DOMContentLoaded', () => {
     window.scrollTo(0, 0);
 });
 
-// Scroll to top button functionality
-let mybutton;
+// Initialize scroll-to-top button
+let scrollToTopBtn;
 
-window.addEventListener("load", () => {
-    mybutton = document.getElementById("myBtn");
+window.addEventListener('load', () => {
+    scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
-    window.onscroll = function () {
-        scrollFunction();
+    // Show/hide button based on scroll position
+    window.onscroll = function() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
     };
 
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            mybutton.style.display = "block";
-        } else {
-            mybutton.style.display = "none";
-        }
-    }
-
-    // Assign topFunction to button (if needed)
-    if (mybutton) {
-        mybutton.addEventListener("click", topFunction);
+    // Attach click handler if button exists
+    if (scrollToTopBtn) {
+        scrollToTopBtn.addEventListener('click', scrollToTop);
     }
 });
 
-function topFunction() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+// Smooth scroll to top
+function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, etc.
 }
 
-// Load header and footer
-window.addEventListener("DOMContentLoaded", () => {
-    fetch('header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header').innerHTML = data;
-        });
+// ======================
+// DYNAMIC HEADER & FOOTER LOADING
+// ======================
 
-    fetch('footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer').innerHTML = data;
-        });
-});
+/**
+ * Loads an HTML file into a target element.
+ * @param {string} filePath - Path to the HTML file (e.g., 'header.html').
+ * @param {string} targetId - ID of the element where content will be inserted.
+ */
+function loadHTML(filePath, targetId) {
+    fetch(filePath)
+        .then(response => {
+            if (!response.ok) throw new Error(`Failed to load ${filePath}`);
+            return response.text();
+        })
+        .then(html => {
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.innerHTML = html;
+                if (targetId === 'footer') updateYear(); // Update year after footer loads
+            }
+        })
+        .catch(error => console.error(`Error loading ${filePath}:`, error));
+}
 
-(function (theme, navWidth) {
+// Update the copyright year in the footer
+function updateYear() {
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+}
+
+// ======================
+// THEME & LAYOUT SETTINGS
+// ======================
+
+// Apply saved theme (dark/light) and navigation width
+(function applyUserPreferences() {
+    // Get saved theme or fall back to system preference
+    const savedTheme = localStorage?.getItem('theme');
+    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
+    const theme = savedTheme || (prefersDark ? 'dark' : null);
+
+    // Apply theme if dark mode is enabled
     if (theme === 'dark') {
         document.documentElement.classList.add('dark-theme');
     }
+
+    // Apply saved navigation width
+    const navWidth = localStorage?.getItem('nav-width');
     if (navWidth) {
         document.documentElement.style.setProperty('--nav-width', `${navWidth}px`);
     }
-})(
-    (localStorage && localStorage.getItem('theme')) ||
-    (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches && 'dark'),
-    localStorage && localStorage.getItem('nav-width')
-);
+})();
+
+// ======================
+// INITIALIZATION
+// ======================
+
+// Load all dynamic content when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+    loadHTML('header.html', 'header');
+    loadHTML('footer.html', 'footer');
+});
