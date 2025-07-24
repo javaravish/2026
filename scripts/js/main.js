@@ -2,36 +2,21 @@
 // SCROLL-TO-TOP FUNCTIONALITY
 // ======================
 
-// Scroll to top on initial page load
-window.addEventListener('DOMContentLoaded', () => {
-    window.scrollTo(0, 0);
-});
+function setupScrollToTop() {
+    const scrollBtn = document.getElementById('scrollToTopBtn') || document.getElementById('myBtn');
 
-// Initialize scroll-to-top button
-let scrollToTopBtn;
+    if (!scrollBtn) return;
 
-window.addEventListener('load', () => {
-    scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    // Show/hide the scroll button on scroll
+    window.addEventListener('scroll', () => {
+        const scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+        scrollBtn.style.display = scrollTop > 20 ? 'block' : 'none';
+    });
 
-    // Show/hide button based on scroll position
-    window.onscroll = function() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollToTopBtn.style.display = 'block';
-        } else {
-            scrollToTopBtn.style.display = 'none';
-        }
-    };
-
-    // Attach click handler if button exists
-    if (scrollToTopBtn) {
-        scrollToTopBtn.addEventListener('click', scrollToTop);
-    }
-});
-
-// Smooth scroll to top
-function scrollToTop() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, etc.
+    // Scroll to top on click
+    scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 }
 
 // ======================
@@ -39,9 +24,9 @@ function scrollToTop() {
 // ======================
 
 /**
- * Loads an HTML file into a target element.
- * @param {string} filePath - Path to the HTML file (e.g., 'header.html').
- * @param {string} targetId - ID of the element where content will be inserted.
+ * Loads an external HTML file into a target container.
+ * @param {string} filePath - The path to the HTML file.
+ * @param {string} targetId - The ID of the container element.
  */
 function loadHTML(filePath, targetId) {
     fetch(filePath)
@@ -53,13 +38,13 @@ function loadHTML(filePath, targetId) {
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
                 targetElement.innerHTML = html;
-                if (targetId === 'footer') updateYear(); // Update year after footer loads
+                if (targetId === 'footer') updateYear();
             }
         })
         .catch(error => console.error(`Error loading ${filePath}:`, error));
 }
 
-// Update the copyright year in the footer
+// Update footer year
 function updateYear() {
     const yearElement = document.getElementById('year');
     if (yearElement) {
@@ -71,31 +56,41 @@ function updateYear() {
 // THEME & LAYOUT SETTINGS
 // ======================
 
-// Apply saved theme (dark/light) and navigation width
-(function applyUserPreferences() {
-    // Get saved theme or fall back to system preference
+function applyUserPreferences() {
     const savedTheme = localStorage?.getItem('theme');
     const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
     const theme = savedTheme || (prefersDark ? 'dark' : null);
 
-    // Apply theme if dark mode is enabled
     if (theme === 'dark') {
         document.documentElement.classList.add('dark-theme');
     }
 
-    // Apply saved navigation width
     const navWidth = localStorage?.getItem('nav-width');
     if (navWidth) {
         document.documentElement.style.setProperty('--nav-width', `${navWidth}px`);
     }
-})();
+}
 
 // ======================
 // INITIALIZATION
 // ======================
 
-// Load all dynamic content when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    // Scroll to top on initial load
+    window.scrollTo(0, 0);
+
+    // Load reusable components
     loadHTML('header.html', 'header');
     loadHTML('footer.html', 'footer');
+
+    // Initialize scroll-to-top button
+    setupScrollToTop();
+
+    // Apply user preferences
+    applyUserPreferences();
+
+    // Load additional dynamic components if function is defined
+    if (typeof loadComponents === 'function') {
+        loadComponents();
+    }
 });
